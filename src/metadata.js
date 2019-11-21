@@ -296,19 +296,11 @@ function generateScryfallDatabase() {
       stream.on("data", function(d) {
         var dataLength = d.length;
         readSize += dataLength;
-        //readline.cursorTo(process.stdout, 0);
-        //process.stdout.write(
-        //  `Progress:\t ${((readSize / fileSize) * 100).toFixed(2)}%`
-        //);
-
         buf += d.toString(); // when data is read, stash it in a string buffer
-        //pump(); // then process the buffer
+        pump(); // then process the buffer
       });
 
       stream.on("end", function() {
-        //readline.cursorTo(process.stdout, 0);
-        //process.stdout.write(`Progress:\t ${(100).toFixed(2)}%`);
-        //console.log("");
         resolve(scryfallData);
       });
     });
@@ -341,21 +333,12 @@ function httpGetFile(url, filename) {
       response.pipe(stream);
       let data = "";
 
+      let timeStart = new Date();
       response.on("data", function(chunk) {
-        /*data += chunk;
-        readline.cursorTo(process.stdout, 0);
-        process.stdout.write(
-          `Downloading ${filename}:\t ${(data.length / 1024 / 1024).toFixed(
-            2
-          )} mb`
-        );
-        */
-       console.log(
-        `Downloading ${filename}:\t ${(data.length / 1024 / 1024).toFixed(
-          2
-        )} mb`
-      );
-    });
+        if (new Date() - timeStart > 2000) {
+          console.log(`Downloading ${filename}:\t ${(data.length / 1024 / 1024).toFixed(2)} mb`);
+        }   
+      });
       response.on("end", function() {
         console.log("");
         resolve(file);
