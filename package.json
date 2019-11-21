@@ -14,12 +14,10 @@
     "MTG",
     "Arena",
     "database",
-    "cards",
+    "card",
     "events",
     "mtgatool",
-    "magic",
-    "the",
-    "gathering"
+    "magic the gathering"
   ],
   "author": "Manuel Etchegaray",
   "license": "ISC",
@@ -33,5 +31,11 @@
     "lodash": "^4.17.15",
     "readline": "^1.3.0",
     "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "bumped": "^0.12.0",
+    "bumped-changelog": "^0.3.12",
+    "bumped-http": "^1.0.1",
+    "bumped-terminal": "^0.7.8"
   }
 }
