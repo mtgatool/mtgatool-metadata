@@ -1,3 +1,8 @@
+const path = require("path");
+exports.APPDATA = path.resolve(__dirname, "..");
+exports.EXTERNAL = "external";
+exports.OUTPUT = "dist";
+
 exports.SCRYFALL_LANGUAGE = {
   DE: "DE",
   EN: "EN",

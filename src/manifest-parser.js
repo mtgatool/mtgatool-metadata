@@ -1,13 +1,14 @@
 var http = require("https");
-
 const path = require("path");
 const fs = require("fs");
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const gunzip = require("gunzip-file");
 
-const APPDATA = process.env.HOME;
-const APPFOLDER = "mtgatool-metadata";
-console.log(APPDATA);
+const {
+  APPDATA,
+  EXTERNAL
+} = require("./metadata-constants");
+
 function requestManifestData(version) {
   return new Promise(resolve => {
     let requiredFiles = [
@@ -18,7 +19,7 @@ function requestManifestData(version) {
       "enums.json"
     ];
     requiredFiles = requiredFiles.filter(file => {
-      let assetUri = path.join(APPDATA, APPFOLDER, file);
+      let assetUri = path.join(APPDATA, EXTERNAL, file);
       return !fs.existsSync(assetUri);
     });
 
@@ -50,7 +51,7 @@ function downloadManifest(manifestData) {
       resolve(false);
     } else {
       httpGetFile(manifestData.url, manifestData.file).then(file => {
-        let outFile = path.join(APPDATA, APPFOLDER, "manifest.json");
+        let outFile = path.join(APPDATA, EXTERNAL, "manifest.json");
         gunzip(file, outFile, () => {
           fs.unlink(file, () => {});
           let manifestData = JSON.parse(fs.readFileSync(outFile));
@@ -78,10 +79,10 @@ function processManifest(data) {
     let assetName = regex.exec(asset.Name)[1];
 
     return new Promise(resolve => {
-      let assetUriGz = path.join(APPDATA, APPFOLDER, assetName + ".gz");
-      let assetUri = path.join(APPDATA, APPFOLDER, assetName + ".json");
+      let assetUriGz = path.join(APPDATA, EXTERNAL, assetName + ".gz");
+      let assetUri = path.join(APPDATA, EXTERNAL, assetName + ".json");
 
-      let dir = path.join(APPDATA, APPFOLDER);
+      let dir = path.join(APPDATA, EXTERNAL);
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
       }
@@ -122,9 +123,9 @@ function httpGetText(url) {
 
 function httpGetFile(url, file) {
   return new Promise(resolve => {
-    file = path.join(APPDATA, APPFOLDER, file);
+    file = path.join(APPDATA, EXTERNAL, file);
 
-    let dir = path.join(APPDATA, APPFOLDER);
+    let dir = path.join(APPDATA, EXTERNAL);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir);
     }

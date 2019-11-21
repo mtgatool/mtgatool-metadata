@@ -10,7 +10,7 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 const {
   APPDATA,
-  APPFOLDER,
+  EXTERNAL,
   RANKS_SHEETS,
   SET_NAMES,
   NO_DUPES_ART_SETS,
@@ -20,6 +20,7 @@ const {
 let metagameData = {};
 let ranksData = {};
 
+console.log(APPDATA);
 const VERSION = 28;
 
 const LANGUAGES = [
@@ -61,7 +62,7 @@ function quit() {
 function checkSetsAvailable() {
   // We use this to check for new sets
   return new Promise(resolve => {
-    let file = path.join(APPDATA, APPFOLDER, "cards.json");
+    let file = path.join(APPDATA, EXTERNAL, "cards.json");
     let cards = JSON.parse(`{"value": ${fs.readFileSync(file)}}`);
 
     let sets = [];
@@ -160,7 +161,7 @@ function getMetagameData() {
 
 function getScryfallCards() {
   return new Promise(resolve => {
-    let file = path.join(APPDATA, APPFOLDER, SCRYFALL_FILE);
+    let file = path.join(APPDATA, EXTERNAL, SCRYFALL_FILE);
     if (!fs.existsSync(file)) {
       console.log("Downloading Scryfall cards data.");
       httpGetFile(
@@ -179,7 +180,7 @@ function getScryfallCards() {
 function generateScryfallDatabase() {
   return new Promise(resolve => {
     console.log("Processing Scryfall database.");
-    let file = path.join(APPDATA, APPFOLDER, SCRYFALL_FILE);
+    let file = path.join(APPDATA, EXTERNAL, SCRYFALL_FILE);
 
     fs.stat(file, function(err, stats) {
       var fileSize = stats.size;
@@ -323,14 +324,14 @@ function httpGetText(url) {
 
 function httpGetFile(url, filename) {
   return new Promise(resolve => {
-    let file = path.join(APPDATA, APPFOLDER, filename);
+    let file = path.join(APPDATA, EXTERNAL, filename);
     /*
     if (fs.existsSync(file)) {
       resolve(file);
       return;
     }*/
 
-    let dir = path.join(APPDATA, APPFOLDER);
+    let dir = path.join(APPDATA, EXTERNAL);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir);
     }

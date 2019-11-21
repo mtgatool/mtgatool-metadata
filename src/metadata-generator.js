@@ -2,6 +2,8 @@ const path = require("path");
 const fs = require("fs");
 const {
   APPDATA,
+  EXTERNAL,
+  OUTPUT,
   SETS_DATA,
   SET_NAMES,
   RARITY,
@@ -30,11 +32,11 @@ exports.generateMetadata = function(
 
     // Write scryfall cards to a file. Its good for debugging.
     let str = JSON.stringify(ScryfallCards);
-    let jsonOut = path.join(APPDATA, APPFOLDER, `scryfall-cards.json`);
+    let jsonOut = path.join(APPDATA, EXTERNAL, `scryfall-cards.json`);
     fs.writeFile(jsonOut, str, () => {});
     // Same for ranks
     str = JSON.stringify(ranksData);
-    jsonOut = path.join(APPDATA, APPFOLDER, `ranks-data.json`);
+    jsonOut = path.join(APPDATA, EXTERNAL, `ranks-data.json`);
     fs.writeFile(jsonOut, str, () => {});
 
     // Read locales for all languages and clean up mana costs in the texts
@@ -326,7 +328,7 @@ exports.generateMetadata = function(
       let str = JSON.stringify(jsonOutput);
       let jsonOut = path.join(
         APPDATA,
-        APPFOLDER,
+        OUTPUT,
         `v${version}-${lang.toLowerCase()}-database.json`
       );
       fs.writeFile(jsonOut, str, function(err) {
@@ -386,7 +388,7 @@ function getScryfallCard(
 }
 
 function readExternalJson(filename) {
-  let file = path.join(APPDATA, APPFOLDER, filename);
+  let file = path.join(APPDATA, EXTERNAL, filename);
   //JSON.parse(fs.readFileSync(file));
   let json = JSON.parse(`{"value": ${fs.readFileSync(file)}}`);
   return json.value;
