@@ -336,6 +336,7 @@ function httpGetFile(url, filename) {
       let timeStart = new Date();
       response.on("data", function(chunk) {
         if (new Date() - timeStart > 2000) {
+          timeStart = new Date();
           console.log(`Downloading ${filename}:\t ${(data.length / 1024 / 1024).toFixed(2)} mb`);
         }   
       });
