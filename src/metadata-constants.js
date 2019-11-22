@@ -16,6 +16,19 @@ exports.SCRYFALL_LANGUAGE = {
   "ko-KR": "KO"
 };
 
+exports.LANGKEYS = {
+  "en-US": "EN",
+  "fr-FR": "FR",
+  "it-IT": "IT",
+  "de-DE": "DE",
+  "es-ES": "ES",
+  "ja-JP": "JA",
+  "pt-BR": "PT",
+  "ru-RU": "RU",
+  "ko-KR": "KO",
+  "zh-CN": "ZHS"
+};
+
 exports.EVENT_TO_NAME = {
   NPE: "New Player Experience",
   DirectGame: "Direct Game",
@@ -26,6 +39,7 @@ exports.EVENT_TO_NAME = {
   Traditional_Cons_Event_2020: "Traditional Standard Event",
   Constructed_BestOf3: "Traditional Standard Play",
   Traditional_Ladder: "Traditional Standard Ranked",
+  Traditional_Historic_Ladder: "Traditional Historic Ranked",
   Future_Play_20190909: "Future Play",
   Future_Ranked_20190909: "Future Ranked",
   Historic_Play: "Historic Play",
@@ -69,6 +83,7 @@ exports.EVENT_TO_NAME = {
   FestivalFae_Std_Artisan_20191103: "Artisan Standard",
   FestivalFae_OkosMadness_20191110: "Okos Madness",
   FestivalFae_Cascade_20191117: "Standard Cascade",
+  Historic_Launch_20191121: "Historic Launch",
 
   Brawl_Launch_20191024: "Brawl Launch",
   Precon_Brawl_ELD: "Precon Brawl",
@@ -96,6 +111,7 @@ exports.EVENT_TO_FORMAT = {
   Traditional_Cons_Event_2020: "Traditional Standard",
   Constructed_BestOf3: "Traditional Standard",
   Traditional_Ladder: "Traditional Standard",
+  Traditional_Historic_Ladder: "Traditional Historic",
   Future_Play_20190909: "Future",
   Future_Ranked_20190909: "Traditional Future",
 
@@ -138,6 +154,7 @@ exports.EVENT_TO_FORMAT = {
   FestivalFae_Std_Artisan_20191103: "Artisan",
   FestivalFae_OkosMadness_20191110: "Momir",
   FestivalFae_Cascade_20191117: "Cascade",
+  Historic_Launch_20191121: "Historic",
 
   Brawl_Launch_20191024: "Brawl",
   Precon_Brawl_ELD: "Brawl",
@@ -516,6 +533,102 @@ exports.SETS_DATA = {
     tile: 64827,
     release: "2015-03-27"
   },
+  "Mirage": {
+    collation: -1,
+    scryfall: "mir",
+    code: "MIR",
+    arenacode: "MIR",
+    tile: 64827,
+    release: "1996-10-08"
+  },  
+  "Weatherlight": {
+    collation: -1,
+    scryfall: "wth",
+    code: "WTH",
+    arenacode: "WTH",
+    tile: 64827,
+    release: "1997-06-09"
+  },  
+  "Invasion": {
+    collation: -1,
+    scryfall: "inv",
+    code: "INV",
+    arenacode: "INV",
+    tile: 64827,
+    release: "2000-10-02"
+  },  
+  "Planeshift": {
+    collation: -1,
+    scryfall: "pls",
+    code: "PLS",
+    arenacode: "PLS",
+    tile: 64827,
+    release: "2001-02-05"
+  },  
+  "Eighth Edition": {
+    collation: -1,
+    scryfall: "8ed",
+    code: "8ED",
+    arenacode: "8ED",
+    tile: 64827,
+    release: "2003-07-28"
+  },  
+  "Saviors of Kamigawa": {
+    collation: -1,
+    scryfall: "sok",
+    code: "SOK",
+    arenacode: "SOK",
+    tile: 64827,
+    release: "2005-06-03"
+  },  
+  "Lorwyn": {
+    collation: -1,
+    scryfall: "lrw",
+    code: "LRW",
+    arenacode: "LRW",
+    tile: 64827,
+    release: "2007-10-12 "
+  },  
+  "Morningtide": {
+    collation: -1,
+    scryfall: "mor",
+    code: "MOR",
+    arenacode: "MOR",
+    tile: 64827,
+    release: "2008-02-01"
+  },  
+  "Magic 2010": {
+    collation: -1,
+    scryfall: "m10",
+    code: "M10",
+    arenacode: "M10",
+    tile: 64827,
+    release: "2009-07-17"
+  },  
+  "Worldwake": {
+    collation: -1,
+    scryfall: "wwk",
+    code: "WWK",
+    arenacode: "WWK",
+    tile: 64827,
+    release: "2009-07-17"
+  },  
+  "Magic Origins": {
+    collation: -1,
+    scryfall: "ori",
+    code: "ORI",
+    arenacode: "ORI",
+    tile: 64827,
+    release: "2015-07-17"
+  },  
+  "Modern Horizons": {
+    collation: -1,
+    scryfall: "mh1",
+    code: "MH1",
+    arenacode: "MH1",
+    tile: 64827,
+    release: "2019-06-14"
+  },
   "": {
     collation: -1,
     scryfall: "",
@@ -571,7 +684,19 @@ exports.SET_NAMES = {
   GTC: "Gatecrash",
   C13: "Commander 2013",
   EMN: "Eldritch Moon",
-  DTK: "Dragons of Tarkir"
+  DTK: "Dragons of Tarkir",
+  MIR: "Mirage",
+  WTH: "Weatherlight",
+  INV: "Invasion",
+  PLS: "Planeshift",
+  "8ED": "Eighth Edition",
+  SOK: "Saviors of Kamigawa",
+  LRW: "Lorwyn",
+  MOR: "Morningtide",
+  M10: "Magic 2010",
+  WWK: "Worldwake",
+  ORI: "Magic Origins",
+  MH1: "Modern Horizons"
 };
 
 exports.NO_DUPES_ART_SETS = [
@@ -639,7 +764,20 @@ exports.ALLOWED_SCRYFALL = [
   "gtc",
   "c13",
   "emn",
-  "dtk"
+  "temn",
+  "dtk",
+  "mir",
+  "wth",
+  "inv",
+  "pls",
+  "8ed",
+  "sok",
+  "lrw",
+  "mor",
+  "m10",
+  "wwk",
+  "ori",
+  "mh1"
 ];
 
 exports.RANKS_SHEETS = [

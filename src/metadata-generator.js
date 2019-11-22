@@ -13,7 +13,8 @@ const {
   LIMITED_RANKED_EVENTS,
   STANDARD_RANKED_EVENTS,
   SINGLE_MATCH_EVENTS,
-  SCRYFALL_LANGUAGE
+  SCRYFALL_LANGUAGE,
+  LANGKEYS
 } = require("./metadata-constants");
 
 exports.generateMetadata = function(
@@ -45,9 +46,9 @@ exports.generateMetadata = function(
     const JpRegex = new RegExp(/ *（[^）]*） */g);
     let loc = {};
     locRead.forEach(lang => {
-      loc[lang.langkey] = {};
+      loc[LANGKEYS[lang.isoCode]] = {};
       lang.keys.forEach(item => {
-        loc[lang.langkey][item.id] = item.text
+        loc[LANGKEYS[lang.isoCode]][item.id] = item.text
           .replace(regex, "")
           .replace(JpRegex, "");
       });

@@ -4,7 +4,7 @@
   "description": "A metadata generator for MTG Arena Tool",
   "main": "src/metadata.js",
   "scripts": {
-    "start": "node src/metadata.js"
+    "start": "node --max-old-space-size=4096 src/metadata.js"
   },
   "repository": {
     "type": "git",

@@ -21,7 +21,7 @@ let metagameData = {};
 let ranksData = {};
 
 console.log(APPDATA);
-const VERSION = 28;
+const VERSION = 29;
 
 const LANGUAGES = [
   "EN",
@@ -43,7 +43,7 @@ console.log("Begin Metadata fetch.");
 // obtain it from somewhere automatically, like a settings
 // file or the output log itself.
 manifestParser
-  .getManifestFiles("1864.739803")
+  .getManifestFiles("1952.745934")
   .then(checkSetsAvailable)
   .then(getRanksData)
   .then(getScryfallCards)
