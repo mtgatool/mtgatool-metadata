@@ -13,26 +13,8 @@ filter_secrets: false
 before_deploy:
   - git config --local user.name "Manuel-777"
   - git config --local user.email "manuel.etchegaray7@gmail.com"
-  - echo "$TRAVIS_COMMIT_MESSAGE"
-  # breaking?
-  - |
-    if [ $TRAVIS_COMMIT_MESSAGE == "push breaking" ]; then
-      echo "pushing breaking"
-      npm run breaking
-    fi
-  # feature?
-  - |
-    if [ $TRAVIS_COMMIT_MESSAGE == "push feature" ]; then
-      echo "pushing feature"
-      npm run feature
-    fi
-  # fix?
-  - |
-    if [ $TRAVIS_COMMIT_MESSAGE == "push fix" ]; then
-      echo "pushing fix"
-      npm run fix
-    fi
-
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG
 jobs:
   include:
     - stage: Build
