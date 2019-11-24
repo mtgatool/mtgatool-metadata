@@ -16,6 +16,19 @@ before_deploy:
 
 jobs:
   include:
+    - stage: Test
+      os: linux
+      env: YARN_GPG=no
+      script:
+        - npm run breaking
+          on:
+            commit_message: push breaking
+        - npm run feature
+          on:
+            commit_message: push feature
+        - npm run fix
+          on:
+            commit_message: push fix
     - stage: Build
       os: linux
       dist: xenial
