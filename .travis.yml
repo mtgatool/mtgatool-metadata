@@ -15,34 +15,22 @@ before_deploy:
   - git config --local user.email "manuel.etchegaray7@gmail.com"
   # breaking?
   - |
-    if [[ $TRAVIS_COMMIT_MESSAGE == "push breaking" ]]; then
+    if [  == "push breaking" ]; then
       npm run breaking
     fi
   # feature?
   - |
-    if [[ $TRAVIS_COMMIT_MESSAGE == "push feature" ]]; then
+    if [ $TRAVIS_COMMIT_MESSAGE == "push feature" ]; then
       npm run feature
     fi
   # fix?
   - |
-    if [[ $TRAVIS_COMMIT_MESSAGE == "push fix" ]]; then
+    if [ $TRAVIS_COMMIT_MESSAGE == "push fix" ]; then
       npm run fix
     fi
 
 jobs:
   include:
-    - stage: Test
-      os: linux
-      env: YARN_GPG=no
-      if [ commit_message == "push breaking" ]; then
-        - npm run breaking
-      fi
-      
-        - npm run feature
-      fi
-      if [ commit_message == "push fix" ]; then
-        - npm run fix
-      fi
     - stage: Build
       os: linux
       dist: xenial
