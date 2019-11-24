@@ -13,19 +13,23 @@ filter_secrets: false
 before_deploy:
   - git config --local user.name "Manuel-777"
   - git config --local user.email "manuel.etchegaray7@gmail.com"
+  - echo "$TRAVIS_COMMIT_MESSAGE"
   # breaking?
   - |
-    if [  == "push breaking" ]; then
+    if [ $TRAVIS_COMMIT_MESSAGE == "push breaking" ]; then
+      echo "pushing breaking"
       npm run breaking
     fi
   # feature?
   - |
     if [ $TRAVIS_COMMIT_MESSAGE == "push feature" ]; then
+      echo "pushing feature"
       npm run feature
     fi
   # fix?
   - |
     if [ $TRAVIS_COMMIT_MESSAGE == "push fix" ]; then
+      echo "pushing fix"
       npm run fix
     fi
 
