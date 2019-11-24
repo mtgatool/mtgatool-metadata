@@ -13,22 +13,36 @@ filter_secrets: false
 before_deploy:
   - git config --local user.name "Manuel-777"
   - git config --local user.email "manuel.etchegaray7@gmail.com"
+  # breaking?
+  - |
+    if [[ $TRAVIS_COMMIT_MESSAGE == "push breaking" ]]; then
+      npm run breaking
+    fi
+  # feature?
+  - |
+    if [[ $TRAVIS_COMMIT_MESSAGE == "push feature" ]]; then
+      npm run feature
+    fi
+  # fix?
+  - |
+    if [[ $TRAVIS_COMMIT_MESSAGE == "push fix" ]]; then
+      npm run fix
+    fi
 
 jobs:
   include:
     - stage: Test
       os: linux
       env: YARN_GPG=no
-      script:
-        if [ commit_message == "push breaking" ]; then
-          - npm run breaking
-        fi
-        if [ commit_message == "push feature" ]; then
-          - npm run feature
-        fi
-        if [ commit_message == "push fix" ]; then
-          - npm run fix
-        fi
+      if [ commit_message == "push breaking" ]; then
+        - npm run breaking
+      fi
+      
+        - npm run feature
+      fi
+      if [ commit_message == "push fix" ]; then
+        - npm run fix
+      fi
     - stage: Build
       os: linux
       dist: xenial
@@ -37,6 +51,7 @@ jobs:
         - npm run start
       deploy:
         provider: releases
+        overwrite: true
         file_glob: true
         skip_cleanup: true
         prerelease: true
