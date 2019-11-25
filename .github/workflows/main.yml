@@ -21,8 +21,8 @@ jobs:
         uses: "actions/setup-node@v1"
         with:
           node-version: 8.10.0
-      - name: "version bump"
-        uses: ${{ github.ref }}
+      - name: "Version Bump"
+        uses: "Manuel-777/gh-action-bump-version@master"
         with:
           tag-prefix: ''
         env:
