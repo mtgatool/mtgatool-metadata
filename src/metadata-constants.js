@@ -789,6 +789,7 @@ exports.ALLOWED_SCRYFALL = [
   "8ed",
   "sok",
   "lrw",
+  "tlrw",
   "mor",
   "m10",
   "wwk",
