@@ -27,7 +27,6 @@
   },
   "homepage": "https://github.com/Manuel-777/MTG-Arena-Tool-Metadata#readme",
   "dependencies": {
-    "actions-toolkit": "^2.2.0",
     "gunzip-file": "^0.1.1",
     "https": "^1.0.0",
     "lodash": "^4.17.15",
