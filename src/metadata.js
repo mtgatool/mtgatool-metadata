@@ -11,6 +11,7 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const {
   APPDATA,
   EXTERNAL,
+  OUTPUT,
   VERSION,
   LANGUAGES,
   RANKS_SHEETS,
@@ -25,6 +26,10 @@ console.log(APPDATA);
 
 // "scryfall-all-cards.json" contains cards in all languages but is 800+mb
 const SCRYFALL_FILE = "scryfall-all-cards.json";
+const OutDIr = './' + OUTPUT;
+if (!fs.existsSync(OutDIr)){
+    fs.mkdirSync(OutDIr);
+}
 
 console.log("Begin Metadata fetch.");
 // It would be nice if we could suppy the version manually or
