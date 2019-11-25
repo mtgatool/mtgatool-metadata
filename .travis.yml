@@ -14,11 +14,12 @@ before_deploy:
   - git config --local user.name "Manuel-777"
   - git config --local user.email "manuel.etchegaray7@gmail.com"
 
-  jobs:
+jobs:
   include:
     - stage: Test
       os: linux
       dist: xenial
+      sudo: required
       script:
         - npm run test
     - stage: Build

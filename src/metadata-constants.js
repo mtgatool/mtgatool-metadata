@@ -1,9 +1,23 @@
 const path = require("path");
 exports.APPDATA = path.resolve(__dirname, "..");
+
 exports.EXTERNAL = "external";
 exports.OUTPUT = "dist";
-
 exports.MANIFEST_VERSION = "1952.745934";
+exports.VERSION = 29;
+// What languages to actually compile
+exports.LANGUAGES = [
+  "EN",
+  "ES",
+  "BR",
+  "DE",
+  "FR",
+  "IT",
+  "JP",
+  "RU",
+  "ko-KR",
+  "zh-CN"
+];
 
 exports.SCRYFALL_LANGUAGE = {
   DE: "DE",

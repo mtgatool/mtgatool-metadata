@@ -11,8 +11,10 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const {
   APPDATA,
   EXTERNAL,
+  MANIFEST_VERSION,
+  VERSION,
+  LANGUAGES,
   RANKS_SHEETS,
-  SET_NAMES,
   NO_DUPES_ART_SETS,
   ALLOWED_SCRYFALL
 } = require("./metadata-constants");
@@ -21,20 +23,7 @@ let metagameData = {};
 let ranksData = {};
 
 console.log(APPDATA);
-const VERSION = 29;
 
-const LANGUAGES = [
-  "EN",
-  "ES",
-  "BR",
-  "DE",
-  "FR",
-  "IT",
-  "JP",
-  "RU",
-  "ko-KR",
-  "zh-CN"
-];
 // "scryfall-all-cards.json" contains cards in all languages but is 800+mb
 const SCRYFALL_FILE = "scryfall-all-cards.json";
 
@@ -43,8 +32,7 @@ console.log("Begin Metadata fetch.");
 // obtain it from somewhere automatically, like a settings
 // file or the output log itself.
 manifestParser
-  .getManifestFiles("1952.745934")
-  .then(checkSetsAvailable)
+  .getManifestFiles(MANIFEST_VERSION)
   .then(getRanksData)
   .then(getScryfallCards)
   .then(getMetagameData)
@@ -57,34 +45,6 @@ manifestParser
 function quit() {
   console.log("Goodbye!");
   process.exit()
-}
-
-function checkSetsAvailable() {
-  // We use this to check for new sets
-  return new Promise(resolve => {
-    let file = path.join(APPDATA, EXTERNAL, "cards.json");
-    let cards = JSON.parse(`{"value": ${fs.readFileSync(file)}}`);
-
-    let sets = [];
-    let setCards = {};
-    cards.value.forEach(card => {
-      if (!setCards[card.set]) setCards[card.set] = 1;
-      else setCards[card.set] += 1;
-      if (!sets.includes(card.set)) {
-        sets.push(card.set);
-      }
-    });
-
-    sets.forEach(setCode => {
-      if (!SET_NAMES[setCode]) {
-        console.log(`${setCode} - Not added. (${setCards[setCode]} cards)`);
-      } else {
-        console.log(`${setCode} - Ok! (${setCards[setCode]} cards)`);
-      }
-    });
-
-    resolve();
-  });
 }
 
 function getRanksData() {
