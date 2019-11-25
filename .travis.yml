@@ -13,10 +13,14 @@ filter_secrets: false
 before_deploy:
   - git config --local user.name "Manuel-777"
   - git config --local user.email "manuel.etchegaray7@gmail.com"
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-  - git tag $TRAVIS_TAG
-jobs:
+
+  jobs:
   include:
+    - stage: Test
+      os: linux
+      dist: xenial
+      script:
+        - npm run test
     - stage: Build
       os: linux
       dist: xenial

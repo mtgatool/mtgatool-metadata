@@ -3,6 +3,8 @@ exports.APPDATA = path.resolve(__dirname, "..");
 exports.EXTERNAL = "external";
 exports.OUTPUT = "dist";
 
+exports.MANIFEST_VERSION = "1952.745934";
+
 exports.SCRYFALL_LANGUAGE = {
   DE: "DE",
   EN: "EN",

@@ -5,6 +5,7 @@
   "main": "src/metadata.js",
   "scripts": {
     "start": "node --max-old-space-size=4096 src/metadata.js",
+    "test": "jest src/",
     "breaking": "bumped release breaking",
     "feature": "bumped release feature",
     "fix": "bumped release fix"
@@ -39,6 +40,7 @@
     "bumped": "^0.12.0",
     "bumped-changelog": "^0.3.12",
     "bumped-http": "^1.0.1",
-    "bumped-terminal": "^0.7.8"
+    "bumped-terminal": "^0.7.8",
+    "jest": "^24.9.0"
   }
 }
