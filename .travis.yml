@@ -1,42 +1,38 @@
 language: node_js
-
 services:
-  - docker
-
+- docker
 node_js:
-  - '11'
-
+- '11'
 cache: npm
-
 filter_secrets: false
-
 before_deploy:
-  - git config --local user.name "Manuel-777"
-  - git config --local user.email "manuel.etchegaray7@gmail.com"
-
+- git config --local user.name "Manuel-777"
+- git config --local user.email "manuel.etchegaray7@gmail.com"
 jobs:
   include:
-    - stage: Test
-      os: linux
-      dist: xenial
-      sudo: required
-      script:
-        - npm run test
-    - stage: Build
-      os: linux
-      dist: xenial
-      sudo: required
-      script:
-        - npm run start
-      deploy:
-        provider: releases
-        file_glob: true
-        skip_cleanup: true
-        prerelease: true
-        draft: false
-        api_key:
-          secure: Uc4t5CwRHkBhgLWN5AXEMMfuRUnhfehf5aYY/owh5jzKLxOfKt5ysWY3+95NAzaIoXST1noJfCQehpnOhMA+g9rcq+xzlcJ2EgVAfTnXyPhrGyU5K7uKgpeeRnLfqmZfm0VhVoxurCK761lFRMgTJR4RtMH4+5XFUGHm1aEd6jWa3clTH5oLOMPCW1I4jyMHO7YPUHL4quxYem/b+a+H7AtkCgHHxXYn6WjISrmRwbE65UCJt7Gud9lxQmp14nVTmWi9iyL0M9ClOlwA2MmT19B8Keb5MLqwIqTMABBm4uNmV6JE19uuOgZfRS/7fvQZOrGXwIEz+vZeu/VTWSk2QvBo1TJ6uPL7IP4znB+HqFUVWClbNg/xHD89Mpd/KPVvOMEEU3U3Ms1oV0SvsfUkmn50X80fAXhREM8+MHdkYE+N+cSd8AeMof1yLrIks879wm4IOuywjY4vAizq99phDajCBHS0287HeC3+Vx4u/E5NApyzKPwbWH/fDR1BrEGpr2xMPwgY29mVzs2Cali0MZYuWjJA2Y3AwuhyUzUu27C062bwE6zVELzf/myKcskIkebrqDqwYjs0sKEVsBnTD48GPdSYSrEg3utAQ5+w0qbJM/+2f0MAjY2y4e7j57eiltVP/dUzIl/C6bl1fqz6PQFMbEyyBVCqiO84sxStjjc=
-        file: dist/*
-        on:
-          tags: true
-          repo: Manuel-777/MTG-Arena-Tool-Metadata
+  - stage: Test
+    os: linux
+    dist: xenial
+    sudo: required
+    script:
+    - npm run test
+  - stage: Build
+    os: linux
+    dist: xenial
+    sudo: required
+    script:
+    - npm run start
+    deploy:
+      provider: releases
+      file_glob: true
+      skip_cleanup: true
+      prerelease: true
+      draft: false
+      api_key:
+        secure: nVeU/YgUjCgmGDoEwxWvdux5LoAhr8mx3rsQ87FujdtooVB3jJGLuaLFN3RuJHPDqlbzkJ443ZvhBjIF5mbjXoJhJjsey7dxNZrCgtT3g022as+8RTV54r4yfTXocTzSvE/wOl2PTcAASs+8vNem9H25eVr20AATAqvhLPho7t1aFV3/YHk+aNzvPbp8NEIN8kRrGOQCEycgCI0Sm+ol2aprUuWi9MeXLMvp3STG6v083FpoEGNiG8iWfNTNH/vqETdM9AAvv/Z7+K3EETzoVKJnC8OScTFjhibI8Fk1Dl5pvLecAQDL/a/y0j7N7NwIgLI04SO2Ajq/Wl66EYehDa5BiZbTkj59EAKg4j7yIWMQNGREPgetwmIbU37s35LfH0T5+1PogkzS7c/zcQRjLFay0eiXLqrIltK/kLvSqq8oqR1gnL86aZdwuJ/N9ovo8TlWK8W4+uKwrwJVrIe35rTD/1ooqXC03t0QAUq+FnJJZhJP8xcZdlVxT2QA6075vvJoLyaAnS92xbuBvFwaKVRjJhU79iRkyeHfagLS3w/t/bStf3zD4M2E7eaXAw9UIEbMzEaMbbQ0cRv0WlU9bl3Jl9FjhnCkdY3a+jsmk8y1eMQuOKoOVFWbPDdpOq0FiXtl0C+siho3DIitf0TkHy1trwfYvXypjdfdDCeVszw=
+      file: dist/*
+      on:
+        tags: true
+        repo: Manuel-777/MTG-Arena-Tool-Metadata
+dd:
+  secure: YRUFBfTKpoEdbMqmqxw9CwPNsr+uLlyfCFxeczHzsktFcCmA6j1n7mkm2uCqL7tWDinA/NkMk943PUnEfaEs1qunviq6BwUsItt9rlpu8pqcGe/+5KZ09yNsKY1l/3kgbUoASlEQX60C+b2hX5hooDBQ5DYIo1uTUPFlmnk/4HLLcDbTobx407BqpTRuPalGUUzSYpfVeYxxw/MLo1nh9c1T/Z6SQ9cL4X5xqtGeApZeUMIw6DljJ01J9yiqpU9CLoH3KOgsJDBNp7gotLGSZy4s29XaHj3uR+2j2kvHtgxjklYDURadE5LQk00tzQ7oYAzwCLscAZR0T54j9AOSp5J3lKskFapIy2XAcK/bbaClFVDAU02aNhK6vsJj+Omtx4m3MwGpiPKJfDDkJA6/UZhKYo57G+G4c7q6PHoMsoz++p2Fu+JtIKkBpNXUwjGtWfvk66SDZuCjjZng2oWnqQlOE8pyO56P4GjmA3lwj7Mo1uhWwsc6xSPkqsn9tB2gkvt6YNa1y5wCbikC0YSZnWXpHFRGOhHprclbeddJoa1WvRMMkyNnKDLlNhuBYIgnLqD+7fcY54WC2RhOm4+be23ksIpeOzPrHeqR0R31fHu4IW1hBWbA4TuQ4tIk85H2BUJDxjzXbiP4kz91MYxTqfMjzkCXISaurZbHy/qKllE=
