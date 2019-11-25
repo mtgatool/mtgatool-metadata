@@ -15,13 +15,14 @@ jobs:
     dist: xenial
     sudo: required
     script:
-    - npm run test
+      - npm run test
   - stage: Build
     os: linux
     dist: xenial
     sudo: required
     script:
-    - npm run start
-    deploy:
-      script:
+      - npm run start
       - npm run dist
+      on:
+        tags: true
+
