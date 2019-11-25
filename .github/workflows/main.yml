@@ -1,14 +1,32 @@
-name: Bump version
+ 
+name: "Bump Version"
+
 on:
   push:
     branches:
-      - master
+      - "master"
+
 jobs:
-  build:
+  bump-version:
+    name: "Bump Version on master"
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@master
-    - name: Bump version and push tag
-      uses: anothrNick/github-tag-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: "Checkout source code"
+        uses: "actions/checkout@v1"
+        with:
+          ref: ${{ github.ref }}
+      - name: "cat package.json"
+        run: cat ./package.json
+      - name: "Setup Node.js"
+        uses: "actions/setup-node@v1"
+        with:
+          node-version: 8.10.0
+      - name: "Automated Version Bump"
+        uses: "phips28/gh-action-bump-version@master"
+        with:
+          tag-prefix: ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: "cat package.json"
+        run: cat ./package.json
