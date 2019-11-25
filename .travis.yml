@@ -23,6 +23,6 @@ jobs:
     script:
       - npm run start
       - npm run dist
-      on:
-        tags: true
+    on:
+      tags: true
 
