@@ -23,14 +23,5 @@ jobs:
     script:
     - npm run start
     deploy:
-      provider: releases
-      file_glob: true
-      skip_cleanup: true
-      prerelease: true
-      draft: false
-      api_key:
-        secure: xx/7r2izkj47gqN0is4M9WGdVb9kdrWpJHss2976Omi2QHCdAgYDNlXo1Tk7cEbBVKlgWDz/3PfEJ+Co4SPLECJpuleF2431JXgq2+Nsd2v33GU9f0GM13ZDHSuVigVKJOYTXT6kn8xcGoPGM2V57UM5z1yHrH8bkB5TcvW89/W7U2hoQg2qcobLU/Zmi6ppxU3rC4Zvf9TRY67I7bSVHRMVfi90n6GEyaIHDxDpiFP4kX5ZP103zOJWLP90cpYVJ77/Kv4gNkgncq372o58ihUHTkdyfyFFuEVrnyCwlafpHKcXCVsqPH59tUIRmLT5IEpm/yF7pE7kJwlp1fT0V3lj/9A/JjH9rhn0LU+y1KaDI6tH4Nc+c61HrSI10YVaw8pHDvSJgi7Q55QGXXVIm/9DB4ZG8fC7uVqBPQ84OR7h3Qd+Hj9ya7Oi6m1+kzt8gsWA9ReX0art3sBKqk2+bLs1VKm+MYGFvQ6FsVtN2Nri6a9zkjqs79DEJi0gPAmFhSPRlZazjEPtnscENbUBTmulNQTsv5LLkmRuOWsrlRChFUPrkB/21lhl7s9p8ywyJ9Q5526vOM2BQN4m81jyhORnt4sa0j8WmGnsD8wYz+UJDavMhrRd5rjnXajNTqhkyyB1bw7/a0uPDYJsr0jTo1d7tA+/K3LCOUOk+BjvYDo=
-      file: dist/*
-      on:
-        tags: true
-        repo: Manuel-777/MTG-Arena-Tool-Metadata
+      script:
+      - npm run dist
