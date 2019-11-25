@@ -5,7 +5,7 @@
   "main": "src/metadata.js",
   "scripts": {
     "start": "node --max-old-space-size=4096 src/metadata.js",
-    "test": "jest src/",
+    "test": "node src/setup.js && jest src/",
     "breaking": "bumped release breaking",
     "feature": "bumped release feature",
     "fix": "bumped release fix"
