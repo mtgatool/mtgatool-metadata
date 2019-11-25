@@ -5,10 +5,7 @@
   "main": "src/metadata.js",
   "scripts": {
     "start": "node --max-old-space-size=4096 src/metadata.js",
-    "test": "node src/setup.js && jest src/",
-    "breaking": "bumped release breaking",
-    "feature": "bumped release feature",
-    "fix": "bumped release fix"
+    "test": "node src/setup.js && jest src/"
   },
   "repository": {
     "type": "git",
@@ -30,6 +27,7 @@
   },
   "homepage": "https://github.com/Manuel-777/MTG-Arena-Tool-Metadata#readme",
   "dependencies": {
+    "actions-toolkit": "^2.2.0",
     "gunzip-file": "^0.1.1",
     "https": "^1.0.0",
     "lodash": "^4.17.15",
@@ -37,10 +35,6 @@
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
-    "bumped": "^0.12.0",
-    "bumped-changelog": "^0.3.12",
-    "bumped-http": "^1.0.1",
-    "bumped-terminal": "^0.7.8",
     "jest": "^24.9.0"
   }
 }
