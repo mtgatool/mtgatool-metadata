@@ -1,10 +1,13 @@
 const path = require("path");
+const packageJson = require('../package.json');
+
 exports.APPDATA = path.resolve(__dirname, "..");
 
 exports.EXTERNAL = "external";
 exports.OUTPUT = "dist";
 exports.MANIFEST_VERSION = "1952.745934";
-exports.VERSION = 29;
+exports.VERSION = packageJson.version.split(".")[0];
+
 // What languages to actually compile
 exports.LANGUAGES = [
   "EN",
