@@ -11,7 +11,6 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const {
   APPDATA,
   EXTERNAL,
-  MANIFEST_VERSION,
   VERSION,
   LANGUAGES,
   RANKS_SHEETS,
@@ -32,7 +31,10 @@ console.log("Begin Metadata fetch.");
 // obtain it from somewhere automatically, like a settings
 // file or the output log itself.
 manifestParser
-  .getManifestFiles(MANIFEST_VERSION)
+  .getArenaVersion()
+  .then(version =>
+    manifestParser.getManifestFiles(version)
+  )
   .then(getRanksData)
   .then(getScryfallCards)
   .then(getMetagameData)
@@ -301,7 +303,6 @@ function httpGetFile(url, filename) {
         }   
       });
       response.on("end", function() {
-        console.log("");
         resolve(file);
       });
     });

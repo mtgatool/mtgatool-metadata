@@ -9,6 +9,31 @@ const {
   EXTERNAL
 } = require("./metadata-constants");
 
+function getArenaVersion() {
+  return new Promise(resolve => {
+    let req = httpGetText("https://mtgarena.downloads.wizards.com/Live/Windows32/version");
+    req.addEventListener("load", function() {
+      try {
+        let versionData = JSON.parse(req.responseText);
+        let versionNumber = "";
+        let versionDate = "01/01/00";
+        Object.keys(versionData.Versions).forEach(version => {
+          let date = versionData.Versions[version];
+          if (new Date(date) > new Date(versionDate)) {
+            versionDate = versionData.Versions[version];
+            versionNumber = version;
+          }
+        })
+        console.log(versionNumber, versionDate);
+        resolve(versionNumber);
+
+      } catch (e) {
+        throw (e)
+      }
+    });
+  });
+};
+
 function requestManifestData(version) {
   return new Promise(resolve => {
     let requiredFiles = [
@@ -29,7 +54,10 @@ function requestManifestData(version) {
       return;
     }
 
-    version = version.replace(".", "_");
+    // Regex to extract version number
+    const regExp = /.\..\.(.+\..+)/g;
+    version = regExp.exec(version)[1].replace(".", "_");
+    console.log("Version:", version);
     let externalURL = `https://assets.mtgarena.wizards.com/External_${version}.mtga`;
     console.log("Manifest external URL:", externalURL);
 
@@ -92,21 +120,11 @@ function processManifest(data) {
         response.pipe(stream);
 
         response.on("end", function() {
-          console.log("Downloaded " + assetUriGz);
-          resolve(assetName);
-
-          gunzip(assetUriGz, assetUri, () => {
-            //fs.unlink(assetUri, () => {});
+          gunzip(assetUriGz, assetUri, function() {
+            console.log("Downloaded and unzipped " + assetUriGz);
+            resolve(assetName);
           });
         });
-        //resolve(assetName);
-        /*
-        // These used to be gzipped.. ¯\_(ツ)_/¯
-        let outFile = assetUri + ".json";
-        gunzip(assetName, outFile, () => {
-          fs.unlink(assetName, () => {});
-        });
-        */
       });
     });
   });
@@ -141,5 +159,6 @@ function httpGetFile(url, file) {
 }
 
 module.exports = {
-  getManifestFiles: getManifestFiles
+  getManifestFiles: getManifestFiles,
+  getArenaVersion: getArenaVersion
 };
