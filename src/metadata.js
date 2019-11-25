@@ -45,7 +45,7 @@ manifestParser
   .then(quit);
 
 function quit() {
-  console.log("Goodbye!");
+  console.log("Goodbye!!");
   process.exit()
 }
 
