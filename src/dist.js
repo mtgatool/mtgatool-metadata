@@ -44,7 +44,7 @@ async function doPush(files) {
   try {
     await sftp.mkdir(remoteDir, true);
   } catch (e) {
-    console.error(
+    console.log(
       "if version already exists existing databases will not be replaced."
     );
   }
@@ -60,7 +60,7 @@ async function doPush(files) {
   }, Promise.resolve());
 
   console.log("Uploading new import.php");
-  await sftp.delete(remoteDir + "import.php");
+  await sftp.delete("/var/www/html/database/import.php");
   let buffer = Buffer.from(importFileStr, 'utf8');
   await sftp.put(buffer, remoteDir + "import.php", { mode: 0o644 });
 
