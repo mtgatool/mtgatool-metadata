@@ -72,6 +72,7 @@ async function doPush(files) {
   }, Promise.resolve());
 
   console.log("Uploading new import.php");
+  await sftp.delete(remoteDir + "import.php");
   await sftp.put(importPhp, remoteDir + "import.php", { mode: 0o644 });
 
   console.log("All done, bye bye!");
