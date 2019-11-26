@@ -23,6 +23,7 @@ fs.readdir(localDir, function (err, files) {
       doPush(files);
     } catch (err) {
       console.log(err, 'catch error');
+      process.exit();
     }
 });
 
@@ -34,18 +35,24 @@ async function doPush(files) {
     password: process.env.SFTP_KEY
   });
   console.log("Creating directory (" + databaseVersion + ")");
-  await sftp.mkdir(remoteDir, true);
-  
+  try {
+    await sftp.mkdir(remoteDir, true);
+  } catch (e) {
+    console.error("if version already exists existing databases will not be replaced.");
+  }
+
   console.log("CHMOD..");
   await sftp.chmod(remoteDir, 0o755);
 
   console.log("Begin upload.");
-  files.reduce( async (prevUpload, nextFile) => {
+
+  await files.reduce(async (prevUpload, nextFile) => {
     await prevUpload;
     return uploadFile(nextFile);
   }, Promise.resolve());
 
   console.log("All done, bye bye!");
+  process.exit();
 }
 
 function uploadFile(file) {
