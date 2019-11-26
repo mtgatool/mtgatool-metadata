@@ -15,5 +15,4 @@ if (!file_exists($jsonfile)) {
 
 $database = file_get_contents($jsonfile);
 
-
 ?>
