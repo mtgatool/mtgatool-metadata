@@ -11,10 +11,22 @@ const remoteDir = "/var/www/html/database/" + databaseVersion + "/";
 const localDir = path.join(APPDATA, OUTPUT);
 const importPhp = path.join(APPDATA, "import.php");
 
+fs.readFile(importPhp, "utf8", function(err, data) {
+  if (err) {
+    return console.log(err);
+  }
+  var result = data.replace("%VERSION%", databaseVersion);
 
-let contents = fs.readFileSync(importPhp, 'utf8');
-let importFileStr = contents.replace("%VERSION%", databaseVersion);
-doScan();
+  fs.writeFile(importPhp, result, "utf8", function(err) {
+    if (err) {
+      return console.log(err);
+    }
+    else {
+      console.log("Updated import.php");
+      doScan();
+    }
+  });  
+});
 
 function doScan() {
   fs.readdir(localDir, function(err, files) {
@@ -60,9 +72,9 @@ async function doPush(files) {
   }, Promise.resolve());
 
   console.log("Uploading new import.php");
-  await sftp.delete("/var/www/html/database/import.php");
-  let buffer = Buffer.from(importFileStr, 'utf8');
-  await sftp.put(buffer, remoteDir + "import.php", { mode: 0o644 });
+  const remoteImport = "/var/www/html/database/import.php";
+  await sftp.delete(remoteImport);
+  await sftp.put(importPhp, remoteImport, { mode: 0o644 });
 
   console.log("All done, bye bye!");
   process.exit();
