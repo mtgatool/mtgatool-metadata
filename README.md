@@ -12,7 +12,6 @@ Magic Cards database is downloaded from [Scryfall.com](http://scryfall.com), the
 
 Designed to run automatically and upload for MTG Arena Tool, but anyone if free to try it and contrbute!
 
-
 # API
 
 Main Endpoint:
@@ -30,6 +29,7 @@ Multi language endpoints:
 [https://mtgatool.com/database/fr](https://mtgatool.com/database/fr)
 
 
+Anyone is free to use the database to feed their software or just for learning, if you do please give credit to either me (Manuel Etchegaray) or MTG Arena Tool,
 
 ## Contact
 You can find me at any of these;

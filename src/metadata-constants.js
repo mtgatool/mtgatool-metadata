@@ -199,7 +199,7 @@ exports.LIMITED_RANKED_EVENTS = [
   "QuickDraft_WAR_20191025"
 ];
 
-exports.STANDARD_RANKED_EVENTS = ["Ladder", "Traditional_Ladder"];
+exports.STANDARD_RANKED_EVENTS = ["Ladder", "Traditional_Ladder", "Traditional_Historic_Ladder"];
 
 exports.SINGLE_MATCH_EVENTS = [
   "AIBotMatch",

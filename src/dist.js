@@ -57,7 +57,7 @@ async function doPush(files) {
     await sftp.mkdir(remoteDir, true);
   } catch (e) {
     console.log(
-      "if version already exists existing databases will not be replaced."
+      "if version already exists existing databases will be replaced."
     );
   }
 
