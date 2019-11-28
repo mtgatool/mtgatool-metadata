@@ -103,6 +103,7 @@ exports.EVENT_TO_NAME = {
   FestivalFae_OkosMadness_20191110: "Okos Madness",
   FestivalFae_Cascade_20191117: "Standard Cascade",
   Historic_Launch_20191121: "Historic Launch",
+  Historic_Pauper_20191128: "Historic Pauper",
 
   Brawl_Launch_20191024: "Brawl Launch",
   Precon_Brawl_ELD: "Precon Brawl",
@@ -174,6 +175,7 @@ exports.EVENT_TO_FORMAT = {
   FestivalFae_OkosMadness_20191110: "Momir",
   FestivalFae_Cascade_20191117: "Cascade",
   Historic_Launch_20191121: "Historic",
+  Historic_Pauper_20191128: "Pauper",
 
   Brawl_Launch_20191024: "Brawl",
   Precon_Brawl_ELD: "Brawl",
