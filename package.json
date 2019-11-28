@@ -1,6 +1,6 @@
 {
   "name": "mtg-arena-tool-metadata",
-  "version": "30.0.10",
+  "version": "30.0.9",
   "description": "A metadata generator for MTG Arena Tool",
   "main": "src/metadata.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "magic the gathering"
   ],
   "author": "Manuel Etchegaray",
-  "license": "ISC",
+  "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
     "url": "https://github.com/Manuel-777/MTG-Arena-Tool-Metadata/issues"
   },

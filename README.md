@@ -29,7 +29,9 @@ Multi language endpoints:
 [https://mtgatool.com/database/fr](https://mtgatool.com/database/fr)
 
 
-Anyone is free to use the database to feed their software or just for learning, if you do please give credit to either me (Manuel Etchegaray) or MTG Arena Tool,
+Anyone is free to use the database to feed their software or just for learning, if you do please give credit to either me (Manuel Etchegaray) or MTG Arena Tool.
+
+For more information see [LICENSE](./LICENSE.md)
 
 ## Contact
 You can find me at any of these;
