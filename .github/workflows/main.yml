@@ -29,3 +29,23 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: "cat package.json"
         run: cat ./package.json
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [10, 12]
+    
+    steps:
+      - uses: "actions/checkout/v1"
+      - name: Use node ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          version: ${{ matrix.node_version }}
+      - name: Test
+        run: |
+          npm test
+      - name: Build
+        run: |
+          npm build
+        env:
+          SFTP: ${{ secrets.SFTP }}
