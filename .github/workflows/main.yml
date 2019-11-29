@@ -7,7 +7,7 @@ on:
 
 jobs:
   bump-version:
-    name: "Bump, Test and Build"
+    name: Bump, Test and Build (${{ github.sha }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -38,6 +38,6 @@ jobs:
         run: cat ./package.json
       - name: Build
         run: |
-          npm build
+          npm run dist
         env:
           SFTP_KEY: ${{ secrets.SFTP_KEY }}
