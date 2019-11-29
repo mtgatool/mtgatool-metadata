@@ -198,7 +198,8 @@ exports.LIMITED_RANKED_EVENTS = [
   "QuickDraft_GRN_20190829",
   "QuickDraft_RNA_20190913",
   "QuickDraft_ELD_20191011",
-  "QuickDraft_WAR_20191025"
+  "QuickDraft_WAR_20191025",
+  "QuickDraft_GRN_20191108"
 ];
 
 exports.STANDARD_RANKED_EVENTS = ["Ladder", "Traditional_Ladder", "Traditional_Historic_Ladder"];
