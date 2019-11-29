@@ -7,8 +7,11 @@ on:
 
 jobs:
   bump-version:
-    name: "Bump Version on master"
+    name: "Bump, Test and Build"
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [10, 12]
 
     steps:
       - name: "Checkout source code"
@@ -17,26 +20,6 @@ jobs:
           ref: ${{ github.ref }}
       - name: "cat package.json"
         run: cat ./package.json
-      - name: "Setup Node.js"
-        uses: "actions/setup-node@v1"
-        with:
-          node-version: 8.10.0
-      - name: "Version Bump"
-        uses: "Manuel-777/gh-action-bump-version@master"
-        with:
-          tag-prefix: ''
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: "cat package.json"
-        run: cat ./package.json
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node_version: [10, 12]
-    
-    steps:
-      - uses: "actions/checkout@v1"
       - name: Use node ${{ matrix.node_version }}
         uses: actions/setup-node@v1
         with:
@@ -45,6 +28,14 @@ jobs:
         run: |
           npm install
           npm test
+      - name: "Version Bump"
+        uses: "Manuel-777/gh-action-bump-version@master"
+        with:
+          tag-prefix: ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: "cat package.json"
+        run: cat ./package.json
       - name: Build
         run: |
           npm build
