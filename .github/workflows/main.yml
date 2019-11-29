@@ -1,8 +1,10 @@
 name: "Bump Version"
 
 on:
-  - push
-
+  push:
+    branches:
+      - master
+    
 jobs:
   bump-version:
     name: Bump version (${{ github.sha }})
