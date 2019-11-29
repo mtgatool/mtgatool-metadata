@@ -38,6 +38,7 @@ jobs:
         run: cat ./package.json
       - name: Build
         run: |
+          npm run start
           npm run dist
         env:
           SFTP_KEY: ${{ secrets.SFTP_KEY }}
