@@ -652,7 +652,7 @@ exports.SETS_DATA = {
   },
   "": {
     collation: -1,
-    scryfall: "",
+    scryfall: "default",
     code: "",
     arenacode: "",
     tile: 67003,

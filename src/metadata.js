@@ -137,7 +137,6 @@ function getSetIcons() {
       httpGetTextAsync(svgText).then(str => {
         count++;
         SETS_DATA[setName].svg = Buffer.from(str).toString('base64');
-        console.log(Buffer.from(str).toString('base64'));
         if (count == setNames.length) {
           resolve();
         }
