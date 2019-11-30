@@ -15,6 +15,7 @@ const {
   VERSION,
   LANGUAGES,
   RANKS_SHEETS,
+  SETS_DATA,
   NO_DUPES_ART_SETS,
   ALLOWED_SCRYFALL
 } = require("./metadata-constants");
@@ -43,6 +44,7 @@ manifestParser
   .then(getRanksData)
   .then(getScryfallCards)
   .then(getMetagameData)
+  .then(getSetIcons)
   .then(generateScryfallDatabase)
   .then(data =>
     generateMetadata(data, ranksData, metagameData, VERSION, LANGUAGES)
@@ -122,6 +124,24 @@ function getMetagameData() {
       let json = JSON.parse(`{"metagame": ${req.responseText} }`);
       metagameData = json.metagame;
       resolve();
+    });
+  });
+}
+
+function getSetIcons() {
+  return new Promise(resolve => {
+    let count = 0;
+    let setNames = Object.keys(SETS_DATA);
+    setNames.forEach(setName => {
+      let svgText = `https://img.scryfall.com/sets/${ SETS_DATA[setName].scryfall }.svg`;
+      httpGetTextAsync(svgText).then(str => {
+        count++;
+        SETS_DATA[setName].svg = Buffer.from(str).toString('base64');
+        console.log(Buffer.from(str).toString('base64'));
+        if (count == setNames.length) {
+          resolve();
+        }
+      });
     });
   });
 }
@@ -279,6 +299,18 @@ function httpGetText(url) {
   xmlHttp.open("GET", url);
   xmlHttp.send();
   return xmlHttp;
+}
+
+function httpGetTextAsync(url) {
+  return new Promise(resolve => {
+    let xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", url);
+    xmlHttp.send();
+    
+    xmlHttp.addEventListener("load", function() {
+      resolve(xmlHttp.responseText);
+    });
+  });
 }
 
 function httpGetFile(url, filename) {
