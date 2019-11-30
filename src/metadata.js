@@ -142,8 +142,8 @@ function getSetIcons() {
         let svgText = `https://img.scryfall.com/sets/${ code }.svg`;
         httpGetTextAsync(svgText).then(str => {
           count++;
-          //str = str.replace(/fill="#(.*)\" /g, "FFF");
-          str = str.replace(/<path /, '<path fill="#FFF" ');
+          str = str.replace(/fill="#.*?\"\ */g, 'fill="#FFF" ');
+          str = str.replace(/<path /g, '<path fill="#FFF" ');
           //console.log(setName, code, str);
           SETS_DATA[setName].svg = Buffer.from(str).toString('base64');
           if (count == setNames.length) {
