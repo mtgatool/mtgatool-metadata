@@ -132,14 +132,24 @@ function getSetIcons() {
   return new Promise(resolve => {
     let count = 0;
     let setNames = Object.keys(SETS_DATA);
-    setNames.forEach(setName => {
-      let svgText = `https://img.scryfall.com/sets/${ SETS_DATA[setName].scryfall }.svg`;
-      httpGetTextAsync(svgText).then(str => {
-        count++;
-        SETS_DATA[setName].svg = Buffer.from(str).toString('base64');
-        if (count == setNames.length) {
-          resolve();
-        }
+    setNames.forEach((setName, index) => {
+      setTimeout(() => {
+        let code = SETS_DATA[setName].scryfall;
+        if (setName == "" || setName == "Arena")
+          code = "default";
+        if (setName == "M19 Gift Pack") code = "m19";
+
+        let svgText = `https://img.scryfall.com/sets/${ code }.svg`;
+        httpGetTextAsync(svgText).then(str => {
+          count++;
+          //str = str.replace(/fill="#(.*)\" /g, "FFF");
+          str = str.replace(/<path /, '<path fill="#FFF" ');
+          //console.log(setName, code, str);
+          SETS_DATA[setName].svg = Buffer.from(str).toString('base64');
+          if (count == setNames.length) {
+            resolve();
+          }
+        }, 300 * index);
       });
     });
   });
