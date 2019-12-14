@@ -345,6 +345,14 @@ exports.SETS_DATA = {
     tile: 70338,
     release: "2019-10-04"
   },
+  "Theros: Beyond Death": {
+    collation: 100016,
+    scryfall: "thb",
+    code: "THB",
+    arenacode: "THB",
+    tile: 64827,
+    release: "2020-01-24"
+  },
   // Other sets below
   "Mythic Edition": {
     collation: -1,
@@ -650,6 +658,86 @@ exports.SETS_DATA = {
     tile: 64827,
     release: "2019-06-14"
   },
+  "Shadows over Innistrad": {
+    collation: -1,
+    scryfall: "soi",
+    code: "SOI",
+    arenacode: "SOI",
+    tile: 64827,
+    release: "2016-04-08"
+  },
+  "Vintage Masters": {
+    collation: -1,
+    scryfall: "vma",
+    code: "VMA",
+    arenacode: "VMA",
+    tile: 64827,
+    release: "2014-06-16"
+  },
+  "Modern Masters": {
+    collation: -1,
+    scryfall: "mma",
+    code: "MMA",
+    arenacode: "MMA",
+    tile: 64827,
+    release: "2013-06-07"
+  },
+  "Journey into Nyx": {
+    collation: -1,
+    scryfall: "jou",
+    code: "JOU",
+    arenacode: "JOU",
+    tile: 64827,
+    release: "2014-05-02"
+  },
+  "Theros": {
+    collation: -1,
+    scryfall: "ths",
+    code: "THS",
+    arenacode: "THS",
+    tile: 64827,
+    release: "2013-09-27"
+  },
+  "Magic 2014": {
+    collation: -1,
+    scryfall: "m14",
+    code: "M14",
+    arenacode: "M14",
+    tile: 64827,
+    release: "2013-07-19"
+  },
+  "Duel Decks: Elspeth vs. Tezzeret": {
+    collation: -1,
+    scryfall: "ddf",
+    code: "DDF",
+    arenacode: "DDF",
+    tile: 64827,
+    release: "2010-09-03"
+  },
+  "Shadowmoor": {
+    collation: -1,
+    scryfall: "shm",
+    code: "SHM",
+    arenacode: "SHM",
+    tile: 64827,
+    release: "2008-05-02"
+  },
+  "Mirrodin": {
+    collation: -1,
+    scryfall: "mrd",
+    code: "MRD",
+    arenacode: "MRD",
+    tile: 64827,
+    release: "2003-10-02"
+  },
+  "Odyssey": {
+    collation: -1,
+    scryfall: "ody",
+    code: "ODY",
+    arenacode: "ODY",
+    tile: 64827,
+    release: "2001-10-01"
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -717,7 +805,18 @@ exports.SET_NAMES = {
   M10: "Magic 2010",
   WWK: "Worldwake",
   ORI: "Magic Origins",
-  MH1: "Modern Horizons"
+  MH1: "Modern Horizons",
+  THB: "Theros: Beyond Death",
+  SOI: "Shadows over Innistrad",
+  VMA: "Vintage Masters",
+  MMA: "Modern Masters",
+  JOU: "Journey into Nyx",
+  THS: "Theros",
+  M14: "Magic 2014",
+  DDF: "Duel Decks: Elspeth vs. Tezzeret",
+  SHM: "Shadowmoor",
+  MRD: "Mirrodin",
+  ODY: "Odyssey"
 };
 
 exports.NO_DUPES_ART_SETS = [
@@ -733,6 +832,7 @@ exports.NO_DUPES_ART_SETS = [
 ];
 
 exports.ALLOWED_SCRYFALL = [
+  "thb",
   "eld",
   "m20",
   "war",
@@ -744,6 +844,7 @@ exports.ALLOWED_SCRYFALL = [
   "dom",
   "rix",
   "xln",
+  "tthb",
   "teld",
   "tm20",
   "twar",
@@ -799,7 +900,17 @@ exports.ALLOWED_SCRYFALL = [
   "m10",
   "wwk",
   "ori",
-  "mh1"
+  "mh1",
+  "soi",
+  "vma",
+  "mma",
+  "jou",
+  "ths",
+  "m14",
+  "ddf",
+  "shm",
+  "mrd",
+  "ody"
 ];
 
 exports.RANKS_SHEETS = [
