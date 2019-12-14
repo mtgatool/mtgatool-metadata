@@ -25,8 +25,11 @@ Current Version Info:
 Multi language endpoints:
 
 [https://mtgatool.com/database/latest/fr](https://mtgatool.com/database/latest/fr)
-
 [https://mtgatool.com/database/fr](https://mtgatool.com/database/fr)
+
+Available languages:
+
+`en, es, br, de, fr, it, jp, ru, ko-kr, zh-cn`
 
 
 Anyone is free to use the database to feed their software or just for learning, if you do please give credit to either me (Manuel Etchegaray) or MTG Arena Tool.
