@@ -289,7 +289,7 @@ exports.SETS_DATA = {
     tile: 68116,
     release: "2018-07-13"
   },
-  Arena: {
+  "Arena New Player Experience": {
     collation: false,
     scryfall: "ana",
     code: "ANA",
@@ -763,7 +763,7 @@ exports.SET_NAMES = {
   DAR: "Dominaria",
   OGW: "Oath of the Gatewatch",
   M19: "Core Set 2019",
-  ANA: "Arena",
+  ANA: "Arena New Player Experience",
   GRN: "Guilds of Ravnica",
   G18: "M19 Gift Pack",
   RNA: "Ravnica Allegiance",
