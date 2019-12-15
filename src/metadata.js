@@ -135,7 +135,7 @@ function getSetIcons() {
     setNames.forEach((setName, index) => {
       setTimeout(() => {
         let code = SETS_DATA[setName].scryfall;
-        if (setName == "" || setName == "Arena")
+        if (setName == "")
           code = "default";
         if (setName == "M19 Gift Pack") code = "m19";
 
