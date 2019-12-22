@@ -1,6 +1,6 @@
 {
   "name": "mtg-arena-tool-metadata",
-  "version": "39.0.0",
+  "version": "39.0.1",
   "description": "A metadata generator for MTG Arena Tool",
   "main": "src/metadata.js",
   "scripts": {
