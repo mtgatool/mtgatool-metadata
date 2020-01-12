@@ -88,6 +88,7 @@ exports.EVENT_TO_NAME = {
   QuickDraft_GRN_20191108: "Ranked Draft GRN 11/19",
   QuickDraft_M20_20191206: "Ranked Draft M20 12/19",
   QuickDraft_WAR_20191220: "Ranked Draft WAR 12/19",
+  QuickDraft_DOM_20200103: "Ranked Draft DOM 01/20",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Omniscience Draft M20",
@@ -108,6 +109,8 @@ exports.EVENT_TO_NAME = {
   Monthly_Brawl_20191212: "Monthly Brawl",
   Historic_Artisan_20191220: "Historic Artisan",
 
+  Historic_Challenge_20200111: "Historic Challenge",
+  Momir_PW_20200110: "Momir PW",
   Brawl_Launch_20191024: "Brawl Launch",
   Precon_Brawl_ELD: "Precon Brawl",
   Lore_WAR1_Momir: "Ravnica at War I - Momir",
@@ -164,11 +167,14 @@ exports.EVENT_TO_FORMAT = {
   QuickDraft_GRN_20191108: "Draft GRN",
   QuickDraft_M20_20191206: "Draft M20",
   QuickDraft_WAR_20191220: "Draft WAR",
+  QuickDraft_DOM_20200103: "Draft DOM",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Draft M20",
   Omniscience_Draft_20191107: "Draft ELD",
 
+  Historic_Challenge_20200111: "Historic",
+  Momir_PW_20200110: "Momir",
   Esports_Qualifier_20190525: "Traditional Standard",
   Esports_Qualifier_20190817: "Traditional Standard",
   CompCons_Metagame_Challenge_20190712: "Traditional Standard",
@@ -201,9 +207,8 @@ exports.EVENT_TO_FORMAT = {
 
 // These are the current events in the ranked ladder
 exports.LIMITED_RANKED_EVENTS = [
-  "QuickDraft_M20_20191206",
-  "QuickDraft_GRN_20191108",
-  "QuickDraft_WAR_20191220"
+  "QuickDraft_WAR_20191220",
+  "QuickDraft_DOM_20200103"
 ];
 
 exports.STANDARD_RANKED_EVENTS = ["Ladder", "Traditional_Ladder", "Traditional_Historic_Ladder"];
