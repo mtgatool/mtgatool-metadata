@@ -43,7 +43,8 @@ manifestParser
     manifestParser.getManifestFiles(version)
   )
   */
-  manifestParser.getManifestFiles("2082_755177")
+   // Override the previous block temporally
+  .getManifestFiles("0.1.2082.755177")
   .then(getRanksData)
   .then(getScryfallCards)
   .then(getMetagameData)

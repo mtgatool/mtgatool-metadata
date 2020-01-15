@@ -80,11 +80,17 @@ function downloadManifest(manifestData) {
     } else {
       httpGetFile(manifestData.url, manifestData.file).then(file => {
         let outFile = path.join(APPDATA, EXTERNAL, "manifest.json");
-        gunzip(file, outFile, () => {
-          fs.unlink(file, () => {});
+        try {
           let manifestData = JSON.parse(fs.readFileSync(outFile));
           resolve(manifestData);
-        });
+        } catch (e) {
+          console.log("Trying to gunzip manifest..");
+          gunzip(file, outFile, () => {
+            fs.unlink(file, () => {});
+            let manifestData = JSON.parse(fs.readFileSync(outFile));
+            resolve(manifestData);
+          });
+        }
       });
     }
   });

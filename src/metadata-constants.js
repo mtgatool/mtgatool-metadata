@@ -748,6 +748,14 @@ exports.SETS_DATA = {
     tile: 64827,
     release: "2001-10-01"
   },
+  "Magic 2013": {
+    collation: -1,
+    scryfall: "m13",
+    code: "M13",
+    arenacode: "M13",
+    tile: 67003,
+    release: "2012-07-13"
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -826,7 +834,8 @@ exports.SET_NAMES = {
   DDF: "Duel Decks: Elspeth vs. Tezzeret",
   SHM: "Shadowmoor",
   MRD: "Mirrodin",
-  ODY: "Odyssey"
+  ODY: "Odyssey",
+  M13: "Magic 2013"
 };
 
 exports.NO_DUPES_ART_SETS = [
@@ -920,7 +929,9 @@ exports.ALLOWED_SCRYFALL = [
   "ddf",
   "shm",
   "mrd",
-  "ody"
+  "ody",
+  "m13",
+  "tm13"
 ];
 
 exports.RANKS_SHEETS = [
@@ -968,6 +979,13 @@ exports.RANKS_SHEETS = [
     setCode: "eld",
     sheet: "1B-bEUGANnGFPB4zW-vAV8zHjUZINwLU8Qq1sVlgIdpU",
     page: "Staging%20Sheet"
+  },
+  {
+    setCode: "thb",
+    sheet: "1zxR9zQxdEH9XI7CZmxiKeTQdU2nD8bVgYJ4bLUwV53s",
+    page: "Staging%20Sheet"
   }
 ];
+
+
 
