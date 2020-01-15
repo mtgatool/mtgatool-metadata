@@ -37,10 +37,13 @@ console.log("Begin Metadata fetch.");
 // obtain it from somewhere automatically, like a settings
 // file or the output log itself.
 manifestParser
+  /*
   .getArenaVersion()
   .then(version =>
     manifestParser.getManifestFiles(version)
   )
+  */
+  manifestParser.getManifestFiles("2082_755177")
   .then(getRanksData)
   .then(getScryfallCards)
   .then(getMetagameData)
