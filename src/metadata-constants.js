@@ -71,6 +71,7 @@ exports.EVENT_TO_NAME = {
   Sealed_Ravnica_20190816: "Sealed Ravnica",
   Sealed_WAR_20190909: "Sealed WAR",
   Sealed_ELD_20190923: "Sealed ELD",
+  Sealed_THB_20200113: "Sealed Theros",
 
   QuickDraft_RNA_20190426: "Ranked Draft RNA 04/19",
   QuickDraft_RNA_20190621: "Ranked Draft RNA 06/19",
@@ -147,9 +148,10 @@ exports.EVENT_TO_FORMAT = {
   CompDraft_ELD_20190930: "Draft ELD",
 
   Sealed_M20_20190630: "Sealed M20",
-  Sealed_Ravnica_20190816: "Sealed Ravnica",
+  Sealed_Ravnica_20190816: "Sealed RAV",
   Sealed_WAR_20190909: "Sealed WAR",
   Sealed_ELD_20190923: "Sealed ELD",
+  Sealed_THB_20200113: "Sealed THB",
 
   QuickDraft_RNA_20190426: "Draft RNA",
   QuickDraft_RNA_20190621: "Draft RNA",

@@ -9,9 +9,9 @@ const {
   EXTERNAL
 } = require("./metadata-constants");
 
-function getArenaVersion() {
+function getArenaVersion(channel = "Live") {
   return new Promise(resolve => {
-    let req = httpGetText("https://mtgarena.downloads.wizards.com/Live/Windows32/version");
+    let req = httpGetText(`https://mtgarena.downloads.wizards.com/${channel}/Windows32/version`);
     req.addEventListener("load", function() {
       try {
         let versionData = JSON.parse(req.responseText);
