@@ -9,9 +9,9 @@ const {
   EXTERNAL
 } = require("./metadata-constants");
 
-function getArenaVersion() {
+function getArenaVersion(channel = "Live") {
   return new Promise(resolve => {
-    let req = httpGetText("https://mtgarena.downloads.wizards.com/Live/Windows32/version");
+    let req = httpGetText(`https://mtgarena.downloads.wizards.com/${channel}/Windows32/version`);
     req.addEventListener("load", function() {
       try {
         let versionData = JSON.parse(req.responseText);
@@ -80,11 +80,17 @@ function downloadManifest(manifestData) {
     } else {
       httpGetFile(manifestData.url, manifestData.file).then(file => {
         let outFile = path.join(APPDATA, EXTERNAL, "manifest.json");
-        gunzip(file, outFile, () => {
-          fs.unlink(file, () => {});
+        try {
           let manifestData = JSON.parse(fs.readFileSync(outFile));
           resolve(manifestData);
-        });
+        } catch (e) {
+          console.log("Trying to gunzip manifest..");
+          gunzip(file, outFile, () => {
+            fs.unlink(file, () => {});
+            let manifestData = JSON.parse(fs.readFileSync(outFile));
+            resolve(manifestData);
+          });
+        }
       });
     }
   });

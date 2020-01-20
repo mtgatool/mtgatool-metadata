@@ -71,6 +71,7 @@ exports.EVENT_TO_NAME = {
   Sealed_Ravnica_20190816: "Sealed Ravnica",
   Sealed_WAR_20190909: "Sealed WAR",
   Sealed_ELD_20190923: "Sealed ELD",
+  Sealed_THB_20200113: "Sealed Theros",
 
   QuickDraft_RNA_20190426: "Ranked Draft RNA 04/19",
   QuickDraft_RNA_20190621: "Ranked Draft RNA 06/19",
@@ -87,6 +88,8 @@ exports.EVENT_TO_NAME = {
   QuickDraft_WAR_20191025: "Ranked Draft WAR 10/19",
   QuickDraft_GRN_20191108: "Ranked Draft GRN 11/19",
   QuickDraft_M20_20191206: "Ranked Draft M20 12/19",
+  QuickDraft_WAR_20191220: "Ranked Draft WAR 12/19",
+  QuickDraft_DOM_20200103: "Ranked Draft DOM 01/20",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Omniscience Draft M20",
@@ -105,7 +108,10 @@ exports.EVENT_TO_NAME = {
   Historic_Launch_20191121: "Historic Launch",
   Historic_Pauper_20191128: "Historic Pauper",
   Monthly_Brawl_20191212: "Monthly Brawl",
+  Historic_Artisan_20191220: "Historic Artisan",
 
+  Historic_Challenge_20200111: "Historic Challenge",
+  Momir_PW_20200110: "Momir PW",
   Brawl_Launch_20191024: "Brawl Launch",
   Precon_Brawl_ELD: "Precon Brawl",
   Lore_WAR1_Momir: "Ravnica at War I - Momir",
@@ -142,9 +148,10 @@ exports.EVENT_TO_FORMAT = {
   CompDraft_ELD_20190930: "Draft ELD",
 
   Sealed_M20_20190630: "Sealed M20",
-  Sealed_Ravnica_20190816: "Sealed Ravnica",
+  Sealed_Ravnica_20190816: "Sealed RAV",
   Sealed_WAR_20190909: "Sealed WAR",
   Sealed_ELD_20190923: "Sealed ELD",
+  Sealed_THB_20200113: "Sealed THB",
 
   QuickDraft_RNA_20190426: "Draft RNA",
   QuickDraft_RNA_20190621: "Draft RNA",
@@ -161,11 +168,15 @@ exports.EVENT_TO_FORMAT = {
   QuickDraft_WAR_20191025: "Draft WAR",
   QuickDraft_GRN_20191108: "Draft GRN",
   QuickDraft_M20_20191206: "Draft M20",
+  QuickDraft_WAR_20191220: "Draft WAR",
+  QuickDraft_DOM_20200103: "Draft DOM",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Draft M20",
   Omniscience_Draft_20191107: "Draft ELD",
 
+  Historic_Challenge_20200111: "Historic",
+  Momir_PW_20200110: "Momir",
   Esports_Qualifier_20190525: "Traditional Standard",
   Esports_Qualifier_20190817: "Traditional Standard",
   CompCons_Metagame_Challenge_20190712: "Traditional Standard",
@@ -179,6 +190,7 @@ exports.EVENT_TO_FORMAT = {
   Historic_Launch_20191121: "Historic",
   Historic_Pauper_20191128: "Pauper",
   Monthly_Brawl_20191212: "Brawl",
+  Historic_Artisan_20191220: "Artisan",
 
   Brawl_Launch_20191024: "Brawl",
   Precon_Brawl_ELD: "Brawl",
@@ -197,8 +209,8 @@ exports.EVENT_TO_FORMAT = {
 
 // These are the current events in the ranked ladder
 exports.LIMITED_RANKED_EVENTS = [
-  "QuickDraft_M20_20191206",
-  "QuickDraft_GRN_20191108"
+  "QuickDraft_WAR_20191220",
+  "QuickDraft_DOM_20200103"
 ];
 
 exports.STANDARD_RANKED_EVENTS = ["Ladder", "Traditional_Ladder", "Traditional_Historic_Ladder"];
@@ -738,6 +750,14 @@ exports.SETS_DATA = {
     tile: 64827,
     release: "2001-10-01"
   },
+  "Magic 2013": {
+    collation: -1,
+    scryfall: "m13",
+    code: "M13",
+    arenacode: "M13",
+    tile: 67003,
+    release: "2012-07-13"
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -816,7 +836,8 @@ exports.SET_NAMES = {
   DDF: "Duel Decks: Elspeth vs. Tezzeret",
   SHM: "Shadowmoor",
   MRD: "Mirrodin",
-  ODY: "Odyssey"
+  ODY: "Odyssey",
+  M13: "Magic 2013"
 };
 
 exports.NO_DUPES_ART_SETS = [
@@ -910,7 +931,9 @@ exports.ALLOWED_SCRYFALL = [
   "ddf",
   "shm",
   "mrd",
-  "ody"
+  "ody",
+  "m13",
+  "tm13"
 ];
 
 exports.RANKS_SHEETS = [
@@ -958,6 +981,13 @@ exports.RANKS_SHEETS = [
     setCode: "eld",
     sheet: "1B-bEUGANnGFPB4zW-vAV8zHjUZINwLU8Qq1sVlgIdpU",
     page: "Staging%20Sheet"
+  },
+  {
+    setCode: "thb",
+    sheet: "1zxR9zQxdEH9XI7CZmxiKeTQdU2nD8bVgYJ4bLUwV53s",
+    page: "Staging%20Sheet"
   }
 ];
+
+
 
