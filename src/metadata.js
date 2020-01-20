@@ -136,14 +136,14 @@ function getSetIcons() {
     setNames.forEach((setName, index) => {
       setTimeout(() => {
         let code = SETS_DATA[setName].scryfall;
-        if (setName == "")
+        if (setName == "" || setName == "Arena New Player Experience")
           code = "default";
         if (setName == "M19 Gift Pack") code = "m19";
 
         let svgText = `https://img.scryfall.com/sets/${ code }.svg`;
         httpGetTextAsync(svgText).then(str => {
           count++;
-          if (code === "ana") {
+          if (setName == "Arena New Player Experience") {
             // hack hack hack
             // for some reason, scryfall does not provide this yet
             // manually insert here instead
