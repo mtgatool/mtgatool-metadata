@@ -17,7 +17,8 @@ const {
   RANKS_SHEETS,
   SETS_DATA,
   NO_DUPES_ART_SETS,
-  ALLOWED_SCRYFALL
+  ALLOWED_SCRYFALL,
+  ARENA_SVG
 } = require("./metadata-constants");
 
 let metagameData = {};
@@ -135,13 +136,19 @@ function getSetIcons() {
     setNames.forEach((setName, index) => {
       setTimeout(() => {
         let code = SETS_DATA[setName].scryfall;
-        if (setName == "" || setName == "Arena")
+        if (setName == "" || setName == "Arena New Player Experience")
           code = "default";
         if (setName == "M19 Gift Pack") code = "m19";
 
         let svgText = `https://img.scryfall.com/sets/${ code }.svg`;
         httpGetTextAsync(svgText).then(str => {
           count++;
+          if (setName == "Arena New Player Experience") {
+            // hack hack hack
+            // for some reason, scryfall does not provide this yet
+            // manually insert here instead
+            str = ARENA_SVG;
+          }
           str = str.replace(/fill="#.*?\"\ */g, ' ');
           str = str.replace(/<path /g, '<path fill="#FFF" ');
           //console.log(setName, code, str);
