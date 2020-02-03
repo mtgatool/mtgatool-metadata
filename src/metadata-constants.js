@@ -90,6 +90,7 @@ exports.EVENT_TO_NAME = {
   QuickDraft_M20_20191206: "Ranked Draft M20 12/19",
   QuickDraft_WAR_20191220: "Ranked Draft WAR 12/19",
   QuickDraft_DOM_20200103: "Ranked Draft DOM 01/20",
+  QuickDraft_THB_20200131: "Ranked Draft THB 01/20",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Omniscience Draft M20",
@@ -170,6 +171,7 @@ exports.EVENT_TO_FORMAT = {
   QuickDraft_M20_20191206: "Draft M20",
   QuickDraft_WAR_20191220: "Draft WAR",
   QuickDraft_DOM_20200103: "Draft DOM",
+  QuickDraft_THB_20200131: "Draft THB",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Draft M20",
@@ -209,8 +211,7 @@ exports.EVENT_TO_FORMAT = {
 
 // These are the current events in the ranked ladder
 exports.LIMITED_RANKED_EVENTS = [
-  "QuickDraft_WAR_20191220",
-  "QuickDraft_DOM_20200103"
+  "QuickDraft_THB_20200131"
 ];
 
 exports.STANDARD_RANKED_EVENTS = ["Ladder", "Traditional_Ladder", "Traditional_Historic_Ladder"];
