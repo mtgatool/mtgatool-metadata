@@ -66,6 +66,7 @@ exports.EVENT_TO_NAME = {
   CompDraft_WAR_20190425: "Traditional Draft WAR",
   CompDraft_M20_20190708: "Traditional Draft M20",
   CompDraft_ELD_20190930: "Traditional Draft ELD",
+  CompDraft_THB_20200116: "Traditional Draft THB",
 
   Sealed_M20_20190630: "Sealed M20",
   Sealed_Ravnica_20190816: "Sealed Ravnica",
@@ -110,6 +111,7 @@ exports.EVENT_TO_NAME = {
   Historic_Pauper_20191128: "Historic Pauper",
   Monthly_Brawl_20191212: "Monthly Brawl",
   Historic_Artisan_20191220: "Historic Artisan",
+  Historic_Event: "Historic Event",
 
   Historic_Challenge_20200111: "Historic Challenge",
   Momir_PW_20200110: "Momir PW",
@@ -147,6 +149,7 @@ exports.EVENT_TO_FORMAT = {
   CompDraft_WAR_20190425: "Draft WAR",
   CompDraft_M20_20190708: "Draft M20",
   CompDraft_ELD_20190930: "Draft ELD",
+  CompDraft_THB_20200116: "Draft THB",
 
   Sealed_M20_20190630: "Sealed M20",
   Sealed_Ravnica_20190816: "Sealed RAV",
@@ -193,6 +196,7 @@ exports.EVENT_TO_FORMAT = {
   Historic_Pauper_20191128: "Pauper",
   Monthly_Brawl_20191212: "Brawl",
   Historic_Artisan_20191220: "Artisan",
+  Historic_Event: "Historic",
 
   Brawl_Launch_20191024: "Brawl",
   Precon_Brawl_ELD: "Brawl",
