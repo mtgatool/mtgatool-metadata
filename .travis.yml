@@ -22,7 +22,7 @@ jobs:
     sudo: required
     script:
       - npm run start
-      - npm run dist
+      - npm run dist:noclean
     on:
       tags: true
 

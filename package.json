@@ -11,7 +11,8 @@
     "start": "node --max-old-space-size=4096 src/metadata.js",
     "test": "node src/setup.js && jest src/",
     "predist": "npm run clean",
-    "dist": "node src/dist.js"
+    "dist": "node src/dist.js",
+    "dist:noclean": "node src/dist.js"
   },
   "repository": {
     "type": "git",
