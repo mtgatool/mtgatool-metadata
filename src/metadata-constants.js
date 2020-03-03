@@ -107,12 +107,12 @@ exports.EVENT_TO_NAME = {
   CompCons_Metagame_Challenge_20191004: "Metagame Challenge 10/19",
   ExtraLife_2019_20191101: "Extra Life",
   FestivalGods_Artisan_20200222: "Festival: Fires of Purphoros",
-  // FestivalGods_XXXXX_20200229: "Festival: Nyleas Call of the Wild",
+  FestivalGods_GiantMonsters_20200229: "Festival: Nyleas Call of the Wild",
   // FestivalGods_XXXXX_20200314: "Festival: Erebos Memoir of Death",
   // FestivalGods_XXXXX_20200307: "Festival: Heliods Glory",
   // FestivalGods_XXXXX_20200321: "Festival: Thassas Briny Bounty",
   Workshop_Brawl_20200224: "Workshop: Power and Glory",
-  // Workshop_XXXXX_20200302: "Workshop: Heros of Theros",
+  Workshop_Draft_THB_20200302: "Workshop: Heros of Theros",
   // Workshop_XXXXX_20200309: "Workshop: Uncharted Paths",
   FestivalFae_Std_Artisan_20191103: "Festival: Standard Artisan",
   FestivalFae_OkosMadness_20191110: "Festival: Okos Madness",
@@ -204,12 +204,12 @@ exports.EVENT_TO_FORMAT = {
   CompCons_Metagame_Challenge_20191004: "Traditional Standard",
   ExtraLife_2019_20191101: "Pauper",
   FestivalGods_Artisan_20200222: "Standard Artisan",
-  // FestivalGods_XXXXX_20200229: "Giant Monsters",
+  FestivalGods_GiantMonsters_20200229: "Giant Monsters",
   // FestivalGods_XXXXX_20200314: "Immortal Sun",
   // FestivalGods_XXXXX_20200307: "Historic Brawl",
   // FestivalGods_XXXXX_20200321: "Preconstructed Singleton",
   Workshop_Brawl_20200224: "Brawl",
-  // Workshop_XXXXX_20200302: "Preconstructed Draft THB",
+  Workshop_Draft_THB_20200302: "Preconstructed Draft THB",
   // Workshop_XXXXX_20200309: "Preconstructed Standard",
   FestivalFae_Std_Artisan_20191103: "Standard Artisan",
   FestivalFae_OkosMadness_20191110: "Momir",
@@ -234,7 +234,6 @@ exports.EVENT_TO_FORMAT = {
   Planecation4_Shakeup: "Shakeup",
   Planecation5_Landfall: "Landfall",
   Giant_Monsters_20190719: "Giant Monsters",
-  FestivalGods_GiantMonsters_20200229: "Giant Monsters"
 };
 
 // These are the current events in the ranked ladder
