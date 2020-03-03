@@ -93,6 +93,7 @@ exports.EVENT_TO_NAME = {
   QuickDraft_DOM_20200103: "Ranked Draft DOM 01/20",
   QuickDraft_THB_20200131: "Ranked Draft THB 01/20",
   QuickDraft_GRN_20200214: "Ranked Draft GRN 02/20",
+  QuickDraft_THB_20200228: "Ranked Draft THB 03/20",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Omniscience Draft M20",
@@ -129,7 +130,8 @@ exports.EVENT_TO_NAME = {
   Planecation3_Singleton: "Planecation - Singleton",
   Planecation4_Shakeup: "Planecation - Shakeup",
   Planecation5_Landfall: "Planecation - Landfall",
-  Giant_Monsters_20190719: "Giant Monsters"
+  Giant_Monsters_20190719: "Giant Monsters",
+  FestivalGods_GiantMonsters_20200229: "Festival - Giant Monsters"
 };
 
 exports.EVENT_TO_FORMAT = {
@@ -178,6 +180,7 @@ exports.EVENT_TO_FORMAT = {
   QuickDraft_DOM_20200103: "Draft DOM",
   QuickDraft_THB_20200131: "Draft THB",
   QuickDraft_GRN_20200214: "Draft GRN",
+  QuickDraft_THB_20200228: "Draft THB",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Draft M20",
@@ -214,12 +217,14 @@ exports.EVENT_TO_FORMAT = {
   Planecation3_Singleton: "Singleton",
   Planecation4_Shakeup: "Shakeup",
   Planecation5_Landfall: "Landfall",
-  Giant_Monsters_20190719: "Giant Monsters"
+  Giant_Monsters_20190719: "Giant Monsters",
+  FestivalGods_GiantMonsters_20200229: "Giant Monsters"
 };
 
 // These are the current events in the ranked ladder
 exports.LIMITED_RANKED_EVENTS = [
   "QuickDraft_THB_20200131",
+  "QuickDraft_THB_20200228",
   "QuickDraft_GRN_20200214"
 ];
 
@@ -520,7 +525,7 @@ exports.SETS_DATA = {
     code: "CMD",
     arenacode: "CMD",
     tile: 64827,
-    release: "Released 2011-06-17"
+    release: "2011-06-17"
   },
   "Avacyn Restored": {
     collation: -1,
