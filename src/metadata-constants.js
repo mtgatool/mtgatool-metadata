@@ -880,6 +880,7 @@ exports.NO_DUPES_ART_SETS = [
   "prix",
   "f05",
   "unh",
+  "und",
   "c16",
   "mir"
 ];
@@ -919,6 +920,7 @@ exports.ALLOWED_SCRYFALL = [
   "mir",
   "akh",
   "unh",
+  "und",
   "c16",
   "pls",
   "scg",
