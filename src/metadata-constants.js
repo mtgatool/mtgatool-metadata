@@ -862,6 +862,14 @@ exports.SETS_DATA = {
     tile: 67003,
     release: "2020-02-29"
   },
+  "Alara Reborn": {
+    collation: -1,
+    scryfall: "arb",
+    code: "ARB",
+    arenacode: "ARB",
+    tile: 67003,
+    release: "2009-04-30"
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -950,7 +958,8 @@ exports.SET_NAMES = {
   CONF: "Conflux",
   DKA: "Dark Ascension",
   M15: "Magic 2015",
-  UND: "Unsanctioned"
+  UND: "Unsanctioned",
+  ARB: "Alara Reborn"
 };
 
 /*
@@ -1074,6 +1083,7 @@ exports.ALLOWED_SCRYFALL = [
   "dka",
   "m15",
   "und",
+  "arb"
 ];
 
 exports.RANKS_SHEETS = [
