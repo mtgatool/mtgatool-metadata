@@ -790,6 +790,78 @@ exports.SETS_DATA = {
     tile: 67003,
     release: "2012-07-13"
   },
+  "Mercadian Masques": {
+    collation: -1,
+    scryfall: "mmq",
+    code: "MMQ",
+    arenacode: "MMQ",
+    tile: 67003,
+    release: "1999-10-04"
+  },
+  "Onslaught": {
+    collation: -1,
+    scryfall: "ons",
+    code: "ONS",
+    arenacode: "ONS",
+    tile: 67003,
+    release: "2002-10-07"
+  },
+  "Shards of Alara": {
+    collation: -1,
+    scryfall: "ala",
+    code: "ALA",
+    arenacode: "ALA",
+    tile: 67003,
+    release: "2008-10-03"
+  },
+  "Scars of Mirrodin": {
+    collation: -1,
+    scryfall: "som",
+    code: "SOM",
+    arenacode: "SOM",
+    tile: 67003,
+    release: "2010-10-01"
+  },
+  "Innistrad": {
+    collation: -1,
+    scryfall: "isd",
+    code: "ISD",
+    arenacode: "ISD",
+    tile: 67003,
+    release: "2011-09-30"
+  },
+  "Conflux": {
+    collation: -1,
+    scryfall: "cfx",
+    code: "CONF",
+    arenacode: "CONF",
+    tile: 67003,
+    release: "2009-02-06"
+  },
+  "Dark Ascension": {
+    collation: -1,
+    scryfall: "dka",
+    code: "DKA",
+    arenacode: "DKA",
+    tile: 67003,
+    release: "2012-02-03"
+  },
+  "Magic 2015": {
+    collation: -1,
+    scryfall: "m15",
+    code: "M15",
+    arenacode: "M15",
+    tile: 67003,
+    release: "2014-07-18"
+  },
+  "Unsanctioned": {
+    collation: -1,
+    scryfall: "und",
+    code: "UND",
+    arenacode: "UND",
+    tile: 67003,
+    release: "2020-02-29"
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -869,7 +941,16 @@ exports.SET_NAMES = {
   SHM: "Shadowmoor",
   MRD: "Mirrodin",
   ODY: "Odyssey",
-  M13: "Magic 2013"
+  M13: "Magic 2013",
+  MMQ: "Mercadian Masques",
+  ONS: "Onslaught",
+  ALA: "Shards of Alara",
+  SOM: "Scars of Mirrodin",
+  ISD: "Innistrad",
+  CONF: "Conflux",
+  DKA: "Dark Ascension",
+  M15: "Magic 2015",
+  UND: "Unsanctioned"
 };
 
 exports.NO_DUPES_ART_SETS = [
@@ -880,7 +961,6 @@ exports.NO_DUPES_ART_SETS = [
   "prix",
   "f05",
   "unh",
-  "und",
   "c16",
   "mir"
 ];
@@ -967,7 +1047,16 @@ exports.ALLOWED_SCRYFALL = [
   "mrd",
   "ody",
   "m13",
-  "tm13"
+  "tm13",
+  "mmq",
+  "ons",
+  "ala",
+  "som",
+  "isd",
+  "cfx",
+  "dka",
+  "m15",
+  "und",
 ];
 
 exports.RANKS_SHEETS = [
