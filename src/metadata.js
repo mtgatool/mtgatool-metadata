@@ -34,9 +34,6 @@ if (!fs.existsSync(OutDIr)){
 }
 
 console.log("Begin Metadata fetch.");
-// It would be nice if we could suppy the version manually or
-// obtain it from somewhere automatically, like a settings
-// file or the output log itself.
 manifestParser
   .getArenaVersion()
   .then(version =>

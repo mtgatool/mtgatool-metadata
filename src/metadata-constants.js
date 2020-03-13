@@ -953,6 +953,23 @@ exports.SET_NAMES = {
   UND: "Unsanctioned"
 };
 
+/*
+  Sets are stored temporarly when reading from scryfall to index the new
+  database (generateScryfallDatabase), so we can read their scryfall data
+  later when indexing the new cards.json.
+  
+  NO_DUPES_ART_SETS contains sets that are accessed by their card name only;
+    ScryfallCards[LANG][SET][CARDNAME]
+  Every other set is accessed by both their card name and collectors number;
+    ScryfallCards[LANG][SET][CARDNAME][COLLECTOR]
+  
+  This is because some cards in arena dont have exact *data* matches in paper,
+  like promo cards (pm20), so we store them by name to access them directly.
+  This is not possible with all sets because most have multiple artworks of 
+  he same card, like basic lands.
+
+  DO NOT add sets here that contain multiple artworks of the same card name!
+*/
 exports.NO_DUPES_ART_SETS = [
   "pm20",
   "g18",
