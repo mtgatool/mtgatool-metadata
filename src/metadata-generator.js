@@ -145,7 +145,7 @@ exports.generateMetadata = function(
         cardObj.booster = false;
 
         let scryfallObject = undefined;
-        let scryfallSet = SETS_DATA[set].scryfall;
+        let scryfallSet = SETS_DATA[set] ? SETS_DATA[set].scryfall : "";
         if (!card.isToken) {
           // ANA lands
           // These arent the exact ones, these are lands from
@@ -171,7 +171,21 @@ exports.generateMetadata = function(
             scryfallSet = "dom";
           }
 
-          // Unhingued lands
+          // Unsanctioned lands (hidden squirrel)
+          if (cardId == 73136) scryfallSet = "und";
+          if (cardId == 73137) scryfallSet = "und";
+          if (cardId == 73138) scryfallSet = "und";
+          if (cardId == 73139) scryfallSet = "und";
+          if (cardId == 73140) scryfallSet = "und";
+
+          // Unsanctioned lands (full art)
+          if (cardId == 73141) scryfallSet = "und";
+          if (cardId == 73142) scryfallSet = "und";
+          if (cardId == 73143) scryfallSet = "und";
+          if (cardId == 73144) scryfallSet = "und";
+          if (cardId == 73145) scryfallSet = "und";
+
+          // Unhinged lands
           if (cardId == 70501) scryfallSet = "unh";
           if (cardId == 70502) scryfallSet = "unh";
           if (cardId == 70503) scryfallSet = "unh";
@@ -212,7 +226,7 @@ exports.generateMetadata = function(
         }
 
         // Add ranks data
-        let setCode = SETS_DATA[set].code;
+        let setCode = SETS_DATA[set] ? SETS_DATA[set].code : "";
         if (ranksData[setCode] && ranksData[setCode][englishName]) {
           cardObj.rank = Math.round(ranksData[setCode][englishName].rank);
           cardObj.rank_values = ranksData[setCode][englishName].values;
