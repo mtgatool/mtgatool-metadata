@@ -837,7 +837,7 @@ exports.SETS_DATA = {
   },
   "Conflux": {
     collation: -1,
-    scryfall: "cfx",
+    scryfall: "con",
     code: "CONF",
     arenacode: "CONF",
     tile: 67003,
