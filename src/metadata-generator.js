@@ -172,18 +172,48 @@ exports.generateMetadata = function(
           }
 
           // Unsanctioned lands (hidden squirrel)
-          if (cardId == 73136) scryfallSet = "und";
-          if (cardId == 73137) scryfallSet = "und";
-          if (cardId == 73138) scryfallSet = "und";
-          if (cardId == 73139) scryfallSet = "und";
-          if (cardId == 73140) scryfallSet = "und";
+          if (cardId == 73136) {
+            collector = 87;
+            scryfallSet = "und";
+          }
+          if (cardId == 73137) {
+            collector = 89;
+            scryfallSet = "und";
+          }
+          if (cardId == 73138) {
+            collector = 91;
+            scryfallSet = "und";
+          }
+          if (cardId == 73139) {
+            collector = 93;
+            scryfallSet = "und";
+          }
+          if (cardId == 73140) {
+            colllector = 95;
+            scryfallSet = "und";
+          }
 
           // Unsanctioned lands (full art)
-          if (cardId == 73141) scryfallSet = "und";
-          if (cardId == 73142) scryfallSet = "und";
-          if (cardId == 73143) scryfallSet = "und";
-          if (cardId == 73144) scryfallSet = "und";
-          if (cardId == 73145) scryfallSet = "und";
+          if (cardId == 73141) {
+            collector = 88;
+            scryfallSet = "und";
+          }
+          if (cardId == 73142) {
+            collector = 90;
+            scryfallSet = "und";
+          }
+          if (cardId == 73143) {
+            collector = 92;
+            scryfallSet = "und";
+          }
+          if (cardId == 73144) {
+            collector = 94;
+            scryfallSet = "und";
+          }
+          if (cardId == 73145) {
+            collector = 96;
+            scryfallSet = "und";
+          }
 
           // Unhinged lands
           if (cardId == 70501) scryfallSet = "unh";
