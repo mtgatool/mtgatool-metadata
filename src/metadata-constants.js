@@ -1082,7 +1082,6 @@ exports.ALLOWED_SCRYFALL = [
   "cfx",
   "dka",
   "m15",
-  "und",
   "arb"
 ];
 
