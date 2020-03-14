@@ -94,11 +94,13 @@ exports.EVENT_TO_NAME = {
   QuickDraft_THB_20200131: "Ranked Draft THB 01/20",
   QuickDraft_GRN_20200214: "Ranked Draft GRN 02/20",
   QuickDraft_THB_20200228: "Ranked Draft THB 03/20",
+  QuickDraft_RNA_20200313: "Ranked Draft RNA 03/20",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Omniscience Draft M20",
   Omniscience_Draft_20191107: "Omniscience Draft ELD",
 
+  Esports_MIQ_20200314: "Mythic Qualifier Weekend 03/20",
   Esports_Qualifier_20190525: "Mythic Qualifier Weekend 05/19",
   Esports_Qualifier_20190817: "Mythic Qualifier Weekend 08/19",
   CompCons_Metagame_Challenge_20190712: "Metagame Challenge 07/19",
@@ -189,6 +191,7 @@ exports.EVENT_TO_FORMAT = {
   QuickDraft_THB_20200131: "Draft THB",
   QuickDraft_GRN_20200214: "Draft GRN",
   QuickDraft_THB_20200228: "Draft THB",
+  QuickDraft_RNA_20200313: "Draft RNA",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Draft M20",
@@ -196,6 +199,7 @@ exports.EVENT_TO_FORMAT = {
 
   Historic_Challenge_20200111: "Historic",
   Momir_PW_20200110: "Momir",
+  Esports_MIQ_20200314: "Traditional Standard",
   Esports_Qualifier_20190525: "Traditional Standard",
   Esports_Qualifier_20190817: "Traditional Standard",
   CompCons_Metagame_Challenge_20190712: "Traditional Standard",
@@ -240,7 +244,8 @@ exports.EVENT_TO_FORMAT = {
 exports.LIMITED_RANKED_EVENTS = [
   "QuickDraft_THB_20200131",
   "QuickDraft_THB_20200228",
-  "QuickDraft_GRN_20200214"
+  "QuickDraft_GRN_20200214",
+  "QuickDraft_RNA_20200313"
 ];
 
 exports.STANDARD_RANKED_EVENTS = ["Ladder", "Traditional_Ladder", "Traditional_Historic_Ladder"];
