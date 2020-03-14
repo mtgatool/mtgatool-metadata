@@ -18,7 +18,6 @@ describe("Check sets data", () => {
 });
 
 function getSets() {
-  console.log("getSets");
   let file = path.join(APPDATA, EXTERNAL, "cards.json");
   let cards = JSON.parse(`{"value": ${fs.readFileSync(file)}}`);
 
