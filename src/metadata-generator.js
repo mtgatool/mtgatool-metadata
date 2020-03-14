@@ -14,7 +14,7 @@ const {
   STANDARD_RANKED_EVENTS,
   SINGLE_MATCH_EVENTS,
   SCRYFALL_LANGUAGE,
-  LANGKEYS
+  LANGKEYS,
 } = require("./metadata-constants");
 
 exports.generateMetadata = function(
@@ -235,6 +235,10 @@ exports.generateMetadata = function(
           if (cardId == 70140) scryfallSet = "prix";
           // Promo Duress
           if (cardId == 70141) scryfallSet = "f05";
+
+          cardObj.set = Object.keys(SETS_DATA).filter(
+            key => SETS_DATA[key].scryfall == scryfallSet
+          )[0];
         } else {
           // If the card is a token the scryfall set name begins with "t"
           scryfallSet = "t" + scryfallSet;
@@ -294,11 +298,7 @@ exports.generateMetadata = function(
         ) {
           // English failed..
           console.log(
-            `No scryfall data for [${lang}] ${
-              cardObj.name
-            } (${englishName}) - ${scryfallSet} (${cardObj.cid}) grpId: ${
-              cardObj.id
-            }`
+            `No scryfall data for [${lang}] ${cardObj.name} (${englishName}) - ${scryfallSet} (${cardObj.cid}) grpId: ${cardObj.id}`
           );
           cardObj.images = {};
         } else {
@@ -366,7 +366,7 @@ exports.generateMetadata = function(
         limited_ranked_events: LIMITED_RANKED_EVENTS,
         standard_ranked_events: STANDARD_RANKED_EVENTS,
         single_match_events: SINGLE_MATCH_EVENTS,
-        archetypes: metagameData
+        archetypes: metagameData,
       };
 
       // Write to a file
