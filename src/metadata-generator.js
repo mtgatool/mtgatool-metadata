@@ -147,6 +147,7 @@ exports.generateMetadata = function(
         let scryfallObject = undefined;
         let scryfallSet = SETS_DATA[set] ? SETS_DATA[set].scryfall : "";
         if (!card.isToken) {
+          const orig = scryfallSet + colllector;
           // ANA lands
           // These arent the exact ones, these are lands from
           // random sets but with the same art.
@@ -236,9 +237,12 @@ exports.generateMetadata = function(
           // Promo Duress
           if (cardId == 70141) scryfallSet = "f05";
 
-          cardObj.set = Object.keys(SETS_DATA).filter(
-            key => SETS_DATA[key].scryfall == scryfallSet
-          )[0];
+          if (orig !== scryfallSet + colllector) {
+            const origSet = cardObj.set;
+            cardObj.set = Object.keys(SETS_DATA).filter(
+              key => SETS_DATA[key].scryfall == scryfallSet
+            )[0] || origSet;
+          }
         } else {
           // If the card is a token the scryfall set name begins with "t"
           scryfallSet = "t" + scryfallSet;
@@ -438,3 +442,5 @@ function readExternalJson(filename) {
   let json = JSON.parse(`{"value": ${fs.readFileSync(file)}}`);
   return json.value;
 }
+
+exports.readExternalJson = readExternalJson;
