@@ -1084,7 +1084,7 @@ exports.ALLOWED_SCRYFALL = [
   "ala",
   "som",
   "isd",
-  "cfx",
+  "con",
   "dka",
   "m15",
   "arb"
