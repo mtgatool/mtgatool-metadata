@@ -62,6 +62,8 @@ exports.EVENT_TO_NAME = {
   Future_Ranked_20190909: "Future Ranked",
   Historic_Play: "Historic Play",
 
+  Brawlers_Guildhall_20200319: "Brawlers Guildhall 03/20",
+
   CompDraft_RNA_20190117: "Traditional Draft RNA",
   CompDraft_WAR_20190425: "Traditional Draft WAR",
   CompDraft_M20_20190708: "Traditional Draft M20",
@@ -112,10 +114,11 @@ exports.EVENT_TO_NAME = {
   FestivalGods_GiantMonsters_20200229: "Festival: Nyleas Call of the Wild",
   FestivalGods_HistoricBrawl_20200313: "Festival: Erebos Memoir of Death",
   FestivalGods_ImmortalSun_20200307: "Festival: Heliods Glory",
-  // FestivalGods_XXXXX_20200321: "Festival: Thassas Briny Bounty",
+  FestivalGods_ThassaDeck_20200321: "Festival: Thassas Briny Bounty",
   Workshop_Brawl_20200224: "Workshop: Power and Glory",
   Workshop_Draft_THB_20200302: "Workshop: Heros of Theros",
   Workshop_OffMeta_20200309: "Workshop: Uncharted Paths",
+  Workshop_Historic_20200316: "Workshop: Heirlooms of History",
   FestivalFae_Std_Artisan_20191103: "Festival: Standard Artisan",
   FestivalFae_OkosMadness_20191110: "Festival: Okos Madness",
   FestivalFae_Cascade_20191117: "Festival: Standard Cascade",
@@ -158,6 +161,8 @@ exports.EVENT_TO_FORMAT = {
   Traditional_Historic_Ladder: "Traditional Historic",
   Future_Play_20190909: "Future",
   Future_Ranked_20190909: "Traditional Future",
+
+  Brawlers_Guildhall_20200319: "Brawl",
 
   CompDraft_RNA_20190117: "Draft RNA",
   CompDraft_WAR_20190425: "Draft WAR",
@@ -211,10 +216,11 @@ exports.EVENT_TO_FORMAT = {
   FestivalGods_GiantMonsters_20200229: "Giant Monsters",
   FestivalGods_ImmortalSun_20200307: "Immortal Sun",
   FestivalGods_HistoricBrawl_20200313: "Historic Brawl",
-  // FestivalGods_XXXXX_20200321: "Preconstructed Singleton",
+  FestivalGods_ThassaDeck_20200321: "Preconstructed Singleton",
   Workshop_Brawl_20200224: "Brawl",
   Workshop_Draft_THB_20200302: "Preconstructed Draft THB",
   Workshop_OffMeta_20200309: "Preconstructed Standard",
+  Workshop_Historic_20200316: "Historic",
   FestivalFae_Std_Artisan_20191103: "Standard Artisan",
   FestivalFae_OkosMadness_20191110: "Momir",
   FestivalFae_Cascade_20191117: "Cascade",
