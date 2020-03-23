@@ -53,6 +53,7 @@ exports.EVENT_TO_NAME = {
   Constructed_Event: "Constructed",
   Constructed_Event_2020: "Standard Event",
   Ladder: "Standard Ranked",
+  Historic_Ladder: "Historic Ranked",
   Traditional_Cons_Event: "Traditional Constructed",
   Traditional_Cons_Event_2020: "Traditional Standard Event",
   Constructed_BestOf3: "Traditional Standard Play",
@@ -151,6 +152,7 @@ exports.EVENT_TO_FORMAT = {
   Constructed_Event: "Standard",
   Constructed_Event_2020: "Standard",
   Ladder: "Standard",
+  Historic_Ladder: "Historic",
   Traditional_Cons_Event: "Traditional Standard",
   Traditional_Cons_Event_2020: "Traditional Standard",
   Constructed_BestOf3: "Traditional Standard",
@@ -248,7 +250,7 @@ exports.LIMITED_RANKED_EVENTS = [
   "QuickDraft_RNA_20200313"
 ];
 
-exports.STANDARD_RANKED_EVENTS = ["Ladder", "Traditional_Ladder", "Traditional_Historic_Ladder"];
+exports.STANDARD_RANKED_EVENTS = ["Ladder", "Traditional_Ladder", "Historic_Ladder", "Traditional_Historic_Ladder"];
 
 exports.SINGLE_MATCH_EVENTS = [
   "Play",
@@ -258,7 +260,7 @@ exports.SINGLE_MATCH_EVENTS = [
   "DirectGame",
   "Ladder",
   "Constructed_BestOf3",
-  "Traditional_Ladder"
+  "Historic_Ladder"
 ];
 
 /*
