@@ -98,6 +98,7 @@ exports.EVENT_TO_NAME = {
   QuickDraft_GRN_20200214: "Ranked Draft GRN 02/20",
   QuickDraft_THB_20200228: "Ranked Draft THB 03/20",
   QuickDraft_RNA_20200313: "Ranked Draft RNA 03/20",
+  QuickDraft_THB_20200319: "Ranked Draft THB 03/20",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Omniscience Draft M20",
@@ -120,6 +121,7 @@ exports.EVENT_TO_NAME = {
   Workshop_Draft_THB_20200302: "Workshop: Heros of Theros",
   Workshop_OffMeta_20200309: "Workshop: Uncharted Paths",
   Workshop_Historic_20200316: "Workshop: Heirlooms of History",
+  Workshop_GuildBattle_20200323: "Workshop: Rise and Revolt",
   FestivalFae_Std_Artisan_20191103: "Festival: Standard Artisan",
   FestivalFae_OkosMadness_20191110: "Festival: Okos Madness",
   FestivalFae_Cascade_20191117: "Festival: Standard Cascade",
@@ -199,6 +201,7 @@ exports.EVENT_TO_FORMAT = {
   QuickDraft_GRN_20200214: "Draft GRN",
   QuickDraft_THB_20200228: "Draft THB",
   QuickDraft_RNA_20200313: "Draft RNA",
+  QuickDraft_THB_20200319: "Draft THB",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Draft M20",
@@ -223,6 +226,7 @@ exports.EVENT_TO_FORMAT = {
   Workshop_Draft_THB_20200302: "Preconstructed Draft THB",
   Workshop_OffMeta_20200309: "Preconstructed Standard",
   Workshop_Historic_20200316: "Historic",
+  Workshop_GuildBattle_20200323: "Preconstructed",
   FestivalFae_Std_Artisan_20191103: "Standard Artisan",
   FestivalFae_OkosMadness_20191110: "Momir",
   FestivalFae_Cascade_20191117: "Cascade",
@@ -253,10 +257,16 @@ exports.LIMITED_RANKED_EVENTS = [
   "QuickDraft_THB_20200131",
   "QuickDraft_THB_20200228",
   "QuickDraft_GRN_20200214",
-  "QuickDraft_RNA_20200313"
+  "QuickDraft_RNA_20200313",
+  "QuickDraft_THB_20200319"
 ];
 
-exports.STANDARD_RANKED_EVENTS = ["Ladder", "Traditional_Ladder", "Historic_Ladder", "Traditional_Historic_Ladder"];
+exports.STANDARD_RANKED_EVENTS = [
+  "Ladder",
+  "Traditional_Ladder",
+  "Historic_Ladder",
+  "Traditional_Historic_Ladder"
+];
 
 exports.SINGLE_MATCH_EVENTS = [
   "Play",
