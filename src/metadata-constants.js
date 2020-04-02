@@ -420,6 +420,14 @@ exports.SETS_DATA = {
     tile: 64827,
     release: "2020-01-24"
   },
+  "Ikoria: Lair of Behemoths": {
+    collation: 100017,
+    scryfall: "iko",
+    code: "IKO",
+    arenacode: "IKO",
+    tile: 67003,
+    release: "2020-04-16"
+  },
   // Other sets below
   "Mythic Edition": {
     collation: -1,
@@ -982,7 +990,8 @@ exports.SET_NAMES = {
   DKA: "Dark Ascension",
   M15: "Magic 2015",
   UND: "Unsanctioned",
-  ARB: "Alara Reborn"
+  ARB: "Alara Reborn",
+  IKO: "Ikoria: Lair of Behemoths"
 };
 
 /*
@@ -1105,7 +1114,8 @@ exports.ALLOWED_SCRYFALL = [
   "con",
   "dka",
   "m15",
-  "arb"
+  "arb",
+  "iko"
 ];
 
 exports.RANKS_SHEETS = [
