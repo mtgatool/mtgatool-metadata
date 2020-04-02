@@ -64,6 +64,7 @@ exports.EVENT_TO_NAME = {
   Historic_Play: "Historic Play",
 
   Brawlers_Guildhall_20200319: "Brawlers Guildhall 03/20",
+  Play_Brawl_20200401: "Play Brawl",
 
   CompDraft_RNA_20190117: "Traditional Draft RNA",
   CompDraft_WAR_20190425: "Traditional Draft WAR",
@@ -127,6 +128,7 @@ exports.EVENT_TO_NAME = {
   FestivalFae_Cascade_20191117: "Festival: Standard Cascade",
   Historic_Launch_20191121: "Historic Launch",
   Historic_Pauper_20191128: "Historic Pauper",
+  Historic_Pauper_20200328: "Historic Pauper",
   Monthly_Brawl_20191212: "Monthly Brawl",
   Historic_Artisan_20191220: "Historic Artisan",
   Historic_Event: "Historic Event",
@@ -167,6 +169,7 @@ exports.EVENT_TO_FORMAT = {
   Future_Ranked_20190909: "Traditional Future",
 
   Brawlers_Guildhall_20200319: "Brawl",
+  Play_Brawl_20200401: "Brawl",
 
   CompDraft_RNA_20190117: "Draft RNA",
   CompDraft_WAR_20190425: "Draft WAR",
@@ -231,7 +234,8 @@ exports.EVENT_TO_FORMAT = {
   FestivalFae_OkosMadness_20191110: "Momir",
   FestivalFae_Cascade_20191117: "Cascade",
   Historic_Launch_20191121: "Historic",
-  Historic_Pauper_20191128: "Pauper",
+  Historic_Pauper_20191128: "Historic Pauper 11/19",
+  Historic_Pauper_20200328: "Historic Pauper",
   Monthly_Brawl_20191212: "Brawl",
   Historic_Artisan_20191220: "Artisan",
   Historic_Event: "Historic",
