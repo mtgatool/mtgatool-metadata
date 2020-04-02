@@ -100,6 +100,7 @@ exports.EVENT_TO_NAME = {
   QuickDraft_THB_20200228: "Ranked Draft THB 03/20",
   QuickDraft_RNA_20200313: "Ranked Draft RNA 03/20",
   QuickDraft_THB_20200319: "Ranked Draft THB 03/20",
+  QuickDraft_M19_20200327: "Ranked Draft M19 03/20",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Omniscience Draft M20",
@@ -205,6 +206,7 @@ exports.EVENT_TO_FORMAT = {
   QuickDraft_THB_20200228: "Draft THB",
   QuickDraft_RNA_20200313: "Draft RNA",
   QuickDraft_THB_20200319: "Draft THB",
+  QuickDraft_M19_20200327: "Draft M19",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Draft M20",
@@ -262,7 +264,8 @@ exports.LIMITED_RANKED_EVENTS = [
   "QuickDraft_THB_20200228",
   "QuickDraft_GRN_20200214",
   "QuickDraft_RNA_20200313",
-  "QuickDraft_THB_20200319"
+  "QuickDraft_THB_20200319",
+  "QuickDraft_M19_20200327"
 ];
 
 exports.STANDARD_RANKED_EVENTS = [
