@@ -134,6 +134,10 @@ exports.EVENT_TO_NAME = {
   Historic_Artisan_20191220: "Historic Artisan",
   Historic_Event: "Historic Event",
   Traditional_Historic_Event: "Traditional Historic Event",
+  CubeSealed_Arena_20200404: "Cube Sealed",
+  // Adding a dash to put them above other events ?
+  FNM_PlayAnyDeck_20200403: "-FNM Play Any Deck 03/04/2020",
+  Esports_MPC_20200404: "-Mythic Points Challenge",
 
   Historic_Challenge_20200111: "Historic Challenge",
   Momir_PW_20200110: "Momir PW",
@@ -242,6 +246,9 @@ exports.EVENT_TO_FORMAT = {
   Historic_Artisan_20191220: "Artisan",
   Historic_Event: "Historic",
   Traditional_Historic_Event: "Historic",
+  FNM_PlayAnyDeck_20200403: "Standard",
+  CubeSealed_Arena_20200404: "Sealed",
+  Esports_MPC_20200404: "Traditional Standard",
 
   Brawl_Launch_20191024: "Brawl",
   Precon_Brawl_ELD: "Brawl",
