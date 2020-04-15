@@ -323,8 +323,11 @@ exports.generateMetadata = function(
           cardObj.booster = scryfallObject.booster;
           cardObj.images = scryfallObject.image_uris;
         }
-
-        cardsFinal[cardObj.id] = cardObj;
+        // Dont add tokens
+        // Temporary fix until v4 is stable.
+        if (!card.isToken) {
+          cardsFinal[cardObj.id] = cardObj;
+        }
       });
 
       // Add reprints and split cards references
