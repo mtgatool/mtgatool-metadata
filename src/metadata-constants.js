@@ -124,6 +124,7 @@ exports.EVENT_TO_NAME = {
   Workshop_OffMeta_20200309: "Workshop: Uncharted Paths",
   Workshop_Historic_20200316: "Workshop: Heirlooms of History",
   Workshop_GuildBattle_20200323: "Workshop: Rise and Revolt",
+  Workshop_GuildBattle_20200413: "Workshop: Rise and Revolt",
   FestivalFae_Std_Artisan_20191103: "Festival: Standard Artisan",
   FestivalFae_OkosMadness_20191110: "Festival: Okos Madness",
   FestivalFae_Cascade_20191117: "Festival: Standard Cascade",
@@ -236,6 +237,7 @@ exports.EVENT_TO_FORMAT = {
   Workshop_OffMeta_20200309: "Preconstructed Standard",
   Workshop_Historic_20200316: "Historic",
   Workshop_GuildBattle_20200323: "Preconstructed",
+  Workshop_GuildBattle_20200413: "Preconstructed",
   FestivalFae_Std_Artisan_20191103: "Standard Artisan",
   FestivalFae_OkosMadness_20191110: "Momir",
   FestivalFae_Cascade_20191117: "Cascade",
@@ -431,7 +433,7 @@ exports.SETS_DATA = {
     scryfall: "thb",
     code: "THB",
     arenacode: "THB",
-    tile: 64827,
+    tile: 70735,
     release: "2020-01-24"
   },
   "Ikoria: Lair of Behemoths": {
@@ -915,6 +917,14 @@ exports.SETS_DATA = {
     tile: 67003,
     release: "2009-04-30"
   },
+  "Secret Lair Drop": {
+    collation: -1,
+    scryfall: "sld",
+    code: "SLD",
+    arenacode: "SLD",
+    tile: 67003,
+    release: "2019-12-02"
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -1005,7 +1015,8 @@ exports.SET_NAMES = {
   M15: "Magic 2015",
   UND: "Unsanctioned",
   ARB: "Alara Reborn",
-  IKO: "Ikoria: Lair of Behemoths"
+  IKO: "Ikoria: Lair of Behemoths",
+  SLD: "Secret Lair Drop"
 };
 
 /*
@@ -1129,7 +1140,8 @@ exports.ALLOWED_SCRYFALL = [
   "dka",
   "m15",
   "arb",
-  "iko"
+  "iko",
+  "sld"
 ];
 
 exports.RANKS_SHEETS = [

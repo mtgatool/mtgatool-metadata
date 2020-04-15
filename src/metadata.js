@@ -35,7 +35,7 @@ if (!fs.existsSync(OutDIr)){
 
 console.log("Begin Metadata fetch.");
 manifestParser
-  .getArenaVersion()
+  .getArenaVersion("VIP")
   .then(version =>
     manifestParser.getManifestFiles(version)
   )
