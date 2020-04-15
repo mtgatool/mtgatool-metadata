@@ -140,8 +140,9 @@ exports.generateMetadata = function(
         cardObj.frame = card.frameColors;
         cardObj.artist = card.artistCredit;
         cardObj.dfc = card.linkedFaceType;
-        cardObj.collectible = card.isCollectible;
-        cardObj.craftable = card.isCraftable;
+        // These two are now deprecated
+        cardObj.collectible = true;//card.isCollectible;
+        cardObj.craftable = true;//card.isCraftable;
         cardObj.booster = false;
 
         let scryfallObject = undefined;
