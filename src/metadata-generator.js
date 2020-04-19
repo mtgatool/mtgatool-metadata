@@ -15,6 +15,8 @@ const {
   SINGLE_MATCH_EVENTS,
   SCRYFALL_LANGUAGE,
   LANGKEYS,
+  RATINGS_MTGCSR,
+  RATINGS_LOLA
 } = require("./metadata-constants");
 
 exports.generateMetadata = function(
@@ -140,10 +142,11 @@ exports.generateMetadata = function(
         cardObj.frame = card.frameColors;
         cardObj.artist = card.artistCredit;
         cardObj.dfc = card.linkedFaceType;
+        cardObj.isPrimary = card.isPrimaryCard;
         // These two are now deprecated :(
         cardObj.collectible = true;//card.isCollectible;
         cardObj.craftable = true;//card.isCraftable;
-        cardObj.booster = false;
+        cardObj.booster = card.isPrimaryCard;
 
         let scryfallObject = undefined;
         let scryfallSet = SETS_DATA[set] ? SETS_DATA[set].scryfall : "";
@@ -267,12 +270,22 @@ exports.generateMetadata = function(
         // Add ranks data
         let setCode = SETS_DATA[set] ? SETS_DATA[set].code : "";
         if (ranksData[setCode] && ranksData[setCode][englishName]) {
-          cardObj.rank = Math.round(ranksData[setCode][englishName].rank);
-          cardObj.rank_values = ranksData[setCode][englishName].values;
-          cardObj.rank_controversy = ranksData[setCode][
-            englishName
-          ].cont.toFixed(3);
+          const rData = ranksData[setCode][englishName];
+          if (rData.source == RATINGS_MTGCSR) {
+            cardObj.rank = Math.round(rData.rank);
+            cardObj.rank_values = rData.values;
+            cardObj.rank_controversy = ranksData[setCode][
+              englishName
+            ].cont.toFixed(3);
+          }
+          if (rData.source == RATINGS_LOLA) {
+            cardObj.rank = Math.round(rData.rank).toFixed(3);
+            cardObj.side = rData.side;
+            cardObj.ceil = rData.ceil;
+            cardObj.rank_values = rData.values;
+          }
         } else {
+          cardObj.rankSource = -1;
           cardObj.rank = 0;
           cardObj.rank_values = 0;
           cardObj.rank_controversy = 0;
@@ -320,14 +333,15 @@ exports.generateMetadata = function(
               ].replace(rep, "");
             });
           }
-          cardObj.booster = scryfallObject.booster;
-          cardObj.images = scryfallObject.image_uris;
+          if (scryfallObject.booster == false) {
+            cardObj.booster = false;
+          }
+          // Push only if not a TOHO frame (Ikoria monsters)
+          if (!card.frameDetails.includes("toho")) {
+            cardObj.images = scryfallObject.image_uris;
+          }
         }
-        // Dont add tokens
-        // Temporary fix until v4 is stable.
-        if (!card.isToken) {
-          cardsFinal[cardObj.id] = cardObj;
-        }
+        cardsFinal[cardObj.id] = cardObj;
       });
 
       // Add reprints and split cards references

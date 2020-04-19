@@ -18,7 +18,9 @@ const {
   SETS_DATA,
   NO_DUPES_ART_SETS,
   ALLOWED_SCRYFALL,
-  ARENA_SVG
+  ARENA_SVG,
+  RATINGS_MTGCSR,
+  RATINGS_LOLA
 } = require("./metadata-constants");
 
 let metagameData = {};
@@ -35,7 +37,7 @@ if (!fs.existsSync(OutDIr)){
 
 console.log("Begin Metadata fetch.");
 manifestParser
-  .getArenaVersion("VIP")
+  .getArenaVersion()
   .then(version =>
     manifestParser.getManifestFiles(version)
   )
@@ -74,7 +76,7 @@ function getRanksData() {
           console.log(`${rank.setCode.toUpperCase()} ok.`);
           resolve();
           try {
-            ranksData[rank.setCode.toUpperCase()] = processRanksData(str);
+            ranksData[rank.setCode.toUpperCase()] = processRanksData(str, rank.source);
           } catch (e) {
             console.log("Error processing " + rank.setCode, e);
           }
@@ -86,30 +88,46 @@ function getRanksData() {
   return Promise.all(requests);
 }
 
-function processRanksData(str) {
-  let data = JSON.parse(str);
-  let ret = {};
-  data.table.rows.forEach(row => {
-    let name = row.c[0].v;
-    let rank = row.c[4].v;
-    let cont = row.c[5].v;
-    let values = [
-      row.c[9].v,
-      row.c[10].v,
-      row.c[11].v,
-      row.c[12].v,
-      row.c[13].v,
-      row.c[14].v,
-      row.c[15].v,
-      row.c[16].v,
-      row.c[17].v,
-      row.c[18].v,
-      row.c[19].v,
-      row.c[20].v,
-      row.c[21].v
-    ];
-    ret[name] = { rank: rank, cont: cont, values: values };
-  });
+function processRanksData(str, source) {
+let data = JSON.parse(str);
+let ret = {};
+if (source == RATINGS_MTGCSR) {
+    data.table.rows.forEach(row => {
+      let name = row.c[0].v;
+      let rank = row.c[4].v;
+      let cont = row.c[5].v;
+      let values = [
+        row.c[9].v,
+        row.c[10].v,
+        row.c[11].v,
+        row.c[12].v,
+        row.c[13].v,
+        row.c[14].v,
+        row.c[15].v,
+        row.c[16].v,
+        row.c[17].v,
+        row.c[18].v,
+        row.c[19].v,
+        row.c[20].v,
+        row.c[21].v
+      ];
+      ret[name] = { rankSource: source, rank: rank, cont: cont, values: values };
+    });
+  }
+  if (source == RATINGS_LOLA) {
+    data.table.rows.forEach(row => {
+      let name = row.c[0].v;
+      let rank = row.c[10].v;
+      let side = row.c[5] ? true : false;
+      let ceil = row.c[4] ? row.c[4].v : rank;
+      let values = [
+        row.c[1].v,
+        row.c[2].v,
+        row.c[3].v,
+      ];
+      ret[name] = { rankSource: source, rank: rank, side: side, ceil: ceil, values: values };
+    });
+  }
 
   return ret;
 }

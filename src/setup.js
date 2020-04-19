@@ -1,7 +1,7 @@
 const manifestParser = require("./manifest-parser");
 
 manifestParser
-  .getArenaVersion("VIP")
+  .getArenaVersion()
   .then(version => manifestParser.getManifestFiles(version))
   .then(() => {
     process.exit();

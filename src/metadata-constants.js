@@ -1146,56 +1146,75 @@ exports.ALLOWED_SCRYFALL = [
   "sld"
 ];
 
+exports.RATINGS_MTGCSR = 0;
+exports.RATINGS_LOLA = 1;
+
 exports.RANKS_SHEETS = [
   {
     setCode: "war",
     sheet: "1pk3a1YKGas-NI4ze_8hbwOtVRdYAbzCDIBS9MKjcQ7M",
-    page: "Staging%20Sheet"
+    page: "Staging%20Sheet",
+    source: this.RATINGS_MTGCSR
   },
   {
     setCode: "rna",
     sheet: "1DfcITmtWaBHtiDYLYWHzizw-AOrB3GUQaapc_BqfeH4",
-    page: "Staging%20Sheet"
+    page: "Staging%20Sheet",
+    source: this.RATINGS_MTGCSR
   },
   {
     setCode: "grn",
     sheet: "1FPN3hgl6x_ePq-8On7Ebr8L6WHSU2IznoWSBoGaC_RQ",
-    page: "Staging%20Sheet"
+    page: "Staging%20Sheet",
+    source: this.RATINGS_MTGCSR
   },
   {
     setCode: "m19",
     sheet: "1aZlqE-8mGdfQ50NXUaP-9dRk3w_hp9XmcBqZ_4x3_jk",
-    page: "Staging%20Sheet"
+    page: "Staging%20Sheet",
+    source: this.RATINGS_MTGCSR
   },
   {
     setCode: "dom",
     sheet: "1cc-AOmpQZ7vKqxDTSSvhmRBVOCy_569kT0S-j-Rpbj8",
-    page: "Staging%20Sheet"
+    page: "Staging%20Sheet",
+    source: this.RATINGS_MTGCSR
   },
   {
     setCode: "rix",
     sheet: "1CNg-FDp-pOtQ14Qj-rIBO-yfyr5YcPA6n6ztrEe4ATg",
-    page: "Staging%20Sheet"
+    page: "Staging%20Sheet",
+    source: this.RATINGS_MTGCSR
   },
   {
     setCode: "xln",
     sheet: "1KDtLJd6Nkrv_DDpFs84soBZcWPG1tg79TnVEh-enPz8",
-    page: "Staging%20Sheet"
+    page: "Staging%20Sheet",
+    source: this.RATINGS_MTGCSR
   },
   {
     setCode: "m20",
     sheet: "1BAPtQv4U9KUAtVzkccJlPS8cb0s_uOcGEDORip5uaQg",
-    page: "Staging%20Sheet"
+    page: "Staging%20Sheet",
+    source: this.RATINGS_MTGCSR
   },
   {
     setCode: "eld",
     sheet: "1B-bEUGANnGFPB4zW-vAV8zHjUZINwLU8Qq1sVlgIdpU",
-    page: "Staging%20Sheet"
+    page: "Staging%20Sheet",
+    source: this.RATINGS_MTGCSR
   },
   {
     setCode: "thb",
     sheet: "1zxR9zQxdEH9XI7CZmxiKeTQdU2nD8bVgYJ4bLUwV53s",
-    page: "Staging%20Sheet"
+    page: "Staging%20Sheet",
+    source: this.RATINGS_MTGCSR
+  },
+  {
+    setCode: "iko",
+    sheet: "1frdwYEvl4fUoVUwwoaz6q2hggVZHwggaitAk4ZGZDz8",
+    page: "Backend",
+    source: this.RATINGS_LOLA
   }
 ];
 
