@@ -64,6 +64,7 @@ exports.EVENT_TO_NAME = {
   Historic_Play: "Historic Play",
 
   Brawlers_Guildhall_20200319: "Brawlers Guildhall 03/20",
+  Brawlers_Guildhall_Alt_20200416: "Brawlers Guildhall 04/20",
   Play_Brawl_20200401: "Play Brawl",
 
   CompDraft_RNA_20190117: "Traditional Draft RNA",
@@ -102,6 +103,8 @@ exports.EVENT_TO_NAME = {
   QuickDraft_THB_20200319: "Ranked Draft THB 03/20",
   QuickDraft_M19_20200327: "Ranked Draft M19 03/20",
 
+  PremierDraft_IKO_20200416: "Premier Draft IKO 04/20",
+
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Omniscience Draft M20",
   Omniscience_Draft_20191107: "Omniscience Draft ELD",
@@ -138,8 +141,9 @@ exports.EVENT_TO_NAME = {
   Traditional_Historic_Event: "Traditional Historic Event",
   CubeSealed_Arena_20200404: "Cube Sealed",
   // Adding a dash to put them above other events ?
-  FNM_PlayAnyDeck_20200403: "-FNM Play Any Deck 03/04/2020",
-  Esports_MPC_20200404: "-Mythic Points Challenge",
+  FNM_PlayAnyDeck_20200403: "FNM Play Any Deck 03/04/2020",
+  Esports_MPC_20200404: "Mythic Points Challenge",
+  Sealed_IKO_20200416: "Ikoria Sealed",
 
   Historic_Challenge_20200111: "Historic Challenge",
   Momir_PW_20200110: "Momir PW",
@@ -176,6 +180,7 @@ exports.EVENT_TO_FORMAT = {
   Future_Ranked_20190909: "Traditional Future",
 
   Brawlers_Guildhall_20200319: "Brawl",
+  Brawlers_Guildhall_Alt_20200416: "Brawl",
   Play_Brawl_20200401: "Brawl",
 
   CompDraft_RNA_20190117: "Draft RNA",
@@ -213,6 +218,8 @@ exports.EVENT_TO_FORMAT = {
   QuickDraft_RNA_20200313: "Draft RNA",
   QuickDraft_THB_20200319: "Draft THB",
   QuickDraft_M19_20200327: "Draft M19",
+
+  PremierDraft_IKO_20200416: "Draft IKO",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Draft M20",
@@ -253,6 +260,7 @@ exports.EVENT_TO_FORMAT = {
   FNM_PlayAnyDeck_20200403: "Standard",
   CubeSealed_Arena_20200404: "Sealed",
   Esports_MPC_20200404: "Traditional Standard",
+  Sealed_IKO_20200416: "Sealed",
 
   Brawl_Launch_20191024: "Brawl",
   Precon_Brawl_ELD: "Brawl",
