@@ -7,6 +7,7 @@ const {
   SETS_DATA,
   SET_NAMES,
   RARITY,
+  CID_ART_SETS,
   NO_DUPES_ART_SETS,
   EVENT_TO_NAME,
   EVENT_TO_FORMAT,
@@ -19,14 +20,14 @@ const {
   RATINGS_LOLA
 } = require("./metadata-constants");
 
-exports.generateMetadata = function(
+exports.generateMetadata = function (
   ScryfallCards,
   ranksData,
   metagameData,
   version,
   languages
 ) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     console.log("Reading JSON files");
     let cards = readExternalJson("cards.json");
     let abilitiesRead = readExternalJson("abilities.json");
@@ -47,9 +48,9 @@ exports.generateMetadata = function(
     // Clean up kanji descriptions for JP
     const JpRegex = new RegExp(/ *（[^）]*） */g);
     let loc = {};
-    locRead.forEach(lang => {
+    locRead.forEach((lang) => {
       loc[LANGKEYS[lang.isoCode]] = {};
-      lang.keys.forEach(item => {
+      lang.keys.forEach((item) => {
         loc[LANGKEYS[lang.isoCode]][item.id] = item.text
           .replace(regex, "")
           .replace(JpRegex, "");
@@ -57,7 +58,7 @@ exports.generateMetadata = function(
     });
     locRead = null;
 
-    var getText = function(id, language) {
+    var getText = function (id, language) {
       return loc[language] == undefined ? loc["EN"][id] : loc[language][id];
     };
 
@@ -65,19 +66,19 @@ exports.generateMetadata = function(
     // This is because Tool currently relies and expects data to be in english
     // for things like creature types. And it would break.
     let enums = {};
-    enumsRead.forEach(_enum => {
+    enumsRead.forEach((_enum) => {
       enums[_enum.name] = {};
-      _enum.values.forEach(value => {
+      _enum.values.forEach((value) => {
         enums[_enum.name][value.id] = getText(value.text, "EN");
       });
     });
     enumsRead = null;
 
     let finalized = 0;
-    languages.forEach(lang => {
+    languages.forEach((lang) => {
       // Read abilities for this language
       let abilities = {};
-      abilitiesRead.forEach(ab => {
+      abilitiesRead.forEach((ab) => {
         let abid = ab.id;
         abilities[abid] = getText(ab.text, lang);
       });
@@ -85,18 +86,18 @@ exports.generateMetadata = function(
       // main loop
       console.log("Generating " + lang);
       let cardsFinal = {};
-      cards.forEach(card => {
+      cards.forEach((card) => {
         if (card.set == "ArenaSUP") return;
 
         // Get types line based on enums
         let typeLine = "";
-        card.supertypes.forEach(type => {
+        card.supertypes.forEach((type) => {
           typeLine += enums["SuperType"][type] + " ";
         });
-        card.types.forEach(type => {
+        card.types.forEach((type) => {
           typeLine += enums["CardType"][type] + " ";
         });
-        card.subtypes.forEach(type => {
+        card.subtypes.forEach((type) => {
           typeLine += enums["SubType"][type] + " ";
         });
         // Doing this throws an error in tool :(
@@ -104,7 +105,7 @@ exports.generateMetadata = function(
 
         // Clean up mana cost
         let manaCost = [];
-        card.castingcost.split("o").forEach(mana => {
+        card.castingcost.split("o").forEach((mana) => {
           if (mana !== "" && mana !== "0") {
             mana = mana
               .toLowerCase()
@@ -130,6 +131,7 @@ exports.generateMetadata = function(
         let cardId = card.grpid;
         let cardName = getText(card.titleId, lang);
         let englishName = getText(card.titleId, "EN");
+
         cardObj.id = cardId;
         cardObj.name = cardName;
         cardObj.set = set;
@@ -144,8 +146,8 @@ exports.generateMetadata = function(
         cardObj.dfc = card.linkedFaceType;
         cardObj.isPrimary = card.isPrimaryCard;
         // These two are now deprecated :(
-        cardObj.collectible = true;//card.isCollectible;
-        cardObj.craftable = true;//card.isCraftable;
+        cardObj.collectible = true; //card.isCollectible;
+        cardObj.craftable = true; //card.isCraftable;
         cardObj.booster = card.isPrimaryCard;
 
         let scryfallObject = undefined;
@@ -243,9 +245,10 @@ exports.generateMetadata = function(
 
           if (orig !== scryfallSet + colllector) {
             const origSet = cardObj.set;
-            cardObj.set = Object.keys(SETS_DATA).filter(
-              key => SETS_DATA[key].scryfall == scryfallSet
-            )[0] || origSet;
+            cardObj.set =
+              Object.keys(SETS_DATA).filter(
+                (key) => SETS_DATA[key].scryfall == scryfallSet
+              )[0] || origSet;
           }
         } else {
           // If the card is a token the scryfall set name begins with "t"
@@ -327,7 +330,7 @@ exports.generateMetadata = function(
           delete scryfallObject.image_uris.border_crop;
           if (scryfallObject.image_uris) {
             let rep = "https://img.scryfall.com/cards";
-            Object.keys(scryfallObject.image_uris).forEach(key => {
+            Object.keys(scryfallObject.image_uris).forEach((key) => {
               scryfallObject.image_uris[key] = scryfallObject.image_uris[
                 key
               ].replace(rep, "");
@@ -336,16 +339,15 @@ exports.generateMetadata = function(
           if (scryfallObject.booster == false) {
             cardObj.booster = false;
           }
-          // Push only if not a TOHO frame (Ikoria monsters)
-          if (!card.frameDetails.includes("toho")) {
-            cardObj.images = scryfallObject.image_uris;
-          }
+          cardObj.images = scryfallObject.image_uris;
         }
-        cardsFinal[cardObj.id] = cardObj;
+        if (!card.frameDetails.includes("toho")) {
+          cardsFinal[cardObj.id] = cardObj;
+        }
       });
 
       // Add reprints and split cards references
-      Object.keys(cardsFinal).forEach(key => {
+      Object.keys(cardsFinal).forEach((key) => {
         let card = cardsFinal[key];
 
         if (card.frame) {
@@ -360,7 +362,7 @@ exports.generateMetadata = function(
         if (card.rarity !== "token" && card.rarity !== "land") {
           let arr = [];
 
-          Object.keys(cardsFinal).forEach(key => {
+          Object.keys(cardsFinal).forEach((key) => {
             let cardLoop = cardsFinal[key];
             if (cardLoop.name == card.name && cardLoop.id !== card.id) {
               arr.push(cardLoop.id);
@@ -398,7 +400,7 @@ exports.generateMetadata = function(
         OUTPUT,
         `v${version}-${lang.toLowerCase()}-database.json`
       );
-      fs.writeFile(jsonOut, str, function(err) {
+      fs.writeFile(jsonOut, str, function (err) {
         if (err) {
           return console.log(err);
         }
@@ -430,7 +432,9 @@ function getScryfallCard(
   }
 
   try {
-    if (NO_DUPES_ART_SETS.includes(scryfallSet)) {
+    if (CID_ART_SETS.includes(scryfallSet)) {
+      ret = ScryfallCards[lang][scryfallSet][colllector];
+    } else if (NO_DUPES_ART_SETS.includes(scryfallSet)) {
       ret = ScryfallCards[lang][scryfallSet][cardName];
     } else {
       ret = ScryfallCards[lang][scryfallSet][cardName][colllector];
@@ -441,7 +445,9 @@ function getScryfallCard(
 
   if (ret == undefined && lang !== "EN") {
     try {
-      if (NO_DUPES_ART_SETS.includes(scryfallSet)) {
+      if (CID_ART_SETS.includes(scryfallSet)) {
+        ret = ScryfallCards["EN"][scryfallSet][colllector];
+      } else if (NO_DUPES_ART_SETS.includes(scryfallSet)) {
         ret = ScryfallCards["EN"][scryfallSet][cardName];
       } else {
         ret = ScryfallCards["EN"][scryfallSet][cardName][colllector];

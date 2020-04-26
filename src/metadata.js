@@ -5,7 +5,7 @@ const readline = require("readline");
 const _ = require("lodash");
 
 const manifestParser = require("./manifest-parser");
-const { generateMetadata } = require("./metadata-generator");
+const {generateMetadata} = require("./metadata-generator");
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 const {
@@ -16,11 +16,12 @@ const {
   LANGUAGES,
   RANKS_SHEETS,
   SETS_DATA,
+  CID_ART_SETS,
   NO_DUPES_ART_SETS,
   ALLOWED_SCRYFALL,
   ARENA_SVG,
   RATINGS_MTGCSR,
-  RATINGS_LOLA
+  RATINGS_LOLA,
 } = require("./metadata-constants");
 
 let metagameData = {};
@@ -29,43 +30,39 @@ let ranksData = {};
 console.log(APPDATA);
 
 // "scryfall-all-cards.json" contains cards in all languages but is 800+mb
-const SCRYFALL_FILE = "scryfall-all-cards.json";
-const OutDIr = './' + OUTPUT;
-if (!fs.existsSync(OutDIr)){
-    fs.mkdirSync(OutDIr);
+const SCRYFALL_FILE = "scryfall-default-cards.json";
+const OutDIr = "./" + OUTPUT;
+if (!fs.existsSync(OutDIr)) {
+  fs.mkdirSync(OutDIr);
 }
 
 console.log("Begin Metadata fetch.");
 manifestParser
   .getArenaVersion()
-  .then(version =>
-    manifestParser.getManifestFiles(version)
-  )
+  .then((version) => manifestParser.getManifestFiles(version))
   .then(getRanksData)
   .then(getScryfallCards)
   .then(getMetagameData)
   .then(getSetIcons)
   .then(generateScryfallDatabase)
-  .then(data =>
+  .then((data) =>
     generateMetadata(data, ranksData, metagameData, VERSION, LANGUAGES)
   )
   .then(quit);
 
 function quit() {
   console.log("Goodbye!!!");
-  process.exit()
+  process.exit();
 }
 
 function getRanksData() {
-  let requests = RANKS_SHEETS.map(rank => {
-    return new Promise(resolve => {
+  let requests = RANKS_SHEETS.map((rank) => {
+    return new Promise((resolve) => {
       console.log(`Get ${rank.setCode.toUpperCase()} ranks data.`);
       httpGetFile(
-        `https://docs.google.com/spreadsheets/d/${rank.sheet}/gviz/tq?sheet=${
-          rank.page
-        }`,
+        `https://docs.google.com/spreadsheets/d/${rank.sheet}/gviz/tq?sheet=${rank.page}`,
         rank.setCode + "_ranks"
-      ).then(file => {
+      ).then((file) => {
         fs.readFile(file, function read(err, data) {
           let str = data.toString();
           str = str
@@ -76,7 +73,10 @@ function getRanksData() {
           console.log(`${rank.setCode.toUpperCase()} ok.`);
           resolve();
           try {
-            ranksData[rank.setCode.toUpperCase()] = processRanksData(str, rank.source);
+            ranksData[rank.setCode.toUpperCase()] = processRanksData(
+              str,
+              rank.source
+            );
           } catch (e) {
             console.log("Error processing " + rank.setCode, e);
           }
@@ -89,10 +89,10 @@ function getRanksData() {
 }
 
 function processRanksData(str, source) {
-let data = JSON.parse(str);
-let ret = {};
-if (source == RATINGS_MTGCSR) {
-    data.table.rows.forEach(row => {
+  let data = JSON.parse(str);
+  let ret = {};
+  if (source == RATINGS_MTGCSR) {
+    data.table.rows.forEach((row) => {
       let name = row.c[0].v;
       let rank = row.c[4].v;
       let cont = row.c[5].v;
@@ -109,23 +109,25 @@ if (source == RATINGS_MTGCSR) {
         row.c[18].v,
         row.c[19].v,
         row.c[20].v,
-        row.c[21].v
+        row.c[21].v,
       ];
-      ret[name] = { rankSource: source, rank: rank, cont: cont, values: values };
+      ret[name] = {rankSource: source, rank: rank, cont: cont, values: values};
     });
   }
   if (source == RATINGS_LOLA) {
-    data.table.rows.forEach(row => {
+    data.table.rows.forEach((row) => {
       let name = row.c[0].v;
       let rank = row.c[10].v;
       let side = row.c[5] ? true : false;
       let ceil = row.c[4] ? row.c[4].v : rank;
-      let values = [
-        row.c[1].v,
-        row.c[2].v,
-        row.c[3].v,
-      ];
-      ret[name] = { rankSource: source, rank: rank, side: side, ceil: ceil, values: values };
+      let values = [row.c[1].v, row.c[2].v, row.c[3].v];
+      ret[name] = {
+        rankSource: source,
+        rank: rank,
+        side: side,
+        ceil: ceil,
+        values: values,
+      };
     });
   }
 
@@ -133,10 +135,10 @@ if (source == RATINGS_MTGCSR) {
 }
 
 function getMetagameData() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     let req = httpGetText("https://mtgatool.com/database/metagame.php");
     console.log("Download metagame data.");
-    req.addEventListener("load", function() {
+    req.addEventListener("load", function () {
       let json = JSON.parse(`{"metagame": ${req.responseText} }`);
       metagameData = json.metagame;
       resolve();
@@ -145,7 +147,7 @@ function getMetagameData() {
 }
 
 function getSetIcons() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     let count = 0;
     let setNames = Object.keys(SETS_DATA);
     setNames.forEach((setName, index) => {
@@ -155,8 +157,8 @@ function getSetIcons() {
           code = "default";
         if (setName == "M19 Gift Pack") code = "m19";
 
-        let svgText = `https://img.scryfall.com/sets/${ code }.svg`;
-        httpGetTextAsync(svgText).then(str => {
+        let svgText = `https://img.scryfall.com/sets/${code}.svg`;
+        httpGetTextAsync(svgText).then((str) => {
           count++;
           if (setName == "Arena New Player Experience") {
             // hack hack hack
@@ -164,10 +166,10 @@ function getSetIcons() {
             // manually insert here instead
             str = ARENA_SVG;
           }
-          str = str.replace(/fill="#.*?\"\ */g, ' ');
+          str = str.replace(/fill="#.*?\"\ */g, " ");
           str = str.replace(/<path /g, '<path fill="#FFF" ');
           //console.log(setName, code, str);
-          SETS_DATA[setName].svg = Buffer.from(str).toString('base64');
+          SETS_DATA[setName].svg = Buffer.from(str).toString("base64");
           if (count == setNames.length) {
             resolve();
           }
@@ -178,14 +180,14 @@ function getSetIcons() {
 }
 
 function getScryfallCards() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     let file = path.join(APPDATA, EXTERNAL, SCRYFALL_FILE);
     if (!fs.existsSync(file)) {
       console.log("Downloading Scryfall cards data.");
       httpGetFile(
         "https://archive.scryfall.com/json/" + SCRYFALL_FILE,
         SCRYFALL_FILE
-      ).then(file => {
+      ).then((file) => {
         resolve();
       });
     } else {
@@ -196,14 +198,14 @@ function getScryfallCards() {
 }
 
 function generateScryfallDatabase() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     console.log("Processing Scryfall database.");
     let file = path.join(APPDATA, EXTERNAL, SCRYFALL_FILE);
 
-    fs.stat(file, function(err, stats) {
+    fs.stat(file, function (err, stats) {
       var fileSize = stats.size;
       var readSize = 0;
-      var stream = fs.createReadStream(file, { flags: "r", encoding: "utf-8" });
+      var stream = fs.createReadStream(file, {flags: "r", encoding: "utf-8"});
       var buf = "";
 
       // We read the file as a stream, decoding line by line because decoding
@@ -213,20 +215,22 @@ function generateScryfallDatabase() {
 
       let scryfallData = {};
 
-      let scryfallDataAdd = function(obj, lang, set, name, cid = false) {
+      let scryfallDataAdd = function (obj, lang, set, name, cid = false) {
         if (scryfallData[lang] == undefined) scryfallData[lang] = {};
         if (scryfallData[lang][set] == undefined) scryfallData[lang][set] = {};
-        if (scryfallData[lang][set][name] == undefined)
+        if (scryfallData[lang][set][name] == undefined && !CID_ART_SETS.includes(set))
           scryfallData[lang][set][name] = {};
 
-        if (NO_DUPES_ART_SETS.includes(set)) {
+        if (CID_ART_SETS.includes(set)) {
+          scryfallData[lang][set][cid] = obj;
+        } else if (NO_DUPES_ART_SETS.includes(set)) {
           scryfallData[lang][set][name] = obj;
         } else {
           scryfallData[lang][set][name][cid] = obj;
         }
       };
 
-      let pump = function() {
+      let pump = function () {
         var pos;
 
         while ((pos = buf.indexOf("\n")) >= 0) {
@@ -241,7 +245,7 @@ function generateScryfallDatabase() {
         }
       };
 
-      let processLine = function(line) {
+      let processLine = function (line) {
         // here's where we do something with a line
 
         if (line[line.length - 1] == "\r")
@@ -266,7 +270,7 @@ function generateScryfallDatabase() {
                 obj.collector_number
               );
               if (obj.layout == "adventure") {
-                obj.card_faces.forEach(face => {
+                obj.card_faces.forEach((face) => {
                   let name = face.name;
                   let newObj = Object.assign(_.cloneDeep(obj), face);
                   scryfallDataAdd(
@@ -279,7 +283,7 @@ function generateScryfallDatabase() {
                 });
               }
               if (obj.layout == "transform") {
-                obj.card_faces.forEach(face => {
+                obj.card_faces.forEach((face) => {
                   let name = face.name;
                   let newObj = Object.assign(_.cloneDeep(obj), face);
                   scryfallDataAdd(
@@ -292,7 +296,7 @@ function generateScryfallDatabase() {
                 });
               }
               if (obj.layout == "split") {
-                obj.card_faces.forEach(face => {
+                obj.card_faces.forEach((face) => {
                   let name = face.name;
                   let newObj = Object.assign(_.cloneDeep(obj), face);
                   scryfallDataAdd(
@@ -311,14 +315,14 @@ function generateScryfallDatabase() {
         }
       };
 
-      stream.on("data", function(d) {
+      stream.on("data", function (d) {
         var dataLength = d.length;
         readSize += dataLength;
         buf += d.toString(); // when data is read, stash it in a string buffer
         pump(); // then process the buffer
       });
 
-      stream.on("end", function() {
+      stream.on("end", function () {
         resolve(scryfallData);
       });
     });
@@ -333,19 +337,19 @@ function httpGetText(url) {
 }
 
 function httpGetTextAsync(url) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url);
     xmlHttp.send();
-    
-    xmlHttp.addEventListener("load", function() {
+
+    xmlHttp.addEventListener("load", function () {
       resolve(xmlHttp.responseText);
     });
   });
 }
 
 function httpGetFile(url, filename) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     let file = path.join(APPDATA, EXTERNAL, filename);
     /*
     if (fs.existsSync(file)) {
@@ -359,18 +363,22 @@ function httpGetFile(url, filename) {
     }
 
     let stream = fs.createWriteStream(file);
-    http.get(url, response => {
+    http.get(url, (response) => {
       response.pipe(stream);
       let data = "";
 
       let timeStart = new Date();
-      response.on("data", function(chunk) {
+      response.on("data", function (chunk) {
         if (new Date() - timeStart > 2000) {
           timeStart = new Date();
-          console.log(`Downloading ${filename}:\t ${(data.length / 1024 / 1024).toFixed(2)} mb`);
-        }   
+          console.log(
+            `Downloading ${filename}:\t ${(data.length / 1024 / 1024).toFixed(
+              2
+            )} mb`
+          );
+        }
       });
-      response.on("end", function() {
+      response.on("end", function () {
         resolve(file);
       });
     });

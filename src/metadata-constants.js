@@ -1058,6 +1058,15 @@ exports.NO_DUPES_ART_SETS = [
   "mir"
 ];
 
+/*
+ Similarly, some sets card names are changed and we can only rely on their Card IDs
+ So we access them like this;
+   ScryfallCards[LANG][SET][COLLECTOR]
+*/
+exports.CID_ART_SETS = [
+  "iko"
+]
+
 exports.ALLOWED_SCRYFALL = [
   "thb",
   "eld",
@@ -1151,7 +1160,10 @@ exports.ALLOWED_SCRYFALL = [
   "m15",
   "arb",
   "iko",
-  "sld"
+  "tiko",
+  "sld",
+  "tsoi",
+  "ana"
 ];
 
 exports.RATINGS_MTGCSR = 0;
