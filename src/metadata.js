@@ -30,7 +30,7 @@ let ranksData = {};
 console.log(APPDATA);
 
 // "scryfall-all-cards.json" contains cards in all languages but is 800+mb
-const SCRYFALL_FILE = "scryfall-default-cards.json";
+const SCRYFALL_FILE = "scryfall-all-cards.json";
 const OutDIr = "./" + OUTPUT;
 if (!fs.existsSync(OutDIr)) {
   fs.mkdirSync(OutDIr);
