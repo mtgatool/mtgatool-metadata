@@ -17,7 +17,7 @@ const {
   SCRYFALL_LANGUAGE,
   LANGKEYS,
   RATINGS_MTGCSR,
-  RATINGS_LOLA
+  RATINGS_LOLA,
 } = require("./metadata-constants");
 
 exports.generateMetadata = function (
@@ -270,30 +270,6 @@ exports.generateMetadata = function (
           cardObj.dfcId = false;
         }
 
-        // Add ranks data
-        let setCode = SETS_DATA[set] ? SETS_DATA[set].code : "";
-        if (ranksData[setCode] && ranksData[setCode][englishName]) {
-          const rData = ranksData[setCode][englishName];
-          if (rData.source == RATINGS_MTGCSR) {
-            cardObj.rank = Math.round(rData.rank);
-            cardObj.rank_values = rData.values;
-            cardObj.rank_controversy = ranksData[setCode][
-              englishName
-            ].cont.toFixed(3);
-          }
-          if (rData.source == RATINGS_LOLA) {
-            cardObj.rank = Math.round(rData.rank).toFixed(3);
-            cardObj.side = rData.side;
-            cardObj.ceil = rData.ceil;
-            cardObj.rank_values = rData.values;
-          }
-        } else {
-          cardObj.rankSource = -1;
-          cardObj.rank = 0;
-          cardObj.rank_values = 0;
-          cardObj.rank_controversy = 0;
-        }
-
         // Use the name if available
         if (scryfallObject && scryfallObject.printed_name) {
           cardObj.name = scryfallObject.printed_name;
@@ -311,6 +287,37 @@ exports.generateMetadata = function (
             englishName,
             colllector
           );
+        }
+
+        // Add ranks data
+        let scryfallName = englishName;
+        if (scryfallObject) {
+          scryfallName = scryfallObject.name;
+        }
+
+        let setCode = SETS_DATA[set] ? SETS_DATA[set].code : "";
+        if (ranksData[setCode] && ranksData[setCode][scryfallName]) {
+          const rData = ranksData[setCode][scryfallName];
+          //console.log(setCode, scryfallName, JSON.stringify(rData).slice(0, 50));
+          if (rData.rankSource == RATINGS_MTGCSR) {
+            cardObj.source = RATINGS_MTGCSR;
+            cardObj.rank = Math.round(rData.rank);
+            cardObj.rank_values = rData.values;
+            cardObj.rank_controversy = ranksData[setCode][scryfallName].cont;
+          }
+          if (rData.rankSource == RATINGS_LOLA) {
+            cardObj.source = RATINGS_LOLA;
+            cardObj.rank = Math.round(rData.rank);
+            cardObj.side = rData.side;
+            cardObj.ceil = rData.ceil;
+            cardObj.rank_values = rData.values;
+          }
+        } else {
+          //console.log("No ranks for " + scryfallName + ", set: " + setCode);
+          cardObj.rankSource = -1;
+          cardObj.rank = 0;
+          cardObj.rank_values = 0;
+          cardObj.rank_controversy = 0;
         }
 
         if (

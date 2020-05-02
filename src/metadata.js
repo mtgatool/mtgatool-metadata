@@ -94,8 +94,8 @@ function processRanksData(str, source) {
   if (source == RATINGS_MTGCSR) {
     data.table.rows.forEach((row) => {
       let name = row.c[0].v;
-      let rank = row.c[4].v;
-      let cont = row.c[5].v;
+      let rank = Math.round(row.c[4].v);
+      let cont = Math.round(row.c[5].v);
       let values = [
         row.c[9].v,
         row.c[10].v,
@@ -123,9 +123,9 @@ function processRanksData(str, source) {
       let values = [row.c[1].v, row.c[2].v, row.c[3].v];
       ret[name] = {
         rankSource: source,
-        rank: rank,
+        rank: Math.round(rank),
         side: side,
-        ceil: ceil,
+        ceil: Math.round(ceil),
         values: values,
       };
     });
