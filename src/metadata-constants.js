@@ -72,6 +72,7 @@ exports.EVENT_TO_NAME = {
   CompDraft_M20_20190708: "Traditional Draft M20",
   CompDraft_ELD_20190930: "Traditional Draft ELD",
   CompDraft_THB_20200116: "Traditional Draft THB",
+  TradDraft_IKO_20200416: "Traditional Draft IKO",
 
   Sealed_M20_20190630: "Sealed M20",
   Sealed_Ravnica_20190816: "Sealed Ravnica",
@@ -102,6 +103,7 @@ exports.EVENT_TO_NAME = {
   QuickDraft_RNA_20200313: "Ranked Draft RNA 03/20",
   QuickDraft_THB_20200319: "Ranked Draft THB 03/20",
   QuickDraft_M19_20200327: "Ranked Draft M19 03/20",
+  QuickDraft_IKO_20200501: "Ranked Draft IKO 05/20",
 
   PremierDraft_IKO_20200416: "Premier Draft IKO 04/20",
 
@@ -188,6 +190,7 @@ exports.EVENT_TO_FORMAT = {
   CompDraft_M20_20190708: "Draft M20",
   CompDraft_ELD_20190930: "Draft ELD",
   CompDraft_THB_20200116: "Draft THB",
+  TradDraft_IKO_20200416: "Draft IKO",
 
   Sealed_M20_20190630: "Sealed M20",
   Sealed_Ravnica_20190816: "Sealed RAV",
@@ -218,6 +221,7 @@ exports.EVENT_TO_FORMAT = {
   QuickDraft_RNA_20200313: "Draft RNA",
   QuickDraft_THB_20200319: "Draft THB",
   QuickDraft_M19_20200327: "Draft M19",
+  QuickDraft_IKO_20200501: "Draft IKO",
 
   PremierDraft_IKO_20200416: "Draft IKO",
 
@@ -279,12 +283,7 @@ exports.EVENT_TO_FORMAT = {
 
 // These are the current events in the ranked ladder
 exports.LIMITED_RANKED_EVENTS = [
-  "QuickDraft_THB_20200131",
-  "QuickDraft_THB_20200228",
-  "QuickDraft_GRN_20200214",
-  "QuickDraft_RNA_20200313",
-  "QuickDraft_THB_20200319",
-  "QuickDraft_M19_20200327"
+  "QuickDraft_IKO_20200501"
 ];
 
 exports.STANDARD_RANKED_EVENTS = [
