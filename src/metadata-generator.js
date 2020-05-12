@@ -19,6 +19,7 @@ const {
   RATINGS_MTGCSR,
   RATINGS_LOLA,
 } = require("./metadata-constants");
+const stripComments = require('strip-comments');
 
 exports.generateMetadata = function (
   ScryfallCards,
@@ -30,6 +31,7 @@ exports.generateMetadata = function (
   return new Promise((resolve) => {
     console.log("Reading JSON files");
     let cards = readExternalJson("cards.json");
+    let altPrintings = readExternalJson("altPrintings.json");
     let abilitiesRead = readExternalJson("abilities.json");
     let locRead = readExternalJson("loc.json");
     let enumsRead = readExternalJson("enums.json");
@@ -42,6 +44,14 @@ exports.generateMetadata = function (
     str = JSON.stringify(ranksData);
     jsonOut = path.join(APPDATA, EXTERNAL, `ranks-data.json`);
     fs.writeFile(jsonOut, str, () => {});
+
+    // Generate list of all cards that are alt printings from other card
+    const altCards = []
+    Object.keys(altPrintings).map(obj => {
+      Object.values(altPrintings[obj]).forEach(val => {
+        altCards.push(parseInt(val))}
+      );
+    })
 
     // Read locales for all languages and clean up mana costs in the texts
     const regex = new RegExp("/o(?=[^{]*})/");
@@ -348,7 +358,7 @@ exports.generateMetadata = function (
           }
           cardObj.images = scryfallObject.image_uris;
         }
-        if (!card.frameDetails.includes("toho")) {
+        if (!altCards.includes(cardObj.id)) {
           cardsFinal[cardObj.id] = cardObj;
         }
       });
@@ -468,9 +478,11 @@ function getScryfallCard(
 }
 
 function readExternalJson(filename) {
-  let file = path.join(APPDATA, EXTERNAL, filename);
+  const file = path.join(APPDATA, EXTERNAL, filename);
   //JSON.parse(fs.readFileSync(file));
-  let json = JSON.parse(`{"value": ${fs.readFileSync(file)}}`);
+  const filestr = fs.readFileSync(file) + "";
+  const str = stripComments(filestr);
+  const json = JSON.parse(`{"value": ${str}}`);
   return json.value;
 }
 
