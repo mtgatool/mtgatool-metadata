@@ -56,9 +56,9 @@ describe("Check cards data", () => {
     expect(teferi.castingcost).toBe("o1oWoU");
     expect(teferi.linkedTokens).toEqual([]);
     expect(teferi.knownSupportedStyles).toBeDefined();
-    expect(teferi.knownAlternatePrintings).toStrictEqual([]);
+    //expect(teferi.knownAlternatePrintings).toStrictEqual([]);// Removed on 0.1.2213.786053 (5/19/20)
     expect(teferi.DigitalReleaseSet).toBe("");
-    expect(Object.keys(teferi).length).toBe(33);
+    expect(Object.keys(teferi).length).toBe(32);
   });
 });
 

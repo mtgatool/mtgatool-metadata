@@ -934,7 +934,63 @@ exports.SETS_DATA = {
     code: "SLD",
     arenacode: "SLD",
     tile: 67003,
+    release: "2002-02-04"
+  },
+  "Torment": {
+    collation: -1,
+    scryfall: "tor",
+    code: "TOR",
+    arenacode: "TOR",
+    tile: 67003,
     release: "2019-12-02"
+  },
+  "Judgment": {
+    collation: -1,
+    scryfall: "jud",
+    code: "JUD",
+    arenacode: "JUD",
+    tile: 67003,
+    release: "2002-05-27"
+  },
+  "Legions": {
+    collation: -1,
+    scryfall: "lgn",
+    code: "LGN",
+    arenacode: "LGN",
+    tile: 67003,
+    release: "2003-02-03"
+  },
+  "Time Spiral": {
+    collation: -1,
+    scryfall: "tsp",
+    code: "TSP",
+    arenacode: "TSP",
+    tile: 67003,
+    release: "2006-10-06"
+  },
+  "Magic 2012": {
+    collation: -1,
+    scryfall: "m12",
+    code: "M12",
+    arenacode: "M12",
+    tile: 67003,
+    release: "2011-07-15"
+  },
+  "Planar Chaos": {
+    collation: -1,
+    scryfall: "plc",
+    code: "PLC",
+    arenacode: "PLC",
+    tile: 67003,
+    release: "2007-02-02"
+  },
+  "Dragon's Maze": {
+    collation: -1,
+    scryfall: "dgm",
+    code: "DGM",
+    arenacode: "DGM",
+    tile: 67003,
+    release: "2013-05-03"
   },
   "": {
     collation: -1,
@@ -1027,7 +1083,14 @@ exports.SET_NAMES = {
   UND: "Unsanctioned",
   ARB: "Alara Reborn",
   IKO: "Ikoria: Lair of Behemoths",
-  SLD: "Secret Lair Drop"
+  SLD: "Secret Lair Drop",
+  TOR: "Torment",
+  JUD: "Judgment",
+  LGN: "Legions",
+  TSP: "Time Spiral",
+  M12: "Magic 2012",
+  PLC: "Planar Chaos",
+  DGM: "Dragon's Maze",
 };
 
 /*
@@ -1164,7 +1227,14 @@ exports.ALLOWED_SCRYFALL = [
   "tiko",
   "sld",
   "tsoi",
-  "ana"
+  "ana",
+  "tor",
+  "jud",
+  "lgn",
+  "tsp",
+  "m12",
+  "plc",
+  "dgm",
 ];
 
 exports.RATINGS_MTGCSR = 0;
