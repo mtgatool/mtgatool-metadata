@@ -147,6 +147,7 @@ exports.EVENT_TO_NAME = {
   FNM_PlayAnyDeck_20200403: "FNM Play Any Deck 03/04/2020",
   Esports_MPC_20200404: "Mythic Points Challenge",
   Sealed_IKO_20200416: "Ikoria Sealed",
+  FNM_HistoricArtisan_20200522: "Historic Artisan",
 
   Historic_Challenge_20200111: "Historic Challenge",
   Momir_PW_20200110: "Momir PW",
@@ -267,6 +268,7 @@ exports.EVENT_TO_FORMAT = {
   CubeSealed_Arena_20200404: "Sealed",
   Esports_MPC_20200404: "Traditional Standard",
   Sealed_IKO_20200416: "Sealed",
+  FNM_HistoricArtisan_20200522: "Historic",
 
   Brawl_Launch_20191024: "Brawl",
   Precon_Brawl_ELD: "Brawl",
