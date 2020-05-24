@@ -164,6 +164,47 @@ exports.generateMetadata = function (
         let scryfallSet = SETS_DATA[set] ? SETS_DATA[set].scryfall : "";
         if (!card.isToken) {
           const orig = scryfallSet + colllector;
+          if (cardId == 69441) {
+            colllector = 40;
+            scryfallSet = "akh";
+          }
+          if (cardId == 74596) {
+            colllector = 6;
+            scryfallSet = "pr2";
+          }
+          if (cardId == 74597) {
+            colllector = 4;
+            scryfallSet = "pr2";
+          }
+          if (cardId == 73175) {
+            colllector = 2;
+            scryfallSet = "twwk";
+          }
+          if (cardId == 73172) {
+            colllector = 1;
+            scryfallSet = "tcon";
+          }
+          if (cardId == 73165) {
+            colllector = 6;
+            scryfallSet = "tm15";
+          }
+          if (cardId == 71686) {
+            colllector = 12;
+            scryfallSet = "tshm";
+          }
+          if (cardId == 71670) {
+            colllector = 9;
+            scryfallSet = "tlrw";
+          }
+          if (cardId == 68809) {
+            colllector = 8;
+            scryfallSet = "tcn2";
+          }
+          if (cardId == 68808) {
+            colllector = 10;
+            scryfallSet = "tmh1";
+          }
+          
           // ANA lands
           // These arent the exact ones, these are lands from
           // random sets but with the same art.

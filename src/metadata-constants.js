@@ -1237,6 +1237,12 @@ exports.ALLOWED_SCRYFALL = [
   "m12",
   "plc",
   "dgm",
+  "pr2",
+  "twwk",
+  "tcon",
+  "tshm",
+  "tlrw",
+  "tmh1"
 ];
 
 exports.RATINGS_MTGCSR = 0;
