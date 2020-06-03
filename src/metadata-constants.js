@@ -1,5 +1,5 @@
 const path = require("path");
-const packageJson = require('../package.json');
+const packageJson = require("../package.json");
 
 exports.APPDATA = path.resolve(__dirname, "..");
 
@@ -18,7 +18,7 @@ exports.LANGUAGES = [
   "JP",
   "RU",
   "ko-KR",
-  "zh-CN"
+  "zh-CN",
 ];
 
 exports.SCRYFALL_LANGUAGE = {
@@ -31,7 +31,7 @@ exports.SCRYFALL_LANGUAGE = {
   BR: "PT",
   JP: "JA",
   "zh-CN": "ZHS",
-  "ko-KR": "KO"
+  "ko-KR": "KO",
 };
 
 exports.LANGKEYS = {
@@ -44,7 +44,7 @@ exports.LANGKEYS = {
   "pt-BR": "PT",
   "ru-RU": "RU",
   "ko-KR": "KO",
-  "zh-CN": "ZHS"
+  "zh-CN": "ZHS",
 };
 
 exports.EVENT_TO_NAME = {
@@ -111,6 +111,7 @@ exports.EVENT_TO_NAME = {
   Omniscience_Draft_20190830: "Omniscience Draft M20",
   Omniscience_Draft_20191107: "Omniscience Draft ELD",
 
+  ArenaOpen_Day1_20200530: "Arena Open Day 1 30/05",
   Esports_MIQ_20200314: "Mythic Qualifier Weekend 03/20",
   Esports_Qualifier_20190525: "Mythic Qualifier Weekend 05/19",
   Esports_Qualifier_20190817: "Mythic Qualifier Weekend 08/19",
@@ -164,7 +165,7 @@ exports.EVENT_TO_NAME = {
   Planecation4_Shakeup: "Planecation - Shakeup",
   Planecation5_Landfall: "Planecation - Landfall",
   Giant_Monsters_20190719: "Giant Monsters",
-  FestivalGods_GiantMonsters_20200229: "Festival - Giant Monsters"
+  FestivalGods_GiantMonsters_20200229: "Festival - Giant Monsters",
 };
 
 exports.EVENT_TO_FORMAT = {
@@ -233,6 +234,7 @@ exports.EVENT_TO_FORMAT = {
 
   Historic_Challenge_20200111: "Historic",
   Momir_PW_20200110: "Momir",
+  ArenaOpen_Day1_20200530: "Standard",
   Esports_MIQ_20200314: "Traditional Standard",
   Esports_Qualifier_20190525: "Traditional Standard",
   Esports_Qualifier_20190817: "Traditional Standard",
@@ -286,15 +288,13 @@ exports.EVENT_TO_FORMAT = {
 };
 
 // These are the current events in the ranked ladder
-exports.LIMITED_RANKED_EVENTS = [
-  "QuickDraft_IKO_20200501"
-];
+exports.LIMITED_RANKED_EVENTS = ["QuickDraft_IKO_20200501"];
 
 exports.STANDARD_RANKED_EVENTS = [
   "Ladder",
   "Traditional_Ladder",
   "Historic_Ladder",
-  "Traditional_Historic_Ladder"
+  "Traditional_Historic_Ladder",
 ];
 
 exports.SINGLE_MATCH_EVENTS = [
@@ -305,7 +305,7 @@ exports.SINGLE_MATCH_EVENTS = [
   "DirectGame",
   "Ladder",
   "Constructed_BestOf3",
-  "Historic_Ladder"
+  "Historic_Ladder",
 ];
 
 /*
@@ -359,7 +359,7 @@ exports.SETS_DATA = {
     code: "XLN",
     arenacode: "XLN",
     tile: 66433,
-    release: "2017-09-29"
+    release: "2017-09-29",
   },
   "Rivals of Ixalan": {
     collation: 100006,
@@ -367,7 +367,7 @@ exports.SETS_DATA = {
     code: "RIX",
     arenacode: "RIX",
     tile: 66937,
-    release: "2018-01-19"
+    release: "2018-01-19",
   },
   Dominaria: {
     collation: 100007,
@@ -375,7 +375,7 @@ exports.SETS_DATA = {
     code: "DOM",
     arenacode: "DAR",
     tile: 67106,
-    release: "2018-04-27"
+    release: "2018-04-27",
   },
   "Core Set 2019": {
     collation: 100008,
@@ -383,7 +383,7 @@ exports.SETS_DATA = {
     code: "M19",
     arenacode: "M19",
     tile: 68116,
-    release: "2018-07-13"
+    release: "2018-07-13",
   },
   "Arena New Player Experience": {
     collation: false,
@@ -391,7 +391,7 @@ exports.SETS_DATA = {
     code: "ANA",
     arenacode: "ANA",
     tile: 67106,
-    release: "2018-07-14"
+    release: "2018-07-14",
   },
   "Guilds of Ravnica": {
     collation: 100009,
@@ -399,7 +399,7 @@ exports.SETS_DATA = {
     code: "GRN",
     arenacode: "GRN",
     tile: 68674,
-    release: "2018-10-05"
+    release: "2018-10-05",
   },
   "M19 Gift Pack": {
     collation: false,
@@ -407,7 +407,7 @@ exports.SETS_DATA = {
     code: "G18",
     arenacode: "G18",
     tile: 68116,
-    release: "2018-07-13"
+    release: "2018-07-13",
   },
   "Ravnica Allegiance": {
     collation: 100010,
@@ -415,7 +415,7 @@ exports.SETS_DATA = {
     code: "RNA",
     arenacode: "RNA",
     tile: 69294,
-    release: "2019-01-25"
+    release: "2019-01-25",
   },
   "War of the Spark": {
     collation: 100013,
@@ -423,7 +423,7 @@ exports.SETS_DATA = {
     code: "WAR",
     arenacode: "WAR",
     tile: 69656,
-    release: "2019-05-03"
+    release: "2019-05-03",
   },
   "Core Set 2020": {
     collation: 100014,
@@ -431,7 +431,7 @@ exports.SETS_DATA = {
     code: "M20",
     arenacode: "M20",
     tile: 69912,
-    release: "2019-07-12"
+    release: "2019-07-12",
   },
   "Throne of Eldraine": {
     collation: 100015,
@@ -439,7 +439,7 @@ exports.SETS_DATA = {
     code: "ELD",
     arenacode: "ELD",
     tile: 70338,
-    release: "2019-10-04"
+    release: "2019-10-04",
   },
   "Theros: Beyond Death": {
     collation: 100016,
@@ -447,7 +447,7 @@ exports.SETS_DATA = {
     code: "THB",
     arenacode: "THB",
     tile: 70735,
-    release: "2020-01-24"
+    release: "2020-01-24",
   },
   "Ikoria: Lair of Behemoths": {
     collation: 100017,
@@ -455,7 +455,7 @@ exports.SETS_DATA = {
     code: "IKO",
     arenacode: "IKO",
     tile: 67003,
-    release: "2020-04-16"
+    release: "2020-04-16",
   },
   // Other sets below
   "Mythic Edition": {
@@ -464,7 +464,7 @@ exports.SETS_DATA = {
     code: "MED",
     arenacode: "MED",
     tile: 68674,
-    release: "2018-10-06"
+    release: "2018-10-06",
   },
   Mirage: {
     collation: -1,
@@ -472,7 +472,7 @@ exports.SETS_DATA = {
     code: "MI",
     arenacode: "MI",
     tile: 67003,
-    release: "1996-10-08"
+    release: "1996-10-08",
   },
   "Battle for Zendikar": {
     collation: -1,
@@ -480,7 +480,7 @@ exports.SETS_DATA = {
     code: "BFZ",
     arenacode: "BFZ",
     tile: 67003,
-    release: "2015-10-02"
+    release: "2015-10-02",
   },
   "Return to Ravnica": {
     collation: -1,
@@ -488,7 +488,7 @@ exports.SETS_DATA = {
     code: "RTR",
     arenacode: "RTR",
     tile: 67003,
-    release: "2012-10-05"
+    release: "2012-10-05",
   },
   "Rise of Eldrazi": {
     collation: -1,
@@ -496,7 +496,7 @@ exports.SETS_DATA = {
     code: "ROE",
     arenacode: "ROE",
     tile: 67003,
-    release: "2010-04-23"
+    release: "2010-04-23",
   },
   Amonkhet: {
     collation: -1,
@@ -504,7 +504,7 @@ exports.SETS_DATA = {
     code: "AKH",
     arenacode: "AKH",
     tile: 64827,
-    release: "2017-04-28"
+    release: "2017-04-28",
   },
   Planeshift: {
     collation: -1,
@@ -512,7 +512,7 @@ exports.SETS_DATA = {
     code: "PS",
     arenacode: "PS",
     tile: 64827,
-    release: "2001-02-05"
+    release: "2001-02-05",
   },
   Scourge: {
     collation: -1,
@@ -520,7 +520,7 @@ exports.SETS_DATA = {
     code: "SCG",
     arenacode: "SCG",
     tile: 64827,
-    release: "2003-05-26"
+    release: "2003-05-26",
   },
   Darksteel: {
     collation: -1,
@@ -528,7 +528,7 @@ exports.SETS_DATA = {
     code: "DST",
     arenacode: "DST",
     tile: 64827,
-    release: "2004-02-06"
+    release: "2004-02-06",
   },
   "Fifth Dawn": {
     collation: -1,
@@ -536,7 +536,7 @@ exports.SETS_DATA = {
     code: "5DN",
     arenacode: "5DN",
     tile: 64827,
-    release: "2004-06-04"
+    release: "2004-06-04",
   },
   "Ninth Edition": {
     collation: -1,
@@ -544,7 +544,7 @@ exports.SETS_DATA = {
     code: "9ED",
     arenacode: "9ED",
     tile: 64827,
-    release: "2005-07-29"
+    release: "2005-07-29",
   },
   "Ravnica: City of Guilds": {
     collation: -1,
@@ -552,7 +552,7 @@ exports.SETS_DATA = {
     code: "RAV",
     arenacode: "RAV",
     tile: 64827,
-    release: "2005-10-07 "
+    release: "2005-10-07 ",
   },
   Dissension: {
     collation: -1,
@@ -560,7 +560,7 @@ exports.SETS_DATA = {
     code: "DIS",
     arenacode: "DIS",
     tile: 64827,
-    release: "2006-05-05 "
+    release: "2006-05-05 ",
   },
   "Tenth Edition": {
     collation: -1,
@@ -568,7 +568,7 @@ exports.SETS_DATA = {
     code: "10E",
     arenacode: "10E",
     tile: 64827,
-    release: "2007-07-13"
+    release: "2007-07-13",
   },
   "Masters Edition II": {
     collation: -1,
@@ -576,7 +576,7 @@ exports.SETS_DATA = {
     code: "ME2",
     arenacode: "ME2",
     tile: 64827,
-    release: "2008-09-22"
+    release: "2008-09-22",
   },
   "Magic 2011": {
     collation: -1,
@@ -584,7 +584,7 @@ exports.SETS_DATA = {
     code: "M11",
     arenacode: "M11",
     tile: 64827,
-    release: "2010-07-16"
+    release: "2010-07-16",
   },
   "Masters Edition IV": {
     collation: -1,
@@ -592,7 +592,7 @@ exports.SETS_DATA = {
     code: "ME4",
     arenacode: "ME4",
     tile: 64827,
-    release: "2011-01-10"
+    release: "2011-01-10",
   },
   "Commander 2011": {
     collation: -1,
@@ -600,7 +600,7 @@ exports.SETS_DATA = {
     code: "CMD",
     arenacode: "CMD",
     tile: 64827,
-    release: "2011-06-17"
+    release: "2011-06-17",
   },
   "Avacyn Restored": {
     collation: -1,
@@ -608,7 +608,7 @@ exports.SETS_DATA = {
     code: "AVR",
     arenacode: "AVR",
     tile: 64827,
-    release: "2012-05-04"
+    release: "2012-05-04",
   },
   "Champions of Kamigawa": {
     collation: -1,
@@ -616,7 +616,7 @@ exports.SETS_DATA = {
     code: "CHK",
     arenacode: "CHK",
     tile: 64827,
-    release: "2004-10-01"
+    release: "2004-10-01",
   },
   "New Phyrexia": {
     collation: -1,
@@ -624,7 +624,7 @@ exports.SETS_DATA = {
     code: "NPH",
     arenacode: "NPH",
     tile: 64827,
-    release: "2011-05-13"
+    release: "2011-05-13",
   },
   Zendikar: {
     collation: -1,
@@ -632,7 +632,7 @@ exports.SETS_DATA = {
     code: "ZEN",
     arenacode: "ZEN",
     tile: 64827,
-    release: "2009-10-02"
+    release: "2009-10-02",
   },
   Gatecrash: {
     collation: -1,
@@ -640,7 +640,7 @@ exports.SETS_DATA = {
     code: "GTC",
     arenacode: "GTC",
     tile: 64827,
-    release: "2013-02-01"
+    release: "2013-02-01",
   },
   "Commander 2013": {
     collation: -1,
@@ -648,7 +648,7 @@ exports.SETS_DATA = {
     code: "C13",
     arenacode: "C13",
     tile: 64827,
-    release: "2013-11-01"
+    release: "2013-11-01",
   },
   "Eldritch Moon": {
     collation: -1,
@@ -656,7 +656,7 @@ exports.SETS_DATA = {
     code: "EMN",
     arenacode: "EMN",
     tile: 64827,
-    release: "2016-07-22"
+    release: "2016-07-22",
   },
   "Dragons of Tarkir": {
     collation: -1,
@@ -664,103 +664,103 @@ exports.SETS_DATA = {
     code: "DTK",
     arenacode: "DTK",
     tile: 64827,
-    release: "2015-03-27"
+    release: "2015-03-27",
   },
-  "Mirage": {
+  Mirage: {
     collation: -1,
     scryfall: "mir",
     code: "MIR",
     arenacode: "MIR",
     tile: 64827,
-    release: "1996-10-08"
-  },  
-  "Weatherlight": {
+    release: "1996-10-08",
+  },
+  Weatherlight: {
     collation: -1,
     scryfall: "wth",
     code: "WTH",
     arenacode: "WTH",
     tile: 64827,
-    release: "1997-06-09"
-  },  
-  "Invasion": {
+    release: "1997-06-09",
+  },
+  Invasion: {
     collation: -1,
     scryfall: "inv",
     code: "INV",
     arenacode: "INV",
     tile: 64827,
-    release: "2000-10-02"
-  },  
-  "Planeshift": {
+    release: "2000-10-02",
+  },
+  Planeshift: {
     collation: -1,
     scryfall: "pls",
     code: "PLS",
     arenacode: "PLS",
     tile: 64827,
-    release: "2001-02-05"
-  },  
+    release: "2001-02-05",
+  },
   "Eighth Edition": {
     collation: -1,
     scryfall: "8ed",
     code: "8ED",
     arenacode: "8ED",
     tile: 64827,
-    release: "2003-07-28"
-  },  
+    release: "2003-07-28",
+  },
   "Saviors of Kamigawa": {
     collation: -1,
     scryfall: "sok",
     code: "SOK",
     arenacode: "SOK",
     tile: 64827,
-    release: "2005-06-03"
-  },  
-  "Lorwyn": {
+    release: "2005-06-03",
+  },
+  Lorwyn: {
     collation: -1,
     scryfall: "lrw",
     code: "LRW",
     arenacode: "LRW",
     tile: 64827,
-    release: "2007-10-12 "
-  },  
-  "Morningtide": {
+    release: "2007-10-12 ",
+  },
+  Morningtide: {
     collation: -1,
     scryfall: "mor",
     code: "MOR",
     arenacode: "MOR",
     tile: 64827,
-    release: "2008-02-01"
-  },  
+    release: "2008-02-01",
+  },
   "Magic 2010": {
     collation: -1,
     scryfall: "m10",
     code: "M10",
     arenacode: "M10",
     tile: 64827,
-    release: "2009-07-17"
-  },  
-  "Worldwake": {
+    release: "2009-07-17",
+  },
+  Worldwake: {
     collation: -1,
     scryfall: "wwk",
     code: "WWK",
     arenacode: "WWK",
     tile: 64827,
-    release: "2009-07-17"
-  },  
+    release: "2009-07-17",
+  },
   "Magic Origins": {
     collation: -1,
     scryfall: "ori",
     code: "ORI",
     arenacode: "ORI",
     tile: 64827,
-    release: "2015-07-17"
-  },  
+    release: "2015-07-17",
+  },
   "Modern Horizons": {
     collation: -1,
     scryfall: "mh1",
     code: "MH1",
     arenacode: "MH1",
     tile: 64827,
-    release: "2019-06-14"
+    release: "2019-06-14",
   },
   "Shadows over Innistrad": {
     collation: -1,
@@ -768,7 +768,7 @@ exports.SETS_DATA = {
     code: "SOI",
     arenacode: "SOI",
     tile: 64827,
-    release: "2016-04-08"
+    release: "2016-04-08",
   },
   "Vintage Masters": {
     collation: -1,
@@ -776,7 +776,7 @@ exports.SETS_DATA = {
     code: "VMA",
     arenacode: "VMA",
     tile: 64827,
-    release: "2014-06-16"
+    release: "2014-06-16",
   },
   "Modern Masters": {
     collation: -1,
@@ -784,7 +784,7 @@ exports.SETS_DATA = {
     code: "MMA",
     arenacode: "MMA",
     tile: 64827,
-    release: "2013-06-07"
+    release: "2013-06-07",
   },
   "Journey into Nyx": {
     collation: -1,
@@ -792,15 +792,15 @@ exports.SETS_DATA = {
     code: "JOU",
     arenacode: "JOU",
     tile: 64827,
-    release: "2014-05-02"
+    release: "2014-05-02",
   },
-  "Theros": {
+  Theros: {
     collation: -1,
     scryfall: "ths",
     code: "THS",
     arenacode: "THS",
     tile: 64827,
-    release: "2013-09-27"
+    release: "2013-09-27",
   },
   "Magic 2014": {
     collation: -1,
@@ -808,7 +808,7 @@ exports.SETS_DATA = {
     code: "M14",
     arenacode: "M14",
     tile: 64827,
-    release: "2013-07-19"
+    release: "2013-07-19",
   },
   "Duel Decks: Elspeth vs. Tezzeret": {
     collation: -1,
@@ -816,31 +816,31 @@ exports.SETS_DATA = {
     code: "DDF",
     arenacode: "DDF",
     tile: 64827,
-    release: "2010-09-03"
+    release: "2010-09-03",
   },
-  "Shadowmoor": {
+  Shadowmoor: {
     collation: -1,
     scryfall: "shm",
     code: "SHM",
     arenacode: "SHM",
     tile: 64827,
-    release: "2008-05-02"
+    release: "2008-05-02",
   },
-  "Mirrodin": {
+  Mirrodin: {
     collation: -1,
     scryfall: "mrd",
     code: "MRD",
     arenacode: "MRD",
     tile: 64827,
-    release: "2003-10-02"
+    release: "2003-10-02",
   },
-  "Odyssey": {
+  Odyssey: {
     collation: -1,
     scryfall: "ody",
     code: "ODY",
     arenacode: "ODY",
     tile: 64827,
-    release: "2001-10-01"
+    release: "2001-10-01",
   },
   "Magic 2013": {
     collation: -1,
@@ -848,7 +848,7 @@ exports.SETS_DATA = {
     code: "M13",
     arenacode: "M13",
     tile: 67003,
-    release: "2012-07-13"
+    release: "2012-07-13",
   },
   "Mercadian Masques": {
     collation: -1,
@@ -856,15 +856,15 @@ exports.SETS_DATA = {
     code: "MMQ",
     arenacode: "MMQ",
     tile: 67003,
-    release: "1999-10-04"
+    release: "1999-10-04",
   },
-  "Onslaught": {
+  Onslaught: {
     collation: -1,
     scryfall: "ons",
     code: "ONS",
     arenacode: "ONS",
     tile: 67003,
-    release: "2002-10-07"
+    release: "2002-10-07",
   },
   "Shards of Alara": {
     collation: -1,
@@ -872,7 +872,7 @@ exports.SETS_DATA = {
     code: "ALA",
     arenacode: "ALA",
     tile: 67003,
-    release: "2008-10-03"
+    release: "2008-10-03",
   },
   "Scars of Mirrodin": {
     collation: -1,
@@ -880,23 +880,23 @@ exports.SETS_DATA = {
     code: "SOM",
     arenacode: "SOM",
     tile: 67003,
-    release: "2010-10-01"
+    release: "2010-10-01",
   },
-  "Innistrad": {
+  Innistrad: {
     collation: -1,
     scryfall: "isd",
     code: "ISD",
     arenacode: "ISD",
     tile: 67003,
-    release: "2011-09-30"
+    release: "2011-09-30",
   },
-  "Conflux": {
+  Conflux: {
     collation: -1,
     scryfall: "con",
     code: "CONF",
     arenacode: "CONF",
     tile: 67003,
-    release: "2009-02-06"
+    release: "2009-02-06",
   },
   "Dark Ascension": {
     collation: -1,
@@ -904,7 +904,7 @@ exports.SETS_DATA = {
     code: "DKA",
     arenacode: "DKA",
     tile: 67003,
-    release: "2012-02-03"
+    release: "2012-02-03",
   },
   "Magic 2015": {
     collation: -1,
@@ -912,15 +912,15 @@ exports.SETS_DATA = {
     code: "M15",
     arenacode: "M15",
     tile: 67003,
-    release: "2014-07-18"
+    release: "2014-07-18",
   },
-  "Unsanctioned": {
+  Unsanctioned: {
     collation: -1,
     scryfall: "und",
     code: "UND",
     arenacode: "UND",
     tile: 67003,
-    release: "2020-02-29"
+    release: "2020-02-29",
   },
   "Alara Reborn": {
     collation: -1,
@@ -928,7 +928,7 @@ exports.SETS_DATA = {
     code: "ARB",
     arenacode: "ARB",
     tile: 67003,
-    release: "2009-04-30"
+    release: "2009-04-30",
   },
   "Secret Lair Drop": {
     collation: -1,
@@ -936,31 +936,31 @@ exports.SETS_DATA = {
     code: "SLD",
     arenacode: "SLD",
     tile: 67003,
-    release: "2002-02-04"
+    release: "2002-02-04",
   },
-  "Torment": {
+  Torment: {
     collation: -1,
     scryfall: "tor",
     code: "TOR",
     arenacode: "TOR",
     tile: 67003,
-    release: "2019-12-02"
+    release: "2019-12-02",
   },
-  "Judgment": {
+  Judgment: {
     collation: -1,
     scryfall: "jud",
     code: "JUD",
     arenacode: "JUD",
     tile: 67003,
-    release: "2002-05-27"
+    release: "2002-05-27",
   },
-  "Legions": {
+  Legions: {
     collation: -1,
     scryfall: "lgn",
     code: "LGN",
     arenacode: "LGN",
     tile: 67003,
-    release: "2003-02-03"
+    release: "2003-02-03",
   },
   "Time Spiral": {
     collation: -1,
@@ -968,7 +968,7 @@ exports.SETS_DATA = {
     code: "TSP",
     arenacode: "TSP",
     tile: 67003,
-    release: "2006-10-06"
+    release: "2006-10-06",
   },
   "Magic 2012": {
     collation: -1,
@@ -976,7 +976,7 @@ exports.SETS_DATA = {
     code: "M12",
     arenacode: "M12",
     tile: 67003,
-    release: "2011-07-15"
+    release: "2011-07-15",
   },
   "Planar Chaos": {
     collation: -1,
@@ -984,7 +984,7 @@ exports.SETS_DATA = {
     code: "PLC",
     arenacode: "PLC",
     tile: 67003,
-    release: "2007-02-02"
+    release: "2007-02-02",
   },
   "Dragon's Maze": {
     collation: -1,
@@ -992,7 +992,7 @@ exports.SETS_DATA = {
     code: "DGM",
     arenacode: "DGM",
     tile: 67003,
-    release: "2013-05-03"
+    release: "2013-05-03",
   },
   "": {
     collation: -1,
@@ -1000,8 +1000,8 @@ exports.SETS_DATA = {
     code: "",
     arenacode: "",
     tile: 67003,
-    release: "2000-00-00"
-  }
+    release: "2000-00-00",
+  },
 };
 
 exports.COLORS = ["{?}", "{W}", "{U}", "{B}", "{R}", "{G}", "{C}", "", "{X}"];
@@ -1121,7 +1121,7 @@ exports.NO_DUPES_ART_SETS = [
   "f05",
   "unh",
   "c16",
-  "mir"
+  "mir",
 ];
 
 /*
@@ -1129,9 +1129,7 @@ exports.NO_DUPES_ART_SETS = [
  So we access them like this;
    ScryfallCards[LANG][SET][COLLECTOR]
 */
-exports.CID_ART_SETS = [
-  "iko"
-]
+exports.CID_ART_SETS = ["iko"];
 
 exports.ALLOWED_SCRYFALL = [
   "thb",
@@ -1242,7 +1240,10 @@ exports.ALLOWED_SCRYFALL = [
   "tcon",
   "tshm",
   "tlrw",
-  "tmh1"
+  "tmh1",
+  "p04",
+  "pr2",
+  "tm15",
 ];
 
 exports.RATINGS_MTGCSR = 0;
@@ -1253,68 +1254,68 @@ exports.RANKS_SHEETS = [
     setCode: "war",
     sheet: "1pk3a1YKGas-NI4ze_8hbwOtVRdYAbzCDIBS9MKjcQ7M",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR
+    source: this.RATINGS_MTGCSR,
   },
   {
     setCode: "rna",
     sheet: "1DfcITmtWaBHtiDYLYWHzizw-AOrB3GUQaapc_BqfeH4",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR
+    source: this.RATINGS_MTGCSR,
   },
   {
     setCode: "grn",
     sheet: "1FPN3hgl6x_ePq-8On7Ebr8L6WHSU2IznoWSBoGaC_RQ",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR
+    source: this.RATINGS_MTGCSR,
   },
   {
     setCode: "m19",
     sheet: "1aZlqE-8mGdfQ50NXUaP-9dRk3w_hp9XmcBqZ_4x3_jk",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR
+    source: this.RATINGS_MTGCSR,
   },
   {
     setCode: "dom",
     sheet: "1cc-AOmpQZ7vKqxDTSSvhmRBVOCy_569kT0S-j-Rpbj8",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR
+    source: this.RATINGS_MTGCSR,
   },
   {
     setCode: "rix",
     sheet: "1CNg-FDp-pOtQ14Qj-rIBO-yfyr5YcPA6n6ztrEe4ATg",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR
+    source: this.RATINGS_MTGCSR,
   },
   {
     setCode: "xln",
     sheet: "1KDtLJd6Nkrv_DDpFs84soBZcWPG1tg79TnVEh-enPz8",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR
+    source: this.RATINGS_MTGCSR,
   },
   {
     setCode: "m20",
     sheet: "1BAPtQv4U9KUAtVzkccJlPS8cb0s_uOcGEDORip5uaQg",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR
+    source: this.RATINGS_MTGCSR,
   },
   {
     setCode: "eld",
     sheet: "1B-bEUGANnGFPB4zW-vAV8zHjUZINwLU8Qq1sVlgIdpU",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR
+    source: this.RATINGS_MTGCSR,
   },
   {
     setCode: "thb",
     sheet: "1zxR9zQxdEH9XI7CZmxiKeTQdU2nD8bVgYJ4bLUwV53s",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR
+    source: this.RATINGS_MTGCSR,
   },
   {
     setCode: "iko",
     sheet: "1frdwYEvl4fUoVUwwoaz6q2hggVZHwggaitAk4ZGZDz8",
     page: "Backend",
-    source: this.RATINGS_LOLA
-  }
+    source: this.RATINGS_LOLA,
+  },
 ];
 
 // for some reason, scryfall does not provide this yet

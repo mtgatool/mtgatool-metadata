@@ -19,7 +19,7 @@ const {
   RATINGS_MTGCSR,
   RATINGS_LOLA,
 } = require("./metadata-constants");
-const stripComments = require('strip-comments');
+const stripComments = require("strip-comments");
 
 exports.generateMetadata = function (
   ScryfallCards,
@@ -46,12 +46,12 @@ exports.generateMetadata = function (
     fs.writeFile(jsonOut, str, () => {});
 
     // Generate list of all cards that are alt printings from other card
-    const altCards = []
-    Object.keys(altPrintings).map(obj => {
-      Object.values(altPrintings[obj]).forEach(val => {
-        altCards.push(parseInt(val))}
-      );
-    })
+    const altCards = [];
+    Object.keys(altPrintings).map((obj) => {
+      Object.values(altPrintings[obj]).forEach((val) => {
+        altCards.push(parseInt(val));
+      });
+    });
 
     // Read locales for all languages and clean up mana costs in the texts
     const regex = new RegExp("/o(?=[^{]*})/");
@@ -204,7 +204,7 @@ exports.generateMetadata = function (
             colllector = 10;
             scryfallSet = "tmh1";
           }
-          
+
           // ANA lands
           // These arent the exact ones, these are lands from
           // random sets but with the same art.
