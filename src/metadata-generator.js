@@ -168,14 +168,6 @@ exports.generateMetadata = function (
             colllector = 40;
             scryfallSet = "akh";
           }
-          if (cardId == 74596) {
-            colllector = 6;
-            scryfallSet = "pr2";
-          }
-          if (cardId == 74597) {
-            colllector = 6;
-            scryfallSet = "p04";
-          }
           if (cardId == 73175) {
             colllector = 2;
             scryfallSet = "twwk";
@@ -192,17 +184,8 @@ exports.generateMetadata = function (
             colllector = 12;
             scryfallSet = "tshm";
           }
-          if (cardId == 71670) {
-            colllector = 9;
-            scryfallSet = "tlrw";
-          }
-          if (cardId == 68809) {
-            colllector = 8;
-            scryfallSet = "tcn2";
-          }
-          if (cardId == 68808) {
-            colllector = 10;
-            scryfallSet = "tmh1";
+          if (cardId == 73649) {
+            colllector = 385;
           }
 
           // ANA lands
@@ -304,6 +287,27 @@ exports.generateMetadata = function (
         } else {
           // If the card is a token the scryfall set name begins with "t"
           scryfallSet = "t" + scryfallSet;
+
+          if (cardId == 74596) {
+            colllector = 6;
+            scryfallSet = "pr2";
+          }
+          if (cardId == 74597) {
+            colllector = 6;
+            scryfallSet = "p04";
+          }
+          if (cardId == 71670) {
+            colllector = 9;
+            scryfallSet = "tlrw";
+          }
+          if (cardId == 68808) {
+            colllector = 10;
+            scryfallSet = "tmh1";
+          }
+          if (cardId == 68809) {
+            colllector = 8;
+            scryfallSet = "tcn2";
+          }
         }
 
         // Get scryfall object
