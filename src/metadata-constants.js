@@ -1244,6 +1244,7 @@ exports.ALLOWED_SCRYFALL = [
   "p04",
   "pr2",
   "tm15",
+  "tlrw",
 ];
 
 exports.RATINGS_MTGCSR = 0;

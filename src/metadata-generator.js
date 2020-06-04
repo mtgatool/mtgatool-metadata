@@ -173,8 +173,8 @@ exports.generateMetadata = function (
             scryfallSet = "pr2";
           }
           if (cardId == 74597) {
-            colllector = 4;
-            scryfallSet = "pr2";
+            colllector = 6;
+            scryfallSet = "p04";
           }
           if (cardId == 73175) {
             colllector = 2;
