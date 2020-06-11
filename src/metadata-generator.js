@@ -159,6 +159,7 @@ exports.generateMetadata = function (
         cardObj.collectible = true; //card.isCollectible;
         cardObj.craftable = true; //card.isCraftable;
         cardObj.booster = card.isPrimaryCard;
+        cardObj.abilities = card.abilities.map(ab => ab.abilityId);
 
         let scryfallObject = undefined;
         let scryfallSet = SETS_DATA[set] ? SETS_DATA[set].scryfall : "";
