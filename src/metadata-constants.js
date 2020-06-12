@@ -457,6 +457,14 @@ exports.SETS_DATA = {
     tile: 67003,
     release: "2020-04-16",
   },
+  "Core Set 2021": {
+    collation: 100018,
+    scryfall: "m21",
+    code: "M21",
+    arenacode: "M21",
+    tile: 67003,
+    release: "2020-06-04",
+  },
   // Other sets below
   "Mythic Edition": {
     collation: -1,
@@ -1025,6 +1033,7 @@ exports.SET_NAMES = {
   RNA: "Ravnica Allegiance",
   WAR: "War of the Spark",
   M20: "Core Set 2020",
+  M21: "Core Set 2021",
   MI: "Mirage",
   ROE: "Rise of Eldrazi",
   RTR: "Return to Ravnica",
@@ -1246,6 +1255,7 @@ exports.ALLOWED_SCRYFALL = [
   "tm15",
   "tths",
   "tcn2",
+  "m21",
 ];
 
 exports.RATINGS_MTGCSR = 0;
