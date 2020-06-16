@@ -144,6 +144,7 @@ exports.generateMetadata = function (
 
         cardObj.id = cardId;
         cardObj.name = cardName;
+        cardObj.titleId = titleId;
         cardObj.set = set;
         cardObj.artid = card.artId;
         cardObj.type = typeLine;
