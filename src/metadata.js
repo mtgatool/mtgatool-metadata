@@ -183,12 +183,23 @@ function getScryfallCards() {
   return new Promise((resolve) => {
     let file = path.join(APPDATA, EXTERNAL, SCRYFALL_FILE);
     if (!fs.existsSync(file)) {
-      console.log("Downloading Scryfall cards data.");
-      httpGetFile(
-        "https://archive.scryfall.com/json/" + SCRYFALL_FILE,
-        SCRYFALL_FILE
-      ).then((file) => {
-        resolve();
+      httpGetTextAsync("https://api.scryfall.com/bulk-data").then((str) => {
+        const bulkData = JSON.parse(str);
+        let downloadURL = undefined;
+        bulkData.data.forEach((data) => {
+          if (data.type == "all_cards") {
+            downloadURL = data.download_uri;
+          }
+        });
+        if (downloadURL) {
+          console.log("Downloading Scryfall cards data.");
+          httpGetFile(downloadURL, SCRYFALL_FILE).then((file) => {
+            resolve();
+          });
+        } else {
+          console.log("Could not download Scryfall cards data.");
+          resolve();
+        }
       });
     } else {
       console.log("Skipping Scryfall cards data download.");
@@ -218,7 +229,10 @@ function generateScryfallDatabase() {
       let scryfallDataAdd = function (obj, lang, set, name, cid = false) {
         if (scryfallData[lang] == undefined) scryfallData[lang] = {};
         if (scryfallData[lang][set] == undefined) scryfallData[lang][set] = {};
-        if (scryfallData[lang][set][name] == undefined && !CID_ART_SETS.includes(set))
+        if (
+          scryfallData[lang][set][name] == undefined &&
+          !CID_ART_SETS.includes(set)
+        )
           scryfallData[lang][set][name] = {};
 
         if (CID_ART_SETS.includes(set)) {
