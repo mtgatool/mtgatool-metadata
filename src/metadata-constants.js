@@ -1328,6 +1328,12 @@ exports.RANKS_SHEETS = [
     page: "Backend",
     source: this.RATINGS_LOLA,
   },
+  {
+    setCode: "m21",
+    sheet: "15HMdmkNmzTFIAITQm4LVZVBnVFB26Bn3HOJqQvMy2Mc",
+    page: "Backend",
+    source: this.RATINGS_LOLA,
+  },
 ];
 
 // for some reason, scryfall does not provide this yet
