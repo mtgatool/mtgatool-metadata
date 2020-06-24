@@ -63,43 +63,64 @@ function requestManifestData(version) {
 
     let req = httpGetText(externalURL);
     req.addEventListener("load", function() {
-      let manifestId = req.responseText;
-      console.log("Manifest ID:", manifestId);
-      let manifestUrl = `https://assets.mtgarena.wizards.com/Manifest_${manifestId}.mtga`;
-
-      let manifestFile = `Manifest_${manifestId}.mtga`;
-      resolve({ url: manifestUrl, file: manifestFile });
+      let manifests = req.responseText.split(`\r\n`);
+      const data = [];
+      manifests.map(manifestId => {
+        console.log("Manifest ID:", manifestId);
+        let manifestUrl = `https://assets.mtgarena.wizards.com/Manifest_${manifestId}.mtga`;
+        let manifestFile = `Manifest_${manifestId}.mtga`;
+        data.push({ url: manifestUrl, file: manifestFile, id: manifestId });
+      });
+      resolve(data);
     });
   });
 }
 
-function downloadManifest(manifestData) {
+function downloadManifest(data) {
+  if (!data) return Promise.all([""]);
+  const promises = data.map(manifestData => {
+    return new Promise(resolve => {
+      if (!manifestData) {
+        resolve(false);
+      } else {
+        httpGetFile(manifestData.url, manifestData.file).then(file => {
+          let outFile = path.join(APPDATA, EXTERNAL, `manifest_${manifestData.id}.json`);
+          try {
+            JSON.parse(fs.readFileSync(outFile));
+            resolve(outFile);
+          } catch (e) {
+            console.log("Trying to gunzip manifest..");
+            gunzip(file, outFile, () => {
+              fs.unlink(file, () => {});
+              JSON.parse(fs.readFileSync(outFile));
+              resolve(outFile);
+            });
+          }
+        });
+      }
+    });
+  });
+  return Promise.all(promises);
+}
+
+function pickManifest(manifests) {
+  console.log(manifests);
   return new Promise(resolve => {
-    if (!manifestData) {
-      resolve(false);
-    } else {
-      httpGetFile(manifestData.url, manifestData.file).then(file => {
-        let outFile = path.join(APPDATA, EXTERNAL, "manifest.json");
-        try {
-          let manifestData = JSON.parse(fs.readFileSync(outFile));
-          resolve(manifestData);
-        } catch (e) {
-          console.log("Trying to gunzip manifest..");
-          gunzip(file, outFile, () => {
-            fs.unlink(file, () => {});
-            let manifestData = JSON.parse(fs.readFileSync(outFile));
-            resolve(manifestData);
-          });
-        }
-      });
-    }
+    const sizes = manifests.map(file => {
+      const stat = fs.statSync(file);
+      return stat.size;
+    });
+    const biggest = sizes.indexOf(Math.max(...sizes));
+    const manifestData = JSON.parse(fs.readFileSync(manifests[biggest]));
+    resolve(manifestData);
   });
 }
 
 function getManifestFiles(version) {
   return requestManifestData(version)
-    .then(manifestData => downloadManifest(manifestData))
-    .then(data => processManifest(data));
+    .then(data => downloadManifest(data))
+    .then(manifests => pickManifest(manifests))
+    .then(data => processManifest(data))
 }
 
 function processManifest(data) {
