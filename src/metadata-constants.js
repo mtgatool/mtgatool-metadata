@@ -952,7 +952,7 @@ exports.SETS_DATA = {
     code: "TOR",
     arenacode: "TOR",
     tile: 67003,
-    release: "2019-12-02",
+    release: "2002-02-04",
   },
   Judgment: {
     collation: -1,
