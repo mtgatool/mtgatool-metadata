@@ -1002,6 +1002,30 @@ exports.SETS_DATA = {
     tile: 67003,
     release: "2013-05-03",
   },
+  "Historic Anthology 1": {
+    collation: -1,
+    scryfall: "ha1",
+    code: "HA1",
+    arenacode: "HA1",
+    tile: 67003,
+    release: "2019-11-21",
+  },
+  "Historic Anthology 2": {
+    collation: -1,
+    scryfall: "ha2",
+    code: "HA2",
+    arenacode: "HA2",
+    tile: 67003,
+    release: "2020-03-12",
+  },
+  "Historic Anthology 3": {
+    collation: -1,
+    scryfall: "ha3",
+    code: "HA3",
+    arenacode: "HA3",
+    tile: 67003,
+    release: "2020-05-21",
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -1102,6 +1126,9 @@ exports.SET_NAMES = {
   M12: "Magic 2012",
   PLC: "Planar Chaos",
   DGM: "Dragon's Maze",
+  HA1: "Historic Anthology 1",
+  HA2: "Historic Anthology 2",
+  HA3: "Historic Anthology 3",
 };
 
 /*
@@ -1256,6 +1283,7 @@ exports.ALLOWED_SCRYFALL = [
   "tths",
   "tcn2",
   "m21",
+  "tm21",
 ];
 
 exports.RATINGS_MTGCSR = 0;
