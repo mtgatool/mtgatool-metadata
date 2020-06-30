@@ -153,27 +153,37 @@ function getSetIcons() {
     setNames.forEach((setName, index) => {
       setTimeout(() => {
         let code = SETS_DATA[setName].scryfall;
-        if (setName == "" || setName == "Arena New Player Experience")
-          code = "default";
-        if (setName == "M19 Gift Pack") code = "m19";
-
-        let svgText = `https://img.scryfall.com/sets/${code}.svg`;
-        httpGetTextAsync(svgText).then((str) => {
-          count++;
-          if (setName == "Arena New Player Experience") {
-            // hack hack hack
-            // for some reason, scryfall does not provide this yet
-            // manually insert here instead
-            str = ARENA_SVG;
-          }
+        if (setName == "" || setName == "Arena New Player Experience") {
+          // hack hack hack
+          // for some reason, scryfall does not provide this yet
+          // manually insert here instead
+          str = ARENA_SVG;
           str = str.replace(/fill="#.*?\"\ */g, " ");
           str = str.replace(/<path /g, '<path fill="#FFF" ');
-          //console.log(setName, code, str);
           SETS_DATA[setName].svg = Buffer.from(str).toString("base64");
-          if (count == setNames.length) {
-            resolve();
-          }
-        }, 300 * index);
+          resolve();
+          code = "default";
+        }
+        if (setName == "M19 Gift Pack") code = "m19";
+
+        let setUri = `https://api.scryfall.com/sets/${code}`;
+        if (code !== "default") {
+          httpGetTextAsync(setUri).then((setStr) => {
+            const set = JSON.parse(setStr);
+            SETS_DATA[setName].release = set.released_at;
+            let svgUrl = set.icon_svg_uri;
+            httpGetTextAsync(svgUrl).then((str) => {
+              count++;
+              str = str.replace(/fill="#.*?\"\ */g, " ");
+              str = str.replace(/<path /g, '<path fill="#FFF" ');
+              //console.log(setName, code, str);
+              SETS_DATA[setName].svg = Buffer.from(str).toString("base64");
+              if (count == setNames.length) {
+                resolve();
+              }
+            });
+          }, 300 * index);
+        }
       });
     });
   });
