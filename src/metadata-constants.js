@@ -104,8 +104,10 @@ exports.EVENT_TO_NAME = {
   QuickDraft_THB_20200319: "Ranked Draft THB 03/20",
   QuickDraft_M19_20200327: "Ranked Draft M19 03/20",
   QuickDraft_IKO_20200501: "Ranked Draft IKO 05/20",
+  QuickDraft_IKO_20200626: "Ranked Draft IKO 06/20",
 
   PremierDraft_IKO_20200416: "Premier Draft IKO 04/20",
+  PremierDraft_M21_20200625: "Premier Draft M21 06/20",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Omniscience Draft M20",
@@ -149,6 +151,7 @@ exports.EVENT_TO_NAME = {
   Esports_MPC_20200404: "Mythic Points Challenge",
   Sealed_IKO_20200416: "Ikoria Sealed",
   FNM_HistoricArtisan_20200522: "Historic Artisan",
+  Jumpstart_M21_20200716: "Jumpstart",
 
   Historic_Challenge_20200111: "Historic Challenge",
   Momir_PW_20200110: "Momir PW",
@@ -225,8 +228,10 @@ exports.EVENT_TO_FORMAT = {
   QuickDraft_THB_20200319: "Draft THB",
   QuickDraft_M19_20200327: "Draft M19",
   QuickDraft_IKO_20200501: "Draft IKO",
+  QuickDraft_IKO_20200626: "Draft IKO",
 
   PremierDraft_IKO_20200416: "Draft IKO",
+  PremierDraft_M21_20200625: "Draft M21",
 
   Cascade_Constructed_20190516: "Cascade Constructed",
   Omniscience_Draft_20190830: "Draft M20",
@@ -271,6 +276,7 @@ exports.EVENT_TO_FORMAT = {
   Esports_MPC_20200404: "Traditional Standard",
   Sealed_IKO_20200416: "Sealed",
   FNM_HistoricArtisan_20200522: "Historic",
+  Jumpstart_M21_20200716: "Jumpstart",
 
   Brawl_Launch_20191024: "Brawl",
   Precon_Brawl_ELD: "Brawl",
@@ -288,7 +294,7 @@ exports.EVENT_TO_FORMAT = {
 };
 
 // These are the current events in the ranked ladder
-exports.LIMITED_RANKED_EVENTS = ["QuickDraft_IKO_20200501"];
+exports.LIMITED_RANKED_EVENTS = ["QuickDraft_IKO_20200626"];
 
 exports.STANDARD_RANKED_EVENTS = [
   "Ladder",
@@ -454,7 +460,7 @@ exports.SETS_DATA = {
     scryfall: "iko",
     code: "IKO",
     arenacode: "IKO",
-    tile: 67003,
+    tile: 71242,
     release: "2020-04-16",
   },
   "Core Set 2021": {
@@ -462,7 +468,7 @@ exports.SETS_DATA = {
     scryfall: "m21",
     code: "M21",
     arenacode: "M21",
-    tile: 67003,
+    tile: 71783,
     release: "2020-06-04",
   },
   // Other sets below
@@ -1002,6 +1008,22 @@ exports.SETS_DATA = {
     tile: 67003,
     release: "2013-05-03",
   },
+  "Unstable": {
+    collation: -1,
+    scryfall: "ust",
+    code: "UST",
+    arenacode: "UST",
+    tile: 67003,
+    release: "2017-12-08",
+  },
+  "Jumpstart": {
+    collation: -1,
+    scryfall: "jmp",
+    code: "JMP",
+    arenacode: "JMP",
+    tile: 67003,
+    release: "2020-07-17",
+  },
   "Historic Anthology 1": {
     collation: -1,
     scryfall: "ha1",
@@ -1126,6 +1148,8 @@ exports.SET_NAMES = {
   M12: "Magic 2012",
   PLC: "Planar Chaos",
   DGM: "Dragon's Maze",
+  UST: "Unstable",
+  JMP: "Jumpstart",
   HA1: "Historic Anthology 1",
   HA2: "Historic Anthology 2",
   HA3: "Historic Anthology 3",
@@ -1284,6 +1308,9 @@ exports.ALLOWED_SCRYFALL = [
   "tcn2",
   "m21",
   "tm21",
+  "ust",
+  "tust",
+  "jmp"
 ];
 
 exports.RATINGS_MTGCSR = 0;
