@@ -22,6 +22,7 @@ exports.LANGUAGES = [
 ];
 
 exports.SCRYFALL_LANGUAGE = {
+  PH: "PH",
   DE: "DE",
   EN: "EN",
   ES: "ES",
@@ -1182,6 +1183,7 @@ exports.NO_DUPES_ART_SETS = [
   "unh",
   "c16",
   "mir",
+  "sld"
 ];
 
 /*
@@ -1310,7 +1312,10 @@ exports.ALLOWED_SCRYFALL = [
   "tm21",
   "ust",
   "tust",
-  "jmp"
+  "jmp",
+  "tcn2",
+  "sld",
+  "csp"
 ];
 
 exports.RATINGS_MTGCSR = 0;

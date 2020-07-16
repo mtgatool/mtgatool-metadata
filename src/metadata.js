@@ -235,7 +235,6 @@ function generateScryfallDatabase() {
       // using the newline characters..
 
       let scryfallData = {};
-
       let scryfallDataAdd = function (obj, lang, set, name, cid = false) {
         if (scryfallData[lang] == undefined) scryfallData[lang] = {};
         if (scryfallData[lang][set] == undefined) scryfallData[lang][set] = {};
@@ -285,6 +284,9 @@ function generateScryfallDatabase() {
             }*/
             if (ALLOWED_SCRYFALL.includes(obj.set)) {
               obj.lang = obj.lang.toUpperCase();
+              if (obj.lang == "PH") {
+                console.log(obj);
+              }
               let name = obj.name;
               scryfallDataAdd(
                 obj,
