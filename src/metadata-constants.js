@@ -1183,7 +1183,7 @@ exports.NO_DUPES_ART_SETS = [
   "unh",
   "c16",
   "mir",
-  "sld"
+  "ajmp"
 ];
 
 /*
@@ -1315,7 +1315,8 @@ exports.ALLOWED_SCRYFALL = [
   "jmp",
   "tcn2",
   "sld",
-  "csp"
+  "csp",
+  "ajmp"
 ];
 
 exports.RATINGS_MTGCSR = 0;

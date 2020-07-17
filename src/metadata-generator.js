@@ -167,81 +167,45 @@ exports.generateMetadata = function (
         if (!card.isToken) {
           const orig = scryfallSet + colllector;
           // Jumpstart replacement cards
-          if (cardId == 74983) { // Archon of Sun's Grace - jmp (3)
-            colllector = 3;
-            scryfallSet = "thb";
-          }
-          if (cardId == 74984) { // Serra's Guardian - jmp (310)
-            colllector = 310;
-            scryfallSet = "m20";
-          }
-          if (cardId == 74986) { // Banishing Light - jmp (4)
-            colllector = 4;
-            scryfallSet = "thb";
-          }
-          if (cardId == 74987) { // Gadwick, the Wizened - jmp (48)
-            colllector = 48;
-            scryfallSet = "eld";
-          }
-          if (cardId == 74988) { // Teferi's Ageless Insight - jmp (76)
-            colllector = 76;
-            scryfallSet = "m21";
-          }
-          if (cardId == 74989) { // Weight of Memory - jmp (74)
-            colllector = 74;
-            scryfallSet = "dom";
-          }
-          if (cardId == 74990) { // Bond of Revival - jmp (80)
-            colllector = 80;
-            scryfallSet = "war";
-          }
-          if (cardId == 74991) { // Audacious Thief - jmp (84)
-            colllector = 84;
-            scryfallSet = "m20";
-          }
-          if (cardId == 74992) { // Doomed Necromancer - jmp (137)
-            colllector = 137;
-            scryfallSet = "10e";
-          }
-          if (cardId == 74993) { // Carnifex Demon - jmp (57)
-            colllector = 57;
-            scryfallSet = "som";
-          }
-          if (cardId == 74994) { // Woe Strider - jmp (123)
-            colllector = 123;
-            scryfallSet = "thb";
-          }
-          if (cardId == 74995) { // Lightning Strike - jmp (152)
-            colllector = 152;
-            scryfallSet = "m19";
-          }
-          if (cardId == 74996) { // Lightning Serpent (Lightning Serpent) - jmp (88)
-            colllector = 88;
-            scryfallSet = "csp";
-          }
-          if (cardId == 74997) { // Scorching Dragonfire (Scorching Dragonfire) - jmp (139)
-            colllector = 158;
-            scryfallSet = "m21";
-          }
-          if (cardId == 74998) { // Goblin Oriflamme (Goblin Oriflamme) - jmp (130)
-            colllector = 130;
-            scryfallSet = "mh1";
-          }
-          if (cardId == 75000) { // Dryad Greenseeker (Dryad Greenseeker) - jmp (178)
-            colllector = 178;
-            scryfallSet = "m19";
-          }
-          if (cardId == 75001) { // Pollenbright Druid (Pollenbright Druid) - jmp (173)
-            colllector = 173;
-            scryfallSet = "war";
-          }
-          if (cardId == 75002) { // Prey Upon (Prey Upon) - jmp (143)
-            colllector = 143;
-            scryfallSet = "grn";
-          }
+          if (cardId == 74983) // Archon of Sun's Grace - jmp (3)
+            scryfallSet = "ajmp";
+          if (cardId == 74984) // Serra's Guardian - jmp (310)
+            scryfallSet = "ajmp";
+          if (cardId == 74986) // Banishing Light - jmp (4)
+            scryfallSet = "ajmp";
+          if (cardId == 74987) // Gadwick, the Wizened - jmp (48)
+            scryfallSet = "ajmp";
+          if (cardId == 74988) // Teferi's Ageless Insight - jmp (76)
+            scryfallSet = "ajmp";
+          if (cardId == 74989) // Weight of Memory - jmp (74)
+            scryfallSet = "ajmp";
+          if (cardId == 74990) // Bond of Revival - jmp (80)
+            scryfallSet = "ajmp";
+          if (cardId == 74991) // Audacious Thief - jmp (84)
+            scryfallSet = "ajmp";
+          if (cardId == 74992) // Doomed Necromancer - jmp (137)
+            scryfallSet = "ajmp";
+          if (cardId == 74993) // Carnifex Demon - jmp (57)
+            scryfallSet = "ajmp";
+          if (cardId == 74994) // Woe Strider - jmp (123)
+            scryfallSet = "ajmp";
+          if (cardId == 74995) // Lightning Strike - jmp (152)
+            scryfallSet = "ajmp";
+          if (cardId == 74996) // Lightning Serpent (Lightning Serpent) - jmp (88)
+            scryfallSet = "ajmp";
+          if (cardId == 74997) // Scorching Dragonfire (Scorching Dragonfire) - jmp (139)
+            scryfallSet = "ajmp";
+          if (cardId == 74998) // Goblin Oriflamme (Goblin Oriflamme) - jmp (130)
+            scryfallSet = "ajmp";
+          if (cardId == 75000) // Dryad Greenseeker (Dryad Greenseeker) - jmp (178)
+            scryfallSet = "ajmp";
+          if (cardId == 75001) // Pollenbright Druid (Pollenbright Druid) - jmp (173)
+            scryfallSet = "ajmp";
+          if (cardId == 75002) // Prey Upon (Prey Upon) - jmp (143)
+            scryfallSet = "ajmp";
 
           // ??
-          if (cardId == 69441) {
+        if (cardId == 69441) {
             colllector = 40;
             scryfallSet = "akh";
           }
@@ -563,6 +527,11 @@ function getScryfallCard(
   colllector
 ) {
   let ret = undefined;
+
+  // Secrel lair drop basic lands only exist in Japanese
+  if (scryfallSet == "sld" && colllector > 62 && colllector < 68) {
+    lang = "JA";
+  }
 
   try {
     lang = SCRYFALL_LANGUAGE[lang];

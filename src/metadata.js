@@ -55,6 +55,12 @@ function quit() {
   process.exit();
 }
 
+function asyncSleep(ms) {
+  return function(x) {
+    return new Promise(resolve => setTimeout(() => resolve(x), ms));
+  };
+}
+
 function getRanksData() {
   let requests = RANKS_SHEETS.map((rank) => {
     return new Promise((resolve) => {
@@ -62,7 +68,7 @@ function getRanksData() {
       httpGetFile(
         `https://docs.google.com/spreadsheets/d/${rank.sheet}/gviz/tq?sheet=${rank.page}`,
         rank.setCode + "_ranks"
-      ).then((file) => {
+      ).then(asyncSleep(250)).then((file) => {
         fs.readFile(file, function read(err, data) {
           let str = data.toString();
           str = str
@@ -70,9 +76,8 @@ function getRanksData() {
             .replace(`google.visualization.Query.setResponse(`, "")
             .replace(`);`, " ");
 
-          console.log(`${rank.setCode.toUpperCase()} ok.`);
-          resolve();
-          try {
+            console.log(`${rank.setCode.toUpperCase()} ok.`);
+            try {
             ranksData[rank.setCode.toUpperCase()] = processRanksData(
               str,
               rank.source
@@ -80,6 +85,7 @@ function getRanksData() {
           } catch (e) {
             console.log("Error processing " + rank.setCode, e);
           }
+          resolve();
         });
       });
     });
@@ -176,7 +182,6 @@ function getSetIcons() {
               count++;
               str = str.replace(/fill="#.*?\"\ */g, " ");
               str = str.replace(/<path /g, '<path fill="#FFF" ');
-              //console.log(setName, code, str);
               SETS_DATA[setName].svg = Buffer.from(str).toString("base64");
               if (count == setNames.length) {
                 resolve();
@@ -279,14 +284,13 @@ function generateScryfallDatabase() {
         if (line.length > 0) {
           try {
             var obj = JSON.parse(line);
-            /*if (obj.set == "eld" && obj.collector_number == 149) {
+            /*
+            if (obj.set == "eld" && obj.collector_number == 149) {
               console.log(line);
-            }*/
+            }
+            */
             if (ALLOWED_SCRYFALL.includes(obj.set)) {
               obj.lang = obj.lang.toUpperCase();
-              if (obj.lang == "PH") {
-                console.log(obj);
-              }
               let name = obj.name;
               scryfallDataAdd(
                 obj,

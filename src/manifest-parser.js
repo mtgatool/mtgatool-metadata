@@ -36,6 +36,8 @@ function getArenaVersion(channel = "Live") {
 
 function requestManifestData(version) {
   return new Promise(resolve => {
+    /*
+    // Split manifest files make it so we need to request everything again each time
     let requiredFiles = [
       "abilities.json",
       "cards.json",
@@ -53,7 +55,7 @@ function requestManifestData(version) {
       resolve(false);
       return;
     }
-
+    */
     // Regex to extract version number
     const regExp = /.\..\.(.+\..+)/g;
     version = regExp.exec(version)[1].replace(".", "_");
