@@ -156,6 +156,7 @@ function getSetIcons() {
   return new Promise((resolve) => {
     let count = 0;
     let setNames = Object.keys(SETS_DATA);
+    console.log("Obtaining SVG icons..");
     setNames.forEach((setName, index) => {
       setTimeout(() => {
         let code = SETS_DATA[setName].scryfall;
@@ -163,15 +164,14 @@ function getSetIcons() {
           // hack hack hack
           // for some reason, scryfall does not provide this yet
           // manually insert here instead
+          count++;
           str = ARENA_SVG;
           str = str.replace(/fill="#.*?\"\ */g, " ");
           str = str.replace(/<path /g, '<path fill="#FFF" ');
           SETS_DATA[setName].svg = Buffer.from(str).toString("base64");
-          resolve();
           code = "default";
         }
         if (setName == "M19 Gift Pack") code = "m19";
-
         let setUri = `https://api.scryfall.com/sets/${code}`;
         if (code !== "default") {
           httpGetTextAsync(setUri).then((setStr) => {
@@ -187,7 +187,7 @@ function getSetIcons() {
                 resolve();
               }
             });
-          }, 300 * index);
+          });
         }
       });
     });
