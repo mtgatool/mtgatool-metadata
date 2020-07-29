@@ -1,18 +1,22 @@
 {
-  "name": "mtg-arena-tool-metadata",
+  "name": "mtgatool-metadata",
   "version": "86.0.0",
   "description": "A metadata generator for MTG Arena Tool",
-  "main": "src/metadata.js",
+  "main": "out/metadata.js",
   "scripts": {
-    "clean": "npm run clean:external && npm run clean:dist",
+    "clean": "npm run clean:external && npm run clean:out && npm run clean:dist",
     "clean:modules": "rimraf node_modules",
     "clean:external": "rimraf external",
     "clean:dist": "rimraf dist",
-    "start": "node --max-old-space-size=4096 src/metadata.js",
-    "test": "node src/setup.js && jest src/",
+    "clean:out": "rimraf output",
+    "start": "node --max-old-space-size=4096 dist/metadata.js",
+    "test": "tsc && node dist/setup.js && jest src/",
+    "jest": "jest src/",
     "predist": "npm run clean",
-    "dist": "node src/dist.js",
-    "dist:noclean": "node src/dist.js"
+    "copy:package": "copyfiles package.json src",
+    "tsc": "tsc",
+    "dist": "npm run copy:package && tsc && node dist/dist.js",
+    "dist:noclean": "tsc && node dist/dist.js"
   },
   "repository": {
     "type": "git",
@@ -37,13 +41,28 @@
     "gunzip-file": "^0.1.1",
     "https": "^1.0.0",
     "lodash": "^4.17.15",
-    "readline": "^1.3.0",
+    "mtgatool-shared": "^1.0.18",
+    "request": "^2.88.2",
+    "scryfall-client": "^0.17.0",
     "ssh2-sftp-client": "^4.2.4",
-    "strip-comments": "^2.0.1",
-    "xmlhttprequest": "^1.8.0"
+    "strip-json-comments": "^3.1.1",
+    "xmlhttprequest": "^1.8.0",
+    "xmlhttprequest-ts": "^1.0.1"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.7",
+    "@types/lodash": "^4.14.158",
+    "@types/request": "^2.48.5",
+    "@types/ssh2-sftp-client": "^5.1.1",
+    "@typescript-eslint/eslint-plugin": "^3.0.2",
+    "@typescript-eslint/parser": "^3.0.2",
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
     "jest": "^24.9.0",
-    "rimraf": "^3.0.0"
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^26.1.4",
+    "typescript": "^3.9.3"
   }
 }

@@ -1,11 +1,12 @@
 /* eslint-env jest */
-const path = require("path");
-const fs = require("fs");
+import path from "path";
+import fs from "fs";
 
-const {APPDATA, EXTERNAL} = require("../metadata-constants");
+import { APPDATA, EXTERNAL } from "../metadata-constants";
+import { Card } from "../types/jsons-data";
 
 describe("Check cards data", () => {
-  let cards = getCards();
+  const cards: Record<string, Card> = getCards();
   const teferi = cards["69670"];
 
   // Test if the cards proprties change from what we expect
@@ -65,12 +66,14 @@ describe("Check cards data", () => {
   });
 });
 
-function getCards() {
-  let file = path.join(APPDATA, EXTERNAL, "cards.json");
-  let cards = JSON.parse(`{"value": ${fs.readFileSync(file)}}`);
+function getCards(): Record<string, Card> {
+  const file = path.join(APPDATA, EXTERNAL, "cards.json");
+  const cards: { value: Card[] } = JSON.parse(
+    `{"value": ${fs.readFileSync(file)}}`
+  );
 
   // get all cards in cards.json as grpId: card
-  const cardsObj = {};
+  const cardsObj: Record<string, Card> = {};
   cards.value.forEach((card) => {
     cardsObj[card.grpid] = card;
   });

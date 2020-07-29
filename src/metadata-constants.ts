@@ -1,41 +1,57 @@
-const path = require("path");
-const packageJson = require("../package.json");
+import path from "path";
+import packageJson from "./package.json";
+import { constants, CardSet, Rarity } from "mtgatool-shared";
 
-exports.APPDATA = path.resolve(__dirname, "..");
+const { RATINGS_MTGCSR, RATINGS_LOLA } = constants;
 
-exports.EXTERNAL = "external";
-exports.OUTPUT = "dist";
-exports.VERSION = packageJson.version.split(".")[0];
+export const APPDATA = path.resolve(__dirname, "..");
+
+export const EXTERNAL = "external";
+export const OUTPUT = "output";
+export const DIST = "dist";
+export const VERSION = packageJson.version.split(".")[0];
+
+export type SCRYFALL_LANGS =
+  | "EN"
+  | "PH"
+  | "DE"
+  | "ES"
+  | "FR"
+  | "IT"
+  | "RU"
+  | "PT"
+  | "JA"
+  | "ZHS"
+  | "KO"
+  | "PH";
+
+export type ARENA_LANGS =
+  | "en-US"
+  | "fr-FR"
+  | "it-IT"
+  | "de-DE"
+  | "es-ES"
+  | "ja-JP"
+  | "pt-BR"
+  | "ru-RU"
+  | "ko-KR"
+  | "zh-CN";
 
 // What languages to actually compile
-exports.LANGUAGES = [
+export const LANGUAGES: SCRYFALL_LANGS[] = [
   "EN",
   "ES",
-  "BR",
+  "PT",
   "DE",
   "FR",
   "IT",
-  "JP",
+  "JA",
   "RU",
-  "ko-KR",
-  "zh-CN",
+  "KO",
+  "ZHS",
 ];
 
-exports.SCRYFALL_LANGUAGE = {
-  PH: "PH",
-  DE: "DE",
-  EN: "EN",
-  ES: "ES",
-  FR: "FR",
-  IT: "IT",
-  RU: "RU",
-  BR: "PT",
-  JP: "JA",
-  "zh-CN": "ZHS",
-  "ko-KR": "KO",
-};
-
-exports.LANGKEYS = {
+export const LANGKEYS: Record<ARENA_LANGS, SCRYFALL_LANGS> = {
   "en-US": "EN",
   "fr-FR": "FR",
   "it-IT": "IT",
@@ -48,20 +64,22 @@ exports.LANGKEYS = {
   "zh-CN": "ZHS",
 };
 
-exports.EVENT_TO_NAME = {
+export const EVENT_TO_NAME = {
   NPE: "New Player Experience",
   DirectGame: "Direct Game",
-  Constructed_Event: "Constructed",
-  Constructed_Event_2020: "Standard Event",
-  Ladder: "Standard Ranked",
-  Historic_Ladder: "Historic Ranked",
-  Traditional_Cons_Event_2020: "Traditional Standard Event",
   Constructed_BestOf3: "Traditional Standard Play",
+  Traditional_Cons_Event_2020: "Traditional Standard Event",
+
+  Ladder: "Standard Ranked",
   Traditional_Ladder: "Traditional Standard Ranked",
+  Constructed_Event_2020: "Standard Event",
+
+  Historic_Ladder: "Historic Ranked",
   Traditional_Historic_Ladder: "Traditional Historic Ranked",
+  Traditional_Historic_Event: "Traditional Historic Event",
 };
 
-exports.EVENT_TO_FORMAT = {
+export const EVENT_TO_FORMAT = {
   Play: "Standard",
   Historic_Play: "Historic",
   DirectGame: "Direct Game",
@@ -184,16 +202,16 @@ exports.EVENT_TO_FORMAT = {
 };
 
 // These are the current events in the ranked ladder
-exports.LIMITED_RANKED_EVENTS = ["QuickDraft_IKO_20200626"];
+export const LIMITED_RANKED_EVENTS = ["QuickDraft_IKO_20200626"];
 
-exports.STANDARD_RANKED_EVENTS = [
+export const STANDARD_RANKED_EVENTS = [
   "Ladder",
   "Traditional_Ladder",
   "Historic_Ladder",
   "Traditional_Historic_Ladder",
 ];
 
-exports.SINGLE_MATCH_EVENTS = [
+export const SINGLE_MATCH_EVENTS = [
   "Play",
   "Historic_Play",
   "AIBotMatch",
@@ -248,7 +266,8 @@ exports.SINGLE_MATCH_EVENTS = [
     tile: 67106
   },
 */
-exports.SETS_DATA = {
+
+export const SETS_DATA: Record<string, CardSet> = {
   Ixalan: {
     collation: 100005,
     scryfall: "xln",
@@ -570,14 +589,6 @@ exports.SETS_DATA = {
     tile: 64827,
     release: "2015-03-27",
   },
-  Mirage: {
-    collation: -1,
-    scryfall: "mir",
-    code: "MIR",
-    arenacode: "MIR",
-    tile: 64827,
-    release: "1996-10-08",
-  },
   Weatherlight: {
     collation: -1,
     scryfall: "wth",
@@ -593,14 +604,6 @@ exports.SETS_DATA = {
     arenacode: "INV",
     tile: 64827,
     release: "2000-10-02",
-  },
-  Planeshift: {
-    collation: -1,
-    scryfall: "pls",
-    code: "PLS",
-    arenacode: "PLS",
-    tile: 64827,
-    release: "2001-02-05",
   },
   "Eighth Edition": {
     collation: -1,
@@ -898,7 +901,7 @@ exports.SETS_DATA = {
     tile: 67003,
     release: "2013-05-03",
   },
-  "Unstable": {
+  Unstable: {
     collation: -1,
     scryfall: "ust",
     code: "UST",
@@ -906,7 +909,7 @@ exports.SETS_DATA = {
     tile: 67003,
     release: "2017-12-08",
   },
-  "Jumpstart": {
+  Jumpstart: {
     collation: -1,
     scryfall: "jmp",
     code: "JMP",
@@ -948,11 +951,28 @@ exports.SETS_DATA = {
   },
 };
 
-exports.COLORS = ["{?}", "{W}", "{U}", "{B}", "{R}", "{G}", "{C}", "", "{X}"];
+export const COLORS = [
+  "{?}",
+  "{W}",
+  "{U}",
+  "{B}",
+  "{R}",
+  "{G}",
+  "{C}",
+  "",
+  "{X}",
+];
 
-exports.RARITY = ["token", "land", "common", "uncommon", "rare", "mythic"];
+export const RARITY: Rarity[] = [
+  "token",
+  "land",
+  "common",
+  "uncommon",
+  "rare",
+  "mythic",
+];
 
-exports.SET_NAMES = {
+export const SET_NAMES: Record<string, string> = {
   W17: "Welcome Deck 2017",
   KLD: "Kaladesh",
   AER: "Aether Revolt",
@@ -1062,7 +1082,7 @@ exports.SET_NAMES = {
 
   DO NOT add sets here that contain multiple artworks of the same card name!
 */
-exports.NO_DUPES_ART_SETS = [
+export const NO_DUPES_ART_SETS = [
   "pm20",
   "g18",
   "pgrn",
@@ -1072,7 +1092,7 @@ exports.NO_DUPES_ART_SETS = [
   "unh",
   "c16",
   "mir",
-  "ajmp"
+  "ajmp",
 ];
 
 /*
@@ -1080,9 +1100,9 @@ exports.NO_DUPES_ART_SETS = [
  So we access them like this;
    ScryfallCards[LANG][SET][COLLECTOR]
 */
-exports.CID_ART_SETS = ["iko"];
+export const CID_ART_SETS = ["iko"];
 
-exports.ALLOWED_SCRYFALL = [
+export const ALLOWED_SCRYFALL = [
   "thb",
   "eld",
   "m20",
@@ -1205,87 +1225,84 @@ exports.ALLOWED_SCRYFALL = [
   "tcn2",
   "sld",
   "csp",
-  "ajmp"
+  "ajmp",
 ];
 
-exports.RATINGS_MTGCSR = 0;
-exports.RATINGS_LOLA = 1;
-
-exports.RANKS_SHEETS = [
+export const RANKS_SHEETS = [
   {
     setCode: "war",
     sheet: "1pk3a1YKGas-NI4ze_8hbwOtVRdYAbzCDIBS9MKjcQ7M",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR,
+    source: RATINGS_MTGCSR,
   },
   {
     setCode: "rna",
     sheet: "1DfcITmtWaBHtiDYLYWHzizw-AOrB3GUQaapc_BqfeH4",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR,
+    source: RATINGS_MTGCSR,
   },
   {
     setCode: "grn",
     sheet: "1FPN3hgl6x_ePq-8On7Ebr8L6WHSU2IznoWSBoGaC_RQ",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR,
+    source: RATINGS_MTGCSR,
   },
   {
     setCode: "m19",
     sheet: "1aZlqE-8mGdfQ50NXUaP-9dRk3w_hp9XmcBqZ_4x3_jk",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR,
+    source: RATINGS_MTGCSR,
   },
   {
     setCode: "dom",
     sheet: "1cc-AOmpQZ7vKqxDTSSvhmRBVOCy_569kT0S-j-Rpbj8",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR,
+    source: RATINGS_MTGCSR,
   },
   {
     setCode: "rix",
     sheet: "1CNg-FDp-pOtQ14Qj-rIBO-yfyr5YcPA6n6ztrEe4ATg",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR,
+    source: RATINGS_MTGCSR,
   },
   {
     setCode: "xln",
     sheet: "1KDtLJd6Nkrv_DDpFs84soBZcWPG1tg79TnVEh-enPz8",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR,
+    source: RATINGS_MTGCSR,
   },
   {
     setCode: "m20",
     sheet: "1BAPtQv4U9KUAtVzkccJlPS8cb0s_uOcGEDORip5uaQg",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR,
+    source: RATINGS_MTGCSR,
   },
   {
     setCode: "eld",
     sheet: "1B-bEUGANnGFPB4zW-vAV8zHjUZINwLU8Qq1sVlgIdpU",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR,
+    source: RATINGS_MTGCSR,
   },
   {
     setCode: "thb",
     sheet: "1zxR9zQxdEH9XI7CZmxiKeTQdU2nD8bVgYJ4bLUwV53s",
     page: "Staging%20Sheet",
-    source: this.RATINGS_MTGCSR,
+    source: RATINGS_MTGCSR,
   },
   {
     setCode: "iko",
     sheet: "1frdwYEvl4fUoVUwwoaz6q2hggVZHwggaitAk4ZGZDz8",
     page: "Backend",
-    source: this.RATINGS_LOLA,
+    source: RATINGS_LOLA,
   },
   {
     setCode: "m21",
     sheet: "15HMdmkNmzTFIAITQm4LVZVBnVFB26Bn3HOJqQvMy2Mc",
     page: "Backend",
-    source: this.RATINGS_LOLA,
+    source: RATINGS_LOLA,
   },
 ];
 
 // for some reason, scryfall does not provide this yet
 // this is a manual port of the SVG
-exports.ARENA_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 597"><path d="M347.576 239.949c-2.473-55.145-8.067-76.085-11.774-76.085-3.762 0-4.946 30.544-9.89 57.535-4.946 26.929-13.654 57.468-13.654 57.468l-22.256-7.19s-6.24-38.967-8.71-85.665c-2.416-46.7-4.299-87.485-11.184-87.485-6.718-.049-8.007 38.346-10.48 88.1-2.475 49.725-11.126 77.265-11.126 77.265l-20.426-2.414s-9.892-43.13-13.603-174.876c-.86-31.181-9.834-37.438-9.834-37.438s-8.979 6.257-9.839 37.438c-3.707 131.746-13.654 174.876-13.654 174.876l-20.375 2.414s-8.704-27.54-11.177-77.265c-2.473-49.754-3.713-88.149-10.48-88.1-6.83 0-8.713 40.785-11.242 87.485-2.415 46.698-8.6 85.665-8.6 85.665l-22.256 7.19s-8.705-30.54-13.65-57.468c-4.945-26.991-6.184-57.535-9.89-57.535-3.712 0-9.3 20.94-11.774 76.085-2.473 55.075-3.063 65.842-3.063 65.842s73.053 26.398 101.49 94.715c28.491 68.276 35.694 127.56 35.909 134.142.373 10.216 8.6 11.516 8.6 11.516s7.152-1.3 8.602-11.516c.912-6.535 7.417-65.866 35.904-134.142 28.441-68.317 101.495-94.715 101.495-94.715s-.594-10.767-3.063-65.842"></path><path d="M273.537 0c-9.573 8.966-7.488 17.264 6.254 24.895 20.613 11.445 225.805 465.27 225.805 497.761 0 21.662-6.136 41.568-18.407 59.719-2.14 9.263.392 13.895 7.598 13.895H763.71c5.154 0 5.154-4.632 0-13.895-35.035-33.824-101.34-130.195-258.113-528.172-1.877-16.954 2.127-29.228 12.012-36.82.315-7.19-1.609-12.985-5.77-17.383h-238.3zM4.705 578.738c59.145-76.265 100.637-127.355 100.637-183.566 0-21.385 66.03 30.783 78.899 192.19.13 1.635-.742 4.939-5.343 4.939H4.705c-6.273-3.922-6.273-8.443 0-13.563z"></path></svg>`;
+export const ARENA_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 597"><path d="M347.576 239.949c-2.473-55.145-8.067-76.085-11.774-76.085-3.762 0-4.946 30.544-9.89 57.535-4.946 26.929-13.654 57.468-13.654 57.468l-22.256-7.19s-6.24-38.967-8.71-85.665c-2.416-46.7-4.299-87.485-11.184-87.485-6.718-.049-8.007 38.346-10.48 88.1-2.475 49.725-11.126 77.265-11.126 77.265l-20.426-2.414s-9.892-43.13-13.603-174.876c-.86-31.181-9.834-37.438-9.834-37.438s-8.979 6.257-9.839 37.438c-3.707 131.746-13.654 174.876-13.654 174.876l-20.375 2.414s-8.704-27.54-11.177-77.265c-2.473-49.754-3.713-88.149-10.48-88.1-6.83 0-8.713 40.785-11.242 87.485-2.415 46.698-8.6 85.665-8.6 85.665l-22.256 7.19s-8.705-30.54-13.65-57.468c-4.945-26.991-6.184-57.535-9.89-57.535-3.712 0-9.3 20.94-11.774 76.085-2.473 55.075-3.063 65.842-3.063 65.842s73.053 26.398 101.49 94.715c28.491 68.276 35.694 127.56 35.909 134.142.373 10.216 8.6 11.516 8.6 11.516s7.152-1.3 8.602-11.516c.912-6.535 7.417-65.866 35.904-134.142 28.441-68.317 101.495-94.715 101.495-94.715s-.594-10.767-3.063-65.842"></path><path d="M273.537 0c-9.573 8.966-7.488 17.264 6.254 24.895 20.613 11.445 225.805 465.27 225.805 497.761 0 21.662-6.136 41.568-18.407 59.719-2.14 9.263.392 13.895 7.598 13.895H763.71c5.154 0 5.154-4.632 0-13.895-35.035-33.824-101.34-130.195-258.113-528.172-1.877-16.954 2.127-29.228 12.012-36.82.315-7.19-1.609-12.985-5.77-17.383h-238.3zM4.705 578.738c59.145-76.265 100.637-127.355 100.637-183.566 0-21.385 66.03 30.783 78.899 192.19.13 1.635-.742 4.939-5.343 4.939H4.705c-6.273-3.922-6.273-8.443 0-13.563z"></path></svg>`;

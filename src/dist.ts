@@ -1,35 +1,34 @@
-const { APPDATA, OUTPUT } = require("./metadata-constants");
+import { APPDATA, OUTPUT } from "./metadata-constants";
+import path from "path";
+import fs from "fs";
+import Client from "ssh2-sftp-client";
+import packageJson from "./package.json";
 
-const path = require("path");
-const fs = require("fs");
-let Client = require("ssh2-sftp-client");
-let sftp = new Client();
+const sftp = new Client();
 
-packageJson = require("../package.json");
 const databaseVersion = packageJson.version.split(".")[0];
 const remoteDir = "/var/www/html/database/" + databaseVersion + "/";
-const localDir = path.join(APPDATA, OUTPUT);
+const outDir = path.join(APPDATA, OUTPUT);
 const importPhp = path.join(APPDATA, "import.php");
 
-fs.readFile(importPhp, "utf8", function(err, data) {
+fs.readFile(importPhp, "utf8", function (err, data) {
   if (err) {
     return console.log(err);
   }
-  var result = data.replace("%VERSION%", databaseVersion);
+  const result = data.replace("%VERSION%", databaseVersion);
 
-  fs.writeFile(importPhp, result, "utf8", function(err) {
+  fs.writeFile(importPhp, result, "utf8", function (err) {
     if (err) {
       return console.log(err);
-    }
-    else {
+    } else {
       console.log("Updated import.php");
       doScan();
     }
-  });  
+  });
 });
 
 function doScan() {
-  fs.readdir(localDir, function(err, files) {
+  fs.readdir(outDir, function (err, files) {
     //handling error
     if (err) {
       return console.log("Unable to scan directory: " + err);
@@ -44,14 +43,14 @@ function doScan() {
   });
 }
 
-async function doPush(files) {
+async function doPush(files: string[]) {
   await sftp.connect({
     host: "mtgatool.com",
-    port: "5718",
+    port: 5718,
     username: "database_ftp",
-    password: process.env.SFTP_KEY
+    password: process.env.SFTP_KEY,
   });
-  
+
   console.log("Creating directory (" + databaseVersion + ")");
   try {
     await sftp.mkdir(remoteDir, true);
@@ -69,7 +68,7 @@ async function doPush(files) {
   await files.reduce(async (prevUpload, nextFile) => {
     await prevUpload;
     return uploadFile(nextFile);
-  }, Promise.resolve());
+  }, Promise.resolve(""));
 
   console.log("Uploading new import.php");
   const remoteImport = "/var/www/html/database/import.php";
@@ -80,8 +79,8 @@ async function doPush(files) {
   process.exit();
 }
 
-function uploadFile(file) {
-  let filePath = path.join(APPDATA, OUTPUT, file);
+function uploadFile(file: string): Promise<string> {
+  const filePath = path.join(APPDATA, OUTPUT, file);
   console.log("Uploading " + file);
   return sftp.put(filePath, remoteDir + file, { mode: 0o644 });
 }
