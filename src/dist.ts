@@ -1,12 +1,11 @@
-import { APPDATA, OUTPUT } from "./metadata-constants";
+import { APPDATA, OUTPUT, VERSION } from "./metadata-constants";
 import path from "path";
 import fs from "fs";
 import Client from "ssh2-sftp-client";
-import packageJson from "./package.json";
 
 const sftp = new Client();
 
-const databaseVersion = packageJson.version.split(".")[0];
+const databaseVersion = VERSION;
 const remoteDir = "/var/www/html/database/" + databaseVersion + "/";
 const outDir = path.join(APPDATA, OUTPUT);
 const importPhp = path.join(APPDATA, "import.php");

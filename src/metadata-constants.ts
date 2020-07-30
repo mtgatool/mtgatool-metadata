@@ -1,5 +1,5 @@
+import fs from "fs";
 import path from "path";
-import packageJson from "./package.json";
 import { constants, CardSet, Rarity } from "mtgatool-shared";
 
 const { RATINGS_MTGCSR, RATINGS_LOLA } = constants;
@@ -9,6 +9,11 @@ export const APPDATA = path.resolve(__dirname, "..");
 export const EXTERNAL = "external";
 export const OUTPUT = "output";
 export const DIST = "dist";
+
+const packageJson = JSON.parse(
+  fs.readFileSync(path.join(APPDATA, "package.json"), "utf8")
+);
+
 export const VERSION = packageJson.version.split(".")[0];
 
 export type SCRYFALL_LANGS =

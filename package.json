@@ -13,7 +13,6 @@
     "test": "tsc && node dist/setup.js && jest src/",
     "jest": "jest src/",
     "predist": "npm run clean",
-    "copy:package": "copyfiles package.json src",
     "tsc": "tsc",
     "dist": "tsc && node dist/dist.js",
     "dist:noclean": "tsc && node dist/dist.js"
@@ -46,7 +45,6 @@
     "scryfall-client": "^0.17.0",
     "ssh2-sftp-client": "^4.3.1",
     "strip-json-comments": "^3.1.1",
-    "xmlhttprequest": "^1.8.0",
     "xmlhttprequest-ts": "^1.0.1"
   },
   "devDependencies": {
