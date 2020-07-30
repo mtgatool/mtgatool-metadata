@@ -99,13 +99,6 @@ function downloadManifest(data: Data[]): Promise<string[]> {
               fs.writeFileSync(outFile, result);
               resolve(outFile);
             });
-            /*
-            gunzip(file, outFile, () => {
-              fs.unlink(file, () => {});
-              JSON.parse(fs.readFileSync(outFile));
-              resolve(outFile);
-            });
-            */
           }
         });
       }

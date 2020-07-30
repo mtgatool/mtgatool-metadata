@@ -14,7 +14,8 @@ describe("Check sets data", () => {
 
 function getSets(): [string, number][] {
   const file = path.join(APPDATA, EXTERNAL, "cards.json");
-  const cards = JSON.parse(`{"value": ${fs.readFileSync(file)}}`);
+  const fileStr = fs.readFileSync(file);
+  const cards = JSON.parse(`{"value": ${fileStr.toString("utf-8")}}`);
 
   const sets: string[] = [];
   const setCards: Record<string, number> = {};
