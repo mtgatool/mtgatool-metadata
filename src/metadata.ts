@@ -1,13 +1,10 @@
 import path from "path";
 import fs from "fs";
-import http from "https";
 import _ from "lodash";
 
 import { getArenaVersion, getManifestFiles } from "./manifest-parser";
 import { generateMetadata } from "./metadata-generator";
-import { XMLHttpRequest } from "xmlhttprequest-ts";
 import scryfall from "scryfall-client";
-import request from "request";
 
 import {
   APPDATA,
@@ -26,6 +23,10 @@ import CardApiResponse from "scryfall-client/dist/types/api/card";
 import { RanksData, SetRanks } from "./types/metadata";
 import { ScryfallData } from "./types/scryfall";
 import { constants, Metadata } from "mtgatool-shared";
+import httpGetFile from "./utils/httpGetFile";
+import httpGetText from "./utils/httpGetText";
+import httpGetTextAsync from "./utils/httpGetTextAsync";
+import MagicSet from "scryfall-client/dist/models/magic-set";
 const { RATINGS_LOLA, RATINGS_MTGCSR } = constants;
 
 let metagameData: Metadata["archetypes"] | undefined = undefined;
@@ -66,30 +67,58 @@ function asyncSleep<T>(ms: number): (x: T) => Promise<T> {
 }
 
 function getRanksData() {
+  const rankRequests = RANKS_SHEETS.map((r) => {
+    return { code: r.setCode, state: 0 };
+  });
+
+  const redrawRankRequests = function (moveBack = true) {
+    process.stdout.moveCursor(0, moveBack ? -rankRequests.length : 0);
+    const str = `${rankRequests
+      .map((r) => {
+        let bg = "\x1b[41m";
+        if (r.state == 1) bg = "\x1b[42m";
+        if (r.state == -1) bg = "\x1b[45m";
+        return bg + "\x1b[30m " + r.code.toUpperCase() + " \x1b[0m\n";
+      })
+      .join("")}`;
+    process.stdout.write(str);
+  };
+
+  const setRankRequestState = function (code: string, state: number) {
+    rankRequests.forEach((r, index) => {
+      if (r.code == code) {
+        rankRequests[index].state = state;
+      }
+    });
+    redrawRankRequests();
+  };
+
+  console.log("Get draft ranks data:");
+  redrawRankRequests(false);
   const requests = RANKS_SHEETS.map((rank) => {
     return new Promise((resolve) => {
-      console.log(`Get ${rank.setCode.toUpperCase()} ranks data.`);
       httpGetFile(
         `https://docs.google.com/spreadsheets/d/${rank.sheet}/gviz/tq?sheet=${rank.page}`,
-        rank.setCode + "_ranks"
+        rank.setCode + "_ranks",
+        false
       )
-        .then(asyncSleep<string>(250))
+        .then(asyncSleep<string>(100))
         .then((file) => {
-          fs.readFile(file, function read(err, data) {
+          fs.readFile(file, function read(_err, data) {
             let str = data.toString();
             str = str
               .replace("/*O_o*/", "")
               .replace(`google.visualization.Query.setResponse(`, "")
               .replace(`);`, " ");
 
-            console.log(`${rank.setCode.toUpperCase()} ok.`);
+            setRankRequestState(rank.setCode, 1);
             try {
               ranksData[rank.setCode.toUpperCase()] = processRanksData(
                 str,
                 rank.source
               );
             } catch (e) {
-              console.log("Error processing " + rank.setCode, e);
+              setRankRequestState(rank.setCode, -1);
             }
             resolve();
           });
@@ -166,11 +195,55 @@ function getMetagameData(): Promise<void> {
 type SetName = keyof typeof SETS_DATA;
 
 function getSetIcons() {
+  const setNames = Object.keys(SETS_DATA) as SetName[];
+
+  const requests = setNames.map((s) => {
+    const set = SETS_DATA[s];
+    return { name: s, code: set.scryfall, state: 0 };
+  });
+
+  const redrawSetsRequests = function (moveBack = true) {
+    process.stdout.moveCursor(0, moveBack ? -5 : 0);
+    let api = 0;
+    let svg = 0;
+    let ok = 0;
+    let err = 0;
+    const errors: string[] = [];
+    requests.forEach((r) => {
+      if (r.state == -1) {
+        err++;
+        errors.push(r.code);
+      }
+      if (r.state == 0) api++;
+      if (r.state == 1) svg++;
+      if (r.state == 2) ok++;
+    });
+    process.stdout.write(
+      `\x1b[41m\x1b[30m ${api} \t\x1b[0m Fetching Scryfall Api
+\x1b[41m\x1b[30m ${svg} \t\x1b[0m Fetching Svg
+\x1b[42m\x1b[30m ${ok} \t\x1b[0m OK
+\x1b[45m\x1b[30m ${err} \t\x1b[0m Errors
+${errors.join(" ")}
+`
+    );
+  };
+
+  const setSetRequestState = function (name: string, state: number) {
+    requests.forEach((r, index) => {
+      if (r.name == name) {
+        requests[index].state = state;
+      }
+    });
+    redrawSetsRequests();
+  };
+
+  console.log("Obtaining Sets data.");
+  console.log(setNames.length + " total");
+  redrawSetsRequests(false);
+
   return new Promise((resolve) => {
     let count = 0;
-    const setNames = Object.keys(SETS_DATA) as SetName[];
-    console.log("Obtaining SVG icons..");
-    setNames.forEach((setName, _index) => {
+    setNames.forEach((setName) => {
       let code = SETS_DATA[setName].scryfall;
       if (setName == "" || setName == "Arena New Player Experience") {
         // hack hack hack
@@ -182,59 +255,35 @@ function getSetIcons() {
         str = str.replace(/<path /g, '<path fill="#FFF" ');
         SETS_DATA[setName].svg = Buffer.from(str).toString("base64");
         code = "default";
+        setSetRequestState(setName, 2);
       }
       if (setName == "M19 Gift Pack") code = "m19";
 
+      const setUri = `https://api.scryfall.com/sets/${code}`;
       if (code !== "default") {
-        scryfall.getSet("setName").then((setData) => {
-          SETS_DATA[setName].release = setData.released_at || "";
-          const svgUrl = setData.icon_svg_uri;
-          httpGetTextAsync(svgUrl).then((str: string) => {
-            count++;
-            str = str.replace(/fill="#.*?\"\ */g, " ");
-            str = str.replace(/<path /g, '<path fill="#FFF" ');
-            SETS_DATA[setName].svg = Buffer.from(str).toString("base64");
-            if (count == setNames.length) {
-              resolve();
-            }
-          });
-        });
-      }
-    });
-
-    setNames.forEach((setName, _index) => {
-      setTimeout(() => {
-        let code = SETS_DATA[setName].scryfall;
-        if (setName == "" || setName == "Arena New Player Experience") {
-          // hack hack hack
-          // for some reason, scryfall does not provide this yet
-          // manually insert here instead
-          count++;
-          let str = ARENA_SVG;
-          str = str.replace(/fill="#.*?\"\ */g, " ");
-          str = str.replace(/<path /g, '<path fill="#FFF" ');
-          SETS_DATA[setName].svg = Buffer.from(str).toString("base64");
-          code = "default";
-        }
-        if (setName == "M19 Gift Pack") code = "m19";
-        const setUri = `https://api.scryfall.com/sets/${code}`;
-        if (code !== "default") {
-          httpGetTextAsync(setUri).then((setStr) => {
-            const set = JSON.parse(setStr);
-            SETS_DATA[setName].release = set.released_at;
-            const svgUrl = set.icon_svg_uri;
-            httpGetTextAsync(svgUrl).then((str) => {
-              count++;
+        httpGetTextAsync(setUri).then(
+          (setStr) => {
+            const setData = JSON.parse(setStr) as MagicSet;
+            SETS_DATA[setName].release = setData.released_at || "";
+            const svgUrl = setData.icon_svg_uri;
+            setSetRequestState(setName, 1);
+            httpGetTextAsync(svgUrl).then((str: string) => {
               str = str.replace(/fill="#.*?\"\ */g, " ");
               str = str.replace(/<path /g, '<path fill="#FFF" ');
               SETS_DATA[setName].svg = Buffer.from(str).toString("base64");
+              if (setData.released_at) {
+                SETS_DATA[setName].release = setData.released_at;
+              }
+              count++;
+              setSetRequestState(setName, 2);
               if (count == setNames.length) {
                 resolve();
               }
             });
-          });
-        }
-      });
+          },
+          () => setSetRequestState(setName, -1)
+        );
+      }
     });
   });
 }
@@ -435,91 +484,6 @@ function generateScryfallDatabase(): Promise<ScryfallData> {
       stream.on("end", function () {
         resolve(scryfallData);
       });
-    });
-  });
-}
-
-function httpGetText(url: string): XMLHttpRequest {
-  const xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("GET", url);
-  xmlHttp.send();
-  return xmlHttp;
-}
-
-function httpGetTextAsync(url: string): Promise<string> {
-  return new Promise((resolve) => {
-    const xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", url);
-    xmlHttp.send();
-
-    xmlHttp.addEventListener("load", function () {
-      resolve(xmlHttp.responseText);
-    });
-  });
-}
-
-function httpGetFile(url: string, filename: string): Promise<string> {
-  return new Promise((resolve) => {
-    const file = path.join(APPDATA, EXTERNAL, filename);
-    const dir = path.join(APPDATA, EXTERNAL);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir);
-    }
-
-    const stream = fs.createWriteStream(file);
-    http.get(url, (response) => {
-      response.pipe(stream);
-      let size = 0;
-      //const data = "";
-
-      let timeStart = new Date();
-      response.on("data", function (chunk) {
-        size += chunk.length;
-        if (new Date().getTime() - timeStart.getTime() > 2000) {
-          timeStart = new Date();
-          console.log(`Downloading ${filename}:\t ${size}`);
-        }
-      });
-      response.on("end", function () {
-        resolve(file);
-      });
-    });
-  });
-}
-
-function downloadFile(file_url: string, filename: string): Promise<string> {
-  return new Promise((resolve) => {
-    const file = path.join(APPDATA, EXTERNAL, filename);
-    const dir = path.join(APPDATA, EXTERNAL);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir);
-    }
-    // Save variable to know progress
-    let received_bytes = 0;
-    let total_bytes = 0;
-
-    const req = request({
-      method: "GET",
-      uri: file_url,
-    });
-
-    const out = fs.createWriteStream(file);
-    req.pipe(out);
-
-    req.on("response", function (data) {
-      // Change the total bytes value to get progress later.
-      total_bytes = parseInt(data.headers["content-length"]);
-    });
-
-    req.on("data", function (chunk) {
-      // Update the received bytes
-      received_bytes += chunk.length;
-
-      console.log(received_bytes + "/" + total_bytes);
-    });
-
-    req.on("end", function () {
-      resolve();
     });
   });
 }

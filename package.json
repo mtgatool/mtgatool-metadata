@@ -9,7 +9,7 @@
     "clean:external": "rimraf external",
     "clean:dist": "rimraf dist",
     "clean:out": "rimraf output",
-    "start": "node --max-old-space-size=4096 dist/metadata.js",
+    "start": "tsc && node --max-old-space-size=4096 dist/metadata.js",
     "test": "tsc && node dist/setup.js && jest src/",
     "jest": "jest src/",
     "predist": "npm run clean",
