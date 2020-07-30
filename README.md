@@ -29,7 +29,9 @@ Multi language endpoints:
 
 Available languages:
 
-`en, es, br, de, fr, it, jp, ru, ko-kr, zh-cn`
+`de, en, es, fr, it, ja, ko, pt, ru, zhs`
+
+
 
 
 Anyone is free to use the database to feed their software or just for learning, if you do please give credit to either me (Manuel Etchegaray) or MTG Arena Tool.
