@@ -15,7 +15,7 @@
     "predist": "npm run clean",
     "copy:package": "copyfiles package.json src",
     "tsc": "tsc",
-    "dist": "npm run copy:package && tsc && node dist/dist.js",
+    "dist": "tsc && node dist/dist.js",
     "dist:noclean": "tsc && node dist/dist.js"
   },
   "repository": {

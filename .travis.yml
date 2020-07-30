@@ -21,6 +21,7 @@ jobs:
     dist: xenial
     sudo: required
     script:
+      - npm run copy:package
       - npm run start
       - npm run dist:noclean
     on:
