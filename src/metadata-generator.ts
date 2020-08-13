@@ -51,9 +51,9 @@ export function generateMetadata(
     //const scJsonOut = path.join(APPDATA, EXTERNAL, `scryfall-cards.json`);
     //fs.writeFile(scJsonOut, scStr, () => {});
     // Same for ranks
-    const str = JSON.stringify(ranksData);
-    const jsonOut = path.join(APPDATA, EXTERNAL, `ranks-data.json`);
-    fs.writeFile(jsonOut, str, () => {});
+    //const str = JSON.stringify(ranksData);
+    //const jsonOut = path.join(APPDATA, EXTERNAL, `ranks-data.json`);
+    //fs.writeFile(jsonOut, str, () => {});
 
     // Generate list of all cards that are alt printings from other card
     const altCards: number[] = [];
@@ -156,11 +156,11 @@ export function generateMetadata(
 
         const cardId = card.grpid;
         const cardName = getText(card.titleId, lang);
-        const englishName = getText(card.titleId, "EN");
+        const englishName = getText(card.titleId, "EN").replace(" /// ", " // ");
 
         const cardObj: DbCardData = {
           id: cardId,
-          name: cardName,
+          name: cardName.replace(" /// ", " // "),
           titleId: card.titleId,
           set: set,
           artid: card.artId,
