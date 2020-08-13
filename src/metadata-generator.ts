@@ -47,9 +47,9 @@ export function generateMetadata(
     let enumsRead = readExternalJson("enums.json");
 
     // Write scryfall cards to a file. Its good for debugging.
-    const scStr = JSON.stringify(ScryfallCards);
-    const scJsonOut = path.join(APPDATA, EXTERNAL, `scryfall-cards.json`);
-    fs.writeFile(scJsonOut, scStr, () => {});
+    //const scStr = JSON.stringify(ScryfallCards);
+    //const scJsonOut = path.join(APPDATA, EXTERNAL, `scryfall-cards.json`);
+    //fs.writeFile(scJsonOut, scStr, () => {});
     // Same for ranks
     const str = JSON.stringify(ranksData);
     const jsonOut = path.join(APPDATA, EXTERNAL, `ranks-data.json`);
