@@ -1116,6 +1116,7 @@ export const NO_DUPES_ART_SETS = [
   "c16",
   "mir",
   "ajmp",
+  "akr",
 ];
 
 /*
@@ -1249,6 +1250,12 @@ export const ALLOWED_SCRYFALL = [
   "sld",
   "csp",
   "ajmp",
+  "takr",
+  "takr",
+  "hou",
+  "thou",
+  "akr",
+  "takh",
 ];
 
 export const RANKS_SHEETS = [

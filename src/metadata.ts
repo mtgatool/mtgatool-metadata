@@ -44,11 +44,11 @@ console.log("Begin Metadata fetch.");
 
 getArenaVersion()
   .then((version) => getManifestFiles(version))
-//  .then(getRanksData)
-//  .then(getScryfallCards)
-//  .then(getMetagameData)
+  .then(getRanksData)
+  .then(getScryfallCards)
+  .then(getMetagameData)
   .then(getSetIcons)
-//  .then(generateScryfallDatabase)
+  .then(generateScryfallDatabase)
   .then((data) =>
     generateMetadata(data, ranksData, metagameData, VERSION, LANGUAGES)
   )
@@ -375,6 +375,19 @@ function generateScryfallDatabase(): Promise<ScryfallData> {
           !CID_ART_SETS.includes(set)
         ) {
           scryfallData[lang][set][name] = {};
+        }
+
+        const artist = obj.artist?.toLowerCase();
+        if (artist) {
+          if (scryfallData[lang]["byArt"] == undefined) {
+            scryfallData[lang]["byArt"] = {};
+          }
+          if (scryfallData[lang]["byArt"][name] == undefined) {
+            scryfallData[lang]["byArt"][name] = {};
+          }
+          if (scryfallData[lang]["byArt"][name][artist] == undefined) {
+            scryfallData[lang]["byArt"][name][artist] = obj;
+          }
         }
 
         if (CID_ART_SETS.includes(set) && cid) {

@@ -47,9 +47,9 @@ export function generateMetadata(
     let enumsRead = readExternalJson("enums.json");
 
     // Write scryfall cards to a file. Its good for debugging.
-    //let str = JSON.stringify(ScryfallCards);
-    //let jsonOut = path.join(APPDATA, EXTERNAL, `scryfall-cards.json`);
-    //fs.writeFile(jsonOut, str, () => {});
+    const scStr = JSON.stringify(ScryfallCards);
+    const scJsonOut = path.join(APPDATA, EXTERNAL, `scryfall-cards.json`);
+    fs.writeFile(scJsonOut, scStr, () => {});
     // Same for ranks
     const str = JSON.stringify(ranksData);
     const jsonOut = path.join(APPDATA, EXTERNAL, `ranks-data.json`);
@@ -232,7 +232,8 @@ export function generateMetadata(
           cardId == 72578 ? "PH" : lang,
           scryfallSet,
           englishName,
-          collector
+          collector,
+          cardObj.artist
         );
 
         if (card.linkedFaces.length > 0) {
@@ -256,7 +257,8 @@ export function generateMetadata(
             cardId == 72578 ? "PH" : lang,
             scryfallSet,
             englishName,
-            collector
+            collector,
+            cardObj.artist
           );
         }
 
@@ -297,7 +299,7 @@ export function generateMetadata(
         ) {
           // English failed..
           console.log(
-            `No scryfall data for [${lang}] ${cardObj.name} (${englishName}) - ${scryfallSet} (${cardObj.cid}) grpId: ${cardObj.id}`
+            `No scryfall data for [${lang}] ${cardObj.name} (${englishName}) - ${scryfallSet} (${cardObj.cid}) artist: ${cardObj.artist} grpId: ${cardObj.id}`
           );
           cardObj.images = {};
         } else {
@@ -410,10 +412,12 @@ function getScryfallCard(
   lang: SCRYFALL_LANGS,
   scryfallSet: string,
   cardName: string,
-  cid: string
-) {
-  let ret = undefined;
+  cid: string,
+  artist: string
+): CardApiResponse | undefined {
+  let ret: CardApiResponse | undefined = undefined;
   const collector = parseInt(cid);
+
   // Secrel lair drop basic lands only exist in Japanese
   if (scryfallSet == "sld" && collector > 62 && collector < 68) {
     lang = "JA";
@@ -440,6 +444,14 @@ function getScryfallCard(
       } else {
         ret = ScryfallCards["EN"][scryfallSet][cardName][collector];
       }
+    } catch (e) {
+      ret = undefined;
+    }
+  }
+
+  if (ret == undefined) {
+    try {
+      ret = ScryfallCards[lang]["byArt"][cardName][artist.toLowerCase()];
     } catch (e) {
       ret = undefined;
     }
