@@ -22,7 +22,8 @@ describe("Check cards data", () => {
     expect(teferi.power).toBe("0");
     expect(teferi.toughness).toBe("4");
     expect(teferi.flavorId).toBeDefined();
-    expect(teferi.CollectorNumber).toBe("221");
+    expect(teferi.collectorNumber).toBe("221");
+    expect(teferi.collectorMax).toBe("264");
     expect(teferi.altDeckLimit).toBeNull();
     expect(teferi.cmc).toBe(3);
     expect(teferi.rarity).toBeDefined();
@@ -62,7 +63,7 @@ describe("Check cards data", () => {
     // Removed on 0.1.2213.786053 (5/19/20)
     //expect(teferi.knownAlternatePrintings).toStrictEqual([]);
     expect(teferi.DigitalReleaseSet).toBe("");
-    expect(Object.keys(teferi).length).toBe(32);
+    expect(Object.keys(teferi).length).toBe(33);
   });
 });
 

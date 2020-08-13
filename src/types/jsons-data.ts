@@ -29,7 +29,8 @@ export interface Card {
   power: string;
   toughness: string;
   flavorId: 1;
-  CollectorNumber: string;
+  collectorNumber: string;
+  collectorMax: string;
   altDeckLimit: null;
   cmc: number;
   rarity: number;

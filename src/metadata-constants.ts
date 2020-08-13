@@ -313,6 +313,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67106,
     release: "2018-07-14",
   },
+  "Arena New Player Experience 2020": {
+    collation: false,
+    scryfall: "ana",
+    code: "ANB",
+    arenacode: "ANB",
+    tile: 67106,
+    release: "2020-08-13",
+  },
   "Guilds of Ravnica": {
     collation: 100009,
     scryfall: "grn",
@@ -946,6 +954,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2020-05-21",
   },
+  "Amonkhet Remastered": {
+    collation: -1,
+    scryfall: "akr",
+    code: "AKR",
+    arenacode: "AKR",
+    tile: 67003,
+    release: "2020-08-13",
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -989,6 +1005,7 @@ export const SET_NAMES: Record<string, string> = {
   OGW: "Oath of the Gatewatch",
   M19: "Core Set 2019",
   ANA: "Arena New Player Experience",
+  ANB: "Arena New Player Experience",
   GRN: "Guilds of Ravnica",
   G18: "M19 Gift Pack",
   RNA: "Ravnica Allegiance",
@@ -1068,6 +1085,7 @@ export const SET_NAMES: Record<string, string> = {
   HA1: "Historic Anthology 1",
   HA2: "Historic Anthology 2",
   HA3: "Historic Anthology 3",
+  AKR: "Amonkhet Remastered",
 };
 
 /*
@@ -1117,6 +1135,7 @@ export const ALLOWED_SCRYFALL = [
   "med",
   "m19",
   "ana",
+  "anb",
   "dom",
   "rix",
   "xln",
@@ -1203,7 +1222,6 @@ export const ALLOWED_SCRYFALL = [
   "tiko",
   "sld",
   "tsoi",
-  "ana",
   "tor",
   "jud",
   "lgn",

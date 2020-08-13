@@ -145,7 +145,7 @@ export function generateMetadata(
 
         let set: string = SET_NAMES[card.set];
 
-        let collector = card.CollectorNumber;
+        let collector = card.collectorNumber;
         // Special collectors numbers that define Mythic edition and Gift pack cards
         if (collector.includes("GR")) {
           set = "Mythic Edition";
@@ -453,8 +453,14 @@ function readExternalJson(filename: string) {
   //JSON.parse(fs.readFileSync(file));
   const filestr = fs.readFileSync(file) + "";
   const str = stripComments(filestr);
-  const json = JSON.parse(`{"value": ${str}}`);
-  return json.value;
+  try {
+    const json = JSON.parse(`{"value": ${str}}`);
+    return json.value;
+  } catch (e) {
+    console.log(filename);
+    console.log(str);
+  }
+  return "";
 }
 
 // eslint-disable-next-line complexity

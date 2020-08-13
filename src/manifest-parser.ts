@@ -156,7 +156,6 @@ function processManifest(data: ManifestJSON): Promise<string[]> {
     const assetName = regex ? regex[1] : "";
 
     return new Promise((resolve) => {
-      const assetUriGz = path.join(APPDATA, EXTERNAL, assetName + ".gz");
       const assetUri = path.join(APPDATA, EXTERNAL, assetName + ".json");
 
       const dir = path.join(APPDATA, EXTERNAL);
@@ -164,17 +163,12 @@ function processManifest(data: ManifestJSON): Promise<string[]> {
         fs.mkdirSync(dir);
       }
 
-      const stream = fs.createWriteStream(assetUriGz);
+      const out = fs.createWriteStream(assetUri);
       http.get(assetUrl, (response) => {
-        response.pipe(stream);
+        response.pipe(zlib.createGunzip()).pipe(out);
 
         response.on("end", function () {
-          const str = fs.readFileSync(assetUriGz);
-          zlib.gunzip(str, function (_err, result) {
-            fs.writeFile(assetUri, result, () => {
-              resolve(assetName);
-            });
-          });
+          resolve(assetName);
         });
       });
     }) as Promise<string>;

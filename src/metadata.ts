@@ -4,7 +4,6 @@ import _ from "lodash";
 
 import { getArenaVersion, getManifestFiles } from "./manifest-parser";
 import { generateMetadata } from "./metadata-generator";
-import scryfall from "scryfall-client";
 
 import {
   APPDATA,
@@ -45,11 +44,11 @@ console.log("Begin Metadata fetch.");
 
 getArenaVersion()
   .then((version) => getManifestFiles(version))
-  .then(getRanksData)
-  .then(getScryfallCards)
-  .then(getMetagameData)
+//  .then(getRanksData)
+//  .then(getScryfallCards)
+//  .then(getMetagameData)
   .then(getSetIcons)
-  .then(generateScryfallDatabase)
+//  .then(generateScryfallDatabase)
   .then((data) =>
     generateMetadata(data, ranksData, metagameData, VERSION, LANGUAGES)
   )
