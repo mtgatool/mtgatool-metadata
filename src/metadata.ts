@@ -17,6 +17,7 @@ import {
   NO_DUPES_ART_SETS,
   ALLOWED_SCRYFALL,
   ARENA_SVG,
+  AKR_SVG,
 } from "./metadata-constants";
 import CardApiResponse from "scryfall-client/dist/types/api/card";
 import { RanksData, SetRanks } from "./types/metadata";
@@ -267,6 +268,7 @@ ${errors.join(" ")}
             const svgUrl = setData.icon_svg_uri;
             setSetRequestState(setName, 1);
             httpGetTextAsync(svgUrl).then((str: string) => {
+              if (code == "akr") str = AKR_SVG;
               str = str.replace(/fill="#.*?\"\ */g, " ");
               str = str.replace(/<path /g, '<path fill="#FFF" ');
               SETS_DATA[setName].svg = Buffer.from(str).toString("base64");
