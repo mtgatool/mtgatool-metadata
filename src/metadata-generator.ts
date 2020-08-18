@@ -185,6 +185,10 @@ export function generateMetadata(
           reprints: false,
         };
 
+        if (set == "AKR") {
+          cardObj.booster = true;
+        }
+
         let scryfallObject: CardApiResponse | undefined = undefined;
         let scryfallSet = SETS_DATA[set] ? SETS_DATA[set].scryfall : "";
         if (!card.isToken) {
