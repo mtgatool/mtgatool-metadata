@@ -321,8 +321,8 @@ export function generateMetadata(
               }
             });
           }
-          if (scryfallObject.booster == false) {
-            cardObj.booster = false;
+          if (scryfallObject.booster == true) {
+            cardObj.booster = true;
           }
           cardObj.images = scryfallObject.image_uris;
         }
