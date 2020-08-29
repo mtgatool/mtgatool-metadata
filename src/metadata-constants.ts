@@ -393,6 +393,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 71783,
     release: "2020-06-04",
   },
+  "Zendikar Rising": {
+    collation: 100020,
+    scryfall: "znr",
+    code: "ZNR",
+    arenacode: "ZNR",
+    tile: 67003,
+    release: "2020-09-25",
+  },
   // Other sets below
   "Mythic Edition": {
     collation: -1,
@@ -1012,6 +1020,7 @@ export const SET_NAMES: Record<string, string> = {
   WAR: "War of the Spark",
   M20: "Core Set 2020",
   M21: "Core Set 2021",
+  ZNR: "Zendikar Rising",
   MI: "Mirage",
   ROE: "Rise of Eldrazi",
   RTR: "Return to Ravnica",
@@ -1256,6 +1265,8 @@ export const ALLOWED_SCRYFALL = [
   "thou",
   "akr",
   "takh",
+  "znr",
+  "tznr",
 ];
 
 export const RANKS_SHEETS = [
