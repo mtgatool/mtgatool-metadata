@@ -955,7 +955,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2020-05-21",
   },
   "Amonkhet Remastered": {
-    collation: -1,
+    collation: 100019,
     scryfall: "akr",
     code: "AKR",
     arenacode: "AKR",
