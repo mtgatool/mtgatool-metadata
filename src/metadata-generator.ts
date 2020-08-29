@@ -156,7 +156,10 @@ export function generateMetadata(
 
         const cardId = card.grpid;
         const cardName = getText(card.titleId, lang);
-        const englishName = getText(card.titleId, "EN").replace(" /// ", " // ");
+        const englishName = getText(card.titleId, "EN").replace(
+          " /// ",
+          " // "
+        );
 
         const cardObj: DbCardData = {
           id: cardId,
@@ -308,7 +311,6 @@ export function generateMetadata(
           cardObj.images = {};
         } else {
           if (scryfallObject.image_uris) {
-            const rep = "https://img.scryfall.com/cards";
             Object.keys(scryfallObject.image_uris).forEach((key) => {
               const k = key as keyof ImageUris;
               // Remove the first part of the URLs and some
@@ -319,9 +321,7 @@ export function generateMetadata(
                 k !== "png" &&
                 k !== "border_crop"
               ) {
-                scryfallObject.image_uris[k] = scryfallObject.image_uris[
-                  k
-                ].replace(rep, "");
+                scryfallObject.image_uris[k] = scryfallObject.image_uris[k];
               }
             });
           }
