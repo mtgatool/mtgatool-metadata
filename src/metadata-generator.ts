@@ -284,8 +284,7 @@ export function generateMetadata(
             cardObj.rank = Math.round(rData.rank);
             cardObj.rank_values = rData.values;
             cardObj.rank_controversy = rData.cont;
-          }
-          if (rData.rankSource === RATINGS_LOLA) {
+          } else if (rData.rankSource === RATINGS_LOLA) {
             cardObj.source = RATINGS_LOLA;
             cardObj.rank = Math.round(rData.rank);
             cardObj.side = rData.side;

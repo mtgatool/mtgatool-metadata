@@ -1126,6 +1126,7 @@ export const NO_DUPES_ART_SETS = [
   "mir",
   "ajmp",
   "akr",
+  "znr",
 ];
 
 /*
