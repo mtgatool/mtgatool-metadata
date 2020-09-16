@@ -397,16 +397,7 @@ function generateScryfallDatabase(): Promise<ScryfallData> {
         if (CID_ART_SETS.includes(set) && cid) {
           scryfallData[lang][set][cid] = obj;
         } else if (NO_DUPES_ART_SETS.includes(set)) {
-          if (scryfallData[lang][set][name]) {
-            if (
-              parseInt(scryfallData[lang][set][name].collector_number) >
-              parseInt(obj.collector_number)
-            ) {
-              scryfallData[lang][set][name] = obj;
-            }
-          } else {
-            scryfallData[lang][set][name] = obj;
-          }
+          scryfallData[lang][set][name] = obj;
         } else if (cid) {
           scryfallData[lang][set][name][cid] = obj;
         }
