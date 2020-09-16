@@ -102,7 +102,7 @@ function getRanksData() {
         rank.setCode + "_ranks",
         false
       )
-        .then(asyncSleep<string>(100))
+        .then(asyncSleep<string>(10))
         .then((file) => {
           fs.readFile(file, function read(_err, data) {
             let str = data.toString();
@@ -442,33 +442,14 @@ function generateScryfallDatabase(): Promise<ScryfallData> {
                 name,
                 obj.collector_number
               );
-              if (obj.layout == "adventure" && obj.card_faces) {
-                obj.card_faces.forEach((face) => {
-                  const name = face.name;
-                  const newObj = Object.assign(_.cloneDeep(obj), face);
-                  scryfallDataAdd(
-                    newObj,
-                    lineLang,
-                    obj.set,
-                    name,
-                    obj.collector_number
-                  );
-                });
-              }
-              if (obj.layout == "transform" && obj.card_faces) {
-                obj.card_faces.forEach((face) => {
-                  const name = face.name;
-                  const newObj = Object.assign(_.cloneDeep(obj), face);
-                  scryfallDataAdd(
-                    newObj,
-                    lineLang,
-                    obj.set,
-                    name,
-                    obj.collector_number
-                  );
-                });
-              }
-              if (obj.layout == "split" && obj.card_faces) {
+              const l: string = obj.layout; // Not znr types yet! (modal_dfc)
+              if (
+                (l == "adventure" ||
+                  l == "modal_dfc" ||
+                  l == "transform" ||
+                  l == "split") &&
+                obj.card_faces
+              ) {
                 obj.card_faces.forEach((face) => {
                   const name = face.name;
                   const newObj = Object.assign(_.cloneDeep(obj), face);
