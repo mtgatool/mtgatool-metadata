@@ -427,7 +427,6 @@ function generateScryfallDatabase(): Promise<ScryfallData> {
 
       const processLine = function (line: string): void {
         // here's where we do something with a line
-
         if (line[line.length - 1] == "\r")
           line = line.substr(0, line.length - 1); // discard CR (0x0D)
 
