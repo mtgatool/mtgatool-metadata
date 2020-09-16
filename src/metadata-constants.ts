@@ -207,7 +207,7 @@ export const EVENT_TO_FORMAT = {
 };
 
 // These are the current events in the ranked ladder
-export const LIMITED_RANKED_EVENTS = ["QuickDraft_IKO_20200626"];
+export const LIMITED_RANKED_EVENTS = ["QuickDraft_ELD_20200821"];
 
 export const STANDARD_RANKED_EVENTS = [
   "Ladder",
@@ -1339,6 +1339,12 @@ export const RANKS_SHEETS = [
   {
     setCode: "m21",
     sheet: "15HMdmkNmzTFIAITQm4LVZVBnVFB26Bn3HOJqQvMy2Mc",
+    page: "Backend",
+    source: RATINGS_LOLA,
+  },
+  {
+    setCode: "znr",
+    sheet: "1SnHlQd7o5Wd01iwtllOvre9svfNimWX0OoqQg-bO8-A",
     page: "Backend",
     source: RATINGS_LOLA,
   },

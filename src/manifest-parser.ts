@@ -18,7 +18,7 @@ interface ArenaVersion {
   FileCount: string;
 }
 
-export function getArenaVersion(channel = "Live"): Promise<string> {
+export function getArenaVersion(channel = "VIP"): Promise<string> {
   return new Promise((resolve) => {
     const req = httpGetText(
       `https://mtgarena.downloads.wizards.com/${channel}/Windows32/version`
