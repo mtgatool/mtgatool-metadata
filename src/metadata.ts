@@ -72,6 +72,7 @@ function getRanksData() {
   });
 
   const redrawRankRequests = function (moveBack = true) {
+    if (process.env.TRAVIS) return;
     process.stdout.moveCursor(0, moveBack ? -rankRequests.length : 0);
     const str = `${rankRequests
       .map((r) => {
@@ -203,6 +204,7 @@ function getSetIcons() {
   });
 
   const redrawSetsRequests = function (moveBack = true) {
+    if (process.env.TRAVIS) return;
     process.stdout.moveCursor(0, moveBack ? -5 : 0);
     let api = 0;
     let svg = 0;
