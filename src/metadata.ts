@@ -119,6 +119,7 @@ function getRanksData() {
                 rank.source
               );
             } catch (e) {
+              console.log(e);
               setRankRequestState(rank.setCode, -1);
             }
             resolve();
@@ -163,18 +164,22 @@ function processRanksData(str: string, source: number): SetRanks {
   }
   if (source == RATINGS_LOLA) {
     data.table.rows.forEach((row: any) => {
-      const name = row.c[0].v;
-      const rank = row.c[10].v;
-      const side = row.c[5] ? true : false;
-      const ceil = row.c[4] ? row.c[4].v : rank;
-      const values = [row.c[1].v, row.c[2].v, row.c[3].v];
-      ret[name] = {
-        rankSource: source,
-        rank: Math.round(rank),
-        side: side,
-        ceil: Math.round(ceil),
-        values: values,
-      };
+      if (row.c[10]) {
+        const name = row.c[0].v;
+        const rank = row.c[10].v || 0;
+        const side = row.c[5] ? true : false;
+        const ceil = row.c[4] ? row.c[4].v : rank;
+        const values = [row.c[1].v, row.c[2].v, row.c[3].v];
+        ret[name] = {
+          rankSource: source,
+          rank: Math.round(rank),
+          side: side,
+          ceil: Math.round(ceil),
+          values: values,
+        };
+      } else {
+        // console.log(row);
+      }
     });
   }
 
