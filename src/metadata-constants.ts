@@ -14,6 +14,9 @@ const packageJson = JSON.parse(
   fs.readFileSync(path.join(APPDATA, "package.json"), "utf8")
 );
 
+// "scryfall-all-cards.json" contains cards in all languages but is 800+mb
+export const SCRYFALL_FILE = "scryfall-all-cards.json";
+
 export const VERSION = packageJson.version.split(".")[0];
 
 export type SCRYFALL_LANGS =

@@ -1,4 +1,4 @@
-import httpGetFile from "./httpGetFile";
+import httpGetFile from "./utils/httpGetFile";
 import { APPDATA, EXTERNAL } from "./metadata-constants";
 import { Data } from "./types/parser";
 import path from "path";

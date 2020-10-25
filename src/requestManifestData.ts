@@ -1,4 +1,4 @@
-import httpGetText from "./httpGetText";
+import httpGetText from "./utils/httpGetText";
 import { Data } from "./types/parser";
 
 export default function requestManifestData(version: string): Promise<Data[]> {

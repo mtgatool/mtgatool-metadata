@@ -5,7 +5,7 @@ import zlib from "zlib";
 
 import { APPDATA, EXTERNAL } from "./metadata-constants";
 import { ArenaVersion, ManifestJSON } from "./types/parser";
-import httpGetText from "./httpGetText";
+import httpGetText from "./utils/httpGetText";
 import downloadManifest from "./downloadManifest";
 import { pickManifest } from "./pickManifest";
 import requestManifestData from "./requestManifestData";
