@@ -977,6 +977,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2020-08-13",
   },
+  "Kaladesh Remastered": {
+    collation: 100020,
+    scryfall: "klr",
+    code: "KLR",
+    arenacode: "KLR",
+    tile: 67003,
+    release: "2020-11-12",
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -1102,6 +1110,7 @@ export const SET_NAMES: Record<string, string> = {
   HA2: "Historic Anthology 2",
   HA3: "Historic Anthology 3",
   AKR: "Amonkhet Remastered",
+  KLR: "Kaladesh Remastered",
 };
 
 /*
@@ -1133,6 +1142,7 @@ export const NO_DUPES_ART_SETS = [
   "mir",
   "ajmp",
   "akr",
+  "klr",
 ];
 
 /*
@@ -1275,6 +1285,8 @@ export const ALLOWED_SCRYFALL = [
   "takr",
   "znr",
   "tznr",
+  "klr",
+  "tklr",
 ];
 
 export const RANKS_SHEETS = [
@@ -1353,6 +1365,12 @@ export const RANKS_SHEETS = [
   {
     setCode: "znr",
     sheet: "1SnHlQd7o5Wd01iwtllOvre9svfNimWX0OoqQg-bO8-A",
+    page: "Backend",
+    source: RATINGS_LOLA,
+  },
+  {
+    setCode: "klr",
+    sheet: "1yNNsSS5ZTc53yKnJFoH_8UCl_bhQk77WhqDVPp2927M",
     page: "Backend",
     source: RATINGS_LOLA,
   },
