@@ -1,5 +1,5 @@
 import MagicSet from "scryfall-client/dist/models/magic-set";
-import { AKR_SVG, ARENA_SVG, SETS_DATA } from "./metadata-constants";
+import { AKR_SVG, ARENA_SVG, KLR_SVG, SETS_DATA } from "./metadata-constants";
 import httpGetTextAsync from "./utils/httpGetTextAsync";
 
 type SetName = keyof typeof SETS_DATA;
@@ -80,6 +80,8 @@ ${errors.join(" ")}
             setSetRequestState(setName, 1);
             httpGetTextAsync(svgUrl).then((str: string) => {
               if (code == "akr") str = AKR_SVG;
+              if (code == "klr") str = KLR_SVG;
+
               str = str.replace(/fill="#.*?\"\ */g, " ");
               str = str.replace(/<path /g, '<path fill="#FFF" ');
               SETS_DATA[setName].svg = Buffer.from(str).toString("base64");
