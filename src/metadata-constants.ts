@@ -211,8 +211,9 @@ export const EVENT_TO_FORMAT = {
 
 // These are the current events in the ranked ladder
 export const LIMITED_RANKED_EVENTS = [
-  "QuickDraft_THB_20201016",
-  "PremierDraft_ELD_20201023",
+  "QuickDraft_ELD_20201113",
+  "QuickDraft_ZNR_20201030",
+  "PremierDraft_KLR_20201112",
   "PremierDraft_ZNR_20200917",
 ];
 
