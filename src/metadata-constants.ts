@@ -979,7 +979,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2020-08-13",
   },
   "Kaladesh Remastered": {
-    collation: 100020,
+    collation: 100021,
     scryfall: "klr",
     code: "KLR",
     arenacode: "KLR",
