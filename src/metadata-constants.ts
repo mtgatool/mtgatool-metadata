@@ -1151,7 +1151,7 @@ export const NO_DUPES_ART_SETS = [
  So we access them like this;
    ScryfallCards[LANG][SET][COLLECTOR]
 */
-export const CID_ART_SETS = ["iko"];
+export const CID_ART_SETS = ["iko", "sld"];
 
 export const ALLOWED_SCRYFALL = [
   "thb",
@@ -1274,7 +1274,6 @@ export const ALLOWED_SCRYFALL = [
   "tust",
   "jmp",
   "tcn2",
-  "sld",
   "csp",
   "ajmp",
   "tjmp",
