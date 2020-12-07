@@ -18,8 +18,12 @@ export default function getScryfallCard(
   const collector = parseInt(cid);
 
   // Secrel lair drop basic lands only exist in Japanese
-  if (scryfallSet == "sld" && collector > 62 && collector < 68) {
-    lang = "JA";
+  if (scryfallSet == "sld") {
+    if (collector > 62 && collector < 68) {
+      lang = "JA";
+    } else {
+      lang = "EN";
+    }
   }
 
   try {
