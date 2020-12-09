@@ -80,7 +80,7 @@ ${errors.join(" ")}
             setSetRequestState(setName, 1);
             httpGetTextAsync(svgUrl).then((str: string) => {
               if (code == "akr") str = AKR_SVG;
-              if (code == "klr") str = KLR_SVG;
+              if (code == "klr" || code == "KLR") str = KLR_SVG;
 
               str = str.replace(/fill="#.*?\"\ */g, " ");
               str = str.replace(/<path /g, '<path fill="#FFF" ');
