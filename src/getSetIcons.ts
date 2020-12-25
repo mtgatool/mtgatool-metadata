@@ -56,12 +56,22 @@ ${errors.join(" ")}
     let count = 0;
     setNames.forEach((setName) => {
       let code = SETS_DATA[setName].scryfall;
-      if (setName == "" || setName == "Arena New Player Experience") {
+      if (
+        setName == "" ||
+        setName == "Arena New Player Experience" ||
+        setName == "Amonketh Remastered" ||
+        setName == "Kaladesh Remastered"
+      ) {
         // hack hack hack
         // for some reason, scryfall does not provide this yet
         // manually insert here instead
         count++;
+
         let str = ARENA_SVG;
+        code = "default";
+        if (setName == "Amonketh Remastered") str = AKR_SVG;
+        if (setName == "Kaladesh Remastered") str = KLR_SVG;
+
         str = str.replace(/fill="#.*?\"\ */g, " ");
         str = str.replace(/<path /g, '<path fill="#FFF" ');
         SETS_DATA[setName].svg = Buffer.from(str).toString("base64");
@@ -80,7 +90,7 @@ ${errors.join(" ")}
             setSetRequestState(setName, 1);
             httpGetTextAsync(svgUrl).then((str: string) => {
               if (code == "akr") str = AKR_SVG;
-              if (code == "klr" || code == "KLR") str = KLR_SVG;
+              if (code == "klr") str = KLR_SVG;
 
               str = str.replace(/fill="#.*?\"\ */g, " ");
               str = str.replace(/<path /g, '<path fill="#FFF" ');
