@@ -235,51 +235,6 @@ export const SINGLE_MATCH_EVENTS = [
   "Historic_Ladder",
 ];
 
-/*
-  "Kaladesh": {
-    collation: 62242,
-    scryfall: "kld",
-    code: "KLD",
-    arenacode: "KLD",
-    tile: 63859
-  },
-  "Aether Revolt": {
-    collation: 62979,
-    scryfall: "aer",
-    code: "AER",
-    arenacode: "AER",
-    tile: 64647
-  },
-  "Welcome Deck 2017": {
-    collation: false,
-    scryfall: "w17",
-    code: "W17",
-    arenacode: "W17",
-    tile: 67106
-  },
-  "Amonkhet": {
-    collation: 100003,
-    scryfall: "akh",
-    code: "AKH",
-    arenacode: "AKH",
-    tile: 64827
-  },
-  "Hour of Devastation": {
-    collation: 100004,
-    scryfall: "hou",
-    code: "HOU",
-    arenacode: "HOU",
-    tile: 65759
-  },
-  "Oath of the Gatewatch": {
-    collation: false,
-    scryfall: "ogw",
-    code: "OGW",
-    arenacode: "OGW",
-    tile: 67106
-  },
-*/
-
 export const SETS_DATA: Record<string, CardSet> = {
   Ixalan: {
     collation: 100005,
@@ -986,6 +941,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2020-11-12",
   },
+  Kaldheim: {
+    collation: 100022,
+    scryfall: "khm",
+    code: "KHM",
+    arenacode: "KHM",
+    tile: 67003,
+    release: "2021-02-05",
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -1112,6 +1075,7 @@ export const SET_NAMES: Record<string, string> = {
   HA3: "Historic Anthology 3",
   AKR: "Amonkhet Remastered",
   KLR: "Kaladesh Remastered",
+  KHM: "Kaldheim",
 };
 
 /*
@@ -1287,6 +1251,8 @@ export const ALLOWED_SCRYFALL = [
   "tznr",
   "klr",
   "tklr",
+  "khm",
+  "tkhm",
 ];
 
 export const RANKS_SHEETS = [
@@ -1370,6 +1336,12 @@ export const RANKS_SHEETS = [
   },
   {
     setCode: "klr",
+    sheet: "1yNNsSS5ZTc53yKnJFoH_8UCl_bhQk77WhqDVPp2927M",
+    page: "Backend",
+    source: RATINGS_LOLA,
+  },
+  {
+    setCode: "khm",
     sheet: "1yNNsSS5ZTc53yKnJFoH_8UCl_bhQk77WhqDVPp2927M",
     page: "Backend",
     source: RATINGS_LOLA,
