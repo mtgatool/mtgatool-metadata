@@ -1342,7 +1342,7 @@ export const RANKS_SHEETS = [
   },
   {
     setCode: "khm",
-    sheet: "1yNNsSS5ZTc53yKnJFoH_8UCl_bhQk77WhqDVPp2927M",
+    sheet: "1kjRvUCV6pem9I4QjSgh5u9Hokt2o1LiidlqMI9XB9sI",
     page: "Backend",
     source: RATINGS_LOLA,
   },
