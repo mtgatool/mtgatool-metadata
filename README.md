@@ -10,7 +10,7 @@
 A metadata generator for [MTG Arena Tool](https://github.com/Manuel-777/MTG-Arena-Tool).
 Magic Cards database is downloaded from [Scryfall.com](http://scryfall.com), then put together using MTG Arena's cards data.
 
-Designed to run automatically and upload for MTG Arena Tool, but anyone if free to try it and contrbute!
+Designed to run automatically and upload for MTG Arena Tool, but anyone is free to try it and contrbute!
 
 # API
 
@@ -24,7 +24,7 @@ Current Version Info:
 
 Multi language endpoints:
 
-[https://mtgatool.com/database/latest/fr](https://mtgatool.com/database/latest/fr)
+[https://mtgatool.com/database/latest/fr](https://mtgatool.com/database/latest/fr)  
 [https://mtgatool.com/database/fr](https://mtgatool.com/database/fr)
 
 Available languages:
@@ -34,12 +34,12 @@ Available languages:
 
 
 
-Anyone is free to use the database to feed their software or just for learning, if you do please give credit to either me (Manuel Etchegaray) or MTG Arena Tool.
+Anyone is free to use the database to feed their software or just for learning. If you do, please give credit to either me (Manuel Etchegaray) or MTG Arena Tool.
 
 For more information see [LICENSE](./LICENSE.md)
 
 ## Contact
-You can find me at any of these;
-[Twitter](https://twitter.com/MEtchegaray7)
-[Discord](https://discord.gg/K9bPkJy)
-[mtgatool@gmail.com](mailto:mtgatool@gmail.com)
+You can find me at any of the following media:  
+[Twitter](https://twitter.com/MEtchegaray7)  
+[Discord](https://discord.gg/K9bPkJy)  
+[mtgatool@gmail.com](mailto:mtgatool@gmail.com)  
