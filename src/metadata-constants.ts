@@ -949,6 +949,38 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2021-02-05",
   },
+  Coldsnap: {
+    collation: -1,
+    scryfall: "csp",
+    code: "CSP",
+    arenacode: "csp",
+    tile: 67003,
+    release: "2006-07-2",
+  },
+  "Commander 2020": {
+    collation: -1,
+    scryfall: "c20",
+    code: "C20",
+    arenacode: "C20",
+    tile: 67003,
+    release: "2020-04-17",
+  },
+  "Commander Legends": {
+    collation: -1,
+    scryfall: "cmr",
+    code: "CMR",
+    arenacode: "CMR",
+    tile: 67003,
+    release: "2020-11-20",
+  },
+  "Double Masters": {
+    collation: -1,
+    scryfall: "2xm",
+    code: "2XM",
+    arenacode: "2XM",
+    tile: 67003,
+    release: "2020-08-07",
+  },
   "Historic Anthology 4": {
     collation: -1,
     scryfall: "ha4",
@@ -1085,6 +1117,10 @@ export const SET_NAMES: Record<string, string> = {
   AKR: "Amonkhet Remastered",
   KLR: "Kaladesh Remastered",
   KHM: "Kaldheim",
+  CSP: "Coldsnap",
+  C20: "Commander 2020",
+  CMR: "Commander Legends",
+  "2XM": "Double Masters",
 };
 
 /*
@@ -1263,6 +1299,10 @@ export const ALLOWED_SCRYFALL = [
   "khm",
   "tkhm",
   "ha4",
+  "csp",
+  "c20",
+  "cmr",
+  "2xm",
 ];
 
 export const RANKS_SHEETS = [
