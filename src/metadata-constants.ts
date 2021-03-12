@@ -949,6 +949,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2021-02-05",
   },
+  "Historic Anthology 4": {
+    collation: -1,
+    scryfall: "ha4",
+    code: "HA4",
+    arenacode: "HA4",
+    tile: 67003,
+    release: "2021-03-11",
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -1073,6 +1081,7 @@ export const SET_NAMES: Record<string, string> = {
   HA1: "Historic Anthology 1",
   HA2: "Historic Anthology 2",
   HA3: "Historic Anthology 3",
+  HA4: "Historic Anthology 4",
   AKR: "Amonkhet Remastered",
   KLR: "Kaladesh Remastered",
   KHM: "Kaldheim",
