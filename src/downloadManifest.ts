@@ -19,18 +19,22 @@ export default function downloadManifest(data: Data[]): Promise<string[]> {
             EXTERNAL,
             `manifest_${manifestData.id}.json`
           );
-          const fileBuffer = fs.readFileSync(_file);
-          try {
-            JSON.parse(fileBuffer.toString("utf-8"));
-            resolve(outFile);
-          } catch (e) {
+          fs.readFile(_file, (err, fileBuffer) => {
             console.log("Trying to gunzip manifest..");
-            zlib.gunzip(fileBuffer, function (err, result) {
-              if (err) return console.error(err);
-              fs.writeFileSync(outFile, result);
-              resolve(outFile);
-            });
-          }
+            if (err) console.error(err);
+            else {
+              try {
+                JSON.parse(fileBuffer.toString("utf-8"));
+                resolve(outFile);
+              } catch (e) {
+                zlib.gunzip(fileBuffer, function (err, result) {
+                  if (err) return console.error(err);
+                  fs.writeFileSync(outFile, result);
+                  resolve(outFile);
+                });
+              }
+            }
+          });
         });
       }
     });
