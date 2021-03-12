@@ -1,6 +1,6 @@
 import { getArenaVersion, getManifestFiles } from "./manifest-parser";
 
-getArenaVersion("VIP")
+getArenaVersion()
   .then((version) => getManifestFiles(version))
   .then(() => {
     process.exit();
