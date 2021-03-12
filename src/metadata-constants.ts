@@ -1262,6 +1262,7 @@ export const ALLOWED_SCRYFALL = [
   "tklr",
   "khm",
   "tkhm",
+  "ha4",
 ];
 
 export const RANKS_SHEETS = [
