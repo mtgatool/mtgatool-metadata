@@ -36,6 +36,7 @@ export interface Card {
   rarity: number;
   artistCredit: string;
   set: string;
+  usesSideboard: boolean;
   linkedFaceType: number;
   types: number[];
   subtypes: number[];

@@ -989,6 +989,22 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2021-03-11",
   },
+  "Strixhaven: School of Mages": {
+    collation: -1,
+    scryfall: "stx",
+    code: "STX",
+    arenacode: "STX",
+    tile: 67003,
+    release: "2021-04-23",
+  },
+  "Strixhaven Mystical Archive": {
+    collation: -1,
+    scryfall: "sta",
+    code: "STA",
+    arenacode: "STA",
+    tile: 67003,
+    release: "2021-04-23",
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -1120,6 +1136,8 @@ export const SET_NAMES: Record<string, string> = {
   CSP: "Coldsnap",
   C20: "Commander 2020",
   CMR: "Commander Legends",
+  STX: "Strixhaven: School of Mages",
+  STA: "Strixhaven Mystical Archive",
   "2XM": "Double Masters",
 };
 
@@ -1303,6 +1321,9 @@ export const ALLOWED_SCRYFALL = [
   "c20",
   "cmr",
   "2xm",
+  "stx",
+  "sta",
+  "tstx",
 ];
 
 export const RANKS_SHEETS = [
@@ -1396,6 +1417,13 @@ export const RANKS_SHEETS = [
     page: "Backend",
     source: RATINGS_LOLA,
   },
+  {
+    setCode: "stx",
+    sheet: "1P1l9NtmPENp2FrmmXwmjlCAQ6jKRWaOah8uUC3ZvUDs",
+    page: "Backend",
+    source: RATINGS_LOLA,
+  },
+  //
 ];
 
 // for some reason, scryfall does not provide this yet

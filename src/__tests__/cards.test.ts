@@ -29,6 +29,7 @@ describe("Check cards data", () => {
     expect(teferi.rarity).toBeDefined();
     expect(teferi.artistCredit).toBe("Chris Rallis");
     expect(teferi.set).toBe("WAR");
+    expect(teferi.usesSideboard).toBe(false);
     expect(teferi.linkedFaceType).toBeDefined();
     expect(teferi.types).toBeDefined();
     expect(teferi.subtypes).toBeDefined();
@@ -63,7 +64,7 @@ describe("Check cards data", () => {
     // Removed on 0.1.2213.786053 (5/19/20)
     //expect(teferi.knownAlternatePrintings).toStrictEqual([]);
     expect(teferi.DigitalReleaseSet).toBe("");
-    expect(Object.keys(teferi).length).toBe(33);
+    expect(Object.keys(teferi).length).toBe(34);
   });
 });
 
