@@ -1,5 +1,12 @@
 import MagicSet from "scryfall-client/dist/models/magic-set";
-import { AKR_SVG, ARENA_SVG, KLR_SVG, SETS_DATA } from "./metadata-constants";
+import {
+  AKR_SVG,
+  ARENA_SVG,
+  KLR_SVG,
+  SETS_DATA,
+  STX_SVG,
+  STA_SVG,
+} from "./metadata-constants";
 import httpGetTextAsync from "./utils/httpGetTextAsync";
 
 type SetName = keyof typeof SETS_DATA;
@@ -60,7 +67,9 @@ ${errors.join(" ")}
         setName == "" ||
         setName == "Arena New Player Experience" ||
         setName == "Amonketh Remastered" ||
-        setName == "Kaladesh Remastered"
+        setName == "Kaladesh Remastered" ||
+        setName == "Strixhaven: School of Mages" ||
+        setName == "Strixhaven Mystical Archive"
       ) {
         // hack hack hack
         // for some reason, scryfall does not provide this yet
@@ -71,6 +80,8 @@ ${errors.join(" ")}
         code = "default";
         if (setName == "Amonketh Remastered") str = AKR_SVG;
         if (setName == "Kaladesh Remastered") str = KLR_SVG;
+        if (setName == "Strixhaven: School of Mages") str = STX_SVG;
+        if (setName == "Strixhaven Mystical Archive") str = STA_SVG;
 
         str = str.replace(/fill="#.*?\"\ */g, " ");
         str = str.replace(/<path /g, '<path fill="#FFF" ');
@@ -91,6 +102,8 @@ ${errors.join(" ")}
             httpGetTextAsync(svgUrl).then((str: string) => {
               if (code == "akr") str = AKR_SVG;
               if (code == "klr") str = KLR_SVG;
+              if (code == "stx") str = STX_SVG;
+              if (code == "sta") str = STA_SVG;
 
               str = str.replace(/fill="#.*?\"\ */g, " ");
               str = str.replace(/<path /g, '<path fill="#FFF" ');
