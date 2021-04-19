@@ -946,7 +946,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     scryfall: "khm",
     code: "KHM",
     arenacode: "KHM",
-    tile: 67003,
+    tile: 76884,
     release: "2021-02-05",
   },
   Coldsnap: {
@@ -994,15 +994,15 @@ export const SETS_DATA: Record<string, CardSet> = {
     scryfall: "stx",
     code: "STX",
     arenacode: "STX",
-    tile: 67003,
+    tile: 76476,
     release: "2021-04-23",
   },
   "Strixhaven Mystical Archive": {
-    collation: -1,
+    collation: 100999, // This one is not used
     scryfall: "sta",
     code: "STA",
     arenacode: "STA",
-    tile: 67003,
+    tile: 76476,
     release: "2021-04-23",
   },
   "": {
@@ -1419,7 +1419,13 @@ export const RANKS_SHEETS = [
   },
   {
     setCode: "stx",
-    sheet: "1P1l9NtmPENp2FrmmXwmjlCAQ6jKRWaOah8uUC3ZvUDs",
+    sheet: "15pIP1xsfX4JfIIEr0g675mxYi68wP_i95uO0MTY5pOU",
+    page: "Backend",
+    source: RATINGS_LOLA,
+  },
+  {
+    setCode: "sta",
+    sheet: "15pIP1xsfX4JfIIEr0g675mxYi68wP_i95uO0MTY5pOU",
     page: "Backend",
     source: RATINGS_LOLA,
   },
