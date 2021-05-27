@@ -1005,6 +1005,30 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 76476,
     release: "2021-04-23",
   },
+  "Historic Anthology 5": {
+    collation: -1,
+    scryfall: "ha5",
+    code: "HA5",
+    arenacode: "HA5",
+    tile: 67003,
+    release: "2021-05-27",
+  },
+  "Mirrodin Besieged": {
+    collation: -1,
+    scryfall: "mbs",
+    code: "MBS",
+    arenacode: "MBS",
+    tile: 67003,
+    release: "2011-02-04",
+  },
+  ANC: {
+    collation: -1,
+    scryfall: "anc",
+    code: "ANC",
+    arenacode: "ANC",
+    tile: 67003,
+    release: "2021-05-27",
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -1130,6 +1154,7 @@ export const SET_NAMES: Record<string, string> = {
   HA2: "Historic Anthology 2",
   HA3: "Historic Anthology 3",
   HA4: "Historic Anthology 4",
+  HA5: "Historic Anthology 5",
   AKR: "Amonkhet Remastered",
   KLR: "Kaladesh Remastered",
   KHM: "Kaldheim",
@@ -1139,6 +1164,8 @@ export const SET_NAMES: Record<string, string> = {
   STX: "Strixhaven: School of Mages",
   STA: "Strixhaven Mystical Archive",
   "2XM": "Double Masters",
+  ANC: "ANC",
+  MBS: "Mirrodin Besieged",
 };
 
 /*
@@ -1324,6 +1351,8 @@ export const ALLOWED_SCRYFALL = [
   "stx",
   "sta",
   "tstx",
+  "ha5",
+  "mbs",
 ];
 
 export const RANKS_SHEETS = [
