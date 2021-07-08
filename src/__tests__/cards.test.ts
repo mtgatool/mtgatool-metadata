@@ -64,7 +64,9 @@ describe("Check cards data", () => {
     // Removed on 0.1.2213.786053 (5/19/20)
     //expect(teferi.knownAlternatePrintings).toStrictEqual([]);
     expect(teferi.DigitalReleaseSet).toBe("");
-    expect(Object.keys(teferi).length).toBe(34);
+    expect(teferi.indicator).toEqual([]);
+    expect(teferi.extraFrameDetails).toEqual([]);
+    expect(Object.keys(teferi).length).toBe(36);
   });
 });
 

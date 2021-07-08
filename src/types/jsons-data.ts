@@ -60,4 +60,9 @@ export interface Card {
     abilityId: number;
     linkedTokenGrpId: number;
   }[];
+  indicator: number[];
+  extraFrameDetails: {
+    type: number;
+    detail: string;
+  }[];
 }

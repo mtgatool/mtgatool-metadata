@@ -1029,6 +1029,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2021-05-27",
   },
+  "Adventures in the Forgotten Realms": {
+    collation: 100024,
+    scryfall: "afr",
+    code: "AFR",
+    arenacode: "AFR",
+    tile: 67003,
+    release: "2021-07-23",
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -1166,6 +1174,7 @@ export const SET_NAMES: Record<string, string> = {
   "2XM": "Double Masters",
   ANC: "ANC",
   MBS: "Mirrodin Besieged",
+  AFR: "Adventures in the Forgotten Realms",
 };
 
 /*
@@ -1353,6 +1362,7 @@ export const ALLOWED_SCRYFALL = [
   "tstx",
   "ha5",
   "mbs",
+  "afr",
 ];
 
 export const RANKS_SHEETS = [
