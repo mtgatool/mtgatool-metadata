@@ -1363,6 +1363,7 @@ export const ALLOWED_SCRYFALL = [
   "ha5",
   "mbs",
   "afr",
+  "tafr",
 ];
 
 export const RANKS_SHEETS = [
