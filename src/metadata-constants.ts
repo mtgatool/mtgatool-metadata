@@ -1475,7 +1475,6 @@ export const RANKS_SHEETS = [
     page: "Backend",
     source: RATINGS_LOLA,
   },
-  //
 ];
 
 // for some reason, scryfall does not provide this yet
