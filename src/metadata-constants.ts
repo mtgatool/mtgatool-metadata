@@ -1469,6 +1469,12 @@ export const RANKS_SHEETS = [
     page: "Backend",
     source: RATINGS_LOLA,
   },
+  {
+    setCode: "afr",
+    sheet: "1wvB-UjKgbiY7YJF5QX2brdCrpqj1IpUYJ7pnSO1UQEE",
+    page: "Backend",
+    source: RATINGS_LOLA,
+  },
   //
 ];
 
