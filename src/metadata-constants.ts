@@ -81,6 +81,7 @@ export const EVENT_TO_NAME = {
   Ladder: "Standard Ranked",
   Traditional_Ladder: "Traditional Standard Ranked",
   Constructed_Event_2020: "Standard Event",
+  Future_Ranked2022: "Future Standard Ranked",
 
   Historic_Ladder: "Historic Ranked",
   Traditional_Historic_Ladder: "Traditional Historic Ranked",
@@ -222,6 +223,7 @@ export const STANDARD_RANKED_EVENTS = [
   "Traditional_Ladder",
   "Historic_Ladder",
   "Traditional_Historic_Ladder",
+  "Future_Ranked2022",
 ];
 
 export const SINGLE_MATCH_EVENTS = [
