@@ -21,7 +21,7 @@ export default function getSetIcons(): Promise<void> {
 
   const redrawSetsRequests = function (moveBack = true) {
     if (process.env.TRAVIS) return;
-    process.stdout.moveCursor(0, moveBack ? -5 : 0);
+    process.stdout.moveCursor(0, moveBack ? -6 : 0);
     let api = 0;
     let svg = 0;
     let ok = 0;
@@ -42,6 +42,7 @@ export default function getSetIcons(): Promise<void> {
 \x1b[42m\x1b[30m ${ok} \t\x1b[0m OK
 \x1b[45m\x1b[30m ${err} \t\x1b[0m Errors
 ${errors.join(" ")}
+
 `
     );
   };

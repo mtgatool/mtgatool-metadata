@@ -232,6 +232,10 @@ export function generateMetadata(
           }
         }
 
+        if (cardId === 78768 || cardId === 78769 || cardId === 78770) {
+          scryfallSet = "t" + scryfallSet;
+        }
+
         // Get scryfall object
         scryfallObject = getScryfallCard(
           ScryfallCards,

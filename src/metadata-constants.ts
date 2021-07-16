@@ -1209,6 +1209,7 @@ export const NO_DUPES_ART_SETS = [
   "ajmp",
   "akr",
   "klr",
+  "tafr",
 ];
 
 /*
