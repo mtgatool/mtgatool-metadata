@@ -1039,6 +1039,22 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2021-07-23",
   },
+  "Jumpstart: Historic Horizons": {
+    collation: -1,
+    scryfall: "j21",
+    code: "J21",
+    arenacode: "J21",
+    tile: 67003,
+    release: "2021-08-26",
+  },
+  "Modern Horizons 2": {
+    collation: -1,
+    scryfall: "mh2",
+    code: "MH2",
+    arenacode: "MH2",
+    tile: 67003,
+    release: "2021-06-18",
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -1177,6 +1193,8 @@ export const SET_NAMES: Record<string, string> = {
   ANC: "ANC",
   MBS: "Mirrodin Besieged",
   AFR: "Adventures in the Forgotten Realms",
+  J21: "Jumpstart: Historic Horizons",
+  MH2: "Modern Horizons 2",
 };
 
 /*
@@ -1367,6 +1385,8 @@ export const ALLOWED_SCRYFALL = [
   "mbs",
   "afr",
   "tafr",
+  "j21",
+  "mh2",
 ];
 
 export const RANKS_SHEETS = [

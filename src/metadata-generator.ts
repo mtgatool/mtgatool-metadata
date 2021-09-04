@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import path from "path";
 import fs from "fs";
 import {
@@ -117,13 +118,13 @@ export function generateMetadata(
 
         // Get types line based on enums
         let typeLine = "";
-        card.supertypes.forEach((type) => {
+        card.supertypes?.forEach((type) => {
           typeLine += enums["SuperType"][type] + " ";
         });
-        card.types.forEach((type) => {
+        card.types?.forEach((type) => {
           typeLine += enums["CardType"][type] + " ";
         });
-        card.subtypes.forEach((type) => {
+        card.subtypes?.forEach((type) => {
           typeLine += enums["SubType"][type] + " ";
         });
         // Doing this throws an error in tool :(
@@ -131,7 +132,7 @@ export function generateMetadata(
 
         // Clean up mana cost
         const manaCost: string[] = [];
-        card.castingcost.split("o").forEach((mana: string) => {
+        card.castingcost?.split("o").forEach((mana: string) => {
           if (mana !== "" && mana !== "0") {
             mana = mana
               .toLowerCase()
@@ -142,9 +143,9 @@ export function generateMetadata(
           }
         });
 
-        let set: string = SET_NAMES[card.set];
+        let set: string = SET_NAMES[card.set || ""];
 
-        let collector = card.collectorNumber;
+        let collector = card.collectorNumber || "";
         // Special collectors numbers that define Mythic edition and Gift pack cards
         if (collector.includes("GR")) {
           set = "Mythic Edition";
@@ -153,9 +154,9 @@ export function generateMetadata(
           set = "M19 Gift Pack";
         }
 
-        const cardId = card.grpid;
-        const cardName = getText(card.titleId, lang);
-        const englishName = getText(card.titleId, "EN").replace(
+        const cardId = card.grpid || 0;
+        const cardName = getText(card.titleId || 0, lang);
+        const englishName = getText(card.titleId || 0, "EN").replace(
           " /// ",
           " // "
         );
@@ -163,19 +164,19 @@ export function generateMetadata(
         const cardObj: DbCardData = {
           id: cardId,
           name: cardName.replace(" /// ", " // "),
-          titleId: card.titleId,
+          titleId: card.titleId || 0,
           set: set,
-          artid: card.artId,
+          artid: card.artId || 0,
           type: typeLine,
           cost: manaCost,
-          cmc: card.cmc,
-          rarity: RARITY[card.rarity],
+          cmc: card.cmc || 0,
+          rarity: RARITY[card.rarity || 1],
           cid: collector,
-          frame: card.frameColors,
-          artist: card.artistCredit,
-          dfc: card.linkedFaceType,
-          isPrimary: card.isPrimaryCard,
-          abilities: card.abilities.map((ab) => ab.abilityId),
+          frame: card.frameColors || [],
+          artist: card.artistCredit || "",
+          dfc: card.linkedFaceType || 0,
+          isPrimary: card.isPrimaryCard || false,
+          abilities: card.abilities?.map((ab) => ab.Id) || [],
           // Defaults / unset
           collectible: false,
           craftable: false,
@@ -246,7 +247,7 @@ export function generateMetadata(
           cardObj.artist
         );
 
-        if (card.linkedFaces.length > 0) {
+        if (card.linkedFaces && card.linkedFaces.length > 0) {
           cardObj.dfcId = card.linkedFaces[0];
         } else {
           cardObj.dfcId = false;
