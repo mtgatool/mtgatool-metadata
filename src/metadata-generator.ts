@@ -88,7 +88,6 @@ export function generateMetadata(
     };
 
     // Altrough enums must be in other languages ill write them in english
-    //ata be in english
     // for things like creature types. And it would break.
     const enums: Record<string, Record<number, string>> = {};
     enumsRead.forEach(

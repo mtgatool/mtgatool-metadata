@@ -1228,6 +1228,7 @@ export const NO_DUPES_ART_SETS = [
   "akr",
   "klr",
   "tafr",
+  "j21",
 ];
 
 /*
@@ -1386,7 +1387,10 @@ export const ALLOWED_SCRYFALL = [
   "afr",
   "tafr",
   "j21",
+  "tj21",
   "mh2",
+  "tmh2",
+  "ktk",
 ];
 
 export const RANKS_SHEETS = [

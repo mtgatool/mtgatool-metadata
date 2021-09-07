@@ -1,5 +1,5 @@
 import {
-  ALLOWED_SCRYFALL,
+  // ALLOWED_SCRYFALL,
   APPDATA,
   CID_ART_SETS,
   EXTERNAL,
@@ -107,39 +107,33 @@ export default function generateScryfallDatabase(): Promise<ScryfallData> {
               console.log(line);
             }
             */
-            if (ALLOWED_SCRYFALL.includes(obj.set)) {
-              const lineLang = obj.lang.toUpperCase();
-              const name = obj.name;
-              scryfallDataAdd(
-                obj,
-                lineLang,
-                obj.set,
-                name,
-                obj.collector_number
-              );
-              const l: string = obj.layout; // Not znr types yet! (modal_dfc)
-              if (
-                (l == "adventure" ||
-                  l == "modal_dfc" ||
-                  l == "transform" ||
-                  l == "split") &&
-                obj.card_faces
-              ) {
-                obj.card_faces.forEach((face) => {
-                  const name = face.name;
-                  const newObj = Object.assign(_.cloneDeep(obj), face);
-                  scryfallDataAdd(
-                    newObj,
-                    lineLang,
-                    obj.set,
-                    name,
-                    obj.collector_number
-                  );
-                });
-              }
+            // if (ALLOWED_SCRYFALL.includes(obj.set)) {
+            const lineLang = obj.lang.toUpperCase();
+            const name = obj.name;
+            scryfallDataAdd(obj, lineLang, obj.set, name, obj.collector_number);
+            const l: string = obj.layout; // Not znr types yet! (modal_dfc)
+            if (
+              (l == "adventure" ||
+                l == "modal_dfc" ||
+                l == "transform" ||
+                l == "split") &&
+              obj.card_faces
+            ) {
+              obj.card_faces.forEach((face) => {
+                const name = face.name;
+                const newObj = Object.assign(_.cloneDeep(obj), face);
+                scryfallDataAdd(
+                  newObj,
+                  lineLang,
+                  obj.set,
+                  name,
+                  obj.collector_number
+                );
+              });
             }
+            // }
           } catch (e) {
-            //console.log(e);
+            console.log(e);
           }
         }
       };
