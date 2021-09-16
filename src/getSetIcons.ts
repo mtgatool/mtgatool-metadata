@@ -114,7 +114,16 @@ ${errors.join(" ")}
               }
               count++;
               setSetRequestState(setName, 2);
-              if (count == setNames.length) {
+
+              const errors: string[] = [];
+              requests.forEach((r) => {
+                if (r.state == -1) {
+                  errors.push(r.code);
+                }
+              });
+
+              if (count == setNames.length - errors.length) {
+                console.log("Get set icons OK");
                 resolve();
               }
             });

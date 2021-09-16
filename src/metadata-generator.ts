@@ -6,11 +6,6 @@ import {
   OUTPUT,
   SETS_DATA,
   SET_NAMES,
-  EVENT_TO_NAME,
-  EVENT_TO_FORMAT,
-  LIMITED_RANKED_EVENTS,
-  STANDARD_RANKED_EVENTS,
-  SINGLE_MATCH_EVENTS,
   LANGKEYS,
   ARENA_LANGS,
   SCRYFALL_LANGS,
@@ -19,7 +14,7 @@ import {
 import { ScryfallData } from "./types/scryfall";
 import { RanksData } from "./types/metadata";
 import { Card, Ability } from "./types/jsons-data";
-import { constants, DbCardData, Metadata } from "mtgatool-shared";
+import { constants, DbCardData } from "mtgatool-shared";
 import CardApiResponse from "scryfall-client/dist/types/api/card";
 import { ImageUris } from "scryfall-client/dist/types/api/constants";
 import replaceCardData from "./replaceCardData";
@@ -31,7 +26,6 @@ const { RATINGS_LOLA, RATINGS_MTGCSR } = constants;
 export function generateMetadata(
   ScryfallCards: ScryfallData,
   ranksData: RanksData,
-  metagameData: Metadata["archetypes"] | undefined,
   version: string,
   languages: SCRYFALL_LANGS[]
 ): Promise<void> {
@@ -380,14 +374,8 @@ export function generateMetadata(
         version: version,
         language: lang,
         updated: date.getTime(),
-        events: EVENT_TO_NAME,
-        events_format: EVENT_TO_FORMAT,
         sets: SETS_DATA,
         abilities: abilities,
-        limited_ranked_events: LIMITED_RANKED_EVENTS,
-        standard_ranked_events: STANDARD_RANKED_EVENTS,
-        single_match_events: SINGLE_MATCH_EVENTS,
-        archetypes: metagameData || [],
       };
 
       // Write to a file
