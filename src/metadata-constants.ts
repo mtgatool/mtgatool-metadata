@@ -1513,6 +1513,12 @@ export const RANKS_SHEETS = [
     page: "Backend",
     source: RATINGS_LOLA,
   },
+  {
+    setCode: "mid",
+    sheet: "1E2-9WgFXKCWxUXPvK1N5oP7ezqBoeJLpAFjIimkeKPg",
+    page: "Backend",
+    source: RATINGS_LOLA,
+  },
 ];
 
 // for some reason, scryfall does not provide this yet
