@@ -8,19 +8,20 @@ const sftp = new Client();
 const databaseVersion = VERSION;
 const remoteDir = "/var/www/html/database/" + databaseVersion + "/";
 const outDir = path.join(APPDATA, OUTPUT);
-const importPhp = path.join(APPDATA, "import.php");
+const latestJson = path.join(APPDATA, "latest.json");
 
-fs.readFile(importPhp, "utf8", function (err, data) {
+fs.readFile(latestJson, "utf8", function (err, data) {
   if (err) {
     return console.log(err);
   }
-  const result = data.replace("%VERSION%", databaseVersion);
+  const json = JSON.parse(data);
+  json.version = databaseVersion;
 
-  fs.writeFile(importPhp, result, "utf8", function (err) {
+  fs.writeFile(latestJson, JSON.stringify(json), "utf8", function (err) {
     if (err) {
       return console.log(err);
     } else {
-      console.log("Updated import.php");
+      console.log("Updated latest.json");
       doScan();
     }
   });
@@ -69,10 +70,10 @@ async function doPush(files: string[]) {
     return uploadFile(nextFile);
   }, Promise.resolve(""));
 
-  console.log("Uploading new import.php");
-  const remoteImport = "/var/www/html/database/import.php";
+  console.log("Uploading new latest.json");
+  const remoteImport = "/var/www/html/database/latest.json";
   await sftp.delete(remoteImport);
-  await sftp.put(importPhp, remoteImport, { mode: 0o644 });
+  await sftp.put(latestJson, remoteImport, { mode: 0o644 });
 
   console.log("All done, bye bye!");
   process.exit();
