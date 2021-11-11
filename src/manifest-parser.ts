@@ -13,7 +13,7 @@ import requestManifestData from "./requestManifestData";
 export function getArenaVersion(channel = "Live"): Promise<string> {
   return new Promise((resolve) => {
     const req = httpGetText(
-      `https://mtgarena.downloads.wizards.com/${channel}/Windows32/version`
+      `https://mtgarena.downloads.wizards.com/${channel}/Windows64/version`
     );
     req.addEventListener("load", function () {
       try {
@@ -48,7 +48,9 @@ function processManifest(data: ManifestJSON): Promise<string[]> {
   const requests = data.Assets.filter((asset) => {
     return asset.AssetType == "Data";
   }).map((asset) => {
-    const assetUrl = `https://assets.mtgarena.wizards.com/${asset.Name}`;
+    const assetUrl = `https://assets.mtgarena.wizards.com/${asset.Name}${
+      asset.wrapper ? "." + asset.wrapper : ""
+    }`;
 
     const regex = new RegExp("_(.*)_", "g").exec(asset.Name);
     const assetName = regex ? regex[1] : "";
@@ -63,11 +65,17 @@ function processManifest(data: ManifestJSON): Promise<string[]> {
 
       const out = fs.createWriteStream(assetUri);
       http.get(assetUrl, (response) => {
-        response.pipe(zlib.createGunzip()).pipe(out);
+        if (asset.wrapper === "gz") {
+          response.pipe(zlib.createGunzip()).pipe(out);
+        } else {
+          response.pipe(out);
+        }
 
         response.on("end", function () {
           resolve(assetName);
         });
+
+        response.on("error", Promise.reject);
       });
     }) as Promise<string>;
   });

@@ -6,6 +6,7 @@ import {
   SETS_DATA,
   STX_SVG,
   STA_SVG,
+  VOW_SVG,
 } from "./metadata-constants";
 import httpGetTextAsync from "./utils/httpGetTextAsync";
 
@@ -70,7 +71,8 @@ ${errors.join(" ")}
         setName == "Amonketh Remastered" ||
         setName == "Kaladesh Remastered" ||
         setName == "Strixhaven: School of Mages" ||
-        setName == "Strixhaven Mystical Archive"
+        setName == "Strixhaven Mystical Archive" ||
+        setName == "Innistrad: Crimson Vow"
       ) {
         // hack hack hack
         // for some reason, scryfall does not provide this yet
@@ -83,6 +85,7 @@ ${errors.join(" ")}
         if (setName == "Kaladesh Remastered") str = KLR_SVG;
         if (setName == "Strixhaven: School of Mages") str = STX_SVG;
         if (setName == "Strixhaven Mystical Archive") str = STA_SVG;
+        if (setName == "Innistrad: Crimson Vow") str = VOW_SVG;
 
         str = str.replace(/fill="#.*?\"\ */g, " ");
         str = str.replace(/<path /g, '<path fill="#FFF" ');

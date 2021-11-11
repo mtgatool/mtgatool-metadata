@@ -2,7 +2,7 @@ import fs from "fs";
 import { ManifestJSON } from "./types/parser";
 
 export function pickManifest(manifests: string[]): Promise<ManifestJSON> {
-  console.log(manifests);
+  console.log("manifests: ", manifests);
   return new Promise((resolve) => {
     const sizes = manifests.map((file) => {
       const stat = fs.statSync(file);

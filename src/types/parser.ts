@@ -7,6 +7,7 @@ export interface ManifestJSON {
     Length: number;
     CompressedLength: number;
     Priority: number;
+    wrapper?: string;
     Hash: string;
     MD5: string;
     Dependencies: [];
