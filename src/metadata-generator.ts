@@ -65,11 +65,11 @@ export function generateMetadata(
     locRead.forEach(
       (lang: {
         isoCode: ARENA_LANGS;
-        keys: { id: number; text: string }[];
+        keys: { id: number; raw?: string; text: string }[];
       }) => {
         loc[LANGKEYS[lang.isoCode]] = {};
         lang.keys.forEach((item) => {
-          loc[LANGKEYS[lang.isoCode]][item.id] = item.text
+          loc[LANGKEYS[lang.isoCode]][item.id] = (item.raw || item.text)
             .replace(regex, "")
             .replace(JpRegex, "");
         });
@@ -77,7 +77,7 @@ export function generateMetadata(
     );
     locRead = null;
 
-    const getText = function (id: number, language: SCRYFALL_LANGS) {
+    const getText = function (id: number, language: SCRYFALL_LANGS): string {
       return loc[language] == undefined ? loc["EN"][id] : loc[language][id];
     };
 
