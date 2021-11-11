@@ -108,6 +108,7 @@ ${errors.join(" ")}
               if (code == "klr") str = KLR_SVG;
               if (code == "stx") str = STX_SVG;
               if (code == "sta") str = STA_SVG;
+              if (code == "vow") str = VOW_SVG;
 
               str = str.replace(/fill="#.*?\"\ */g, " ");
               str = str.replace(/<path /g, '<path fill="#FFF" ');
