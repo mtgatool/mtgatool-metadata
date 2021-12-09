@@ -51,6 +51,7 @@ export interface Card {
     Id: number;
     TextId: number;
   }[];
+  rawFrameDetails?: string;
   hiddenAbilities?: number[];
   linkedFaces?: number[];
   castingcost?: string;

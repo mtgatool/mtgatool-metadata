@@ -1071,6 +1071,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2021-11-19",
   },
+  "Alchemy: Innistrad": {
+    collation: 100026,
+    scryfall: "y22",
+    code: "Y22",
+    arenacode: "Y22",
+    tile: 67003,
+    release: "2021-12-09",
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -1213,6 +1221,7 @@ export const SET_NAMES: Record<string, string> = {
   MH2: "Modern Horizons 2",
   MID: "Innistrad: Midnight Hunt",
   VOW: "Innistrad: Crimson Vow",
+  Y22: "Alchemy: Innistrad",
 };
 
 /*
@@ -1413,6 +1422,7 @@ export const ALLOWED_SCRYFALL = [
   "tmid",
   "vow",
   "tvow",
+  "y22",
 ];
 
 export const RANKS_SHEETS = [

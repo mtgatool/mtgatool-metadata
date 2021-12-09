@@ -32,8 +32,11 @@ describe("Check cards data", () => {
     expect(teferi.subtypeTextId).toBeDefined();
     expect(teferi.colors?.sort()).toEqual([1, 2].sort());
     expect(teferi.frameColors?.sort()).toEqual([1, 2].sort());
+    expect(teferi.rawFrameDetails).toEqual("3 abilities");
     expect(teferi.frameDetails).toEqual(["gold"]);
     expect(teferi.colorIdentity?.sort()).toEqual([1, 2].sort());
+    expect(teferi.castingcost).toBe("o1oWoU");
+    expect(teferi.knownSupportedStyles).toBeDefined();
     expect(teferi.abilities).toEqual([
       {
         Id: 6363,
@@ -48,9 +51,7 @@ describe("Check cards data", () => {
         TextId: 336893,
       },
     ]);
-    expect(teferi.castingcost).toBe("o1oWoU");
-    expect(teferi.knownSupportedStyles).toBeDefined();
-    expect(Object.keys(teferi).length).toBe(24);
+    expect(Object.keys(teferi).length).toBe(25);
   });
 });
 
