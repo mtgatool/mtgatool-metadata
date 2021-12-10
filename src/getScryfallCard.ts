@@ -3,6 +3,7 @@ import {
   CID_ART_SETS,
   NO_DUPES_ART_SETS,
   SCRYFALL_LANGS,
+  SCRYFALL_LANGS_CONST,
 } from "./metadata-constants";
 import { ScryfallData } from "./types/scryfall";
 
@@ -14,51 +15,40 @@ export default function getScryfallCard(
   cid: string,
   artist: string
 ): CardApiResponse | undefined {
-  let ret: CardApiResponse | undefined = undefined;
   const collector = parseInt(cid);
 
-  // Secrel lair drop basic lands only exist in Japanese
-  if (scryfallSet == "sld") {
-    if (collector > 62 && collector < 68) {
-      lang = "JA";
-    } else {
-      lang = "EN";
-    }
-  }
-
-  try {
-    if (CID_ART_SETS.includes(scryfallSet)) {
-      ret = ScryfallCards[lang][scryfallSet][collector];
-    } else if (NO_DUPES_ART_SETS.includes(scryfallSet)) {
-      ret = ScryfallCards[lang][scryfallSet][cardName];
-    } else {
-      ret = ScryfallCards[lang][scryfallSet][cardName][collector];
-    }
-  } catch (e) {
-    ret = undefined;
-  }
-
-  if (ret == undefined && lang !== "EN") {
+  const tryGetCard = () => {
+    let ret: CardApiResponse | undefined = undefined;
     try {
       if (CID_ART_SETS.includes(scryfallSet)) {
-        ret = ScryfallCards["EN"][scryfallSet][collector];
+        ret = ScryfallCards[lang][scryfallSet][collector];
       } else if (NO_DUPES_ART_SETS.includes(scryfallSet)) {
-        ret = ScryfallCards["EN"][scryfallSet][cardName];
+        ret = ScryfallCards[lang][scryfallSet][cardName];
       } else {
-        ret = ScryfallCards["EN"][scryfallSet][cardName][collector];
+        ret = ScryfallCards[lang][scryfallSet][cardName][collector];
       }
     } catch (e) {
       ret = undefined;
     }
-  }
 
-  if (ret == undefined) {
-    try {
-      ret = ScryfallCards[lang]["byArt"][cardName][artist.toLowerCase()];
-    } catch (e) {
-      ret = undefined;
+    if (ret == undefined) {
+      try {
+        ret = ScryfallCards[lang]["byArt"][cardName][artist.toLowerCase()];
+      } catch (e) {
+        ret = undefined;
+      }
     }
+    return ret;
+  };
+
+  let card: CardApiResponse | undefined = undefined;
+  card = tryGetCard();
+  let i = 0;
+  while (card === undefined && i < SCRYFALL_LANGS_CONST.length) {
+    lang = SCRYFALL_LANGS_CONST[i];
+    card = tryGetCard();
+    i++;
   }
 
-  return ret;
+  return card;
 }

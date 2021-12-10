@@ -193,6 +193,10 @@ export function generateMetadata(
           if (replace.scryfallSet) scryfallSet = replace.scryfallSet;
           if (replace.collector) collector = replace.collector;
 
+          if (card.IsRebalanced) {
+            collector = `A-${collector}`;
+          }
+
           if (orig !== scryfallSet + collector) {
             const origSet = cardObj.set;
             cardObj.set =
@@ -233,7 +237,7 @@ export function generateMetadata(
         // Get scryfall object
         scryfallObject = getScryfallCard(
           ScryfallCards,
-          cardId == 72578 ? "PH" : lang,
+          lang,
           scryfallSet,
           englishName,
           collector,
@@ -249,21 +253,6 @@ export function generateMetadata(
         // Use the name if available
         if (scryfallObject && scryfallObject.printed_name) {
           cardObj.name = scryfallObject.printed_name;
-        }
-        // We did not find any image data on scryfall for this card!
-        if (
-          scryfallObject == undefined ||
-          scryfallObject.image_uris == undefined
-        ) {
-          // Try default to english
-          scryfallObject = getScryfallCard(
-            ScryfallCards,
-            cardId == 72578 ? "PH" : lang,
-            scryfallSet,
-            englishName,
-            collector,
-            cardObj.artist
-          );
         }
 
         // Add ranks data
@@ -300,9 +289,9 @@ export function generateMetadata(
           scryfallObject == undefined ||
           scryfallObject.image_uris == undefined
         ) {
-          // English failed..
+          // Every language has failed..
           console.log(
-            `No scryfall data for [${lang}] ${cardObj.name} (${englishName}) - ${scryfallSet} (${cardObj.cid}) artist: ${cardObj.artist} grpId: ${cardObj.id}`
+            `No scryfall data for [${lang}] ${cardObj.name} (${englishName}) - ${scryfallSet}/${card.collectorNumber} (${collector}) artist: ${cardObj.artist} grpId: ${cardObj.id}`
           );
           cardObj.images = {};
         } else {

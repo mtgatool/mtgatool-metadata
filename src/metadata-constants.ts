@@ -33,6 +33,21 @@ export type SCRYFALL_LANGS =
   | "KO"
   | "PH";
 
+export const SCRYFALL_LANGS_CONST: SCRYFALL_LANGS[] = [
+  "EN",
+  "PH",
+  "DE",
+  "ES",
+  "FR",
+  "IT",
+  "RU",
+  "PT",
+  "JA",
+  "ZHS",
+  "KO",
+  "PH",
+];
+
 export type ARENA_LANGS =
   | "en-US"
   | "fr-FR"
@@ -48,15 +63,15 @@ export type ARENA_LANGS =
 // What languages to actually compile
 export const LANGUAGES: SCRYFALL_LANGS[] = [
   "EN",
-  "ES",
-  "PT",
-  "DE",
-  "FR",
-  "IT",
-  "JA",
-  "RU",
-  "KO",
-  "ZHS",
+  // "ES",
+  // "PT",
+  // "DE",
+  // "FR",
+  // "IT",
+  // "JA",
+  // "RU",
+  // "KO",
+  // "ZHS",
 ];
 
 export const LANGKEYS: Record<ARENA_LANGS, SCRYFALL_LANGS> = {

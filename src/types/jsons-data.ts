@@ -47,6 +47,9 @@ export interface Card {
   frameColors?: number[];
   frameDetails?: string[];
   colorIdentity?: number[];
+  IsRebalanced?: boolean;
+  RebalancedCardLink?: string;
+  IsDigitalOnly?: boolean;
   abilities?: {
     Id: number;
     TextId: number;
