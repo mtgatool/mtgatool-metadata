@@ -30,7 +30,7 @@ export function generateMetadata(
   languages: SCRYFALL_LANGS[]
 ): Promise<void> {
   return new Promise((resolve) => {
-    console.log("Reading JSON files");
+    console.log("Reading JSON files..");
     const cards = readExternalJson("cards.json");
     const altPrintings = readExternalJson("altPrintings.json") as Record<
       string,
