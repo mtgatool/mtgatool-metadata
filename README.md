@@ -29,8 +29,7 @@ Multi language endpoints:
 
 Available languages:
 
-`de, en, es, fr, it, ja, ko, pt, ru, zhs`
-
+`de, en, es, fr, it, ja, ko, pt, ru`
 
 
 
