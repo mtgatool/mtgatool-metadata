@@ -37,6 +37,7 @@ describe("Check cards data", () => {
     expect(teferi.colorIdentity?.sort()).toEqual([1, 2].sort());
     expect(teferi.castingcost).toBe("o1oWoU");
     expect(teferi.knownSupportedStyles).toBeDefined();
+    expect(teferi.RebalancedCardLink).toBe(81199);
     expect(teferi.abilities).toEqual([
       {
         Id: 6363,
@@ -51,7 +52,7 @@ describe("Check cards data", () => {
         TextId: 336893,
       },
     ]);
-    expect(Object.keys(teferi).length).toBe(25);
+    expect(Object.keys(teferi).length).toBe(26);
   });
 });
 
