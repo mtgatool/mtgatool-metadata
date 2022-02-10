@@ -12,7 +12,7 @@ export default function getRanksData(): Promise<void[]> {
   });
 
   const redrawRankRequests = function (moveBack = true) {
-    if (process.env.TRAVIS) return;
+    if (process.env.GITHUB_ACTIONS) return;
     process.stdout.moveCursor(0, moveBack ? -rankRequests.length : 0);
     const str = `${rankRequests
       .map((r) => {

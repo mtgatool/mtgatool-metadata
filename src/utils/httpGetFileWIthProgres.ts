@@ -27,7 +27,7 @@ export default function httpGetFileWIthProgres(
     req.on("data", function (chunk) {
       // Update the received bytes
       received_bytes += chunk.length;
-      if (stdout && !process.env.TRAVIS) {
+      if (stdout && !process.env.GITHUB_ACTIONS) {
         process.stdout.cursorTo(0);
         process.stdout.write(
           `Downloading ${filename}:\t ${
