@@ -2,8 +2,7 @@ name: "Bump Version"
 
 on:
   push:
-    branches:
-      - *
+    branches: '**'
     
 jobs:
   bump-version:
