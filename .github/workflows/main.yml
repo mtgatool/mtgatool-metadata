@@ -36,12 +36,14 @@ jobs:
         run: |
           npm run start
           npm run dist
+          ls
       - name: Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        run: ls
         with:
           server: ${{ secrets.server }}
           username: ${{ secrets.username }}
           password: ${{ secrets.password }}
           local-dir: ./output/
-          dangerous-clean-slate: true
+          dangerous-clean-slate: false
           server-dir: /var/www/html/database/
