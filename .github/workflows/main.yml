@@ -3,15 +3,12 @@ name: "Bump Version"
 on:
   push:
     branches:
-      - master
+      - *
     
 jobs:
   bump-version:
     name: Bump version (${{ github.sha }})
     runs-on: ubuntu-latest
-#    strategy:
-#      matrix:
-#        node_version: [10, 12]
 
     steps:
       - name: "Checkout source code"
@@ -24,10 +21,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           version: ${{ matrix.node_version }}
-#      - name: Test
-#        run: |
-#          npm install
-#          npm test
+      - name: Test
+        run: |
+          npm install
+          npm test
       - name: "Version Bump"
         uses: "Manuel-777/gh-action-bump-version@master"
         with:
@@ -36,9 +33,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: "cat package.json"
         run: cat ./package.json
-#      - name: Build
-#        run: |
-#          npm run start
-#          npm run dist
-#        env:
-#          SFTP_KEY: ${{ secrets.SFTP_KEY }}
+      - name: Build
+        run: |
+          npm run start
+          npm run dist
+        env:
+          SFTP_KEY: ${{ secrets.SFTP_KEY }}
