@@ -37,9 +37,10 @@ jobs:
           npm run start
           npm run dist
           ls
+      - name: List
+        run: ls
       - name: Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
-        run: ls
         with:
           server: ${{ secrets.server }}
           username: ${{ secrets.username }}
