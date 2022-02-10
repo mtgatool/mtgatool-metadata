@@ -372,6 +372,7 @@ export function generateMetadata(
       const jsonOut = path.join(
         APPDATA,
         OUTPUT,
+        version,
         `v${version}-${lang.toLowerCase()}-database.json`
       );
       fs.writeFile(jsonOut, str, function (err) {

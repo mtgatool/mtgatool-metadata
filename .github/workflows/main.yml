@@ -44,4 +44,4 @@ jobs:
           password: ${{ secrets.password }}
           local-dir: ./output/
           dangerous-clean-slate: true
-          server-dir: /var/www/html/database
+          server-dir: /var/www/html/database/
