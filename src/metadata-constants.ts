@@ -1087,12 +1087,20 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2021-11-19",
   },
   "Alchemy: Innistrad": {
-    collation: 100026,
+    collation: 100027,
     scryfall: "y22",
     code: "Y22",
     arenacode: "Y22",
     tile: 67003,
     release: "2021-12-09",
+  },
+  "Kamigawa: Neon Dynasty": {
+    collation: 100028,
+    scryfall: "neo",
+    code: "NEO",
+    arenacode: "NEO",
+    tile: 67003,
+    release: "2022-02-18",
   },
   "": {
     collation: -1,
@@ -1237,6 +1245,7 @@ export const SET_NAMES: Record<string, string> = {
   MID: "Innistrad: Midnight Hunt",
   VOW: "Innistrad: Crimson Vow",
   Y22: "Alchemy: Innistrad",
+  NEO: "Kamigawa: Neon Dynasty",
 };
 
 /*
@@ -1438,6 +1447,8 @@ export const ALLOWED_SCRYFALL = [
   "vow",
   "tvow",
   "y22",
+  "neo",
+  "tneo",
 ];
 
 export const RANKS_SHEETS = [
