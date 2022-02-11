@@ -4,7 +4,7 @@
   "description": "A metadata generator for MTG Arena Tool",
   "main": "out/metadata.js",
   "scripts": {
-    "clean": "npm run clean:external && npm run clean:out && npm run clean:dist",
+    "clean": "npm run clean:external && npm run clean:dist",
     "clean:modules": "rimraf node_modules",
     "clean:external": "rimraf external",
     "clean:dist": "rimraf dist",
@@ -12,10 +12,8 @@
     "start": "tsc && node --max-old-space-size=4096 dist/metadata.js",
     "test": "tsc && node dist/setup.js && jest src/",
     "jest": "jest src/",
-    "predist": "npm run clean",
     "tsc": "tsc",
-    "dist": "tsc && node dist/dist.js",
-    "dist:noclean": "tsc && node dist/dist.js"
+    "dist": "tsc && node dist/dist.js"
   },
   "repository": {
     "type": "git",

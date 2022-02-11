@@ -1,12 +1,12 @@
-name: "Bump Version"
+name: "Deploy"
 
 on:
   push:
-    branches: '**'
+    tags: 'v*'
     
 jobs:
   bump-version:
-    name: Bump version (${{ github.sha }})
+    name: Deploy (${{ github.sha }})
     runs-on: ubuntu-latest
 
     steps:
@@ -24,11 +24,16 @@ jobs:
         run: |
           npm install
           npm test
-      - name: "Version Bump"
-        uses: "Manuel-777/gh-action-bump-version@master"
+      - name: Build
+        run: |
+          npm run start
+          npm run dist
+      - name: Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
-          tag-prefix: ''
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      - name: "cat package.json"
-        run: cat ./package.json
+          server: ${{ secrets.server }}
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+          local-dir: ./output/
+          dangerous-clean-slate: false
+          server-dir: /var/www/html/database/

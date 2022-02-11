@@ -21,7 +21,7 @@ export default function getSetIcons(): Promise<void> {
   });
 
   const redrawSetsRequests = function (moveBack = true) {
-    if (process.env.TRAVIS) return;
+    if (process.env.GITHUB_ACTIONS) return;
     process.stdout.moveCursor(0, moveBack ? -6 : 0);
     let api = 0;
     let svg = 0;

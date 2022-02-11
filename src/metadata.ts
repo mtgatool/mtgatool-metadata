@@ -21,6 +21,11 @@ if (!fs.existsSync(OutDIr)) {
   fs.mkdirSync(OutDIr);
 }
 
+const VersionDIr = "./" + OUTPUT + "/" + VERSION;
+if (!fs.existsSync(VersionDIr)) {
+  fs.mkdirSync(VersionDIr);
+}
+
 console.log("Begin Metadata fetch.");
 
 getArenaVersion()
