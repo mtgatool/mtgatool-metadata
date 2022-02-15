@@ -1572,6 +1572,12 @@ export const RANKS_SHEETS = [
     page: "Backend",
     source: RATINGS_LOLA,
   },
+  {
+    setCode: "neo",
+    sheet: "12j6k0HbqDKUeeMCV-1ElcGCk4iBEFESZcirn9h_bv3s",
+    page: "Backend",
+    source: RATINGS_LOLA,
+  },
 ];
 
 // for some reason, scryfall does not provide this yet
