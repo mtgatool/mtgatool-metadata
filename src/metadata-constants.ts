@@ -1,8 +1,10 @@
 import fs from "fs";
 import path from "path";
-import { constants, CardSet, Rarity } from "mtgatool-shared";
+import { CardSet, Rarity } from "mtgatool-shared";
 
-const { RATINGS_MTGCSR, RATINGS_LOLA } = constants;
+export declare const RATINGS_MTGCSR = 0;
+export declare const RATINGS_LOLA = 1;
+export declare const RATINGS_LOLA_B = 2;
 
 export const APPDATA = path.resolve(__dirname, "..");
 
@@ -1576,7 +1578,7 @@ export const RANKS_SHEETS = [
     setCode: "neo",
     sheet: "12j6k0HbqDKUeeMCV-1ElcGCk4iBEFESZcirn9h_bv3s",
     page: "Backend",
-    source: RATINGS_LOLA,
+    source: RATINGS_LOLA_B,
   },
 ];
 

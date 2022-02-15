@@ -1,8 +1,11 @@
-import { constants } from "mtgatool-shared";
-const { RATINGS_LOLA, RATINGS_MTGCSR } = constants;
+import {
+  RATINGS_MTGCSR,
+  RATINGS_LOLA,
+  RATINGS_LOLA_B,
+} from "../metadata-constants";
 
 interface RankDataLola {
-  rankSource: typeof RATINGS_LOLA;
+  rankSource: typeof RATINGS_LOLA | typeof RATINGS_LOLA_B;
   rank: number;
   side: boolean;
   ceil: number;

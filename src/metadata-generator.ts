@@ -10,18 +10,19 @@ import {
   ARENA_LANGS,
   SCRYFALL_LANGS,
   RARITY,
+  RATINGS_LOLA,
+  RATINGS_LOLA_B,
+  RATINGS_MTGCSR,
 } from "./metadata-constants";
 import { ScryfallData } from "./types/scryfall";
 import { RanksData } from "./types/metadata";
 import { Card, Ability } from "./types/jsons-data";
-import { constants, DbCardData } from "mtgatool-shared";
+import { DbCardData } from "mtgatool-shared";
 import CardApiResponse from "scryfall-client/dist/types/api/card";
 import { ImageUris } from "scryfall-client/dist/types/api/constants";
 import replaceCardData from "./replaceCardData";
 import readExternalJson from "./readExternalJson";
 import getScryfallCard from "./getScryfallCard";
-
-const { RATINGS_LOLA, RATINGS_MTGCSR } = constants;
 
 export function generateMetadata(
   ScryfallCards: ScryfallData,
@@ -271,6 +272,12 @@ export function generateMetadata(
             cardObj.rank_values = rData.values;
             cardObj.rank_controversy = rData.cont;
           } else if (rData.rankSource === RATINGS_LOLA) {
+            cardObj.source = RATINGS_LOLA;
+            cardObj.rank = Math.round(rData.rank);
+            cardObj.side = rData.side;
+            cardObj.ceil = rData.ceil;
+            cardObj.rank_values = rData.values;
+          } else if (rData.rankSource === RATINGS_LOLA_B) {
             cardObj.source = RATINGS_LOLA;
             cardObj.rank = Math.round(rData.rank);
             cardObj.side = rData.side;

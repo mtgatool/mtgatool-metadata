@@ -1,7 +1,8 @@
 import {
   RATINGS_LOLA,
+  RATINGS_LOLA_B,
   RATINGS_MTGCSR,
-} from "mtgatool-shared/dist/shared/constants";
+} from "./metadata-constants";
 import { SetRanks } from "./types/metadata";
 
 export default function processRanksData(
@@ -46,6 +47,27 @@ export default function processRanksData(
         const side = row.c[5] ? true : false;
         const ceil = row.c[4] ? row.c[4].v : rank;
         const values = [row.c[1].v, row.c[2].v, row.c[3].v];
+        ret[name] = {
+          rankSource: source,
+          rank: Math.round(rank),
+          side: side,
+          ceil: Math.round(ceil),
+          values: values,
+        };
+      } else {
+        // console.log(row);
+      }
+    });
+  }
+  if (source == RATINGS_LOLA_B) {
+    // JustLolaMan and ScottyNada only
+    data.table.rows.forEach((row: any) => {
+      if (row.c[10]) {
+        const name = row.c[0].v;
+        const rank = row.c[9].v || 0;
+        const side = row.c[4] ? true : false;
+        const ceil = row.c[3] ? row.c[3].v : rank;
+        const values = [row.c[1].v, 0, row.c[2].v];
         ret[name] = {
           rankSource: source,
           rank: Math.round(rank),
