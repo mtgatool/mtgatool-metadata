@@ -11,7 +11,7 @@ export default function processRanksData(
 ): SetRanks {
   const data = JSON.parse(str);
   const ret: SetRanks = {};
-  if (source == RATINGS_MTGCSR) {
+  if (source === RATINGS_MTGCSR) {
     data.table.rows.forEach((row: any) => {
       const name = row.c[0].v;
       const rank = Math.round(row.c[4].v);
@@ -32,14 +32,14 @@ export default function processRanksData(
         row.c[21].v,
       ];
       ret[name] = {
-        rankSource: source,
+        rankSource: RATINGS_MTGCSR,
         rank: rank,
         cont: cont,
         values: values,
       };
     });
   }
-  if (source == RATINGS_LOLA) {
+  if (source === RATINGS_LOLA) {
     data.table.rows.forEach((row: any) => {
       if (row.c[10]) {
         const name = row.c[0].v;
@@ -48,7 +48,7 @@ export default function processRanksData(
         const ceil = row.c[4] ? row.c[4].v : rank;
         const values = [row.c[1].v, row.c[2].v, row.c[3].v];
         ret[name] = {
-          rankSource: source,
+          rankSource: RATINGS_LOLA,
           rank: Math.round(rank),
           side: side,
           ceil: Math.round(ceil),
@@ -59,7 +59,7 @@ export default function processRanksData(
       }
     });
   }
-  if (source == RATINGS_LOLA_B) {
+  if (source === RATINGS_LOLA_B) {
     // JustLolaMan and ScottyNada only
     data.table.rows.forEach((row: any) => {
       if (row.c[10]) {
@@ -69,7 +69,7 @@ export default function processRanksData(
         const ceil = row.c[3] ? row.c[3].v : rank;
         const values = [row.c[1].v, 0, row.c[2].v];
         ret[name] = {
-          rankSource: source,
+          rankSource: RATINGS_LOLA,
           rank: Math.round(rank),
           side: side,
           ceil: Math.round(ceil),

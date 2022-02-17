@@ -2,9 +2,9 @@ import fs from "fs";
 import path from "path";
 import { CardSet, Rarity } from "mtgatool-shared";
 
-export declare const RATINGS_MTGCSR = 0;
-export declare const RATINGS_LOLA = 1;
-export declare const RATINGS_LOLA_B = 2;
+export const RATINGS_MTGCSR = 0;
+export const RATINGS_LOLA = 1;
+export const RATINGS_LOLA_B = 2;
 
 export const APPDATA = path.resolve(__dirname, "..");
 
