@@ -67,7 +67,7 @@ export default function processRanksData(
         const rank = row.c[9].v || 0;
         const side = row.c[4] ? true : false;
         const ceil = row.c[3] ? row.c[3].v : rank;
-        const values = [row.c[1].v, 0, row.c[2].v];
+        const values = [row.c[1].v, "F", row.c[2].v];
         ret[name] = {
           rankSource: RATINGS_LOLA,
           rank: Math.round(rank),
