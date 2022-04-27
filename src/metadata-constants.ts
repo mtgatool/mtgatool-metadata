@@ -1088,14 +1088,6 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2021-11-19",
   },
-  "Alchemy: Innistrad": {
-    collation: 100027,
-    scryfall: "y22",
-    code: "Y22",
-    arenacode: "Y22",
-    tile: 67003,
-    release: "2021-12-09",
-  },
   "Kamigawa: Neon Dynasty": {
     collation: 100028,
     scryfall: "neo",
@@ -1104,6 +1096,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2022-02-18",
   },
+  "Streets of New Capenna": {
+    collation: 100029,
+    scryfall: "snc",
+    code: "SNC",
+    arenacode: "SNC",
+    tile: 67003,
+    release: "2022-04-29",
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -1111,6 +1111,65 @@ export const SETS_DATA: Record<string, CardSet> = {
     arenacode: "",
     tile: 67003,
     release: "2000-00-00",
+  },
+};
+
+export const DIGITAL_SETS_DATA: Record<string, CardSet> = {
+  "AHistoric Anthology 1": {
+    collation: -1,
+    scryfall: "ha1",
+    code: "AHA1",
+    arenacode: "AHA1",
+    tile: 67003,
+    release: "2019-11-21",
+  },
+  "AHistoric Anthology 2": {
+    collation: -1,
+    scryfall: "ha2",
+    code: "AHA2",
+    arenacode: "AHA2",
+    tile: 67003,
+    release: "2020-03-12",
+  },
+  "AHistoric Anthology 3": {
+    collation: -1,
+    scryfall: "ha3",
+    code: "AHA3",
+    arenacode: "AHA3",
+    tile: 67003,
+    release: "2020-05-21",
+  },
+  "AHistoric Anthology 4": {
+    collation: -1,
+    scryfall: "ha4",
+    code: "AHA4",
+    arenacode: "AHA4",
+    tile: 67003,
+    release: "2021-03-11",
+  },
+  "AHistoric Anthology 5": {
+    collation: -1,
+    scryfall: "ha5",
+    code: "AHA5",
+    arenacode: "AHA5",
+    tile: 67003,
+    release: "2021-05-27",
+  },
+  "Alchemy: Innistrad": {
+    collation: 100027,
+    scryfall: "y22",
+    code: "Y22-MID",
+    arenacode: "Y22-MID",
+    tile: 67003,
+    release: "2021-12-09",
+  },
+  "Alchemy: Kamigawa": {
+    collation: 100027,
+    scryfall: "yneo",
+    code: "Y22-NEO",
+    arenacode: "Y22-NEO",
+    tile: 67003,
+    release: "2022-03-17",
   },
 };
 
@@ -1248,6 +1307,7 @@ export const SET_NAMES: Record<string, string> = {
   VOW: "Innistrad: Crimson Vow",
   Y22: "Alchemy: Innistrad",
   NEO: "Kamigawa: Neon Dynasty",
+  SNC: "Streets of New Capenna",
 };
 
 /*
@@ -1451,6 +1511,8 @@ export const ALLOWED_SCRYFALL = [
   "y22",
   "neo",
   "tneo",
+  "snc",
+  "tsnc",
 ];
 
 export const RANKS_SHEETS = [
@@ -1577,6 +1639,12 @@ export const RANKS_SHEETS = [
   {
     setCode: "neo",
     sheet: "12j6k0HbqDKUeeMCV-1ElcGCk4iBEFESZcirn9h_bv3s",
+    page: "Backend",
+    source: RATINGS_LOLA_B,
+  },
+  {
+    setCode: "snc",
+    sheet: "1XCSiREUdFmJaoagnVYmDIrH6of32iHkxDDVC6GoBtmE",
     page: "Backend",
     source: RATINGS_LOLA_B,
   },

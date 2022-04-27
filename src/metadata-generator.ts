@@ -5,6 +5,7 @@ import {
   APPDATA,
   OUTPUT,
   SETS_DATA,
+  DIGITAL_SETS_DATA,
   SET_NAMES,
   LANGKEYS,
   ARENA_LANGS,
@@ -160,6 +161,7 @@ export function generateMetadata(
           name: cardName.replace(" /// ", " // "),
           titleId: card.titleId || 0,
           set: set,
+          set_digital: "",
           artid: card.artId || 0,
           type: typeLine,
           cost: manaCost,
@@ -188,6 +190,9 @@ export function generateMetadata(
 
         let scryfallObject: CardApiResponse | undefined = undefined;
         let scryfallSet = SETS_DATA[set] ? SETS_DATA[set].scryfall : "";
+        //scryfallSet = DIGITAL_SETS_DATA[set]
+        //  ? DIGITAL_SETS_DATA[set].scryfall
+        //  : "";
         if (!card.isToken) {
           const orig = scryfallSet + collector;
           const replace = replaceCardData(cardId);
@@ -292,6 +297,8 @@ export function generateMetadata(
           cardObj.rank_controversy = 0;
         }
 
+        cardObj.set_digital = card.DigitalReleaseSet ?? "";
+
         if (
           scryfallObject == undefined ||
           scryfallObject.image_uris == undefined
@@ -371,6 +378,7 @@ export function generateMetadata(
         language: lang,
         updated: date.getTime(),
         sets: SETS_DATA,
+        digitalSets: DIGITAL_SETS_DATA,
         abilities: abilities,
       };
 
