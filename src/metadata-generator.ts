@@ -13,6 +13,7 @@ import {
   RATINGS_LOLA,
   RATINGS_LOLA_B,
   RATINGS_MTGCSR,
+  DIGITAL_SETS,
 } from "./metadata-constants";
 import { ScryfallData } from "./types/scryfall";
 import { RanksData } from "./types/metadata";
@@ -377,6 +378,7 @@ export function generateMetadata(
         language: lang,
         updated: date.getTime(),
         sets: SETS_DATA,
+        digitalSets: DIGITAL_SETS,
         abilities: abilities,
       };
 

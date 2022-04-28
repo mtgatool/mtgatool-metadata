@@ -1114,7 +1114,7 @@ export const SETS_DATA: Record<string, CardSet> = {
   },
   "Alchemy: Innistrad": {
     collation: 100027,
-    scryfall: "y22",
+    scryfall: "ymid",
     code: "Y22-MID",
     arenacode: "Y22-MID",
     tile: 67003,
@@ -1129,6 +1129,16 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2022-03-17",
   },
 };
+
+export const DIGITAL_SETS = [
+  "Historic Anthology 1",
+  "Historic Anthology 2",
+  "Historic Anthology 3",
+  "Historic Anthology 4",
+  "Historic Anthology 5",
+  "Alchemy: Innistrad",
+  "Alchemy: Kamigawa",
+];
 
 export const COLORS = [
   "{?}",
