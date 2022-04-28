@@ -5,7 +5,6 @@ import {
   APPDATA,
   OUTPUT,
   SETS_DATA,
-  SET_NAMES,
   LANGKEYS,
   ARENA_LANGS,
   SCRYFALL_LANGS,
@@ -41,6 +40,15 @@ export function generateMetadata(
     const abilitiesRead = readExternalJson("abilities.json");
     let locRead = readExternalJson("loc.json");
     let enumsRead = readExternalJson("enums.json");
+
+    const setNames: Record<string, string> = {};
+    Object.keys(SETS_DATA).forEach((k) => {
+      const setObj = SETS_DATA[k];
+      setNames[setObj.arenacode] = k;
+      if (setObj.arenacode !== setObj.scryfall) {
+        setNames[setObj.scryfall] = k;
+      }
+    });
 
     // Write scryfall cards to a file. Its good for debugging.
     //const scStr = JSON.stringify(ScryfallCards);
@@ -138,15 +146,15 @@ export function generateMetadata(
           }
         });
 
-        let set: string = SET_NAMES[card.set || ""];
+        let set: string = card.set || "";
 
         let collector = card.collectorNumber || "";
         // Special collectors numbers that define Mythic edition and Gift pack cards
         if (collector.includes("GR")) {
-          set = "Mythic Edition";
+          set = "MED"; // "Mythic Edition";
         }
         if (collector.includes("GP")) {
-          set = "M19 Gift Pack";
+          set = "G18"; // "M19 Gift Pack";
         }
 
         const cardId = card.grpid || 0;
@@ -173,10 +181,6 @@ export function generateMetadata(
           dfc: card.linkedFaceType || 0,
           isPrimary: card.isPrimaryCard || false,
           abilities: card.abilities?.map((ab) => ab.Id) || [],
-          // Defaults / unset
-          collectible: false,
-          craftable: false,
-          booster: false,
           dfcId: false,
           rank: 0,
           rank_values: [],
@@ -184,12 +188,11 @@ export function generateMetadata(
           reprints: false,
         };
 
-        if (set == "AKR") {
-          cardObj.booster = true;
-        }
-
         let scryfallObject: CardApiResponse | undefined = undefined;
-        let scryfallSet = SETS_DATA[set] ? SETS_DATA[set].scryfall : "";
+        let scryfallSet =
+          setNames[set] && SETS_DATA[setNames[set]]
+            ? SETS_DATA[setNames[set]].scryfall
+            : "";
         //scryfallSet = DIGITAL_SETS_DATA[set]
         //  ? DIGITAL_SETS_DATA[set].scryfall
         //  : "";
@@ -205,10 +208,10 @@ export function generateMetadata(
 
           if (orig !== scryfallSet + collector) {
             const origSet = cardObj.set;
-            cardObj.set =
-              Object.keys(SETS_DATA).filter(
-                (key) => SETS_DATA[key].scryfall == scryfallSet
-              )[0] || origSet;
+            const sName = Object.keys(SETS_DATA).filter(
+              (key) => SETS_DATA[key].scryfall == scryfallSet
+            )[0];
+            cardObj.set = SETS_DATA[sName]?.arenacode || origSet;
           }
         } else {
           // If the card is a token the scryfall set name begins with "t"
@@ -324,9 +327,9 @@ export function generateMetadata(
               }
             });
           }
-          if (scryfallObject.booster == true) {
-            cardObj.booster = true;
-          }
+          // if (scryfallObject.booster == true) {
+          //   cardObj.booster = true;
+          // }
           cardObj.images = scryfallObject.image_uris;
         }
         if (!altCards.includes(cardObj.id)) {
@@ -378,6 +381,7 @@ export function generateMetadata(
         language: lang,
         updated: date.getTime(),
         sets: SETS_DATA,
+        setNames: setNames,
         digitalSets: DIGITAL_SETS,
         abilities: abilities,
       };

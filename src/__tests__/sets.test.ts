@@ -2,11 +2,17 @@
 import path from "path";
 import fs from "fs";
 
-import { APPDATA, EXTERNAL, SET_NAMES } from "../metadata-constants";
+import { APPDATA, EXTERNAL, SETS_DATA } from "../metadata-constants";
 import { Card } from "../types/jsons-data";
 
 describe("Check sets data", () => {
   const sets = getSets();
+
+  const SET_NAMES: Record<string, string> = {};
+  Object.keys(SETS_DATA).forEach((name) => {
+    SET_NAMES[SETS_DATA[name].arenacode] = name;
+  });
+
   test.each(sets)("Set %p (%p cards)", (setCode) => {
     expect(SET_NAMES[setCode]).toBeDefined();
   });
