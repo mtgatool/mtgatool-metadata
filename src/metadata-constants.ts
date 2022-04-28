@@ -90,6 +90,30 @@ export const LANGKEYS: Record<ARENA_LANGS, SCRYFALL_LANGS> = {
 };
 
 export const SETS_DATA: Record<string, CardSet> = {
+  Coldsnap: {
+    collation: -1,
+    scryfall: "csp",
+    code: "CSP",
+    arenacode: "CSP",
+    tile: 66433,
+    release: "2006-07-21",
+  },
+  "Aether Revolt": {
+    collation: -1,
+    scryfall: "aer",
+    code: "AER",
+    arenacode: "AER",
+    tile: 66433,
+    release: "2017-01-20",
+  },
+  "Hour of Devastation": {
+    collation: -1,
+    scryfall: "hou",
+    code: "HOU",
+    arenacode: "HOU",
+    tile: 66433,
+    release: "2017-07-14",
+  },
   Ixalan: {
     collation: 100005,
     scryfall: "xln",
@@ -230,8 +254,8 @@ export const SETS_DATA: Record<string, CardSet> = {
   Mirage: {
     collation: -1,
     scryfall: "mir",
-    code: "MI",
-    arenacode: "MI",
+    code: "MIR",
+    arenacode: "MIR",
     tile: 67003,
     release: "1996-10-08",
   },
@@ -270,8 +294,8 @@ export const SETS_DATA: Record<string, CardSet> = {
   Planeshift: {
     collation: -1,
     scryfall: "pls",
-    code: "PS",
-    arenacode: "PS",
+    code: "PLS",
+    arenacode: "PLS",
     tile: 64827,
     release: "2001-02-05",
   },
@@ -778,14 +802,6 @@ export const SETS_DATA: Record<string, CardSet> = {
     arenacode: "KHM",
     tile: 76884,
     release: "2021-02-05",
-  },
-  Coldsnap: {
-    collation: -1,
-    scryfall: "csp",
-    code: "CSP",
-    arenacode: "csp",
-    tile: 67003,
-    release: "2006-07-2",
   },
   "Commander 2020": {
     collation: -1,
