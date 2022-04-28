@@ -920,30 +920,6 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2020-07-17",
   },
-  "Historic Anthology 1": {
-    collation: -1,
-    scryfall: "ha1",
-    code: "HA1",
-    arenacode: "HA1",
-    tile: 67003,
-    release: "2019-11-21",
-  },
-  "Historic Anthology 2": {
-    collation: -1,
-    scryfall: "ha2",
-    code: "HA2",
-    arenacode: "HA2",
-    tile: 67003,
-    release: "2020-03-12",
-  },
-  "Historic Anthology 3": {
-    collation: -1,
-    scryfall: "ha3",
-    code: "HA3",
-    arenacode: "HA3",
-    tile: 67003,
-    release: "2020-05-21",
-  },
   "Amonkhet Remastered": {
     collation: 100019,
     scryfall: "akr",
@@ -1000,14 +976,6 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2020-08-07",
   },
-  "Historic Anthology 4": {
-    collation: -1,
-    scryfall: "ha4",
-    code: "HA4",
-    arenacode: "HA4",
-    tile: 67003,
-    release: "2021-03-11",
-  },
   "Strixhaven: School of Mages": {
     collation: 100023,
     scryfall: "stx",
@@ -1023,14 +991,6 @@ export const SETS_DATA: Record<string, CardSet> = {
     arenacode: "STA",
     tile: 76476,
     release: "2021-04-23",
-  },
-  "Historic Anthology 5": {
-    collation: -1,
-    scryfall: "ha5",
-    code: "HA5",
-    arenacode: "HA5",
-    tile: 67003,
-    release: "2021-05-27",
   },
   "Mirrodin Besieged": {
     collation: -1,
@@ -1112,10 +1072,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2000-00-00",
   },
-};
-
-export const DIGITAL_SETS_DATA: Record<string, CardSet> = {
-  "AHistoric Anthology 1": {
+  "Historic Anthology 1": {
     collation: -1,
     scryfall: "ha1",
     code: "AHA1",
@@ -1123,7 +1080,7 @@ export const DIGITAL_SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2019-11-21",
   },
-  "AHistoric Anthology 2": {
+  "Historic Anthology 2": {
     collation: -1,
     scryfall: "ha2",
     code: "AHA2",
@@ -1131,7 +1088,7 @@ export const DIGITAL_SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2020-03-12",
   },
-  "AHistoric Anthology 3": {
+  "Historic Anthology 3": {
     collation: -1,
     scryfall: "ha3",
     code: "AHA3",
@@ -1139,7 +1096,7 @@ export const DIGITAL_SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2020-05-21",
   },
-  "AHistoric Anthology 4": {
+  "Historic Anthology 4": {
     collation: -1,
     scryfall: "ha4",
     code: "AHA4",
@@ -1147,7 +1104,7 @@ export const DIGITAL_SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2021-03-11",
   },
-  "AHistoric Anthology 5": {
+  "Historic Anthology 5": {
     collation: -1,
     scryfall: "ha5",
     code: "AHA5",

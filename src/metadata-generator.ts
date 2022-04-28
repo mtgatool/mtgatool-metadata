@@ -5,7 +5,6 @@ import {
   APPDATA,
   OUTPUT,
   SETS_DATA,
-  DIGITAL_SETS_DATA,
   SET_NAMES,
   LANGKEYS,
   ARENA_LANGS,
@@ -378,7 +377,6 @@ export function generateMetadata(
         language: lang,
         updated: date.getTime(),
         sets: SETS_DATA,
-        digitalSets: DIGITAL_SETS_DATA,
         abilities: abilities,
       };
 
