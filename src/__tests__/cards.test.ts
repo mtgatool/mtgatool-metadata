@@ -41,15 +41,12 @@ describe("Check cards data", () => {
     expect(teferi.abilities).toEqual([
       {
         Id: 6363,
-        TextId: 234430,
       },
       {
         Id: 133144,
-        TextId: 336892,
       },
       {
         Id: 133145,
-        TextId: 336893,
       },
     ]);
     expect(Object.keys(teferi).length).toBe(26);

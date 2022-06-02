@@ -3,6 +3,8 @@ import path from "path";
 import fs from "fs";
 import zlib from "zlib";
 
+import sqlite3 from "sqlite3";
+
 import { APPDATA, EXTERNAL } from "./metadata-constants";
 import { ArenaVersion, ManifestJSON } from "./types/parser";
 import httpGetText from "./utils/httpGetText";
@@ -40,13 +42,14 @@ export function getManifestFiles(version: string): Promise<string[]> {
   return requestManifestData(version)
     .then((data) => downloadManifest(data))
     .then((manifests) => pickManifest(manifests))
-    .then((data) => processManifest(data));
+    .then((data) => processManifest(data))
+    .then((data) => extractSqlite(data));
 }
 
 function processManifest(data: ManifestJSON): Promise<string[]> {
   if (!data) return Promise.reject("No data");
   const requests = data.Assets.filter((asset) => {
-    return asset.AssetType == "Data";
+    return asset.AssetType == "Raw";
   }).map((asset) => {
     const assetUrl = `https://assets.mtgarena.wizards.com/${asset.Name}${
       asset.wrapper ? "." + asset.wrapper : ""
@@ -81,4 +84,34 @@ function processManifest(data: ManifestJSON): Promise<string[]> {
   });
 
   return Promise.all(requests);
+}
+
+function extractSqlite(data: string[]): Promise<string[]> {
+  console.log("Extracting CardsDatabase SQLITE");
+  const cardsdbPath = path.join(APPDATA, EXTERNAL, "CardDatabase.json");
+  const db = new sqlite3.Database(cardsdbPath);
+  const locPromise = new Promise<boolean>((resolve) => {
+    db.all(`SELECT * FROM "Localizations"`, {}, (a, b) => {
+      fs.writeFile(
+        path.join(APPDATA, EXTERNAL, "loc.json"),
+        JSON.stringify(b),
+        () => resolve(true)
+      );
+    });
+  });
+
+  const enumPromise = new Promise<boolean>((resolve) => {
+    db.all(`SELECT * FROM "Enums"`, {}, (a, b) => {
+      fs.writeFile(
+        path.join(APPDATA, EXTERNAL, "enums.json"),
+        JSON.stringify(b),
+        () => resolve(true)
+      );
+    });
+  });
+
+  return Promise.all([locPromise, enumPromise]).then(() => {
+    db.close();
+    return data;
+  });
 }

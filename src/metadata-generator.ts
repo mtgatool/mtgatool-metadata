@@ -5,8 +5,8 @@ import {
   APPDATA,
   OUTPUT,
   SETS_DATA,
-  LANGKEYS,
-  ARENA_LANGS,
+  // LANGKEYS,
+  // ARENA_LANGS,
   SCRYFALL_LANGS,
   RARITY,
   RATINGS_LOLA,
@@ -71,20 +71,36 @@ export function generateMetadata(
     const regex = new RegExp("/o(?=[^{]*})/");
     // Clean up kanji descriptions for JP
     const JpRegex = new RegExp(/ *（[^）]*） */g);
-    const loc: Partial<Record<SCRYFALL_LANGS, any>> = {};
-    locRead.forEach(
-      (lang: {
-        isoCode: ARENA_LANGS;
-        keys: { id: number; raw?: string; text: string }[];
-      }) => {
-        loc[LANGKEYS[lang.isoCode]] = {};
-        lang.keys.forEach((item) => {
-          loc[LANGKEYS[lang.isoCode]][item.id] = (item.raw || item.text)
-            .replace(regex, "")
-            .replace(JpRegex, "");
-        });
-      }
-    );
+    const loc: Record<SCRYFALL_LANGS, any> = {
+      EN: {},
+      FR: {},
+      IT: {},
+      DE: {},
+      ES: {},
+      JA: {},
+      PT: {},
+      RU: {},
+      KO: {},
+      PH: {},
+      ZHS: {},
+    };
+
+    const NT = "#NoTranslationNeeded";
+
+    locRead.forEach((l: any) => {
+      const US = l.enUS.replace(regex, "").replace(JpRegex, "");
+      loc["EN"][l.LocId] = US;
+      loc["FR"][l.LocId] = l.frFR === NT ? US : l.frFR.replace(regex, "");
+      loc["IT"][l.LocId] = l.itIT === NT ? US : l.itIT.replace(regex, "");
+      loc["DE"][l.LocId] = l.deDE === NT ? US : l.deDE.replace(regex, "");
+      loc["ES"][l.LocId] = l.esES === NT ? US : l.esES.replace(regex, "");
+      loc["JA"][l.LocId] =
+        l.jaJP === NT ? US : l.jaJP.replace(regex, "").replace(JpRegex, "");
+      loc["PT"][l.LocId] = l.ptBR === NT ? US : l.ptBR.replace(regex, "");
+      loc["RU"][l.LocId] = l.ruRU === NT ? US : l.ruRU.replace(regex, "");
+      loc["KO"][l.LocId] = l.koKR === NT ? US : l.koKR.replace(regex, "");
+      loc["ZHS"][l.LocId] = l.zhCN === NT ? US : l.zhCN.replace(regex, "");
+    });
     locRead = null;
 
     const getText = function (id: number, language: SCRYFALL_LANGS): string {
@@ -92,16 +108,12 @@ export function generateMetadata(
     };
 
     // Altrough enums must be in other languages ill write them in english
-    // for things like creature types. And it would break.
+    // for things like creature types.
     const enums: Record<string, Record<number, string>> = {};
-    enumsRead.forEach(
-      (_enum: { name: string; values: { id: number; text: number }[] }) => {
-        enums[_enum.name] = {};
-        _enum.values.forEach((value) => {
-          enums[_enum.name][value.id] = getText(value.text, "EN");
-        });
-      }
-    );
+    enumsRead.forEach((e: any) => {
+      if (!enums[e.Type]) enums[e.Type] = {};
+      enums[e.Type][e.Value] = getText(e.LocId, "EN");
+    });
     enumsRead = null;
 
     let finalized = 0;

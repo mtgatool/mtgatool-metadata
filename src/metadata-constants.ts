@@ -51,16 +51,16 @@ export const SCRYFALL_LANGS_CONST: SCRYFALL_LANGS[] = [
 ];
 
 export type ARENA_LANGS =
-  | "en-US"
-  | "fr-FR"
-  | "it-IT"
-  | "de-DE"
-  | "es-ES"
-  | "ja-JP"
-  | "pt-BR"
-  | "ru-RU"
-  | "ko-KR"
-  | "zh-CN";
+  | "enUS"
+  | "frFR"
+  | "itIT"
+  | "deDE"
+  | "esES"
+  | "jaJP"
+  | "ptBR"
+  | "ruRU"
+  | "koKR"
+  | "zhCN";
 
 // What languages to actually compile
 export const LANGUAGES: SCRYFALL_LANGS[] = [
@@ -77,16 +77,16 @@ export const LANGUAGES: SCRYFALL_LANGS[] = [
 ];
 
 export const LANGKEYS: Record<ARENA_LANGS, SCRYFALL_LANGS> = {
-  "en-US": "EN",
-  "fr-FR": "FR",
-  "it-IT": "IT",
-  "de-DE": "DE",
-  "es-ES": "ES",
-  "ja-JP": "JA",
-  "pt-BR": "PT",
-  "ru-RU": "RU",
-  "ko-KR": "KO",
-  "zh-CN": "ZHS",
+  enUS: "EN",
+  frFR: "FR",
+  itIT: "IT",
+  deDE: "DE",
+  esES: "ES",
+  jaJP: "JA",
+  ptBR: "PT",
+  ruRU: "RU",
+  koKR: "KO",
+  zhCN: "ZHS",
 };
 
 export const SETS_DATA: Record<string, CardSet> = {
@@ -979,6 +979,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2022-03-17",
   },
+  "Alchemy: New Capenna": {
+    collation: 100027,
+    scryfall: "ysnc",
+    code: "Y22-SNC",
+    arenacode: "Y22-SNC",
+    tile: 67003,
+    release: "2022-06-02",
+  },
 };
 
 export const DIGITAL_SETS = [
@@ -989,6 +997,7 @@ export const DIGITAL_SETS = [
   "Historic Anthology 5",
   "Alchemy: Innistrad",
   "Alchemy: Kamigawa",
+  "Alchemy: New Capenna",
 ];
 
 export const COLORS = [
