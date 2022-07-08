@@ -73,7 +73,7 @@ export const LANGUAGES: SCRYFALL_LANGS[] = [
   "JA",
   "RU",
   "KO",
-  "ZHS",
+  // "ZHS", // Chinese is not provided by mtga anymore
 ];
 
 export const LANGKEYS: Record<ARENA_LANGS, SCRYFALL_LANGS> = {
@@ -986,6 +986,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2021-05-27",
   },
+  "Alchemy Horizons: Baldur's Gate": {
+    collation: -1,
+    scryfall: "hbg",
+    code: "HBG",
+    arenacode: "HBG",
+    tile: 67003,
+    release: "2022-07-07",
+  },
 };
 
 export const DIGITAL_SETS = [
@@ -997,6 +1005,7 @@ export const DIGITAL_SETS = [
   "Alchemy: Innistrad",
   "Alchemy: Kamigawa",
   "Alchemy: New Capenna",
+  "Alchemy Horizons: Baldur's Gate",
 ];
 
 export const COLORS = [
