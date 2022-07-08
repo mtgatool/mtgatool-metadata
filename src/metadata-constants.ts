@@ -987,7 +987,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2021-05-27",
   },
   "Alchemy Horizons: Baldur's Gate": {
-    collation: -1,
+    collation: 100029,
     scryfall: "hbg",
     code: "HBG",
     arenacode: "HBG",
