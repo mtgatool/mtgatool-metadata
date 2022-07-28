@@ -38,29 +38,26 @@ export interface Card {
   set?: string;
   usesSideboard?: boolean;
   linkedFaceType?: number;
-  types?: number[];
-  subtypes?: number[];
-  supertypes?: number[];
+  types?: string;
+  subtypes?: string;
+  supertypes?: string;
   cardTypeTextId?: number;
   subtypeTextId?: number;
-  colors?: number[];
-  frameColors?: number[];
-  frameDetails?: string[];
-  colorIdentity?: number[];
+  colors?: string;
+  frameColors?: string;
+  frameDetails?: string;
+  colorIdentity?: string;
   IsRebalanced?: boolean;
   RebalancedCardLink?: string;
   IsDigitalOnly?: boolean;
-  abilities?: {
-    Id: number;
-    TextId: number;
-  }[];
+  abilities?: string; // Id:TextId
   rawFrameDetails?: string;
-  hiddenAbilities?: number[];
-  linkedFaces?: number[];
+  hiddenAbilities?: string;
+  linkedFaces?: string;
   castingcost?: string;
-  knownSupportedStyles?: string[];
+  knownSupportedStyles?: string;
   DigitalReleaseSet?: string;
-  abilityIdToLinkedTokenGrpId: Record<string, number[]>;
-  indicator?: number[];
-  extraFrameDetails?: Record<string, string>;
+  abilityIdToLinkedTokenGrpId: string;
+  indicator?: string;
+  extraFrameDetails?: string;
 }

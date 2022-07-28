@@ -23,6 +23,8 @@ import { ImageUris } from "scryfall-client/dist/types/api/constants";
 import replaceCardData from "./replaceCardData";
 import readExternalJson from "./readExternalJson";
 import getScryfallCard from "./getScryfallCard";
+import parseStringArray from "./utils/parseStringArray";
+import parseStringRecord from "./utils/parseStringRecord";
 
 export function generateMetadata(
   ScryfallCards: ScryfallData,
@@ -133,14 +135,14 @@ export function generateMetadata(
 
         // Get types line based on enums
         let typeLine = "";
-        card.supertypes?.forEach((type) => {
-          typeLine += enums["SuperType"][type] + " ";
+        parseStringArray(card.supertypes).forEach((type) => {
+          typeLine += enums["SuperType"][parseInt(type)] + " ";
         });
-        card.types?.forEach((type) => {
-          typeLine += enums["CardType"][type] + " ";
+        parseStringArray(card.types).forEach((type) => {
+          typeLine += enums["CardType"][parseInt(type)] + " ";
         });
-        card.subtypes?.forEach((type) => {
-          typeLine += enums["SubType"][type] + " ";
+        parseStringArray(card.subtypes).forEach((type) => {
+          typeLine += enums["SubType"][parseInt(type)] + " ";
         });
         // Doing this throws an error in tool :(
         //typeLine = typeLine.slice(0, -1);
@@ -188,11 +190,13 @@ export function generateMetadata(
           cmc: card.cmc || 0,
           rarity: RARITY[card.rarity || 1],
           cid: collector,
-          frame: card.frameColors || [],
+          frame: parseStringArray(card.frameColors).map(parseInt),
           artist: card.artistCredit || "",
           dfc: card.linkedFaceType || 0,
           isPrimary: card.isPrimaryCard || false,
-          abilities: card.abilities?.map((ab) => ab.Id) || [],
+          abilities: Object.keys(parseStringRecord(card.abilities)).map(
+            parseInt
+          ),
           dfcId: false,
           rank: 0,
           rank_values: [],
@@ -266,7 +270,7 @@ export function generateMetadata(
         );
 
         if (card.linkedFaces && card.linkedFaces.length > 0) {
-          cardObj.dfcId = card.linkedFaces[0];
+          cardObj.dfcId = parseStringArray(card.linkedFaces).map(parseInt)[0];
         } else {
           cardObj.dfcId = false;
         }

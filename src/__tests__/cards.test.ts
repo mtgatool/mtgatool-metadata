@@ -4,6 +4,7 @@ import fs from "fs";
 
 import { APPDATA, EXTERNAL } from "../metadata-constants";
 import { Card } from "../types/jsons-data";
+import parseStringArray from "../utils/parseStringArray";
 
 describe("Check cards data", () => {
   const cards: Record<string, Card> = getCards();
@@ -30,11 +31,17 @@ describe("Check cards data", () => {
     expect(teferi.supertypes).toBeDefined();
     expect(teferi.cardTypeTextId).toBeDefined();
     expect(teferi.subtypeTextId).toBeDefined();
-    expect(teferi.colors?.sort()).toEqual([1, 2].sort());
-    expect(teferi.frameColors?.sort()).toEqual([1, 2].sort());
+    expect(parseStringArray(teferi.colors).map(parseInt).sort()).toEqual(
+      [1, 2].sort()
+    );
+    expect(parseStringArray(teferi.frameColors).map(parseInt).sort()).toEqual(
+      [1, 2].sort()
+    );
     expect(teferi.rawFrameDetails).toEqual("3 abilities");
     expect(teferi.frameDetails).toEqual(["gold"]);
-    expect(teferi.colorIdentity?.sort()).toEqual([1, 2].sort());
+    expect(parseStringArray(teferi.colorIdentity).map(parseInt).sort()).toEqual(
+      [1, 2].sort()
+    );
     expect(teferi.castingcost).toBe("o1oWoU");
     expect(teferi.knownSupportedStyles).toBeDefined();
     expect(teferi.RebalancedCardLink).toBe(81199);
