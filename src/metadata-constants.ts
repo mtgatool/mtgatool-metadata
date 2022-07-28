@@ -114,6 +114,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 66433,
     release: "2015-01-23",
   },
+  "Khans of Tarkir": {
+    collation: -1,
+    scryfall: "ktk",
+    code: "KTK",
+    arenacode: "KTK",
+    tile: 66433,
+    release: "2014-09-26",
+  },
   "Oath of the Gatewatch": {
     collation: -1,
     scryfall: "ogw",
