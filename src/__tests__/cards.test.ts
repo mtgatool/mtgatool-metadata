@@ -14,7 +14,7 @@ describe("Check cards data", () => {
   test("Cards properties", () => {
     expect(teferi).toBeDefined();
     // Those values set as toBeDefined we cant rely on their staticness
-    expect(teferi.grpid).toBe(69670);
+    expect(teferi.grpId).toBe(69670);
     expect(teferi.titleId).toBeDefined();
     expect(teferi.artId).toBeDefined();
     expect(teferi.artSize).toBe(1);
@@ -22,7 +22,6 @@ describe("Check cards data", () => {
     expect(teferi.flavorId).toBeDefined();
     expect(teferi.collectorNumber).toBe("221");
     expect(teferi.collectorMax).toBe("264");
-    expect(teferi.cmc).toBe(3);
     expect(teferi.rarity).toBeDefined();
     expect(teferi.artistCredit).toBe("Chris Rallis");
     expect(teferi.set).toBe("WAR");
@@ -31,32 +30,25 @@ describe("Check cards data", () => {
     expect(teferi.supertypes).toBeDefined();
     expect(teferi.cardTypeTextId).toBeDefined();
     expect(teferi.subtypeTextId).toBeDefined();
-    expect(parseStringArray(teferi.colors).map(parseInt).sort()).toEqual(
+    expect(parseStringArray(teferi.colors).map(parseFloat).sort()).toEqual(
       [1, 2].sort()
     );
-    expect(parseStringArray(teferi.frameColors).map(parseInt).sort()).toEqual(
+    expect(parseStringArray(teferi.frameColors).map(parseFloat).sort()).toEqual(
       [1, 2].sort()
     );
-    expect(teferi.rawFrameDetails).toEqual("3 abilities");
-    expect(teferi.frameDetails).toEqual(["gold"]);
-    expect(parseStringArray(teferi.colorIdentity).map(parseInt).sort()).toEqual(
-      [1, 2].sort()
-    );
+    expect(parseStringArray(teferi.rawFrameDetails)).toEqual([
+      "WU gold planeswalker",
+      " 3 abilities",
+    ]);
+    expect(parseStringArray(teferi.frameDetails)).toEqual(["gold"]);
+    expect(
+      parseStringArray(teferi.colorIdentity).map(parseFloat).sort()
+    ).toEqual([1, 2].sort());
     expect(teferi.castingcost).toBe("o1oWoU");
     expect(teferi.knownSupportedStyles).toBeDefined();
     expect(teferi.RebalancedCardLink).toBe(81199);
-    expect(teferi.abilities).toEqual([
-      {
-        Id: 6363,
-      },
-      {
-        Id: 133144,
-      },
-      {
-        Id: 133145,
-      },
-    ]);
-    expect(Object.keys(teferi).length).toBe(26);
+    expect(teferi.abilities).toEqual("6363,133144,133145");
+    expect(Object.keys(teferi).length).toBe(25);
   });
 });
 
@@ -69,7 +61,7 @@ function getCards(): Record<string, Card> {
   // get all cards in cards.json as grpId: card
   const cardsObj: Record<string, Card> = {};
   cards.value.forEach((card) => {
-    cardsObj[card.grpid || 0] = card;
+    cardsObj[card.grpId || 0] = card;
   });
   return cardsObj;
 }

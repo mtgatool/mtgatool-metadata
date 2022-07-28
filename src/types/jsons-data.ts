@@ -20,7 +20,7 @@ export interface Ability {
 }
 
 export interface Card {
-  grpid?: number;
+  grpId?: number;
   titleId?: number;
   artId?: number;
   isToken?: false;
@@ -32,7 +32,6 @@ export interface Card {
   collectorNumber?: string;
   collectorMax?: string;
   altDeckLimit?: null;
-  cmc?: number;
   rarity?: number;
   artistCredit?: string;
   set?: string;

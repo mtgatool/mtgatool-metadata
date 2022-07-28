@@ -26,6 +26,30 @@ import getScryfallCard from "./getScryfallCard";
 import parseStringArray from "./utils/parseStringArray";
 import parseStringRecord from "./utils/parseStringRecord";
 
+const cmcs: Record<string, number> = {};
+cmcs.x = 0;
+cmcs["0"] = 0;
+cmcs["1"] = 1;
+cmcs["2"] = 2;
+cmcs["3"] = 3;
+cmcs["4"] = 4;
+cmcs["5"] = 5;
+cmcs["6"] = 6;
+cmcs["7"] = 7;
+cmcs["8"] = 8;
+cmcs["9"] = 9;
+cmcs["10"] = 10;
+cmcs["11"] = 11;
+cmcs["12"] = 12;
+cmcs["13"] = 13;
+cmcs["14"] = 14;
+cmcs["15"] = 15;
+cmcs["16"] = 16;
+cmcs["17"] = 17;
+cmcs["18"] = 18;
+cmcs["19"] = 19;
+cmcs["20"] = 20;
+
 export function generateMetadata(
   ScryfallCards: ScryfallData,
   ranksData: RanksData,
@@ -171,7 +195,7 @@ export function generateMetadata(
           set = "G18"; // "M19 Gift Pack";
         }
 
-        const cardId = card.grpid || 0;
+        const cardId = card.grpId || 0;
         const cardName = getText(card.titleId || 0, lang);
         const englishName = getText(card.titleId || 0, "EN").replace(
           " /// ",
@@ -187,15 +211,15 @@ export function generateMetadata(
           artid: card.artId || 0,
           type: typeLine,
           cost: manaCost,
-          cmc: card.cmc || 0,
+          cmc: manaCost.reduce((acc, m) => acc + (cmcs[m] || 1), 0),
           rarity: RARITY[card.rarity || 1],
           cid: collector,
-          frame: parseStringArray(card.frameColors).map(parseInt),
+          frame: parseStringArray(card.frameColors).map(parseFloat),
           artist: card.artistCredit || "",
           dfc: card.linkedFaceType || 0,
           isPrimary: card.isPrimaryCard || false,
           abilities: Object.keys(parseStringRecord(card.abilities)).map(
-            parseInt
+            parseFloat
           ),
           dfcId: false,
           rank: 0,
