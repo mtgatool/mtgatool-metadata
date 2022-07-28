@@ -1090,7 +1090,7 @@ export const DIGITAL_SETS = [
   "Historic Anthology 3",
   "Historic Anthology 4",
   "Historic Anthology 5",
-  "Historic Anthology 1",
+  "Historic Anthology 6",
   "Explorer Anthology 1",
   "Alchemy: Innistrad",
   "Alchemy: Kamigawa",
