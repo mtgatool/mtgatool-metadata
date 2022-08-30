@@ -28,7 +28,7 @@ if (!fs.existsSync(VersionDIr)) {
 
 console.log("Begin Metadata fetch.");
 
-getArenaVersion("Live")
+getArenaVersion("VIP")
   .then(getManifestFiles)
   .then(getRanksData)
   .then(getScryfallCards)
