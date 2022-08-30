@@ -147,8 +147,8 @@ export function generateMetadata(
       // Read abilities for this language
       const abilities: Record<number, string> = {};
       abilitiesRead.forEach((ab: Ability) => {
-        const abid = ab.id;
-        abilities[abid] = getText(ab.text, lang);
+        const abid = ab.Id;
+        abilities[abid] = getText(ab.TextId, lang);
       });
 
       // main loop

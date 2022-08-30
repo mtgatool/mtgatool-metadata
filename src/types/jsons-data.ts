@@ -1,22 +1,27 @@
 export interface Ability {
-  id: number;
-  text: number;
-  baseId: number;
-  baseIdNumeral: number;
-  category: number;
-  subCategory: number;
-  abilityWord: number;
-  requiresConfirmation: number;
-  miscellaneousTerm: number;
-  numericAid: number;
-  manaCost: string;
-  fullyParsed: true;
-  paymentTypes: number[];
-  relevantZones: number[];
-  linkedHiddenAbilities: number[];
-  referencedKeywords: number[];
-  referencedKeywordTypes: number[];
-  modalAbilityChildren: number[];
+  Id: number;
+  BaseId: number;
+  BaseIdNumeral: number;
+  TextId: number;
+  OldSchoolManaText: string | null;
+  Category: number;
+  SubCategory: number;
+  AbilityWord: number;
+  NumericAid: number;
+  RequiresConfirmation: number;
+  MiscellaneousTerm: number;
+  PaymentType: number;
+  LoyaltyCost: string | null;
+  FullyParsed: number;
+  IsIntrinsicAbility: number;
+  RelevantZones: string | null;
+  HiddenAbilityIds: string | null;
+  HiddenByAbilityIds: string | null;
+  ReferencedAbilityIds: string | null;
+  ReferencedAbilityTypes: string | null;
+  ModalChildIds: string | null;
+  ModalParentIds: string | null;
+  CostTypes: string | null;
 }
 
 export interface Card {

@@ -100,6 +100,16 @@ function extractSqlite(data: string[]): Promise<string[]> {
     });
   });
 
+  const abilitiesPromise = new Promise<boolean>((resolve) => {
+    db.all(`SELECT * FROM "Abilities"`, {}, (a, b) => {
+      fs.writeFile(
+        path.join(APPDATA, EXTERNAL, "abilities.json"),
+        JSON.stringify(b),
+        () => resolve(true)
+      );
+    });
+  });
+
   const enumPromise = new Promise<boolean>((resolve) => {
     db.all(`SELECT * FROM "Enums"`, {}, (a, b) => {
       fs.writeFile(
@@ -110,7 +120,7 @@ function extractSqlite(data: string[]): Promise<string[]> {
     });
   });
 
-  return Promise.all([locPromise, enumPromise]).then(() => {
+  return Promise.all([locPromise, abilitiesPromise, enumPromise]).then(() => {
     db.close();
     return data;
   });
