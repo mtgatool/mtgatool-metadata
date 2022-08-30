@@ -1010,6 +1010,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2022-06-02",
   },
+  "Dominaria United": {
+    collation: 400028,
+    scryfall: "dmu",
+    code: "DMU",
+    arenacode: "DMU",
+    tile: 67003,
+    release: "2022-09-09",
+  },
   "": {
     collation: -1,
     scryfall: "default",
@@ -1332,6 +1340,8 @@ export const ALLOWED_SCRYFALL = [
   "tneo",
   "snc",
   "tsnc",
+  "dmu",
+  "tdmu",
 ];
 
 export const RANKS_SHEETS = [

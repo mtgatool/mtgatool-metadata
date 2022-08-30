@@ -12,7 +12,7 @@ import downloadManifest from "./downloadManifest";
 import { pickManifest } from "./pickManifest";
 import requestManifestData from "./requestManifestData";
 
-export function getArenaVersion(channel = "Live"): Promise<string> {
+export function getArenaVersion(channel = "VIP"): Promise<string> {
   return new Promise((resolve) => {
     const req = httpGetText(
       `https://mtgarena.downloads.wizards.com/${channel}/Windows64/version`
