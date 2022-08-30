@@ -29,7 +29,7 @@ jobs:
           npm run start
           npm run dist
       - name: Deploy
-        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        uses: SamKirkland/FTP-Deploy-Action@4.3.1
         with:
           server: ${{ secrets.server }}
           username: ${{ secrets.username }}
