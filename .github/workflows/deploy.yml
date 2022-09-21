@@ -36,4 +36,4 @@ jobs:
           password: ${{ secrets.password }}
           local-dir: ./output/
           dangerous-clean-slate: false
-          server-dir: /var/www/html/database/
+          server-dir: /home/mtgatool-web/resources/database
