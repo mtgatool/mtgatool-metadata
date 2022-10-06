@@ -155,17 +155,17 @@ export function generateMetadata(
       console.log("Generating " + lang);
       const cardsFinal: Record<number, DbCardData> = {};
       cards.forEach((card: Card) => {
-        if (card.set == "ArenaSUP") return;
+        if (card.ExpansionCode == "ArenaSUP") return;
 
         // Get types line based on enums
         let typeLine = "";
-        parseStringArray(card.supertypes).forEach((type) => {
+        parseStringArray(card.Supertypes).forEach((type) => {
           typeLine += enums["SuperType"][parseInt(type)] + " ";
         });
-        parseStringArray(card.types).forEach((type) => {
+        parseStringArray(card.Types).forEach((type) => {
           typeLine += enums["CardType"][parseInt(type)] + " ";
         });
-        parseStringArray(card.subtypes).forEach((type) => {
+        parseStringArray(card.Subtypes).forEach((type) => {
           typeLine += enums["SubType"][parseInt(type)] + " ";
         });
         // Doing this throws an error in tool :(
@@ -173,7 +173,7 @@ export function generateMetadata(
 
         // Clean up mana cost
         const manaCost: string[] = [];
-        card.castingcost?.split("o").forEach((mana: string) => {
+        card.OldSchoolManaText?.split("o").forEach((mana: string) => {
           if (mana !== "" && mana !== "0") {
             mana = mana
               .toLowerCase()
@@ -184,9 +184,9 @@ export function generateMetadata(
           }
         });
 
-        let set: string = card.set || "";
+        let set: string = card.ExpansionCode || "";
 
-        let collector = card.collectorNumber || "";
+        let collector = card.CollectorNumber || "";
         // Special collectors numbers that define Mythic edition and Gift pack cards
         if (collector.includes("GR")) {
           set = "MED"; // "Mythic Edition";
@@ -195,9 +195,9 @@ export function generateMetadata(
           set = "G18"; // "M19 Gift Pack";
         }
 
-        const cardId = card.grpId || 0;
-        const cardName = getText(card.titleId || 0, lang);
-        const englishName = getText(card.titleId || 0, "EN").replace(
+        const cardId = card.GrpId || 0;
+        const cardName = getText(card.TitleId || 0, lang);
+        const englishName = getText(card.TitleId || 0, "EN").replace(
           " /// ",
           " // "
         );
@@ -205,20 +205,20 @@ export function generateMetadata(
         const cardObj: DbCardData = {
           id: cardId,
           name: cardName.replace(" /// ", " // "),
-          titleId: card.titleId || 0,
+          titleId: card.TitleId || 0,
           set: set,
           set_digital: "",
-          artid: card.artId || 0,
+          artid: card.ArtId || 0,
           type: typeLine,
           cost: manaCost,
           cmc: manaCost.reduce((acc, m) => acc + (cmcs[m] || 1), 0),
-          rarity: RARITY[card.rarity || 1],
+          rarity: RARITY[card.Rarity || 1],
           cid: collector,
-          frame: parseStringArray(card.frameColors).map(parseFloat),
-          artist: card.artistCredit || "",
-          dfc: card.linkedFaceType || 0,
-          isPrimary: card.isPrimaryCard || false,
-          abilities: Object.keys(parseStringRecord(card.abilities)).map(
+          frame: parseStringArray(card.FrameColors).map(parseFloat),
+          artist: card.ArtistCredit || "",
+          dfc: card.LinkedFaceType || 0,
+          isPrimary: !!card.IsPrimaryCard,
+          abilities: Object.keys(parseStringRecord(card.AbilityIds)).map(
             parseFloat
           ),
           dfcId: false,
@@ -236,7 +236,7 @@ export function generateMetadata(
         //scryfallSet = DIGITAL_SETS_DATA[set]
         //  ? DIGITAL_SETS_DATA[set].scryfall
         //  : "";
-        if (!card.isToken) {
+        if (!card.IsToken) {
           const orig = scryfallSet + collector;
           const replace = replaceCardData(cardId);
           if (replace.scryfallSet) scryfallSet = replace.scryfallSet;
@@ -293,8 +293,9 @@ export function generateMetadata(
           cardObj.artist
         );
 
-        if (card.linkedFaces && card.linkedFaces.length > 0) {
-          cardObj.dfcId = parseStringArray(card.linkedFaces).map(parseInt)[0];
+        const linkedFaces = parseStringArray(card.LinkedFaceGrpIds || "");
+        if (linkedFaces && linkedFaces.length > 0) {
+          cardObj.dfcId = linkedFaces.map(parseInt)[0];
         } else {
           cardObj.dfcId = false;
         }
@@ -348,7 +349,7 @@ export function generateMetadata(
         ) {
           // Every language has failed..
           console.log(
-            `No scryfall data for [${lang}] ${cardObj.name} (${englishName}) - ${scryfallSet}/${card.collectorNumber} (${collector}) artist: ${cardObj.artist} grpId: ${cardObj.id}`
+            `No scryfall data for [${lang}] ${cardObj.name} (${englishName}) - ${scryfallSet}/${card.CollectorNumber} (${collector}) artist: ${cardObj.artist} grpId: ${cardObj.id}`
           );
           cardObj.images = {};
         } else {

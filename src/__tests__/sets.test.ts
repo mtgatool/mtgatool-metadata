@@ -27,12 +27,19 @@ function getSets(): [string, number][] {
   const setCards: Record<string, number> = {};
   // get all sets in cards.json
   cards.value.forEach((card: Card) => {
-    const cardSet = card.set === "Y22" ? card.DigitalReleaseSet : card.set;
+    const cardSet =
+      card.ExpansionCode === "Y22" || card.ExpansionCode === "Y23"
+        ? card.DigitalReleaseSet
+        : card.ExpansionCode;
     if (cardSet) {
       if (!setCards[cardSet]) setCards[cardSet] = 1;
       else setCards[cardSet] += 1;
       // We ignore ArenaSUP
-      if (!sets.includes(cardSet) && cardSet !== "ArenaSUP") {
+      if (
+        !sets.includes(cardSet) &&
+        cardSet !== "ArenaSUP" &&
+        cardSet !== "WC"
+      ) {
         sets.push(cardSet);
       }
     }

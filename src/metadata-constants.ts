@@ -1090,6 +1090,22 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2022-07-07",
   },
+  "Alchemy: Dominaria": {
+    collation: 100029,
+    scryfall: "a23",
+    code: "Y23-DMU",
+    arenacode: "Y23-DMU",
+    tile: 67003,
+    release: "2022-10-05",
+  },
+  Unfinity: {
+    collation: 100029,
+    scryfall: "unf",
+    code: "UNF",
+    arenacode: "UNF",
+    tile: 67003,
+    release: "2022-10-07",
+  },
 };
 
 export const DIGITAL_SETS = [
@@ -1103,6 +1119,7 @@ export const DIGITAL_SETS = [
   "Alchemy: Innistrad",
   "Alchemy: Kamigawa",
   "Alchemy: New Capenna",
+  "Alchemy: Dominaria",
   "Alchemy Horizons: Baldur's Gate",
 ];
 
@@ -1342,6 +1359,11 @@ export const ALLOWED_SCRYFALL = [
   "tsnc",
   "dmu",
   "tdmu",
+  "unf",
+  "tunf",
+  "dmr",
+  "a23",
+  "y23",
 ];
 
 export const RANKS_SHEETS = [

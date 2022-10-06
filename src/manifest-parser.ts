@@ -12,7 +12,7 @@ import downloadManifest from "./downloadManifest";
 import { pickManifest } from "./pickManifest";
 import requestManifestData from "./requestManifestData";
 
-export function getArenaVersion(channel = "VIP"): Promise<string> {
+export function getArenaVersion(channel = "Live"): Promise<string> {
   return new Promise((resolve) => {
     const req = httpGetText(
       `https://mtgarena.downloads.wizards.com/${channel}/Windows64/version`
@@ -120,7 +120,22 @@ function extractSqlite(data: string[]): Promise<string[]> {
     });
   });
 
-  return Promise.all([locPromise, abilitiesPromise, enumPromise]).then(() => {
+  const cardsPromise = new Promise<boolean>((resolve) => {
+    db.all(`SELECT * FROM "Cards"`, {}, (a, b) => {
+      fs.writeFile(
+        path.join(APPDATA, EXTERNAL, "cards.json"),
+        JSON.stringify(b),
+        () => resolve(true)
+      );
+    });
+  });
+
+  return Promise.all([
+    locPromise,
+    abilitiesPromise,
+    enumPromise,
+    cardsPromise,
+  ]).then(() => {
     db.close();
     return data;
   });

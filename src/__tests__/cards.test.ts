@@ -13,42 +13,80 @@ describe("Check cards data", () => {
   // Test if the cards proprties change from what we expect
   test("Cards properties", () => {
     expect(teferi).toBeDefined();
-    // Those values set as toBeDefined we cant rely on their staticness
-    expect(teferi.grpId).toBe(69670);
-    expect(teferi.titleId).toBeDefined();
-    expect(teferi.artId).toBeDefined();
-    expect(teferi.artSize).toBe(1);
-    expect(teferi.toughness).toBe("4");
-    expect(teferi.flavorId).toBeDefined();
-    expect(teferi.collectorNumber).toBe("221");
-    expect(teferi.collectorMax).toBe("264");
-    expect(teferi.rarity).toBeDefined();
-    expect(teferi.artistCredit).toBe("Chris Rallis");
-    expect(teferi.set).toBe("WAR");
-    expect(teferi.types).toBeDefined();
-    expect(teferi.subtypes).toBeDefined();
-    expect(teferi.supertypes).toBeDefined();
-    expect(teferi.cardTypeTextId).toBeDefined();
-    expect(teferi.subtypeTextId).toBeDefined();
-    expect(parseStringArray(teferi.colors).map(parseFloat).sort()).toEqual(
-      [1, 2].sort()
-    );
-    expect(parseStringArray(teferi.frameColors).map(parseFloat).sort()).toEqual(
-      [1, 2].sort()
-    );
-    expect(parseStringArray(teferi.rawFrameDetails)).toEqual([
+    expect(teferi.GrpId).toBe(69670);
+    expect(teferi.ArtId).toBe(406680);
+    expect(teferi.ArtPath).toBe(null);
+    expect(teferi.TitleId).toBe(336891);
+    expect(teferi.AltTitleId).toBe(0);
+    expect(teferi.FlavorTextId).toBe(1);
+    expect(teferi.TypeTextId).toBe(261939);
+    expect(teferi.SubtypeTextId).toBe(46282);
+    expect(teferi.ArtistCredit).toBe("Chris Rallis");
+    expect(teferi.ArtSize).toBe(1);
+    expect(teferi.Rarity).toBe(4);
+    expect(teferi.ExpansionCode).toBe("WAR");
+    expect(teferi.DigitalReleaseSet).toBe(null);
+    expect(teferi.IsToken).toBe(0);
+    expect(teferi.IsPrimaryCard).toBe(1);
+    expect(teferi.IsDigitalOnly).toBe(0);
+    expect(teferi.IsRebalanced).toBe(0);
+    expect(teferi.RebalancedCardGrpId).toBe(81199);
+    expect(teferi.DefunctRebalancedCardGrpId).toBe(0);
+    expect(teferi.AlternateDeckLimit).toBe(0);
+    expect(teferi.CollectorNumber).toBe("221");
+    expect(teferi.CollectorMax).toBe("264");
+    expect(teferi.UsesSideboard).toBe(0);
+    expect(teferi.OldSchoolManaText).toBe("o1oWoU");
+    expect(teferi.LinkedFaceType).toBe(0);
+    expect(parseStringArray(teferi.RawFrameDetail)).toStrictEqual([
       "WU gold planeswalker",
       " 3 abilities",
     ]);
-    expect(parseStringArray(teferi.frameDetails)).toEqual(["gold"]);
+    expect(teferi.Watermark).toBe(null);
+    expect(teferi.TextChangeData).toBe(null);
+    expect(teferi.Power).toBe(null);
+    expect(teferi.Toughness).toBe("4");
     expect(
-      parseStringArray(teferi.colorIdentity).map(parseFloat).sort()
-    ).toEqual([1, 2].sort());
-    expect(teferi.castingcost).toBe("o1oWoU");
-    expect(teferi.knownSupportedStyles).toBeDefined();
-    expect(teferi.RebalancedCardLink).toBe(81199);
-    expect(teferi.abilities).toEqual("6363,133144,133145");
-    expect(Object.keys(teferi).length).toBe(25);
+      parseStringArray(teferi.Colors).map(parseFloat).sort()
+    ).toStrictEqual([1, 2]);
+    expect(
+      parseStringArray(teferi.ColorIdentity).map(parseFloat).sort()
+    ).toStrictEqual([1, 2]);
+    expect(
+      parseStringArray(teferi.FrameColors).map(parseFloat).sort()
+    ).toStrictEqual([1, 2]);
+    expect(teferi.IndicatorColors).toBe(null);
+    expect(
+      parseStringArray(teferi.Types).map(parseFloat).sort()
+    ).toStrictEqual([8]);
+    expect(
+      parseStringArray(teferi.Subtypes).map(parseFloat).sort()
+    ).toStrictEqual([325]);
+    expect(
+      parseStringArray(teferi.Supertypes).map(parseFloat).sort()
+    ).toStrictEqual([2]);
+    expect(
+      parseStringArray(teferi.AbilityIds).map(parseFloat).sort()
+    ).toStrictEqual([133144, 133145, 6363]);
+    expect(teferi.HiddenAbilityIds).toBe(null);
+    expect(teferi.LinkedFaceGrpIds).toBe(null);
+    expect(teferi.LinkedAbilityTemplateCardGrpIds).toBe(null);
+    expect(teferi.AbilityIdToLinkedTokenGrpId).toBe(null);
+    expect(teferi.AbilityIdToLinkedConjurations).toBe(null);
+    expect(
+      parseStringArray(teferi.KnownSupportedStyles || "").sort()
+    ).toStrictEqual(["DA", "SG"]);
+    expect(teferi.AdditionalFrameDetails).toBe("gold");
+    expect(teferi.ExtraFrameDetails).toBe(null);
+    expect(teferi.Order_LandLast).toBe(0);
+    expect(teferi.Order_ColorOrder).toBe(5);
+    expect(teferi.Order_CreaturesFirst).toBe(1);
+    expect(teferi.Order_ManaCostDifficulty).toBe(2);
+    expect(teferi.Order_CMCWithXLast).toBe(3);
+    expect(teferi.Order_Title).toBe("teferitimeraveler");
+    expect(teferi.Order_MythicToCommon).toBe(1);
+    expect(teferi.Order_BasicLandsFirst).toBe(1);
+    expect(Object.keys(teferi).length).toBe(54);
   });
 });
 
@@ -61,7 +99,7 @@ function getCards(): Record<string, Card> {
   // get all cards in cards.json as grpId: card
   const cardsObj: Record<string, Card> = {};
   cards.value.forEach((card) => {
-    cardsObj[card.grpId || 0] = card;
+    cardsObj[card.GrpId || 0] = card;
   });
   return cardsObj;
 }
