@@ -31,7 +31,7 @@ export type SCRYFALL_LANGS =
   | "RU"
   | "PT"
   | "JA"
-  | "ZHS"
+  // | "ZHS"
   | "KO"
   | "PH";
 
@@ -45,7 +45,7 @@ export const SCRYFALL_LANGS_CONST: SCRYFALL_LANGS[] = [
   "RU",
   "PT",
   "JA",
-  "ZHS",
+  // "ZHS",
   "KO",
   "PH",
 ];
@@ -59,8 +59,8 @@ export type ARENA_LANGS =
   | "jaJP"
   | "ptBR"
   | "ruRU"
-  | "koKR"
-  | "zhCN";
+  | "koKR";
+// | "zhCN";
 
 // What languages to actually compile
 export const LANGUAGES: SCRYFALL_LANGS[] = [
@@ -86,7 +86,7 @@ export const LANGKEYS: Record<ARENA_LANGS, SCRYFALL_LANGS> = {
   ptBR: "PT",
   ruRU: "RU",
   koKR: "KO",
-  zhCN: "ZHS",
+  // zhCN: "ZHS",
 };
 
 export const SETS_DATA: Record<string, CardSet> = {

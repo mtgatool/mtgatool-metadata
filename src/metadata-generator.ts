@@ -97,6 +97,7 @@ export function generateMetadata(
     const regex = new RegExp("/o(?=[^{]*})/");
     // Clean up kanji descriptions for JP
     const JpRegex = new RegExp(/ *（[^）]*） */g);
+
     const loc: Record<SCRYFALL_LANGS, any> = {
       EN: {},
       FR: {},
@@ -108,29 +109,39 @@ export function generateMetadata(
       RU: {},
       KO: {},
       PH: {},
-      ZHS: {},
+      // ZHS: {},
     };
 
     const NT = "#NoTranslationNeeded";
 
-    locRead.forEach((l: any) => {
-      const US = l.enUS.replace(regex, "").replace(JpRegex, "");
-      loc["EN"][l.LocId] = US;
-      loc["FR"][l.LocId] = l.frFR === NT ? US : l.frFR.replace(regex, "");
-      loc["IT"][l.LocId] = l.itIT === NT ? US : l.itIT.replace(regex, "");
-      loc["DE"][l.LocId] = l.deDE === NT ? US : l.deDE.replace(regex, "");
-      loc["ES"][l.LocId] = l.esES === NT ? US : l.esES.replace(regex, "");
-      loc["JA"][l.LocId] =
-        l.jaJP === NT ? US : l.jaJP.replace(regex, "").replace(JpRegex, "");
-      loc["PT"][l.LocId] = l.ptBR === NT ? US : l.ptBR.replace(regex, "");
-      loc["RU"][l.LocId] = l.ruRU === NT ? US : l.ruRU.replace(regex, "");
-      loc["KO"][l.LocId] = l.koKR === NT ? US : l.koKR.replace(regex, "");
-      loc["ZHS"][l.LocId] = l.zhCN === NT ? US : l.zhCN.replace(regex, "");
-    });
+    // Ignore formatted cards from Loc, unless no other definition exists by overwrite
+    locRead
+      .sort((a: any, b: any) => b.Formatted - a.Formatted)
+      .forEach((l: any) => {
+        const US = l.enUS.replace(regex, "").replace(JpRegex, "");
+        loc["EN"][l.LocId] = US;
+        loc["FR"][l.LocId] = l.frFR === NT ? US : l.frFR.replace(regex, "");
+        loc["IT"][l.LocId] = l.itIT === NT ? US : l.itIT.replace(regex, "");
+        loc["DE"][l.LocId] = l.deDE === NT ? US : l.deDE.replace(regex, "");
+        loc["ES"][l.LocId] = l.esES === NT ? US : l.esES.replace(regex, "");
+        loc["JA"][l.LocId] =
+          l.jaJP === NT ? US : l.jaJP.replace(regex, "").replace(JpRegex, "");
+        loc["PT"][l.LocId] = l.ptBR === NT ? US : l.ptBR.replace(regex, "");
+        loc["RU"][l.LocId] = l.ruRU === NT ? US : l.ruRU.replace(regex, "");
+        loc["KO"][l.LocId] = l.koKR === NT ? US : l.koKR.replace(regex, "");
+        // loc["ZHS"][l.LocId] = l.zhCN === NT ? US : l.zhCN.replace(regex, "");
+      });
     locRead = null;
 
     const getText = function (id: number, language: SCRYFALL_LANGS): string {
-      return loc[language] == undefined ? loc["EN"][id] : loc[language][id];
+      const ret =
+        loc[language] == undefined ? loc["EN"][id] : loc[language][id];
+
+      if (!ret) {
+        console.warn("Missing LOC > id: " + id + ", lang: " + language);
+        return "";
+      }
+      return ret;
     };
 
     // Altrough enums must be in other languages ill write them in english
@@ -233,6 +244,13 @@ export function generateMetadata(
           setNames[set] && SETS_DATA[setNames[set]]
             ? SETS_DATA[setNames[set]].scryfall
             : "";
+        if ((set === "y22" || set === "y23") && card.DigitalReleaseSet) {
+          scryfallSet =
+            setNames[card.DigitalReleaseSet] &&
+            SETS_DATA[setNames[card.DigitalReleaseSet]]
+              ? SETS_DATA[setNames[card.DigitalReleaseSet]].scryfall
+              : "";
+        }
         //scryfallSet = DIGITAL_SETS_DATA[set]
         //  ? DIGITAL_SETS_DATA[set].scryfall
         //  : "";
