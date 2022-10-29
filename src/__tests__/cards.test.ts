@@ -92,9 +92,15 @@ describe("Check cards data", () => {
 
 function getCards(): Record<string, Card> {
   const file = path.join(APPDATA, EXTERNAL, "cards.json");
-  const cards: { value: Card[] } = JSON.parse(
-    `{"value": ${fs.readFileSync(file)}}`
-  );
+  let cards: { value: Card[] } = {
+    value: [],
+  };
+  try {
+    cards = JSON.parse(`{"value": ${fs.readFileSync(file)}}`);
+  } catch (e) {
+    console.error(fs.readFileSync(file));
+    console.error(e);
+  }
 
   // get all cards in cards.json as grpId: card
   const cardsObj: Record<string, Card> = {};
