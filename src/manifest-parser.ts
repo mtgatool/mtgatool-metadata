@@ -87,8 +87,12 @@ function processManifest(data: ManifestJSON): Promise<string[]> {
 }
 
 function extractSqlite(data: string[]): Promise<string[]> {
-  console.log("Extracting CardsDatabase SQLITE");
   const cardsdbPath = path.join(APPDATA, EXTERNAL, "CardDatabase.json");
+
+  console.log("Extracting CardsDatabase SQLITE");
+  console.log(cardsdbPath);
+  console.log("CardDatabase.json exists?", fs.existsSync(cardsdbPath));
+
   const db = new sqlite3.Database(cardsdbPath);
   const locPromise = new Promise<boolean>((resolve) => {
     db.all(`SELECT * FROM "Localizations"`, {}, (a, b) => {
