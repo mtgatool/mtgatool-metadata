@@ -266,7 +266,7 @@ export function generateMetadata(
       Object.keys(cardsFinal).forEach((key) => {
         const card: DbCardDataV2 | undefined = cardsFinal[parseInt(key)];
 
-        if (!card.IsToken && card.Rarity !== "land") {
+        if (!card.IsToken && !card.Supertypes.includes("Basic")) {
           const arr: number[] = [];
 
           Object.keys(cardsFinal).forEach((key) => {
