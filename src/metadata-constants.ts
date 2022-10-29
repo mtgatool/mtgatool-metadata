@@ -1074,7 +1074,7 @@ export const SETS_DATA: Record<string, CardSet> = {
   },
   "Alchemy: Dominaria": {
     collation: 100029,
-    scryfall: "a23",
+    scryfall: "ydmu",
     code: "Y23-DMU",
     arenacode: "Y23-DMU",
     tile: 67003,
