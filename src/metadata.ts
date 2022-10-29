@@ -8,9 +8,7 @@ import { APPDATA, OUTPUT, VERSION, LANGUAGES } from "./metadata-constants";
 
 import getSetIcons from "./getSetIcons";
 
-import getScryfallCards from "./getScryfallCards";
 import getRanksData from "./getRanksData";
-import generateScryfallDatabase from "./generateScryfallDatabase";
 
 import { ranksData } from "./utils/globals";
 
@@ -31,10 +29,8 @@ console.log("Begin Metadata fetch.");
 getArenaVersion("Live")
   .then(getManifestFiles)
   .then(getRanksData)
-  .then(getScryfallCards)
   .then(getSetIcons)
-  .then(generateScryfallDatabase)
-  .then((data) => generateMetadata(data, ranksData, VERSION, LANGUAGES))
+  .then(() => generateMetadata(ranksData, VERSION, LANGUAGES))
   .then(quit);
 
 function quit() {

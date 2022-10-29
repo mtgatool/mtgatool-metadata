@@ -5,8 +5,6 @@ import {
   APPDATA,
   OUTPUT,
   SETS_DATA,
-  // LANGKEYS,
-  // ARENA_LANGS,
   SCRYFALL_LANGS,
   RARITY,
   RATINGS_LOLA,
@@ -14,15 +12,12 @@ import {
   RATINGS_MTGCSR,
   DIGITAL_SETS,
 } from "./metadata-constants";
-import { ScryfallData } from "./types/scryfall";
-import { RanksData } from "./types/metadata";
+
+import { DbCardDataV2, RanksData } from "./types/metadata";
 import { Card, Ability } from "./types/jsons-data";
-import { DbCardData } from "mtgatool-shared";
-import CardApiResponse from "scryfall-client/dist/types/api/card";
-import { ImageUris } from "scryfall-client/dist/types/api/constants";
-import replaceCardData from "./replaceCardData";
+
 import readExternalJson from "./readExternalJson";
-import getScryfallCard from "./getScryfallCard";
+
 import parseStringArray from "./utils/parseStringArray";
 import parseStringRecord from "./utils/parseStringRecord";
 
@@ -51,7 +46,6 @@ cmcs["19"] = 19;
 cmcs["20"] = 20;
 
 export function generateMetadata(
-  ScryfallCards: ScryfallData,
   ranksData: RanksData,
   version: string,
   languages: SCRYFALL_LANGS[]
@@ -59,10 +53,7 @@ export function generateMetadata(
   return new Promise((resolve) => {
     console.log("Reading JSON files..");
     const cards = readExternalJson("cards.json");
-    const altPrintings = readExternalJson("altPrintings.json") as Record<
-      string,
-      Record<string, number>
-    >;
+
     const abilitiesRead = readExternalJson("abilities.json");
     let locRead = readExternalJson("loc.json");
     let enumsRead = readExternalJson("enums.json");
@@ -70,9 +61,11 @@ export function generateMetadata(
     const setNames: Record<string, string> = {};
     Object.keys(SETS_DATA).forEach((k) => {
       const setObj = SETS_DATA[k];
-      setNames[setObj.arenacode] = k;
+      setNames[setObj.arenacode.toLowerCase()] = k;
+      setNames[setObj.arenacode.toUpperCase()] = k;
       if (setObj.arenacode !== setObj.scryfall) {
-        setNames[setObj.scryfall] = k;
+        setNames[setObj.scryfall.toLowerCase()] = k;
+        setNames[setObj.scryfall.toUpperCase()] = k;
       }
     });
 
@@ -84,14 +77,6 @@ export function generateMetadata(
     //const str = JSON.stringify(ranksData);
     //const jsonOut = path.join(APPDATA, EXTERNAL, `ranks-data.json`);
     //fs.writeFile(jsonOut, str, () => {});
-
-    // Generate list of all cards that are alt printings from other card
-    const altCards: number[] = [];
-    Object.keys(altPrintings).map((obj) => {
-      Object.values(altPrintings[obj]).forEach((val) => {
-        altCards.push(val);
-      });
-    });
 
     // Read locales for all languages and clean up mana costs in the texts
     const regex = new RegExp("/o(?=[^{]*})/");
@@ -134,11 +119,11 @@ export function generateMetadata(
     locRead = null;
 
     const getText = function (id: number, language: SCRYFALL_LANGS): string {
+      if (id === -1) return "";
       const ret =
         loc[language] == undefined ? loc["EN"][id] : loc[language][id];
 
       if (!ret) {
-        console.warn("Missing LOC > id: " + id + ", lang: " + language);
         return "";
       }
       return ret;
@@ -164,23 +149,25 @@ export function generateMetadata(
 
       // main loop
       console.log("Generating " + lang);
-      const cardsFinal: Record<number, DbCardData> = {};
+      const cardsFinal: Record<number, DbCardDataV2> = {};
       cards.forEach((card: Card) => {
         if (card.ExpansionCode == "ArenaSUP") return;
 
         // Get types line based on enums
-        let typeLine = "";
+        const types: string[] = [];
+        const typesSub: string[] = [];
+        const typesSuper: string[] = [];
         parseStringArray(card.Supertypes).forEach((type) => {
-          typeLine += enums["SuperType"][parseInt(type)] + " ";
+          typesSuper.push(enums["SuperType"][parseInt(type)]);
         });
+
         parseStringArray(card.Types).forEach((type) => {
-          typeLine += enums["CardType"][parseInt(type)] + " ";
+          types.push(enums["CardType"][parseInt(type)]);
         });
+
         parseStringArray(card.Subtypes).forEach((type) => {
-          typeLine += enums["SubType"][parseInt(type)] + " ";
+          typesSub.push(enums["SubType"][parseInt(type)]);
         });
-        // Doing this throws an error in tool :(
-        //typeLine = typeLine.slice(0, -1);
 
         // Clean up mana cost
         const manaCost: string[] = [];
@@ -195,238 +182,107 @@ export function generateMetadata(
           }
         });
 
-        let set: string = card.ExpansionCode || "";
+        const englishName = getText(card.TitleId || -1, "EN");
 
-        let collector = card.CollectorNumber || "";
-        // Special collectors numbers that define Mythic edition and Gift pack cards
-        if (collector.includes("GR")) {
-          set = "MED"; // "Mythic Edition";
-        }
-        if (collector.includes("GP")) {
-          set = "G18"; // "M19 Gift Pack";
-        }
-
-        const cardId = card.GrpId || 0;
-        const cardName = getText(card.TitleId || 0, lang);
-        const englishName = getText(card.TitleId || 0, "EN").replace(
-          " /// ",
-          " // "
-        );
-
-        const cardObj: DbCardData = {
-          id: cardId,
-          name: cardName.replace(" /// ", " // "),
-          titleId: card.TitleId || 0,
-          set: set,
-          set_digital: "",
-          artid: card.ArtId || 0,
-          type: typeLine,
-          cost: manaCost,
-          cmc: manaCost.reduce((acc, m) => acc + (cmcs[m] || 1), 0),
-          rarity: RARITY[card.Rarity || 1],
-          cid: collector,
-          frame: parseStringArray(card.FrameColors).map(parseFloat),
-          artist: card.ArtistCredit || "",
-          dfc: card.LinkedFaceType || 0,
-          isPrimary: !!card.IsPrimaryCard,
-          abilities: Object.keys(parseStringRecord(card.AbilityIds)).map(
+        const cardObj: DbCardDataV2 = {
+          GrpId: card.GrpId,
+          TitleId: card.TitleId,
+          Name: getText(card.TitleId || -1, lang),
+          Set: card.ExpansionCode || "",
+          DigitalSet: card.DigitalReleaseSet || "",
+          AltName: getText(card.AltTitleId || -1, lang),
+          FlavorText: getText(card.FlavorTextId || -1, lang),
+          ArtistCredit: card.ArtistCredit,
+          Rarity: RARITY[card.Rarity || 1],
+          IsToken: !!card.IsToken,
+          IsPrimaryCard: !!card.IsPrimaryCard,
+          IsDigitalOnly: !!card.IsDigitalOnly,
+          IsRebalanced: !!card.IsRebalanced,
+          RebalancedCardGrpId: card.RebalancedCardGrpId,
+          DefunctRebalancedCardGrpId: card.DefunctRebalancedCardGrpId,
+          CollectorNumber: card.CollectorNumber,
+          CollectorMax: card.CollectorMax,
+          UsesSideboard: card.UsesSideboard,
+          ManaCost: manaCost,
+          Cmc: manaCost.reduce((acc, m) => acc + (cmcs[m] || 1), 0),
+          LinkedFaceType: card.LinkedFaceType,
+          RawFrameDetail: card.RawFrameDetail,
+          Power: card.Power,
+          Toughness: card.Toughness,
+          Colors: Object.keys(parseStringRecord(card.Colors)).map(parseFloat),
+          ColorIdentity: Object.keys(parseStringRecord(card.ColorIdentity)).map(
             parseFloat
           ),
-          dfcId: false,
-          rank: 0,
-          rank_values: [],
-          images: {},
-          reprints: false,
+          FrameColors: Object.keys(parseStringRecord(card.FrameColors)).map(
+            parseFloat
+          ),
+          Types: types.join(" "),
+          Subtypes: typesSub.join(" "),
+          Supertypes: typesSuper.join(" "),
+          AbilityIds: Object.keys(parseStringRecord(card.AbilityIds)).map(
+            parseFloat
+          ),
+          HiddenAbilityIds: Object.keys(
+            parseStringRecord(card.HiddenAbilityIds)
+          ).map(parseFloat),
+          LinkedFaceGrpIds: Object.keys(
+            parseStringRecord(card.LinkedFaceGrpIds)
+          ).map(parseFloat),
+          AbilityIdToLinkedTokenGrpId: parseStringRecord(
+            card.AbilityIdToLinkedTokenGrpId
+          ),
+          AbilityIdToLinkedConjurations: parseStringRecord(
+            card.AbilityIdToLinkedConjurations
+          ),
+          AdditionalFrameDetails: Object.keys(
+            parseStringRecord(card.AdditionalFrameDetails)
+          ),
+          RankData: {
+            rankSource: -1,
+          },
+          Reprints: [],
         };
 
-        let scryfallObject: CardApiResponse | undefined = undefined;
-        let scryfallSet =
-          setNames[set] && SETS_DATA[setNames[set]]
-            ? SETS_DATA[setNames[set]].scryfall
-            : "";
-        if ((set === "y22" || set === "y23") && card.DigitalReleaseSet) {
-          scryfallSet =
-            setNames[card.DigitalReleaseSet] &&
-            SETS_DATA[setNames[card.DigitalReleaseSet]]
-              ? SETS_DATA[setNames[card.DigitalReleaseSet]].scryfall
-              : "";
-        }
-        //scryfallSet = DIGITAL_SETS_DATA[set]
-        //  ? DIGITAL_SETS_DATA[set].scryfall
-        //  : "";
-        if (!card.IsToken) {
-          const orig = scryfallSet + collector;
-          const replace = replaceCardData(cardId);
-          if (replace.scryfallSet) scryfallSet = replace.scryfallSet;
-          if (replace.collector) collector = replace.collector;
+        const setCode = SETS_DATA[cardObj.Set]
+          ? SETS_DATA[cardObj.Set].code
+          : "";
 
-          if (card.IsRebalanced) {
-            collector = `A-${collector}`;
-          }
-
-          if (orig !== scryfallSet + collector) {
-            const origSet = cardObj.set;
-            const sName = Object.keys(SETS_DATA).filter(
-              (key) => SETS_DATA[key].scryfall == scryfallSet
-            )[0];
-            cardObj.set = SETS_DATA[sName]?.arenacode || origSet;
-          }
-        } else {
-          // If the card is a token the scryfall set name begins with "t"
-          scryfallSet = "t" + scryfallSet;
-
-          if (cardId == 74596) {
-            collector = "6";
-            scryfallSet = "pr2";
-          }
-          if (cardId == 74597) {
-            collector = "6";
-            scryfallSet = "p04";
-          }
-          if (cardId == 71670) {
-            collector = "9";
-            scryfallSet = "tlrw";
-          }
-          if (cardId == 68808) {
-            collector = "10";
-            scryfallSet = "tmh1";
-          }
-          if (cardId == 68809) {
-            collector = "8";
-            scryfallSet = "tcn2";
-          }
-        }
-
-        if (cardId === 78768 || cardId === 78769 || cardId === 78770) {
-          scryfallSet = "t" + scryfallSet;
-        }
-
-        // Get scryfall object
-        scryfallObject = getScryfallCard(
-          ScryfallCards,
-          lang,
-          scryfallSet,
-          englishName,
-          collector,
-          cardObj.artist
-        );
-
-        const linkedFaces = parseStringArray(card.LinkedFaceGrpIds || "");
-        if (linkedFaces && linkedFaces.length > 0) {
-          cardObj.dfcId = linkedFaces.map(parseInt)[0];
-        } else {
-          cardObj.dfcId = false;
-        }
-
-        // Use the name if available
-        if (scryfallObject && scryfallObject.printed_name) {
-          cardObj.name = scryfallObject.printed_name;
-        }
-
-        // Add ranks data
-        let scryfallName = englishName;
-        if (scryfallObject) {
-          scryfallName = scryfallObject.name;
-        }
-
-        const setCode = SETS_DATA[set] ? SETS_DATA[set].code : "";
-        if (ranksData[setCode] && ranksData[setCode][scryfallName]) {
-          const rData = ranksData[setCode][scryfallName];
+        if (ranksData[setCode] && ranksData[setCode][englishName]) {
+          const rData = ranksData[setCode][englishName];
           //console.log(setCode, scryfallName, JSON.stringify(rData).slice(0, 50));
           if (rData.rankSource === RATINGS_MTGCSR) {
-            cardObj.source = RATINGS_MTGCSR;
-            cardObj.rank = Math.round(rData.rank);
-            cardObj.rank_values = rData.values;
-            cardObj.rank_controversy = rData.cont;
+            cardObj.RankData = rData;
           } else if (rData.rankSource === RATINGS_LOLA) {
-            cardObj.source = RATINGS_LOLA;
-            cardObj.rank = Math.round(rData.rank);
-            cardObj.side = rData.side;
-            cardObj.ceil = rData.ceil;
-            cardObj.rank_values = rData.values;
+            cardObj.RankData = rData;
           } else if (rData.rankSource === RATINGS_LOLA_B) {
-            cardObj.source = RATINGS_LOLA;
-            cardObj.rank = Math.round(rData.rank);
-            cardObj.side = rData.side;
-            cardObj.ceil = rData.ceil;
-            cardObj.rank_values = rData.values;
+            cardObj.RankData = rData;
           }
-        } else {
-          //console.log("No ranks for " + scryfallName + ", set: " + setCode);
-          cardObj.rankSource = -1;
-          cardObj.rank = 0;
-          cardObj.rank_values = 0;
-          cardObj.rank_controversy = 0;
         }
 
-        cardObj.set_digital = card.DigitalReleaseSet ?? "";
-
-        if (
-          scryfallObject == undefined ||
-          scryfallObject.image_uris == undefined
-        ) {
-          // Every language has failed..
-          console.log(
-            `No scryfall data for [${lang}] ${cardObj.name} (${englishName}) - ${scryfallSet}/${card.CollectorNumber} (${collector}) artist: ${cardObj.artist} grpId: ${cardObj.id}`
-          );
-          cardObj.images = {};
-        } else {
-          if (scryfallObject.image_uris) {
-            Object.keys(scryfallObject.image_uris).forEach((key) => {
-              const k = key as keyof ImageUris;
-              // Remove the first part of the URLs and some
-              // links that are not used by tool.
-              // This reduces the file size subtantially
-              if (
-                scryfallObject?.image_uris &&
-                k !== "png" &&
-                k !== "border_crop"
-              ) {
-                scryfallObject.image_uris[k] = scryfallObject.image_uris[k];
-              }
-            });
-          }
-          // if (scryfallObject.booster == true) {
-          //   cardObj.booster = true;
-          // }
-          cardObj.images = scryfallObject.image_uris;
-        }
-        if (!altCards.includes(cardObj.id)) {
-          cardsFinal[cardObj.id] = cardObj;
-        }
+        cardsFinal[cardObj.GrpId] = cardObj;
       });
 
       // Add reprints and split cards references
       Object.keys(cardsFinal).forEach((key) => {
-        const card: DbCardData | undefined = cardsFinal[parseInt(key)];
+        const card: DbCardDataV2 | undefined = cardsFinal[parseInt(key)];
 
-        if (card && card.frame) {
-          if (card.dfc == 5 && card.frame.length == 0) {
-            const did = card.dfcId;
-            if (did && did !== true) {
-              card.frame = cardsFinal[did].frame;
-            }
-            card.dfcId = did;
-          }
-        }
-
-        card.reprints = false;
-        if (card.rarity !== "token" && card.rarity !== "land") {
+        if (!card.IsToken && card.Rarity !== "land") {
           const arr: number[] = [];
 
           Object.keys(cardsFinal).forEach((key) => {
-            const cardLoop: DbCardData | undefined = cardsFinal[parseInt(key)];
+            const cardLoop: DbCardDataV2 | undefined =
+              cardsFinal[parseInt(key)];
             if (
               cardLoop &&
-              cardLoop.name == card.name &&
-              cardLoop.id !== card.id
+              cardLoop.Name == card.Name &&
+              cardLoop.GrpId !== card.GrpId
             ) {
-              arr.push(cardLoop.id);
+              arr.push(cardLoop.GrpId);
             }
           });
 
           if (arr.length > 0) {
-            card.reprints = arr;
+            card.Reprints = arr;
           }
         }
       });
