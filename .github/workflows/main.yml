@@ -8,11 +8,6 @@ jobs:
   bump-version:
     name: Bump version (${{ github.sha }})
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [16.x]
-
     steps:
       - name: "Checkout source code"
         uses: "actions/checkout@v1"
@@ -20,10 +15,10 @@ jobs:
           ref: ${{ github.ref }}
       - name: "cat package.json"
         run: cat ./package.json
-      - name: Use node ${{ matrix.node_version }}
+      - name: Use node
         uses: actions/setup-node@v1
         with:
-          version: ${{ matrix.node_version }}
+          version: 16.x
       - name: Test
         run: |
           npm install
