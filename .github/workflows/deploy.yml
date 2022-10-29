@@ -22,7 +22,7 @@ jobs:
           version: 16.x
       - name: Test
         run: |
-          npm install
+          npm install --legacy-peer-deps
           npm test
       - name: Build
         run: |
