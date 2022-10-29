@@ -96,9 +96,9 @@ function getCards(): Record<string, Card> {
     value: [],
   };
   try {
-    cards = JSON.parse(`{"value": ${fs.readFileSync(file)}}`);
+    cards = JSON.parse(`{"value": ${fs.readFileSync(file, "utf8")}}`);
   } catch (e) {
-    console.error(fs.readFileSync(file));
+    console.error(fs.readFileSync(file, "utf8"));
     console.error(e);
   }
 
