@@ -116,12 +116,11 @@ function extractSqlite(data: string[]): Promise<string[]> {
 
   const enumPromise = new Promise<boolean>((resolve) => {
     db.all(`SELECT * FROM "Enums"`, {}, (a, b) => {
-      console.warn("enums output:", JSON.stringify(b)),
-        fs.writeFile(
-          path.join(APPDATA, EXTERNAL, "enums.json"),
-          JSON.stringify(b),
-          () => resolve(true)
-        );
+      fs.writeFile(
+        path.join(APPDATA, EXTERNAL, "enums.json"),
+        JSON.stringify(b),
+        () => resolve(true)
+      );
     });
   });
 
