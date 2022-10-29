@@ -23,6 +23,7 @@ jobs:
       - name: Test
         run: |
           npm install
+          npm run start
           npm test
       - name: Build
         run: |
