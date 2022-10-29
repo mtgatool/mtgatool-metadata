@@ -131,12 +131,13 @@ function extractSqlite(data: string[]): Promise<string[]> {
   });
 
   return Promise.all([
+    cardsPromise,
     locPromise,
     abilitiesPromise,
     enumPromise,
-    cardsPromise,
   ]).then(() => {
     db.close();
+    console.log("Extracted all sqlite files..");
     return data;
   });
 }
