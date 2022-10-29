@@ -8,6 +8,10 @@ jobs:
   bump-version:
     name: Bump version (${{ github.sha }})
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [16.x]
 
     steps:
       - name: "Checkout source code"
