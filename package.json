@@ -42,7 +42,7 @@
     "request": "^2.88.2",
     "scryfall-client": "^0.22.0",
     "sqlite3": "^5.0.8",
-    "ssh2-sftp-client": "^4.3.1",
+    "ssh2-sftp-client": "^9.0.4",
     "strip-json-comments": "^3.1.1",
     "xmlhttprequest-ts": "^1.0.1"
   },
