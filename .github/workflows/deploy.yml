@@ -19,7 +19,7 @@ jobs:
       - name: Use node
         uses: actions/setup-node@v1
         with:
-          version: 16.x
+          version: 16.10.0
       - name: Test
         run: |
           npm install --legacy-peer-deps
