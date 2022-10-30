@@ -141,7 +141,7 @@ function extractSqlite(data: string[]): Promise<string[]> {
     enumPromise,
   ]).then(() => {
     db.close();
-    console.log("Extracted all sqlite files..");
+    console.log("Extracted all sqlite files.");
     return data;
   });
 }
