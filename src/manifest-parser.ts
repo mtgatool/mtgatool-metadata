@@ -11,7 +11,7 @@ import httpGetText from "./utils/httpGetText";
 import downloadManifest from "./downloadManifest";
 import { pickManifest } from "./pickManifest";
 import requestManifestData from "./requestManifestData";
-import { reject } from "lodash";
+
 import asyncSleep from "./asyncSleep";
 
 export function getArenaVersion(channel = "Live"): Promise<string> {
