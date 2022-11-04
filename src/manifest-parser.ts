@@ -12,6 +12,7 @@ import downloadManifest from "./downloadManifest";
 import { pickManifest } from "./pickManifest";
 import requestManifestData from "./requestManifestData";
 import { reject } from "lodash";
+import asyncSleep from "./asyncSleep";
 
 export function getArenaVersion(channel = "Live"): Promise<string> {
   return new Promise((resolve) => {
@@ -44,6 +45,7 @@ export function getManifestFiles(version: string): Promise<string[]> {
     .then((data) => downloadManifest(data))
     .then((manifests) => pickManifest(manifests))
     .then((data) => processManifest(data))
+    .then(asyncSleep<string[]>(1000))
     .then((data) => extractSqlite(data));
 }
 
