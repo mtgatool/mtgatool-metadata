@@ -1118,6 +1118,7 @@ export const COLORS = [
 ];
 
 export const RARITY: Rarity[] = [
+  "token",
   "land",
   "common",
   "uncommon",
