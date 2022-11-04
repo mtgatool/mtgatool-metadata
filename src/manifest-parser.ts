@@ -3,7 +3,7 @@ import path from "path";
 import fs from "fs";
 import zlib from "zlib";
 
-import sqlite3 from "sqlite3";
+import Database from "better-sqlite3";
 
 import { APPDATA, EXTERNAL } from "./metadata-constants";
 import { ArenaVersion, ManifestJSON } from "./types/parser";
@@ -95,62 +95,50 @@ function extractSqlite(data: string[]): Promise<string[]> {
   console.log("CardDatabase.json exists?", fs.existsSync(cardsdbPath));
 
   return new Promise((resolve, reject) => {
-    const db = new sqlite3.Database(cardsdbPath, (err) => {
-      if (err) reject(err);
-      else {
-        db.serialize(() => {
-          const locPromise = new Promise<boolean>((resolve) => {
-            db.all(`SELECT * FROM "Localizations"`, {}, (a, b) => {
-              fs.writeFile(
-                path.join(APPDATA, EXTERNAL, "loc.json"),
-                JSON.stringify(b),
-                () => resolve(true)
-              );
-            });
-          });
+    const db = Database(cardsdbPath);
 
-          const abilitiesPromise = new Promise<boolean>((resolve) => {
-            db.all(`SELECT * FROM "Abilities"`, {}, (a, b) => {
-              fs.writeFile(
-                path.join(APPDATA, EXTERNAL, "abilities.json"),
-                JSON.stringify(b),
-                () => resolve(true)
-              );
-            });
-          });
-
-          const enumPromise = new Promise<boolean>((resolve) => {
-            db.all(`SELECT * FROM "Enums"`, {}, (a, b) => {
-              fs.writeFile(
-                path.join(APPDATA, EXTERNAL, "enums.json"),
-                JSON.stringify(b),
-                () => resolve(true)
-              );
-            });
-          });
-
-          const cardsPromise = new Promise<boolean>((resolve) => {
-            db.all(`SELECT * FROM "Cards"`, {}, (a, b) => {
-              fs.writeFile(
-                path.join(APPDATA, EXTERNAL, "cards.json"),
-                JSON.stringify(b),
-                () => resolve(true)
-              );
-            });
-          });
-
-          Promise.all([
-            cardsPromise,
-            locPromise,
-            abilitiesPromise,
-            enumPromise,
-          ]).then(() => {
-            db.close();
-            console.log("Extracted all sqlite files.");
-            resolve(data);
-          });
-        });
-      }
+    const locPromise = new Promise<boolean>((resolve) => {
+      const data = db.prepare(`SELECT * FROM Localizations`).all();
+      fs.writeFile(
+        path.join(APPDATA, EXTERNAL, "loc.json"),
+        JSON.stringify(data),
+        () => resolve(true)
+      );
     });
+
+    const abilitiesPromise = new Promise<boolean>((resolve) => {
+      const data = db.prepare(`SELECT * FROM Abilities`).all();
+      fs.writeFile(
+        path.join(APPDATA, EXTERNAL, "abilities.json"),
+        JSON.stringify(data),
+        () => resolve(true)
+      );
+    });
+
+    const enumPromise = new Promise<boolean>((resolve) => {
+      const data = db.prepare(`SELECT * FROM Enums`).all();
+      fs.writeFile(
+        path.join(APPDATA, EXTERNAL, "enums.json"),
+        JSON.stringify(data),
+        () => resolve(true)
+      );
+    });
+
+    const cardsPromise = new Promise<boolean>((resolve) => {
+      const data = db.prepare(`SELECT * FROM Cards`).all();
+      fs.writeFile(
+        path.join(APPDATA, EXTERNAL, "cards.json"),
+        JSON.stringify(data),
+        () => resolve(true)
+      );
+    });
+
+    Promise.all([cardsPromise, locPromise, abilitiesPromise, enumPromise]).then(
+      () => {
+        db.close();
+        console.log("Extracted all sqlite files.");
+        resolve(data);
+      }
+    );
   });
 }
