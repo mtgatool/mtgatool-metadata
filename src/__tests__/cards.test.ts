@@ -56,9 +56,9 @@ describe("Check cards data", () => {
       parseStringArray(teferi.FrameColors).map(parseFloat).sort()
     ).toStrictEqual([1, 2]);
     expect(teferi.IndicatorColors).toBe(null);
-    expect(
-      parseStringArray(teferi.Types).map(parseFloat).sort()
-    ).toStrictEqual([8]);
+    expect(parseStringArray(teferi.Types).map(parseFloat).sort()).toStrictEqual(
+      [8]
+    );
     expect(
       parseStringArray(teferi.Subtypes).map(parseFloat).sort()
     ).toStrictEqual([325]);
@@ -86,7 +86,65 @@ describe("Check cards data", () => {
     expect(teferi.Order_Title).toBe("teferitimeraveler");
     expect(teferi.Order_MythicToCommon).toBe(1);
     expect(teferi.Order_BasicLandsFirst).toBe(1);
-    expect(Object.keys(teferi).length).toBe(54);
+    expect(teferi.ReminderTextId).toBe(0);
+
+    expect(Object.keys(teferi).sort()).toStrictEqual([
+      "AbilityIdToLinkedConjurations",
+      "AbilityIdToLinkedTokenGrpId",
+      "AbilityIds",
+      "AdditionalFrameDetails",
+      "AltTitleId",
+      "AlternateDeckLimit",
+      "ArtId",
+      "ArtPath",
+      "ArtSize",
+      "ArtistCredit",
+      "CollectorMax",
+      "CollectorNumber",
+      "ColorIdentity",
+      "Colors",
+      "DefunctRebalancedCardGrpId",
+      "DigitalReleaseSet",
+      "ExpansionCode",
+      "ExtraFrameDetails",
+      "FlavorTextId",
+      "FrameColors",
+      "GrpId",
+      "HiddenAbilityIds",
+      "IndicatorColors",
+      "IsDigitalOnly",
+      "IsPrimaryCard",
+      "IsRebalanced",
+      "IsToken",
+      "KnownSupportedStyles",
+      "LinkedAbilityTemplateCardGrpIds",
+      "LinkedFaceGrpIds",
+      "LinkedFaceType",
+      "OldSchoolManaText",
+      "Order_BasicLandsFirst",
+      "Order_CMCWithXLast",
+      "Order_ColorOrder",
+      "Order_CreaturesFirst",
+      "Order_LandLast",
+      "Order_ManaCostDifficulty",
+      "Order_MythicToCommon",
+      "Order_Title",
+      "Power",
+      "Rarity",
+      "RawFrameDetail",
+      "RebalancedCardGrpId",
+      "ReminderTextId",
+      "SubtypeTextId",
+      "Subtypes",
+      "Supertypes",
+      "TextChangeData",
+      "TitleId",
+      "Toughness",
+      "TypeTextId",
+      "Types",
+      "UsesSideboard",
+      "Watermark",
+    ]);
   });
 });
 

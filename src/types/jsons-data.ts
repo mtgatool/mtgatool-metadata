@@ -79,4 +79,5 @@ export interface Card {
   Order_Title: string | null;
   Order_MythicToCommon: number | null;
   Order_BasicLandsFirst: number | null;
+  ReminderTextId: number;
 }

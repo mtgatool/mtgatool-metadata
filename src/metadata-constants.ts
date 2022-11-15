@@ -1088,6 +1088,22 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2022-10-07",
   },
+  "The Brothers' War": {
+    collation: 100030,
+    scryfall: "bro",
+    code: "BRO",
+    arenacode: "BRO",
+    tile: 67003,
+    release: "2022-11-18",
+  },
+  "The Brothers' War Retro Artifacts": {
+    collation: 100030,
+    scryfall: "brr",
+    code: "BRR",
+    arenacode: "BRR",
+    tile: 67003,
+    release: "2022-11-18",
+  },
 };
 
 export const DIGITAL_SETS = [
