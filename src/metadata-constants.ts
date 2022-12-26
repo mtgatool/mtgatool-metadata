@@ -1104,6 +1104,22 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2022-11-18",
   },
+  "Explorer Anthology 2": {
+    collation: -1,
+    scryfall: "ea2",
+    code: "EA2",
+    arenacode: "EA2",
+    tile: 67003,
+    release: "2022-12-13",
+  },
+  "Alchemy: The Brothers' War": {
+    collation: 100029,
+    scryfall: "ybro",
+    code: "Y23-BRO",
+    arenacode: "Y23-BRO",
+    tile: 67003,
+    release: "2022-12-13",
+  },
 };
 
 export const DIGITAL_SETS = [
@@ -1119,6 +1135,7 @@ export const DIGITAL_SETS = [
   "Alchemy: New Capenna",
   "Alchemy: Dominaria",
   "Alchemy Horizons: Baldur's Gate",
+  "Alchemy: The Brothers' War",
 ];
 
 export const COLORS = [
