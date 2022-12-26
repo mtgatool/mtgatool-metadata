@@ -1120,6 +1120,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2022-12-13",
   },
+  "Urza's Saga": {
+    collation: 100029,
+    scryfall: "usg",
+    code: "USG",
+    arenacode: "USG",
+    tile: 67003,
+    release: "1998-10-12",
+  },
 };
 
 export const DIGITAL_SETS = [
