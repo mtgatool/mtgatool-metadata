@@ -6,7 +6,6 @@
   <b><h1>MTG Arena Tool Metadata Generator</h1></b>
 </p>
 
-
 A metadata generator for [MTG Arena Tool](https://github.com/Manuel-777/MTG-Arena-Tool).
 Magic Cards database is downloaded from [Scryfall.com](http://scryfall.com), then put together using MTG Arena's cards data.
 
