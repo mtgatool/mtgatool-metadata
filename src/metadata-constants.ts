@@ -1113,7 +1113,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2022-12-13",
   },
   "Alchemy: The Brothers' War": {
-    collation: 100029,
+    collation: 100031,
     scryfall: "ybro",
     code: "Y23-BRO",
     arenacode: "Y23-BRO",
@@ -1121,7 +1121,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2022-12-13",
   },
   "Urza's Saga": {
-    collation: 100029,
+    collation: -1,
     scryfall: "usg",
     code: "USG",
     arenacode: "USG",
@@ -1138,6 +1138,7 @@ export const DIGITAL_SETS = [
   "Historic Anthology 5",
   "Historic Anthology 6",
   "Explorer Anthology 1",
+  "Explorer Anthology 2",
   "Alchemy: Innistrad",
   "Alchemy: Kamigawa",
   "Alchemy: New Capenna",
