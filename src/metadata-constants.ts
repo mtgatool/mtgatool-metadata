@@ -1128,6 +1128,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "1998-10-12",
   },
+  "Phyrexia: All Will Be One": {
+    collation: -1,
+    scryfall: "one",
+    code: "ONE",
+    arenacode: "ONE",
+    tile: 67003,
+    release: "2023-02-03",
+  },
 };
 
 export const DIGITAL_SETS = [
