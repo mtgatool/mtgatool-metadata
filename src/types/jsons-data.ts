@@ -53,6 +53,7 @@ export interface Card {
   RawFrameDetail: string;
   Watermark: string | null;
   TextChangeData: string | null;
+  Tags: string | null;
   Power: number | null;
   Toughness: number | null;
   Colors: string;

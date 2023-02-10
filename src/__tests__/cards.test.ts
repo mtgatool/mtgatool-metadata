@@ -78,6 +78,7 @@ describe("Check cards data", () => {
     ).toStrictEqual(["DA", "SG"]);
     expect(teferi.AdditionalFrameDetails).toBe("gold");
     expect(teferi.ExtraFrameDetails).toBe(null);
+    expect(teferi.Tags).toBe(null);
     expect(teferi.Order_LandLast).toBe(0);
     expect(teferi.Order_ColorOrder).toBe(5);
     expect(teferi.Order_CreaturesFirst).toBe(1);
@@ -137,6 +138,7 @@ describe("Check cards data", () => {
       "SubtypeTextId",
       "Subtypes",
       "Supertypes",
+      "Tags",
       "TextChangeData",
       "TitleId",
       "Toughness",
