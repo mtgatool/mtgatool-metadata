@@ -1129,7 +1129,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "1998-10-12",
   },
   "Phyrexia: All Will Be One": {
-    collation: -1,
+    collation: 100032,
     scryfall: "one",
     code: "ONE",
     arenacode: "ONE",
