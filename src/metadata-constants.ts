@@ -1136,6 +1136,30 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2023-02-03",
   },
+  "Alchemy: Phyrexia": {
+    collation: 100033,
+    scryfall: "yone",
+    code: "Y23-ONE",
+    arenacode: "Y23-ONE",
+    tile: 67003,
+    release: "2023-02-28",
+  },
+  "Shadows of the Past": {
+    collation: 100034,
+    scryfall: "sis",
+    code: "SIS",
+    arenacode: "SIS",
+    tile: 67003,
+    release: "2023-03-21",
+  },
+  "Shadows over Innistrad Remastered": {
+    collation: 100034,
+    scryfall: "sir",
+    code: "SIR",
+    arenacode: "SIR",
+    tile: 67003,
+    release: "2023-03-21",
+  },
 };
 
 export const DIGITAL_SETS = [
@@ -1153,6 +1177,8 @@ export const DIGITAL_SETS = [
   "Alchemy: Dominaria",
   "Alchemy Horizons: Baldur's Gate",
   "Alchemy: The Brothers' War",
+  "Alchemy: Phyrexia",
+  "Shadows over Innistrad Remastered",
 ];
 
 export const COLORS = [

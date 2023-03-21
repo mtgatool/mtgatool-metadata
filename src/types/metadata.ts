@@ -57,7 +57,7 @@ export interface DbCardDataV2 {
   ArtistCredit: string;
   Rarity: Rarity;
   Set: string;
-  DigitalSet: string | null;
+  DigitalSet: string;
   IsToken: boolean;
   IsPrimaryCard: boolean;
   IsDigitalOnly: boolean;
@@ -71,8 +71,8 @@ export interface DbCardDataV2 {
   Cmc: number;
   LinkedFaceType: number;
   RawFrameDetail: string;
-  Power: number | null;
-  Toughness: number | null;
+  Power: string;
+  Toughness: string;
   Colors: number[];
   ColorIdentity: number[];
   FrameColors: number[];

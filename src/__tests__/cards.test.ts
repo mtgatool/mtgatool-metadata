@@ -15,7 +15,7 @@ describe("Check cards data", () => {
     expect(teferi).toBeDefined();
     expect(teferi.GrpId).toBe(69670);
     expect(teferi.ArtId).toBe(406680);
-    expect(teferi.ArtPath).toBe(null);
+    expect(teferi.ArtPath).toBe("");
     expect(teferi.TitleId).toBe(336891);
     expect(teferi.AltTitleId).toBe(0);
     expect(teferi.FlavorTextId).toBe(1);
@@ -25,7 +25,7 @@ describe("Check cards data", () => {
     expect(teferi.ArtSize).toBe(1);
     expect(teferi.Rarity).toBe(4);
     expect(teferi.ExpansionCode).toBe("WAR");
-    expect(teferi.DigitalReleaseSet).toBe(null);
+    expect(teferi.DigitalReleaseSet).toBe("");
     expect(teferi.IsToken).toBe(0);
     expect(teferi.IsPrimaryCard).toBe(1);
     expect(teferi.IsDigitalOnly).toBe(0);
@@ -42,9 +42,9 @@ describe("Check cards data", () => {
       "WU gold planeswalker",
       " 3 abilities",
     ]);
-    expect(teferi.Watermark).toBe(null);
-    expect(teferi.TextChangeData).toBe(null);
-    expect(teferi.Power).toBe(null);
+    expect(teferi.Watermark).toBe("");
+    expect(teferi.TextChangeData).toBe("");
+    expect(teferi.Power).toBe("");
     expect(teferi.Toughness).toBe("4");
     expect(
       parseStringArray(teferi.Colors).map(parseFloat).sort()
@@ -55,7 +55,7 @@ describe("Check cards data", () => {
     expect(
       parseStringArray(teferi.FrameColors).map(parseFloat).sort()
     ).toStrictEqual([1, 2]);
-    expect(teferi.IndicatorColors).toBe(null);
+    expect(teferi.IndicatorColors).toBe("");
     expect(parseStringArray(teferi.Types).map(parseFloat).sort()).toStrictEqual(
       [8]
     );
@@ -68,17 +68,17 @@ describe("Check cards data", () => {
     expect(
       parseStringArray(teferi.AbilityIds).map(parseFloat).sort()
     ).toStrictEqual([133144, 133145, 6363]);
-    expect(teferi.HiddenAbilityIds).toBe(null);
-    expect(teferi.LinkedFaceGrpIds).toBe(null);
-    expect(teferi.LinkedAbilityTemplateCardGrpIds).toBe(null);
-    expect(teferi.AbilityIdToLinkedTokenGrpId).toBe(null);
-    expect(teferi.AbilityIdToLinkedConjurations).toBe(null);
+    expect(teferi.HiddenAbilityIds).toBe("");
+    expect(teferi.LinkedFaceGrpIds).toBe("");
+    expect(teferi.LinkedAbilityTemplateCardGrpIds).toBe("");
+    expect(teferi.AbilityIdToLinkedTokenGrpId).toBe("");
+    expect(teferi.AbilityIdToLinkedConjurations).toBe("");
     expect(
       parseStringArray(teferi.KnownSupportedStyles || "").sort()
     ).toStrictEqual(["DA", "SG"]);
     expect(teferi.AdditionalFrameDetails).toBe("gold");
-    expect(teferi.ExtraFrameDetails).toBe(null);
-    expect(teferi.Tags).toBe(null);
+    expect(teferi.ExtraFrameDetails).toBe("");
+    expect(teferi.Tags).toBe("");
     expect(teferi.Order_LandLast).toBe(0);
     expect(teferi.Order_ColorOrder).toBe(5);
     expect(teferi.Order_CreaturesFirst).toBe(1);
