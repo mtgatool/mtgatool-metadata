@@ -1169,7 +1169,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2023-04-21",
   },
   "Multiverse Legends": {
-    collation: -1,
+    collation: 100036,
     scryfall: "mul",
     code: "MUL",
     arenacode: "MUL",
