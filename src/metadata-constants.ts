@@ -1160,6 +1160,30 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2023-03-21",
   },
+  "March of the Machine": {
+    collation: 100035,
+    scryfall: "mom",
+    code: "MOM",
+    arenacode: "MOM",
+    tile: 67003,
+    release: "2023-04-21",
+  },
+  "Multiverse Legends": {
+    collation: -1,
+    scryfall: "mul",
+    code: "MUL",
+    arenacode: "MUL",
+    tile: 67003,
+    release: "2023-04-21",
+  },
+  "March of the Machine Commander": {
+    collation: -1,
+    scryfall: "moc",
+    code: "MOC",
+    arenacode: "MOC",
+    tile: 67003,
+    release: "2023-04-21",
+  },
 };
 
 export const DIGITAL_SETS = [
