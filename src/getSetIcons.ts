@@ -137,16 +137,14 @@ ${errors.join(" ")}
                   }
                 })
                 .catch((e) => {
-                  process.stdout.write("Error fetching SVG >");
-                  process.stdout.write(code);
+                  process.stdout.write("Error fetching SVG > " + code);
                   process.stdout.write(e);
                 });
             },
             () => setSetRequestState(setName, -1)
           )
           .catch((e) => {
-            process.stdout.write("Error fetching set data >");
-            process.stdout.write(code);
+            process.stdout.write("Error fetching set data > " + code);
             process.stdout.write(e);
           });
       }
