@@ -34,7 +34,9 @@ jobs:
           GITHUB_EMAIL: 'mtgatool@gmail.com'
           GITHUB_USER: 'mtgatool-bot'
         with:
+          tag-prefix:  'v'
           major-wording:  'add,feat,minor,breaking,patch,fix'
+          rc-wording:     'RELEASE'
 
       - name: "cat package.json"
         run: cat ./package.json
