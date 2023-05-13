@@ -16,19 +16,25 @@ jobs:
           ref: ${{ github.ref }}
       - name: "cat package.json"
         run: cat ./package.json
+
       - name: Use node
         uses: actions/setup-node@v1
         with:
           version: 16.10.0
+    
       - name: Test
         run: |
           npm install --legacy-peer-deps
           npm test
-      - name: "Version Bump"
-        uses: "Manuel-777/gh-action-bump-version@master"
-        with:
-          tag-prefix: ''
+
+      - name:  'Automated Version Bump'
+        uses:  'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_EMAIL: 'mtgatool@gmail.com'
+          GITHUB_USER: 'mtgatool-bot'
+        with:
+          major-wording:  'add,feat,minor,breaking,patch,fix'
+
       - name: "cat package.json"
         run: cat ./package.json
