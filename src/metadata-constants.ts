@@ -320,6 +320,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 64827,
     release: "2012-05-04",
   },
+  "Urza's Saga": {
+    collation: -1,
+    scryfall: "usg",
+    code: "USG",
+    arenacode: "USG",
+    tile: 67003,
+    release: "1998-10-12",
+  },
   "Champions of Kamigawa": {
     collation: -1,
     scryfall: "chk",
@@ -888,14 +896,6 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 71783,
     release: "2020-06-04",
   },
-  "Zendikar Rising": {
-    collation: 100020,
-    scryfall: "znr",
-    code: "ZNR",
-    arenacode: "ZNR",
-    tile: 67003,
-    release: "2020-09-25",
-  },
   "Amonkhet Remastered": {
     collation: 100019,
     scryfall: "akr",
@@ -903,6 +903,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     arenacode: "AKR",
     tile: 67003,
     release: "2020-08-13",
+  },
+  "Zendikar Rising": {
+    collation: 100020,
+    scryfall: "znr",
+    code: "ZNR",
+    arenacode: "ZNR",
+    tile: 67003,
+    release: "2020-09-25",
   },
   "Kaladesh Remastered": {
     collation: 100021,
@@ -993,7 +1001,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2022-06-02",
   },
   "Dominaria United": {
-    collation: 400028,
+    collation: 100030,
     scryfall: "dmu",
     code: "DMU",
     arenacode: "DMU",
@@ -1064,6 +1072,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2022-07-28",
   },
+  "Explorer Anthology 2": {
+    collation: -1,
+    scryfall: "ea2",
+    code: "EA2",
+    arenacode: "EA2",
+    tile: 67003,
+    release: "2022-12-13",
+  },
   "Alchemy Horizons: Baldur's Gate": {
     collation: 100029,
     scryfall: "hbg",
@@ -1073,7 +1089,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2022-07-07",
   },
   "Alchemy: Dominaria": {
-    collation: 100029,
+    collation: 400030,
     scryfall: "ydmu",
     code: "Y23-DMU",
     arenacode: "Y23-DMU",
@@ -1081,7 +1097,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2022-10-05",
   },
   Unfinity: {
-    collation: 100029,
+    collation: 999991,
     scryfall: "unf",
     code: "UNF",
     arenacode: "UNF",
@@ -1089,7 +1105,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2022-10-07",
   },
   "The Brothers' War": {
-    collation: 100030,
+    collation: 100031,
     scryfall: "bro",
     code: "BRO",
     arenacode: "BRO",
@@ -1097,36 +1113,20 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2022-11-18",
   },
   "The Brothers' War Retro Artifacts": {
-    collation: 100030,
+    collation: 999990,
     scryfall: "brr",
     code: "BRR",
     arenacode: "BRR",
     tile: 67003,
     release: "2022-11-18",
   },
-  "Explorer Anthology 2": {
-    collation: -1,
-    scryfall: "ea2",
-    code: "EA2",
-    arenacode: "EA2",
-    tile: 67003,
-    release: "2022-12-13",
-  },
   "Alchemy: The Brothers' War": {
-    collation: 100031,
+    collation: 400031,
     scryfall: "ybro",
     code: "Y23-BRO",
     arenacode: "Y23-BRO",
     tile: 67003,
     release: "2022-12-13",
-  },
-  "Urza's Saga": {
-    collation: -1,
-    scryfall: "usg",
-    code: "USG",
-    arenacode: "USG",
-    tile: 67003,
-    release: "1998-10-12",
   },
   "Phyrexia: All Will Be One": {
     collation: 100032,
@@ -1137,7 +1137,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2023-02-03",
   },
   "Alchemy: Phyrexia": {
-    collation: 100033,
+    collation: 400032,
     scryfall: "yone",
     code: "Y23-ONE",
     arenacode: "Y23-ONE",
@@ -1145,7 +1145,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2023-02-28",
   },
   "Shadows of the Past": {
-    collation: 100034,
+    collation: -1,
     scryfall: "sis",
     code: "SIS",
     arenacode: "SIS",
@@ -1153,7 +1153,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2023-03-21",
   },
   "Shadows over Innistrad Remastered": {
-    collation: 100034,
+    collation: 100033,
     scryfall: "sir",
     code: "SIR",
     arenacode: "SIR",
@@ -1161,7 +1161,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2023-03-21",
   },
   "March of the Machine": {
-    collation: 100035,
+    collation: 100037,
     scryfall: "mom",
     code: "MOM",
     arenacode: "MOM",
@@ -1169,7 +1169,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2023-04-21",
   },
   "Multiverse Legends": {
-    collation: 100036,
+    collation: 999994,
     scryfall: "mul",
     code: "MUL",
     arenacode: "MUL",
@@ -1183,6 +1183,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     arenacode: "MOC",
     tile: 67003,
     release: "2023-04-21",
+  },
+  "March of the Machine: The Aftermath": {
+    collation: 100038,
+    scryfall: "mat",
+    code: "MAT",
+    arenacode: "MAT",
+    tile: 67003,
+    release: "2023-05-12",
   },
 };
 
