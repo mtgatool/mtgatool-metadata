@@ -193,7 +193,7 @@ export function generateMetadata(
           AltName: getText(card.AltTitleId || -1, lang),
           FlavorText: getText(card.FlavorTextId || -1, lang),
           ArtistCredit: card.ArtistCredit,
-          Rarity: RARITY[card.Rarity || 1],
+          Rarity: RARITY[card.Rarity || 0],
           IsToken: !!card.IsToken,
           IsPrimaryCard: !!card.IsPrimaryCard,
           IsDigitalOnly: !!card.IsDigitalOnly,
