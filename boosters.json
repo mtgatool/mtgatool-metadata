@@ -240,6 +240,15 @@
         }
       },
       {
+        "NodeId": "2d16d4b0-1a15-48c7-91da-d9960d77d547",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "5808b4d7938eafa47a2909fc05de7fd0",
+            "RelativePath": "Assets/Core/Art/Meta/BoosterChamber/images/BoosterPack_LTR.tga"
+          }
+        }
+      },
+      {
         "NodeId": "312de920-3f92-4497-b820-846e3e06fcdf",
         "Payload": {
           "TextureRef": {
@@ -272,6 +281,15 @@
           "TextureRef": {
             "Guid": "b94f35e9a8f4f50488be69b3cda7e6d6",
             "RelativePath": "Assets/Core/Art/Meta/BoosterChamber/images/BoosterPack_MOM_Mythic.tga"
+          }
+        }
+      },
+      {
+        "NodeId": "38454750-5fde-4452-a2ef-a26e0721308b",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "661290d8521e5584eafaf9374c855e9b",
+            "RelativePath": "Assets/Core/Art/Meta/BoosterChamber/images/BoosterPack_LTR_Draft.tga"
           }
         }
       },
@@ -671,6 +689,15 @@
           "TextureRef": {
             "Guid": "815f168d6f16c6148836c0db3c59ba27",
             "RelativePath": "Assets/Core/Art/Meta/BoosterChamber/images/BoosterPack_KLR_Draft.tga"
+          }
+        }
+      },
+      {
+        "NodeId": "9aeab09c-3441-4399-b326-700324078ae6",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "e024874f811140c43b39e956b3ae2c7e",
+            "RelativePath": "Assets/Core/Art/Meta/BoosterChamber/images/BoosterPack_LTR_Mythic.tga"
           }
         }
       },
@@ -1093,6 +1120,7 @@
           "100033": "8b1ff58d-3dda-4eae-acce-4c93fb2090d8",
           "100037": "d6035271-0c7b-48fe-b480-9ab0d646c100",
           "100038": "9d1bc48d-2939-43fd-89ab-26153ac974a3",
+          "100039": "2d16d4b0-1a15-48c7-91da-d9960d77d547",
           "200001": "d6606890-1f28-405a-9c7f-0670a7df6fde",
           "200002": "0af75f54-d204-4956-8a5e-0c1534670c0f",
           "200003": "5ffb0fb1-14e3-4fec-9450-98419104a53f",
@@ -1129,6 +1157,7 @@
           "200036": "e39fa62b-5db0-4fa4-b6a6-31abf63b7d25",
           "200037": "fdf7252b-392c-44fe-98aa-86667d51d987",
           "200038": "fcd3da0c-16f7-483b-90d6-660f066cefbc",
+          "200039": "38454750-5fde-4452-a2ef-a26e0721308b",
           "300000": "d84cddd6-0a9d-420f-8f68-143dd69db876",
           "300001": "e2b8eb3a-3e62-4ab0-bebe-072865b735c3",
           "300002": "816af6ed-4a19-4b9c-b795-bc0f025e1a14",
@@ -1161,6 +1190,7 @@
           "500032": "a019f99e-01dc-487c-b2f8-2b6bdb83c7b3",
           "500033": "8c1ff801-9931-4413-99fd-51fbe1e25335",
           "500037": "37ef3698-5679-4004-9e28-1ef768ee0b38",
+          "500039": "9aeab09c-3441-4399-b326-700324078ae6",
           "600028": "bbc7b533-d09d-4819-8dc7-ed9d5989d186",
           "600030": "97e40628-af84-4bcd-a257-df11c7b1f79e",
           "600031": "5bc6461d-11df-4e5e-81b4-3bd48c00e1f8",
@@ -1370,6 +1400,15 @@
         }
       },
       {
+        "NodeId": "26d5aa4e-ba40-4cd5-99a8-10ac0178a434",
+        "Payload": {
+          "SpriteRef": {
+            "Guid": "87dc87d30f2cdf646a0548dbc618886a",
+            "RelativePath": "Assets/Core/Meta/NetworkResources/ServerRewards/ObjectiveIcon_Pack_LTR_Limited.png"
+          }
+        }
+      },
+      {
         "NodeId": "28ddb286-e848-4305-a1d0-cec50668ee31",
         "Payload": {
           "SpriteRef": {
@@ -1478,6 +1517,7 @@
           ],
           "Operation": 0,
           "MinCount": 1,
+          "MaxCount": 1,
           "ExpectedResult": true
         }
       },
@@ -1751,6 +1791,15 @@
           "SpriteRef": {
             "Guid": "c022941c2370a2f47b35e68104ddbad1",
             "RelativePath": "Assets/Core/Meta/NetworkResources/ServerRewards/ObjectiveIcon_Pack_Mystery.png"
+          }
+        }
+      },
+      {
+        "NodeId": "839f39a9-fe28-4500-960e-4ce75856ca4b",
+        "Payload": {
+          "SpriteRef": {
+            "Guid": "b73f0cafa07fea24aab9ef527330496e",
+            "RelativePath": "Assets/Core/Meta/NetworkResources/ServerRewards/ObjectiveIcon_Pack_LTR.png"
           }
         }
       },
@@ -2220,6 +2269,15 @@
         }
       },
       {
+        "NodeId": "f30ec93e-7988-424d-b8da-e9617ee871f0",
+        "Payload": {
+          "SpriteRef": {
+            "Guid": "ff810267ed51d5f45b7d56e2a6b5bdd0",
+            "RelativePath": "Assets/Core/Meta/NetworkResources/ServerRewards/ObjectiveIcon_Pack_LTR_Mythic.png"
+          }
+        }
+      },
+      {
         "NodeId": "f39ea7e3-42ce-4d47-91b4-7401af250d6e",
         "Priority": 50,
         "Payload": {
@@ -2315,6 +2373,7 @@
           "100033": "4f232661-a626-481b-9b73-3c53f164fea8",
           "100037": "1f96222d-66ae-431b-b830-df1658488cf4",
           "100038": "2bd0e524-7f04-4c39-9f83-2d0a8775388e",
+          "100039": "839f39a9-fe28-4500-960e-4ce75856ca4b",
           "200001": "1c5183a7-98b2-48bd-8685-f5387bc751ac",
           "200002": "2aa80521-aa28-4ea4-81db-5db400c65f5d",
           "200003": "bbcb841f-1c12-417c-aada-ce8097bc2ade",
@@ -2351,6 +2410,7 @@
           "200036": "9f3613f2-2a35-4ac7-a7ac-f1cc62c1f3fc",
           "200037": "72fd8191-c271-4532-8fcf-060d8d88890c",
           "200038": "8c45eceb-8396-487d-bb29-a47f72bedb84",
+          "200039": "26d5aa4e-ba40-4cd5-99a8-10ac0178a434",
           "300000": "e66322c1-3a25-413a-87b2-288d183638ac",
           "300001": "61c3f0b6-968c-4994-bd64-15507182db00",
           "300002": "a4823fde-8293-44be-a4e8-540d20d3868a",
@@ -2383,6 +2443,7 @@
           "500032": "087921b5-06ca-447a-a78c-f881733e564d",
           "500033": "db0b78b9-647c-45e1-8748-c823db1665b3",
           "500037": "bfd07afb-543d-49b7-b6f3-04d6e4f29f12",
+          "500039": "f30ec93e-7988-424d-b8da-e9617ee871f0",
           "600028": "5e204432-0f9e-44d7-a195-9264f981fd9e",
           "600030": "2a0bfefe-ff3d-49d1-8a2d-22ed821ccb74",
           "600031": "c0e04c01-7314-439a-acb0-47bb14dd442d",
@@ -2953,6 +3014,19 @@
           "TextureRef": {
             "Guid": "042f90b6a8c9f0e4cba8c4823f1daffc",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_BRO_KR.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "0a2b4849-5d94-4f15-bd4a-f6b823ae1328",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "14bdb7883813ae94b9239555dbf6bc87",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_KR.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -4597,6 +4671,19 @@
         }
       },
       {
+        "NodeId": "22e7dee4-7e91-4f9a-b204-2a8e6872215d",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "78db51a4ceb1b104999e489871588a71",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_DE.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
         "NodeId": "23122642-e91c-42c0-9d4c-d78ff9a1356b",
         "Priority": 50,
         "Payload": {
@@ -4657,6 +4744,19 @@
           "TextureRef": {
             "Guid": "eae37dc9a7eee7c49a45f81ed0d86f03",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_M20_FR.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "23b37311-770f-4e62-93f3-27cff311fd41",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "2e3064d9027e09141bb660bb48093834",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_CS.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -4782,6 +4882,19 @@
           "TextureRef": {
             "Guid": "9db18ed456bdfb846be9a4012ae5c0cc",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_THB_RU.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "2490bd5b-b87c-44e8-aead-c6e62d25620e",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "2e3064d9027e09141bb660bb48093834",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_CS.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -5082,6 +5195,19 @@
         "NodeId": "2a9dfaa2-cf97-4800-8c54-60223ac0ff15"
       },
       {
+        "NodeId": "2b0fe825-e1ee-4a5e-b628-651655383a56",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "5ba336ada4879a3449c920cd91442384",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_FR.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
         "NodeId": "2b122f6c-0a88-4d60-a218-83913f56c2da",
         "Priority": 50,
         "Payload": {
@@ -5298,6 +5424,19 @@
         }
       },
       {
+        "NodeId": "2fc7ec8a-2c1b-4aa2-a1ef-b207fad1b762",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "14bdb7883813ae94b9239555dbf6bc87",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_KR.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
         "NodeId": "3009fbd7-b431-4676-88fa-4a24d8164d0e",
         "Payload": {
           "TextureRef": {
@@ -5316,6 +5455,19 @@
           "TextureRef": {
             "Guid": "742e5cb844cc5e84d870d8e7dea5fa92",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_Y22SNC_KR.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "3037ad3e-5797-4265-a2df-b61961d77676",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "d83368fa51ffb5049bf6b91d686684a7",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_JP.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -5730,6 +5882,7 @@
           ],
           "Operation": 3,
           "MinCount": 1,
+          "MaxCount": 1,
           "ExpectedResult": true
         }
       },
@@ -6558,6 +6711,19 @@
           "TextureRef": {
             "Guid": "446730cfb03ed164f83263efa08674d8",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_THB.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "4453f387-382e-4be1-bd92-2a4149b883a9",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "4287001a441735b459c30e681a31e489",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_ES.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -7497,6 +7663,19 @@
         }
       },
       {
+        "NodeId": "53a14c11-5cac-4476-9ce4-1af45d175e91",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "14bdb7883813ae94b9239555dbf6bc87",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_KR.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
         "NodeId": "53caaa94-16ce-43b9-8051-04d2b7ca3f74",
         "Payload": {
           "TextureRef": {
@@ -7609,6 +7788,19 @@
           "TextureRef": {
             "Guid": "bd235a46256a6054990a9f5e0144c503",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_HOU_DE.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "571e80b0-5ab5-4eb6-a617-0523b76f142a",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "3be6ee44c06fdd04bbc8bf61ff5aaf9f",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -7764,6 +7956,19 @@
         }
       },
       {
+        "NodeId": "59d688d4-3f73-48ff-9978-a7be72833ec7",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "5ba336ada4879a3449c920cd91442384",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_FR.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
         "NodeId": "59daf3d0-19ef-4526-a235-850d7967b222",
         "Payload": {
           "TextureRef": {
@@ -7796,6 +8001,19 @@
           "TextureRef": {
             "Guid": "af35f1b1f0312ec4f9dd8786a8c2e9ad",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_HOU.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "5ac9d744-048c-432d-9ec2-38e897b7f036",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "7c4212392752eb240a4d911bd571b24b",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_IT.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -7890,6 +8108,19 @@
           "TextureRef": {
             "Guid": "ca3a26d80d7dd494ea87a6d0e4936a1d",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_Y22SNC_CT.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "5c6c1319-64b6-45d9-bbf7-c911ffc72562",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "2dde84e54508d1f4ab8518f76c1431e1",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_RU.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -8153,6 +8384,7 @@
           ],
           "Operation": 3,
           "MinCount": 1,
+          "MaxCount": 1,
           "ExpectedResult": true
         }
       },
@@ -8393,6 +8625,19 @@
           "TextureRef": {
             "Guid": "d4577f36ed9d6de4d920bdcdc067353e",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_ELD_CS.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "67982846-5fd3-4e44-b73e-9194386035d2",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "3be6ee44c06fdd04bbc8bf61ff5aaf9f",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -9122,6 +9367,19 @@
         }
       },
       {
+        "NodeId": "753d7ac6-fea4-4fd3-b8dc-6c561a66504c",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "7c4212392752eb240a4d911bd571b24b",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_IT.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
         "NodeId": "75869ee9-cef7-4e6a-a5fa-9f6a27e7fb06",
         "Priority": 50,
         "Payload": {
@@ -9264,6 +9522,19 @@
           "TextureRef": {
             "Guid": "af35f1b1f0312ec4f9dd8786a8c2e9ad",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_HOU.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "77e4c202-a60e-4403-bd37-09a1a0d0aefc",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "d83368fa51ffb5049bf6b91d686684a7",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_JP.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -9682,6 +9953,19 @@
         }
       },
       {
+        "NodeId": "80165447-cafb-44fd-b665-d72f94cf8062",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "d83368fa51ffb5049bf6b91d686684a7",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_JP.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
         "NodeId": "805afe4f-d4bd-49fa-825f-b84a96eaee46",
         "Payload": {
           "TextureRef": {
@@ -9714,6 +9998,19 @@
           "TextureRef": {
             "Guid": "e0ebeaa209048cf49be34db398290ab1",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_MOM_FR.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "8195d856-5582-42a8-97d9-57bd5bd7fcbc",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "5ba336ada4879a3449c920cd91442384",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_FR.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -10342,6 +10639,19 @@
         }
       },
       {
+        "NodeId": "8c87bb9b-61d9-4870-97f7-f56d2e073a3f",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "3be6ee44c06fdd04bbc8bf61ff5aaf9f",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
         "NodeId": "8caacb5f-36b0-45f8-8bb9-3b310d7d465e",
         "Payload": {
           "TextureRef": {
@@ -10493,6 +10803,19 @@
           "TextureRef": {
             "Guid": "12d2653c8ca7e92438a5399e47523b08",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_ELD_CT.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "8fbf0d53-708a-42b5-94b9-dbb3ca7d2caa",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "78db51a4ceb1b104999e489871588a71",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_DE.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -10807,6 +11130,19 @@
           "TextureRef": {
             "Guid": "7212762c5253b3941a296a110972ff07",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_THB_JP.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "944a2898-4cc6-448f-9832-46dbc8f32d6b",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "1e9b3098530c1cc44909fb8339b32cec",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_PT.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -11229,6 +11565,19 @@
         }
       },
       {
+        "NodeId": "9ce6bec4-ba2a-4955-ab22-b0a50bf2c6ec",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "1e9b3098530c1cc44909fb8339b32cec",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_PT.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
         "NodeId": "9ceb4e40-5778-435d-821b-50d1ec0d35ff",
         "Priority": 50,
         "Payload": {
@@ -11471,6 +11820,19 @@
         }
       },
       {
+        "NodeId": "a17d88de-21d0-428e-b4fa-b7ac253ae041",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "2dde84e54508d1f4ab8518f76c1431e1",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_RU.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
         "NodeId": "a1cdc34f-9267-454f-af1f-29b7eaf8befb",
         "Priority": 50,
         "Payload": {
@@ -11533,6 +11895,19 @@
           "TextureRef": {
             "Guid": "e1f91aafda3fa3c4e8067ac2dd89626b",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_ELD_KR.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "a37a5570-0645-4ba1-bbe8-d34c3ad1755b",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "78db51a4ceb1b104999e489871588a71",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_DE.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -13669,6 +14044,19 @@
         }
       },
       {
+        "NodeId": "cc39e91d-fb92-43dc-b496-3c03f11582ee",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "7c4212392752eb240a4d911bd571b24b",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_IT.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
         "NodeId": "cd2323a2-77fc-4f88-aff0-88861a8d2cea",
         "Payload": {
           "TextureRef": {
@@ -14043,12 +14431,38 @@
         }
       },
       {
+        "NodeId": "d3dab876-1385-4e51-b183-f4bc9861d1e3",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "2e3064d9027e09141bb660bb48093834",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_CS.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
         "NodeId": "d40d0bf6-b2d3-4656-8d5c-010bcad01687",
         "Priority": 50,
         "Payload": {
           "TextureRef": {
             "Guid": "c8602f2704036a5459cb214143adc054",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_KHM_ES.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "d439dd73-b363-44ed-958d-14f0f62492ea",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "1e9b3098530c1cc44909fb8339b32cec",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_PT.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -14515,6 +14929,7 @@
           ],
           "Operation": 3,
           "MinCount": 1,
+          "MaxCount": 1,
           "ExpectedResult": true
         }
       },
@@ -15112,6 +15527,19 @@
         }
       },
       {
+        "NodeId": "ea9b30b7-cf4a-4740-b9e9-8c00b09a33fe",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "4287001a441735b459c30e681a31e489",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_ES.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
         "NodeId": "eb23b00a-d773-4f95-b740-cf4cdf19ee6b",
         "Priority": 50,
         "Payload": {
@@ -15158,6 +15586,19 @@
           "TextureRef": {
             "Guid": "e627041fda3a3244eb2618c1c860704b",
             "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_GRN_ES.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
+        "NodeId": "ec57dd64-d553-4292-a6bb-4fe37f3c834f",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "2dde84e54508d1f4ab8518f76c1431e1",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_RU.png"
           },
           "HeaderLogo": {
             "Guid": "",
@@ -15702,6 +16143,19 @@
         }
       },
       {
+        "NodeId": "f75f0eba-8936-47e9-b553-54f6ef5a44a6",
+        "Payload": {
+          "TextureRef": {
+            "Guid": "4287001a441735b459c30e681a31e489",
+            "RelativePath": "Assets/Core/Art/Shared/Images/SetLogos/SetLogo_LTR_ES.png"
+          },
+          "HeaderLogo": {
+            "Guid": "",
+            "RelativePath": ""
+          }
+        }
+      },
+      {
         "NodeId": "f7716c40-26d0-4c51-83cd-4e9ddc18d77c",
         "Payload": {
           "TextureRef": {
@@ -16156,6 +16610,7 @@
           "100033": "aa9de3f1-8363-4592-b7b2-a1d66d836716",
           "100037": "eb853ef7-4bf3-44cf-8e04-baac6b628850",
           "100038": "f844d621-05bc-44b6-80f8-e6837b3cd991",
+          "100039": "3037ad3e-5797-4265-a2df-b61961d77676",
           "200001": "bf6c04ee-6a15-4c08-9bb1-de9f95845dec",
           "200002": "71a2512f-b46b-42ee-815c-64d15e08f7c1",
           "200003": "0c93e1c1-942c-49fa-8467-0d5b51a4d403",
@@ -16192,6 +16647,7 @@
           "200036": "93c79681-dc61-45e2-8198-9973c7f6ba54",
           "200037": "7f2dd502-dc89-4577-9bc1-13e73d8eea31",
           "200038": "a9f81a0b-403d-4e82-b5de-1541869fe3dd",
+          "200039": "77e4c202-a60e-4403-bd37-09a1a0d0aefc",
           "300003": "32ca73f2-cf5e-4a11-851d-7e30c9272140",
           "400026": "8caacb5f-36b0-45f8-8bb9-3b310d7d465e",
           "400027": "59daf3d0-19ef-4526-a235-850d7967b222",
@@ -16216,6 +16672,7 @@
           "500032": "01b586d6-eb61-4819-942e-6e1c5408dd9d",
           "500033": "774e518c-6b82-4755-a3b3-1eb0a9dcb8ff",
           "500037": "2e086f21-552e-40e3-a7f6-3693ddecd134",
+          "500039": "80165447-cafb-44fd-b665-d72f94cf8062",
           "600032": "98551693-5c81-43bf-895b-8b063bbd7d77",
           "900980": "4470b051-8e61-443b-9e46-18c69aa09515"
         }
@@ -16259,6 +16716,7 @@
           "100033": "be0acaff-bc63-4cad-a8b4-717623367b3a",
           "100037": "2455cbf3-2547-42a8-9f03-611b5056ed57",
           "100038": "2ea26db2-425e-4841-b0b6-1eae5db2beee",
+          "100039": "22e7dee4-7e91-4f9a-b204-2a8e6872215d",
           "200002": "bc77b8cd-7050-4095-a4ef-cf0681f5ea6e",
           "200004": "0646cc31-f889-4d94-97b7-602191b933cd",
           "200006": "3c44b025-4cb4-4733-a3ed-f5ecd358c3cc",
@@ -16291,6 +16749,7 @@
           "200036": "e013fda8-4a44-4938-b411-29c4eb8d3eaa",
           "200037": "f436ab66-c56c-4c2c-afe5-70f9e05c3747",
           "200038": "59cca401-b552-4546-a9e5-4cf63f4cf9a4",
+          "200039": "a37a5570-0645-4ba1-bbe8-d34c3ad1755b",
           "300003": "84541571-3cff-4112-9b69-d224039f5664",
           "400026": "670b5520-01df-4a60-a3b7-67ef31bb158b",
           "400027": "504bb81f-3366-4426-a3bd-bb460bf79e77",
@@ -16316,6 +16775,7 @@
           "500032": "bc2d04dc-eca4-449b-a5b1-875ce417fa9d",
           "500033": "b48ccd8d-d43a-4de7-b0eb-f9ba15999b9c",
           "500037": "b24e5922-a8ed-41e1-a49f-c2e71d6a4c8a",
+          "500039": "8fbf0d53-708a-42b5-94b9-dbb3ca7d2caa",
           "600032": "cba90fe3-d7a6-4a4b-8b23-3137c8943078",
           "900980": "41c6c72b-2601-473c-aedd-c158fc11fe63"
         }
@@ -16453,6 +16913,7 @@
           "100033": "26966e99-b12b-45c8-848b-8dcfcecf25a6",
           "100037": "0c7d9da5-c54b-42f6-af19-d21dcc9e410c",
           "100038": "292919a0-1c6c-40b0-849a-3969e41f4b7f",
+          "100039": "a17d88de-21d0-428e-b4fa-b7ac253ae041",
           "200001": "f804ffdc-add5-432f-8e98-300ad0425d2e",
           "200002": "a4de168f-3b74-4239-a44d-9caac1375b3b",
           "200003": "f2bb5f8c-529d-48f2-a021-a58e5221c010",
@@ -16489,6 +16950,7 @@
           "200036": "8bf79dba-cfe2-4b7e-9d55-1c61a15e7e76",
           "200037": "16f3e7b0-735f-4b8b-90b2-ef22756290b2",
           "200038": "9a45fb63-35be-4c20-a622-1a8cb039cd9f",
+          "200039": "5c6c1319-64b6-45d9-bbf7-c911ffc72562",
           "300003": "b2cb6d96-8129-44b6-8f5d-1ed2774a4ce0",
           "400026": "10ea6e50-d6a9-41a5-a9ad-9089f3c43456",
           "400027": "4956b296-39b3-4447-814a-cef5910409d1",
@@ -16514,6 +16976,7 @@
           "500032": "71eee786-73bc-4d1c-87ad-b478efe5158d",
           "500033": "119a5d43-e8bc-4df5-8996-62fd431a3064",
           "500037": "2e86ae74-8679-42d1-9436-f0a06676315a",
+          "500039": "ec57dd64-d553-4292-a6bb-4fe37f3c834f",
           "600032": "7b543acf-6fe4-472d-b8f8-48598a9549f9",
           "900980": "90a4d597-a9e1-4e29-bdd5-69e3d25d0930"
         }
@@ -16576,6 +17039,7 @@
           "100033": "91ef5211-c2b2-44d6-b5a0-19757e65a0ff",
           "100037": "ff803ea1-9be9-4c3f-8b1b-3e3cbbb6bffe",
           "100038": "4cb5724b-1d61-47db-8d47-f6ca585775ba",
+          "100039": "23b37311-770f-4e62-93f3-27cff311fd41",
           "200001": "d8e55c12-f81a-4cd1-a8e8-f6f98f420cc8",
           "200002": "cabd7ed9-e6dc-4fa0-a97f-8abd3df01045",
           "200003": "3b1ced84-40c9-4463-b669-fe7e0ccf7f29",
@@ -16612,6 +17076,7 @@
           "200036": "ed99b433-4752-4243-bb56-d3cc1a95addb",
           "200037": "14fbe33c-373c-4a9b-8875-c71ee8b44bdd",
           "200038": "326579cb-1360-44c4-afd1-5ab58ba05e8c",
+          "200039": "d3dab876-1385-4e51-b183-f4bc9861d1e3",
           "300003": "85bc7a1a-c1b2-4849-a964-08eab101694e",
           "400026": "b558ffea-bf7a-42db-9482-eef010bd54eb",
           "400027": "fd1b5fe1-9f59-4652-baa5-c7c2df445ef6",
@@ -16637,6 +17102,7 @@
           "500032": "ac3919b5-4f7b-4866-8b8d-d32c92f8c9b2",
           "500033": "54ac6d81-e9c5-4834-8428-3a76fa0f077c",
           "500037": "7de01d34-77ae-4a59-93cd-65954d58423f",
+          "500039": "2490bd5b-b87c-44e8-aead-c6e62d25620e",
           "600032": "1d877a4c-58b1-4a9e-84a6-94116461c90a",
           "900980": "96b80f82-7814-444c-bb00-4d8ea81680f0"
         }
@@ -16701,6 +17167,7 @@
           "100033": "fb8842e6-af7c-4dc8-b489-7e9b458b7135",
           "100037": "a56eba8c-e2a7-43ff-bbaf-b05e2417f193",
           "100038": "1ff08b05-3c6a-40c3-a847-a86a6e17f0e2",
+          "100039": "4453f387-382e-4be1-bd92-2a4149b883a9",
           "200002": "23d58bb5-f4d9-476e-bf12-ca7bb6b8e185",
           "200004": "783267a5-0819-4e57-bb0f-f479c2c4cd22",
           "200006": "d9001c7a-17c8-4987-93f1-e299ce8bce70",
@@ -16733,6 +17200,7 @@
           "200036": "22c26f25-12c1-47de-b9ae-e7e31a687900",
           "200037": "f924ab82-56ec-4f7c-98bc-eb36a6d78966",
           "200038": "66242ba9-552d-450c-9be9-0daa5f72b5a3",
+          "200039": "f75f0eba-8936-47e9-b553-54f6ef5a44a6",
           "300003": "cded01bf-0ee2-40b7-af10-6ae63cc047d3",
           "400026": "38873e0f-8062-4e4a-b00c-598a741c6741",
           "400027": "d049ae4f-77de-4986-9c2d-7360dd0fa689",
@@ -16758,6 +17226,7 @@
           "500032": "098a42e6-26c2-41b5-a4a1-bf23c5a54805",
           "500033": "2320a3c4-c468-4cdd-851e-864fbb3faef3",
           "500037": "5b3057ff-d1f0-46c0-9a80-e7ed90ab1e8b",
+          "500039": "ea9b30b7-cf4a-4740-b9e9-8c00b09a33fe",
           "600032": "e4c2e1a5-67d6-4f98-8830-ab73ea167164",
           "900980": "d6d7cd9a-f9d3-4447-bc95-ea32024d785d"
         }
@@ -16798,6 +17267,7 @@
           "100033": "74737a2b-701e-437f-9c7d-88c28c06115a",
           "100037": "ed5b5d29-d3c1-4c7f-9969-18aea0868c09",
           "100038": "fc8b7534-6218-42c7-b39e-33f0e5153880",
+          "100039": "571e80b0-5ab5-4eb6-a617-0523b76f142a",
           "200001": "ae6ed58f-bf77-4418-be07-a394ba0e05e8",
           "200002": "1b30b2f1-76be-4fb0-8638-ef4714533264",
           "200003": "e4a8d606-37e2-45d0-a6f5-8dc4c8089fd5",
@@ -16834,6 +17304,7 @@
           "200036": "f6e83742-49c2-4d59-befb-b688667ac167",
           "200037": "3d55cb2c-4e8b-45e4-877a-ed00077fbdbe",
           "200038": "36ac267b-a78d-4f74-b1ec-52562abd900b",
+          "200039": "67982846-5fd3-4e44-b73e-9194386035d2",
           "300003": "ed82f5e5-08db-4794-b635-221c0662ee2e",
           "400026": "93a5e491-4b52-4f67-b818-8b2f235e6ec3",
           "400027": "b24c3d23-a472-4282-b137-40f170b6bcac",
@@ -16859,6 +17330,7 @@
           "500032": "22c97bf6-9dbf-4e38-9ba3-79b8a108caa4",
           "500033": "3009fbd7-b431-4676-88fa-4a24d8164d0e",
           "500037": "070b0cb3-dd56-47ee-9c30-965136ef51dd",
+          "500039": "8c87bb9b-61d9-4870-97f7-f56d2e073a3f",
           "600032": "10088d2b-9cde-4497-a391-8f1c76cd6958",
           "900980": "bc793222-7c7f-47cb-9c6d-84a3a75a85dc"
         }
@@ -16896,6 +17368,7 @@
           "100033": "008cdcc5-3544-47c9-a49b-3b6b5c813eae",
           "100037": "28a6eef4-3281-46aa-ad63-d3162707380a",
           "100038": "206bf765-06d4-4bdb-aedf-41a32a6e7178",
+          "100039": "944a2898-4cc6-448f-9832-46dbc8f32d6b",
           "200002": "f5ef86c9-680e-46c4-86c4-8310330beea8",
           "200004": "1b3e3595-07e1-48c6-86ae-74ef9aec0a3a",
           "200006": "85a76428-4cc1-4190-9038-3508b56bea44",
@@ -16929,6 +17402,7 @@
           "200036": "5972ced1-5f78-4439-ba03-5343baf15238",
           "200037": "93e38a6f-4335-46e2-8cb8-0ded2c92d232",
           "200038": "1e075127-39e6-4da1-aad2-4ea7b97e91e1",
+          "200039": "9ce6bec4-ba2a-4955-ab22-b0a50bf2c6ec",
           "300003": "f37bba6a-9015-4d2f-897d-ed99e6cd0920",
           "400026": "a0206a7c-ff7d-4172-aec9-88632e7a4e15",
           "400027": "f85f6fa4-bb84-4cd1-8679-5e4402c10260",
@@ -16953,6 +17427,7 @@
           "500032": "17e94ff2-c51b-447b-8cb0-51ed5a2d702c",
           "500033": "94c0d06e-f579-458f-ac09-5c04cb3d21e2",
           "500037": "6db8679c-46f8-4364-a0f9-eff4f70bdea9",
+          "500039": "d439dd73-b363-44ed-958d-14f0f62492ea",
           "600032": "889cb4c5-29a4-4147-a281-22777a8207d8",
           "900980": "cb77b1c3-8663-4f81-b850-82e86d7fd064"
         }
@@ -16997,6 +17472,7 @@
           "100033": "1d6bcdb5-7080-42db-81a7-aba680bf3135",
           "100037": "718e3480-0db1-4a84-9e47-062eeb2dcd91",
           "100038": "9267503d-9d98-42fc-8eae-264ccb9dbc3b",
+          "100039": "cc39e91d-fb92-43dc-b496-3c03f11582ee",
           "200002": "5e32ecfc-37ba-45ed-8be3-f9ff8eb0dcd2",
           "200004": "1d4894fc-b735-47be-bc21-bed30d4521c4",
           "200006": "37887700-c37f-4f09-8be7-85ed38e0aef7",
@@ -17029,6 +17505,7 @@
           "200036": "17171539-2fbf-49cf-bac2-27b601adf36d",
           "200037": "96e87651-8661-4596-9b06-c853546bb323",
           "200038": "2b63cba6-0235-4414-a160-1cc0df34c180",
+          "200039": "5ac9d744-048c-432d-9ec2-38e897b7f036",
           "300003": "298bc2cb-25ec-4b4b-922f-b0a7eb1185bf",
           "400026": "8a9d37c0-9f18-4c8a-bac2-6085a2f023ed",
           "400027": "bc2dc840-414f-4b50-987b-b2fbc943019a",
@@ -17054,6 +17531,7 @@
           "500032": "5869c0ec-1faa-47c1-aeaa-43b7cfe0e4fe",
           "500033": "256397ca-9870-4ae9-92cd-f4fd055ae584",
           "500037": "329188d0-dca9-4e36-85ba-c2f70c43f35c",
+          "500039": "753d7ac6-fea4-4fd3-b8dc-6c561a66504c",
           "600032": "e4850424-546d-4d54-933d-e480f263a426",
           "900980": "388c9c3f-c8ed-46dd-b4be-96516e0bb9b9"
         }
@@ -17109,6 +17587,7 @@
           "100033": "679d74da-cb5c-4798-812e-8a0d0d43de01",
           "100037": "6ca5b185-6809-4355-9115-ea8a7aaf7c0e",
           "100038": "1c0d5404-4262-4913-8c12-ed6ba8a360db",
+          "100039": "59d688d4-3f73-48ff-9978-a7be72833ec7",
           "200002": "ba6d07d0-6eeb-460c-9307-73fd5c89b99b",
           "200004": "3d815908-9ed6-457b-bad5-0b71e7fa1785",
           "200006": "ddcb5cc5-f02d-4a75-a050-285df8add6cf",
@@ -17141,6 +17620,7 @@
           "200036": "bb40ac51-07cd-4785-9ffa-3823e1283b40",
           "200037": "d761a86a-0485-4c10-866e-7847b9e32824",
           "200038": "159417a0-432b-4b70-9538-a12c864871cc",
+          "200039": "8195d856-5582-42a8-97d9-57bd5bd7fcbc",
           "300003": "059c8f45-c3c9-41ac-ba7e-5807eb8fcf35",
           "400026": "d11ead7c-877a-4a89-a099-294b5d039f48",
           "400027": "8624f9a8-f807-4372-89c7-2b9cc8f314dc",
@@ -17166,6 +17646,7 @@
           "500032": "181f2f07-079d-475c-ba97-218b10aff004",
           "500033": "96f96a22-be9f-40e2-819e-e0234f3269ee",
           "500037": "81100a84-4893-4cab-a708-487fd71be7e5",
+          "500039": "2b0fe825-e1ee-4a5e-b628-651655383a56",
           "600032": "dc2735d5-541b-4c4d-afa2-35a1d05fd643",
           "900980": "4a260e6e-6f66-46e6-9016-c09f15c3355c"
         }
@@ -17210,6 +17691,7 @@
           "100033": "05c7e357-99bf-4746-8c46-ece57220e669",
           "100037": "6bb237ca-6a73-4abd-a36a-aa6853a1a602",
           "100038": "90e7800d-e276-41c6-bf10-9c1a15f7305e",
+          "100039": "2fc7ec8a-2c1b-4aa2-a1ef-b207fad1b762",
           "200001": "15951f2c-523a-4025-9653-a54d53fde350",
           "200002": "c20e07e7-d1de-4b66-9849-8f9d3710019a",
           "200003": "8798bb2b-801d-43ca-b47b-b90ec9a7245c",
@@ -17246,6 +17728,7 @@
           "200036": "c2a96cab-2ff8-4592-bec8-8f450b191cec",
           "200037": "f0bf88b4-fa2c-4b0a-a39d-4506a623b3cd",
           "200038": "1c29a15a-d493-4554-b06f-17c7219a6f13",
+          "200039": "0a2b4849-5d94-4f15-bd4a-f6b823ae1328",
           "300003": "d9544333-15fe-4f23-8e5c-72d1733ad34c",
           "400026": "8e516572-39e6-44d0-848a-38e272295509",
           "400027": "e3f4946a-4169-4683-a428-15786ad9f227",
@@ -17271,6 +17754,7 @@
           "500032": "cd2323a2-77fc-4f88-aff0-88861a8d2cea",
           "500033": "d5822c55-9823-45c3-ac57-c6c501fa73d7",
           "500037": "1c981640-7ddd-4aaf-9b97-84fffd6559c6",
+          "500039": "53a14c11-5cac-4476-9ce4-1af45d175e91",
           "600032": "b3b3c696-9250-4b61-af6e-c2fc34e6b00f",
           "900980": "049901b8-0770-477b-aa32-c08f0d6d9b24"
         }
