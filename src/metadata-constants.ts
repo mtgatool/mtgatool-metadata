@@ -1192,6 +1192,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2023-05-12",
   },
+  "The Lord of the Rings: Tales of Middle-earth": {
+    collation: 100039,
+    scryfall: "ltr",
+    code: "LTR",
+    arenacode: "LTR",
+    tile: 67003,
+    release: "2023-06-23",
+  },
 };
 
 export const DIGITAL_SETS = [
