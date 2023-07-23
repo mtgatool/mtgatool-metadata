@@ -1201,7 +1201,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2023-06-23",
   },
   "Double Masters 2022": {
-    collation: 100039,
+    collation: -1,
     scryfall: "2x2",
     code: "2X2",
     arenacode: "2X2",
@@ -1209,7 +1209,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2022-07-08",
   },
   "Commander Anthology Volume II": {
-    collation: 100039,
+    collation: -1,
     scryfall: "cm2",
     code: "CM2",
     arenacode: "CM2",
@@ -1217,7 +1217,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2018-06-08",
   },
   "Iconic Masters": {
-    collation: 100039,
+    collation: -1,
     scryfall: "ima",
     code: "IMA",
     arenacode: "IMA",
@@ -1225,7 +1225,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2017-11-17",
   },
   "Masters 25": {
-    collation: 100039,
+    collation: -1,
     scryfall: "a25",
     code: "A25",
     arenacode: "A25",
@@ -1233,7 +1233,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2018-03-16",
   },
   "Historic Anthology 7": {
-    collation: 100039,
+    collation: -1,
     scryfall: "ha7",
     code: "HA7",
     arenacode: "HA7",
@@ -1241,7 +1241,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2023-07-18",
   },
   "Explorer Anthology 3": {
-    collation: 100039,
+    collation: -1,
     scryfall: "ea3",
     code: "EA3",
     arenacode: "EA3",
