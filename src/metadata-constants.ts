@@ -1248,6 +1248,22 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2023-07-18",
   },
+  "Wilds of Eldraine": {
+    collation: 100040,
+    scryfall: "woe",
+    code: "WOE",
+    arenacode: "WOE",
+    tile: 67003,
+    release: "2023-09-08",
+  },
+  "Wilds of Eldraine: Enchanting Tales": {
+    collation: -1,
+    scryfall: "wot",
+    code: "WOT",
+    arenacode: "WOT",
+    tile: 67003,
+    release: "2023-09-08",
+  },
 };
 
 export const DIGITAL_SETS = [
