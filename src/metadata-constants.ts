@@ -1064,6 +1064,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2022-07-28",
   },
+  "Historic Anthology 7": {
+    collation: -1,
+    scryfall: "ha7",
+    code: "AHA7",
+    arenacode: "AHA7",
+    tile: 67003,
+    release: "2023-07-18",
+  },
   "Explorer Anthology 1": {
     collation: -1,
     scryfall: "ea1",
@@ -1079,6 +1087,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     arenacode: "EA2",
     tile: 67003,
     release: "2022-12-13",
+  },
+  "Explorer Anthology 3": {
+    collation: -1,
+    scryfall: "ea3",
+    code: "EA3",
+    arenacode: "EA3",
+    tile: 67003,
+    release: "2023-07-18",
   },
   "Alchemy Horizons: Baldur's Gate": {
     collation: 100029,
@@ -1232,22 +1248,6 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2018-03-16",
   },
-  "Historic Anthology 7": {
-    collation: -1,
-    scryfall: "ha7",
-    code: "HA7",
-    arenacode: "HA7",
-    tile: 67003,
-    release: "2023-07-18",
-  },
-  "Explorer Anthology 3": {
-    collation: -1,
-    scryfall: "ea3",
-    code: "EA3",
-    arenacode: "EA3",
-    tile: 67003,
-    release: "2023-07-18",
-  },
   "Wilds of Eldraine": {
     collation: 100040,
     scryfall: "woe",
@@ -1257,7 +1257,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2023-09-08",
   },
   "Wilds of Eldraine: Enchanting Tales": {
-    collation: -1,
+    collation: 999995,
     scryfall: "wot",
     code: "WOT",
     arenacode: "WOT",
