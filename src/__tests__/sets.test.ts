@@ -28,7 +28,9 @@ function getSets(): [string, number][] {
   // get all sets in cards.json
   cards.value.forEach((card: Card) => {
     const cardSet =
-      card.ExpansionCode === "Y22" || card.ExpansionCode === "Y23"
+      card.ExpansionCode === "Y22" ||
+      card.ExpansionCode === "Y23" ||
+      card.ExpansionCode === "Y24"
         ? card.DigitalReleaseSet
         : card.ExpansionCode;
     if (cardSet) {

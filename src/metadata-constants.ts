@@ -1163,8 +1163,8 @@ export const SETS_DATA: Record<string, CardSet> = {
   "Alchemy: Wilds of Eldraine": {
     collation: 400040,
     scryfall: "ywoe",
-    code: "Y23-WOE",
-    arenacode: "Y23-WOE",
+    code: "Y24-WOE",
+    arenacode: "Y24-WOE",
     tile: 67003,
     release: "2023-02-28",
   },
