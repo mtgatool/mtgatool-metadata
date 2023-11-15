@@ -1272,6 +1272,30 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2023-09-08",
   },
+  "The Lost Caverns of Ixalan Commander": {
+    collation: -1,
+    scryfall: "lcc",
+    code: "LCC",
+    arenacode: "LCC",
+    tile: 67003,
+    release: "2023-11-17",
+  },
+  "The Lost Caverns of Ixalan": {
+    collation: 100041,
+    scryfall: "lci",
+    code: "LCI",
+    arenacode: "LCI",
+    tile: 67003,
+    release: "2023-11-17",
+  },
+  "Jurassic World Collection": {
+    collation: -1,
+    scryfall: "rex",
+    code: "REX",
+    arenacode: "REX",
+    tile: 67003,
+    release: "2023-11-17",
+  },
 };
 
 export const DIGITAL_SETS = [
