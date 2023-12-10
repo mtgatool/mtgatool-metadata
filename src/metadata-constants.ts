@@ -1168,6 +1168,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2023-02-28",
   },
+  "Alchemy: Ixalan": {
+    collation: 400041,
+    scryfall: "ylci",
+    code: "Y24-LCI",
+    arenacode: "Y24-LCI",
+    tile: 67003,
+    release: "2023-12-05",
+  },
   "Shadows of the Past": {
     collation: -1,
     scryfall: "sis",
@@ -1317,6 +1325,7 @@ export const DIGITAL_SETS = [
   "Alchemy: The Brothers' War",
   "Alchemy: Phyrexia",
   "Alchemy: Wilds of Eldraine",
+  "Alchemy: Ixalan",
   "Shadows over Innistrad Remastered",
 ];
 
