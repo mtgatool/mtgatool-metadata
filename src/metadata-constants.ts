@@ -1304,6 +1304,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2023-11-17",
   },
+  "Tales of Middle-earth Commander": {
+    collation: -1,
+    scryfall: "ltc",
+    code: "LTC",
+    arenacode: "LTC",
+    tile: 67003,
+    release: "2023-06-23",
+  },
 };
 
 export const DIGITAL_SETS = [
