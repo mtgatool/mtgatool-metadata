@@ -1,6 +1,6 @@
 {
   "name": "mtgatool-metadata",
-  "version": "215.0.1",
+  "version": "216.0.0",
   "description": "A metadata generator for MTG Arena Tool",
   "main": "out/metadata.js",
   "scripts": {
