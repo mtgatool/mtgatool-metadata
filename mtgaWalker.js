@@ -1,4 +1,4 @@
-const json = require("./boosters.json")
+const json = require("./external/Booster.json")
 
 const back = json["ALT_Booster.Background"]
 

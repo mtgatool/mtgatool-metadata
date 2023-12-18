@@ -52,7 +52,7 @@ export function getManifestFiles(version: string): Promise<string[]> {
 function processManifest(data: ManifestJSON): Promise<string[]> {
   if (!data) return Promise.reject("No data");
   const requests = data.Assets.filter((asset) => {
-    return asset.AssetType == "Raw";
+    return asset.AssetType == "Raw" || asset.Name.startsWith("ALT_Booster_");
   }).map((asset) => {
     const assetUrl = `https://assets.mtgarena.wizards.com/${asset.Name}${
       asset.wrapper ? "." + asset.wrapper : ""
