@@ -97,7 +97,7 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2015-01-23",
   },
   "Khans of Tarkir": {
-    collation: -1,
+    collation: 100042,
     scryfall: "ktk",
     code: "KTK",
     arenacode: "KTK",
