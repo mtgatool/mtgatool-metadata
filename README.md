@@ -11,6 +11,7 @@ Magic Cards database is downloaded from [Scryfall.com](http://scryfall.com), the
 
 Designed to run automatically and upload for MTG Arena Tool, but anyone is free to try it and contrbute!
 
+
 # API
 
 Main Endpoint:
