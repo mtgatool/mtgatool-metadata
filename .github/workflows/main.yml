@@ -29,6 +29,7 @@ jobs:
 
       - name:  'Automated Version Bump'
         uses:  'phips28/gh-action-bump-version@master'
+        if: github.ref_name == 'master'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_EMAIL: 'mtgatool@gmail.com'
