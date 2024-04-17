@@ -1328,6 +1328,14 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2024-02-09",
   },
+  "Outlaws of Thunder Junction": {
+    collation: 100043,
+    scryfall: "otj",
+    code: "OTJ",
+    arenacode: "OTJ",
+    tile: 67003,
+    release: "2024-04-19",
+  },
   "Special Guests": {
     collation: -1,
     scryfall: "spg",
