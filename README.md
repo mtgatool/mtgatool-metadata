@@ -15,16 +15,16 @@ Designed to run automatically and upload for MTG Arena Tool, but anyone is free 
 
 Main Endpoint:
 
-[https://mtgatool.com/database/](https://mtgatool.com/database/)
+[https://mtgatool.com/api/database/](https://mtgatool.com/api/database/)
 
 Current Version Info:
 
-[https://mtgatool.com/database/latest/](https://mtgatool.com/database/latest/)
+[https://mtgatool.com/api/database/latest/](https://mtgatool.com/api/database/latest/)
 
 Multi language endpoints:
 
-[https://mtgatool.com/database/latest/fr](https://mtgatool.com/database/latest/fr)  
-[https://mtgatool.com/database/fr](https://mtgatool.com/database/fr)
+[https://mtgatool.com/api/database/latest/fr](https://mtgatool.com/api/database/latest/fr)  
+[https://mtgatool.com/api/database/fr](https://mtgatool.com/api/database/fr)
 
 Available languages:
 
