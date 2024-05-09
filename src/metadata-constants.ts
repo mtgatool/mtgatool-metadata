@@ -1177,12 +1177,20 @@ export const SETS_DATA: Record<string, CardSet> = {
     release: "2023-12-05",
   },
   "Alchemy: Murders at Karlov Manor": {
-    collation: 400041,
+    collation: 400042,
     scryfall: "ymkm",
     code: "Y24-MKM",
     arenacode: "Y24-MKM",
     tile: 67003,
     release: "2024-03-05",
+  },
+  "Alchemy: Outlaws of Thunder Junction": {
+    collation: 400043,
+    scryfall: "yotj",
+    code: "Y24-OTJ",
+    arenacode: "Y24-OTJ",
+    tile: 67003,
+    release: "2024-06-07",
   },
   "Shadows of the Past": {
     collation: -1,
@@ -1447,6 +1455,7 @@ export const DIGITAL_SETS = [
   "Alchemy: Wilds of Eldraine",
   "Alchemy: Ixalan",
   "Alchemy: Murders at Karlov Manor",
+  "Alchemy: Outlaws of Thunder Junction",
   "Shadows over Innistrad Remastered",
 ];
 
