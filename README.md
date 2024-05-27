@@ -9,7 +9,7 @@
 A metadata generator for [MTG Arena Tool](https://github.com/Manuel-777/MTG-Arena-Tool).
 Magic Cards database is downloaded from [Scryfall.com](http://scryfall.com), then put together using MTG Arena's cards data.
 
-Designed to run automatically and upload for MTG Arena Tool, but anyone is free to try it and contrbute!
+Designed to run automatically and upload for MTG Arena Tool, but anyone is free to try it and contribute!
 
 # API
 
