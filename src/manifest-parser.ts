@@ -14,7 +14,7 @@ import requestManifestData from "./requestManifestData";
 
 import asyncSleep from "./asyncSleep";
 
-export function getArenaVersion(channel = "VIP"): Promise<string> {
+export function getArenaVersion(channel = "Live"): Promise<string> {
   return new Promise((resolve) => {
     const req = httpGetText(
       `https://mtgarena.downloads.wizards.com/${channel}/Windows64/version`
