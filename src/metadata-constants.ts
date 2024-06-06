@@ -1432,6 +1432,30 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2024-03-08",
   },
+  "Modern Horizons 3": {
+    collation: 100044,
+    scryfall: "mh3",
+    code: "MH3",
+    arenacode: "MH3",
+    tile: 67003,
+    release: "2024-06-14",
+  },
+  "Modern Horizons 3 Commander": {
+    collation: -1,
+    scryfall: "m3c",
+    code: "M3C",
+    arenacode: "M3C",
+    tile: 67003,
+    release: "2024-06-14",
+  },
+  "Commander Masters": {
+    collation: -1,
+    scryfall: "cmm",
+    code: "CMM",
+    arenacode: "CMM",
+    tile: 67003,
+    release: "2023-08-04",
+  },
 };
 
 export const DIGITAL_SETS = [
