@@ -1456,6 +1456,30 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67003,
     release: "2023-08-04",
   },
+  "Assassin's Creed": {
+    collation: -1,
+    scryfall: "acr",
+    code: "ACR",
+    arenacode: "ACR",
+    tile: 67003,
+    release: "2024-07-05",
+  },
+  "Bloomburrow": {
+    collation: -1,
+    scryfall: "blb",
+    code: "BLB",
+    arenacode: "BLB",
+    tile: 67003,
+    release: "2024-08-02",
+  },
+  "Bloomburrow Commander": {
+    collation: -1,
+    scryfall: "blc",
+    code: "BLC",
+    arenacode: "BLC",
+    tile: 67003,
+    release: "2024-08-02",
+  }
 };
 
 export const DIGITAL_SETS = [
