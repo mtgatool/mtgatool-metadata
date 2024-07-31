@@ -68,6 +68,7 @@ ${errors.join(" ")}
       let code = SETS_DATA[setName].scryfall;
       if (
         setName == "" ||
+        setName == "ANC" ||
         setName == "Arena New Player Experience" ||
         setName == "Amonketh Remastered" ||
         setName == "Kaladesh Remastered" ||

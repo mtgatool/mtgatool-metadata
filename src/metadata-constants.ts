@@ -25,7 +25,7 @@ export type SCRYFALL_LANGS =
   | "ES"
   | "FR"
   | "IT"
-  | "RU"
+  // | "RU"
   | "PT"
   | "JA"
   // | "ZHS"
@@ -40,7 +40,7 @@ export type ARENA_LANGS =
   | "esES"
   | "jaJP"
   | "ptBR"
-  | "ruRU"
+  // | "ruRU"
   | "koKR";
 // | "zhCN";
 
@@ -53,7 +53,7 @@ export const LANGUAGES: SCRYFALL_LANGS[] = [
   "FR",
   "IT",
   "JA",
-  "RU",
+  // "RU",
   "KO",
   // "ZHS", // Chinese is not provided by mtga anymore
 ];
@@ -66,7 +66,7 @@ export const LANGKEYS: Record<ARENA_LANGS, SCRYFALL_LANGS> = {
   esES: "ES",
   jaJP: "JA",
   ptBR: "PT",
-  ruRU: "RU",
+  // ruRU: "RU",
   koKR: "KO",
   // zhCN: "ZHS",
 };

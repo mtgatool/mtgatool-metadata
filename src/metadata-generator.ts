@@ -91,7 +91,7 @@ export function generateMetadata(
       ES: {},
       JA: {},
       PT: {},
-      RU: {},
+      // RU: {},
       KO: {},
       PH: {},
       // ZHS: {},
@@ -112,7 +112,6 @@ export function generateMetadata(
         loc["JA"][l.LocId] =
           l.jaJP === NT ? US : l.jaJP.replace(regex, "").replace(JpRegex, "");
         loc["PT"][l.LocId] = l.ptBR === NT ? US : l.ptBR.replace(regex, "");
-        loc["RU"][l.LocId] = l.ruRU === NT ? US : l.ruRU.replace(regex, "");
         loc["KO"][l.LocId] = l.koKR === NT ? US : l.koKR.replace(regex, "");
         // loc["ZHS"][l.LocId] = l.zhCN === NT ? US : l.zhCN.replace(regex, "");
       });
