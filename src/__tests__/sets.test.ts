@@ -30,7 +30,8 @@ function getSets(): [string, number][] {
     const cardSet =
       card.ExpansionCode === "Y22" ||
       card.ExpansionCode === "Y23" ||
-      card.ExpansionCode === "Y24"
+      card.ExpansionCode === "Y24" ||
+      card.ExpansionCode === "Y25"
         ? card.DigitalReleaseSet
         : card.ExpansionCode;
     if (cardSet) {
