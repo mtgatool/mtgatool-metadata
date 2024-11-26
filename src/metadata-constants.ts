@@ -1495,6 +1495,30 @@ export const SETS_DATA: Record<string, CardSet> = {
     arenacode: "Y25-BLB",
     tile: 67003,
     release: "2024-08-20",
+  },
+  "Foundations": {
+    collation: -1,
+    scryfall: "fdn",
+    code: "FDN",
+    arenacode: "FDN",
+    tile: 67003,
+    release: "2024-11-15",
+  },
+  "Alchemy: Duskmourn": {
+    collation: 400045,
+    scryfall: "ydsk",
+    code: "Y25-DSK",
+    arenacode: "Y25-DSK",
+    tile: 67003,
+    release: "2024-10-15",
+  },
+  "Foundations Jumpstart": {
+    collation: -1,
+    scryfall: "j25",
+    code: "J25",
+    arenacode: "J25",
+    tile: 67003,
+    release: "2024-11-15",
   }
 };
 
@@ -1521,6 +1545,7 @@ export const DIGITAL_SETS = [
   "Alchemy: Murders at Karlov Manor",
   "Alchemy: Outlaws of Thunder Junction",
   "Alchemy: Bloomburrow",
+  "Alchemy: Duskmourn",
   "Shadows over Innistrad Remastered",
 ];
 
