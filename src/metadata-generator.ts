@@ -270,25 +270,26 @@ export function generateMetadata(
         cardsFinal[cardObj.GrpId] = cardObj;
       });
 
-      // Add reprints and split cards references
+      // Add reprints references. IMPORTANT: only match on a non-empty name.
+      // 2026 data has cards whose name isn't localized yet (Name == ""); the old
+      // O(n^2) match cross-referenced ALL of them against each other, which
+      // exploded Reprints into millions of ids and blew JSON.stringify past
+      // V8's max string length. Build a name -> GrpIds index once (O(n)) and
+      // skip empty names, tokens and basics.
+      const grpIdsByName: Record<string, number[]> = {};
+      Object.keys(cardsFinal).forEach((key) => {
+        const c = cardsFinal[parseInt(key)];
+        if (c && c.Name && !c.IsToken && !c.Supertypes.includes("Basic")) {
+          if (!grpIdsByName[c.Name]) grpIdsByName[c.Name] = [];
+          grpIdsByName[c.Name].push(c.GrpId);
+        }
+      });
       Object.keys(cardsFinal).forEach((key) => {
         const card: DbCardDataV2 | undefined = cardsFinal[parseInt(key)];
-
-        if (!card.IsToken && !card.Supertypes.includes("Basic")) {
-          const arr: number[] = [];
-
-          Object.keys(cardsFinal).forEach((key) => {
-            const cardLoop: DbCardDataV2 | undefined =
-              cardsFinal[parseInt(key)];
-            if (
-              cardLoop &&
-              cardLoop.Name == card.Name &&
-              cardLoop.GrpId !== card.GrpId
-            ) {
-              arr.push(cardLoop.GrpId);
-            }
-          });
-
+        if (card && card.Name && !card.IsToken && !card.Supertypes.includes("Basic")) {
+          const arr = (grpIdsByName[card.Name] || []).filter(
+            (g) => g !== card.GrpId
+          );
           if (arr.length > 0) {
             card.Reprints = arr;
           }
