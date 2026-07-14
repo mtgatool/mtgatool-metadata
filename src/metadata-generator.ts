@@ -103,17 +103,26 @@ export function generateMetadata(
     locRead
       .sort((a: any, b: any) => b.Formatted - a.Formatted)
       .forEach((l: any) => {
+        // 2026 localization data has rows with missing language fields (and some
+        // with no English at all). Fall back to the English text for any missing
+        // / #NoTranslationNeeded field, and skip rows without English entirely,
+        // instead of calling .replace on undefined.
+        if (l.enUS == null) return;
         const US = l.enUS.replace(regex, "").replace(JpRegex, "");
+        const t = (v: any, jp = false): string => {
+          if (v == null || v === NT) return US;
+          const s = String(v).replace(regex, "");
+          return jp ? s.replace(JpRegex, "") : s;
+        };
         loc["EN"][l.LocId] = US;
-        loc["FR"][l.LocId] = l.frFR === NT ? US : l.frFR.replace(regex, "");
-        loc["IT"][l.LocId] = l.itIT === NT ? US : l.itIT.replace(regex, "");
-        loc["DE"][l.LocId] = l.deDE === NT ? US : l.deDE.replace(regex, "");
-        loc["ES"][l.LocId] = l.esES === NT ? US : l.esES.replace(regex, "");
-        loc["JA"][l.LocId] =
-          l.jaJP === NT ? US : l.jaJP.replace(regex, "").replace(JpRegex, "");
-        loc["PT"][l.LocId] = l.ptBR === NT ? US : l.ptBR.replace(regex, "");
-        loc["KO"][l.LocId] = l.koKR === NT ? US : l.koKR.replace(regex, "");
-        // loc["ZHS"][l.LocId] = l.zhCN === NT ? US : l.zhCN.replace(regex, "");
+        loc["FR"][l.LocId] = t(l.frFR);
+        loc["IT"][l.LocId] = t(l.itIT);
+        loc["DE"][l.LocId] = t(l.deDE);
+        loc["ES"][l.LocId] = t(l.esES);
+        loc["JA"][l.LocId] = t(l.jaJP, true);
+        loc["PT"][l.LocId] = t(l.ptBR);
+        loc["KO"][l.LocId] = t(l.koKR);
+        // loc["ZHS"][l.LocId] = t(l.zhCN);
       });
     locRead = null;
 
