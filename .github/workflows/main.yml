@@ -1,9 +1,12 @@
 name: "Bump Version"
 
+# Disabled (manual-only) while migrating publishing to GitHub Releases. The old
+# auto-bump-on-push created FTP-deploy tags; publishing is now driven by the
+# "Publish metadata to GitHub Releases" workflow. Re-enable the push trigger
+# once the new release flow is proven if you want automatic version bumps.
 on:
-  push:
-    branches: '**'
-    
+  workflow_dispatch: {}
+
 jobs:
   bump-version:
     name: Bump version (${{ github.sha }})

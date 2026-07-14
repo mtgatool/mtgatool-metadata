@@ -1,39 +1,59 @@
-name: "Deploy"
+name: "Publish metadata to GitHub Releases"
 
+# The old mtgatool.com FTP/API publishing route is being sunset. Metadata is now
+# generated in CI and published as GitHub Release assets, served from the stable
+# URL https://github.com/mtgatool/mtgatool-metadata/releases/latest/download/...
 on:
   push:
-    tags: 'v*'
-    
+    tags: "v*"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
 jobs:
-  bump-version:
-    name: Deploy (${{ github.sha }})
+  publish:
+    name: Generate + publish (${{ github.sha }})
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Checkout source code"
-        uses: "actions/checkout@v1"
-        with:
-          ref: ${{ github.ref }}
-      - name: "cat package.json"
-        run: cat ./package.json
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Use node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          version: 16.10.0
-      - name: Test
+          node-version: 20
+
+      - name: Read database version
+        id: v
         run: |
-          npm install --legacy-peer-deps
-          npm test
-      - name: Build
+          echo "version=$(node -p "require('./package.json').version.split('.')[0]")" >> "$GITHUB_OUTPUT"
+
+      - name: Install deps
+        run: npm install --legacy-peer-deps
+
+      - name: Generate metadata
         run: |
           npm run start
           npm run dist
-      - name: Deploy
-        uses: SamKirkland/FTP-Deploy-Action@4.3.1
+
+      - name: Stage release assets (stable, unversioned names)
+        run: |
+          mkdir -p release
+          cp output/latest.json release/latest.json
+          for f in output/${{ steps.v.outputs.version }}/v${{ steps.v.outputs.version }}-*-database.json; do
+            [ -e "$f" ] || continue
+            base=$(basename "$f")
+            lang=$(echo "$base" | sed -E 's/^v[0-9]+-([a-z]+)-database\.json$/\1/')
+            cp "$f" "release/${lang}-database.json"
+          done
+          ls -la release
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          server: ${{ secrets.server }}
-          username: ${{ secrets.username }}
-          password: ${{ secrets.password }}
-          local-dir: ./output/
-          dangerous-clean-slate: false
-          server-dir: /home/mtgatool-web/resources/database/
+          tag_name: v${{ steps.v.outputs.version }}
+          name: Metadata v${{ steps.v.outputs.version }}
+          files: release/*
+          make_latest: true

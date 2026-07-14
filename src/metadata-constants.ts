@@ -44,17 +44,20 @@ export type ARENA_LANGS =
   | "koKR";
 // | "zhCN";
 
-// What languages to actually compile
+// What languages to actually compile.
+// TEMP: English-only for the first GitHub-Releases proving run (one Scryfall
+// language = faster/cheaper CI, smaller surface to debug on this dormant
+// pipeline). Restore the full list once the release flow is verified.
 export const LANGUAGES: SCRYFALL_LANGS[] = [
   "EN",
-  "ES",
-  "PT",
-  "DE",
-  "FR",
-  "IT",
-  "JA",
+  // "ES",
+  // "PT",
+  // "DE",
+  // "FR",
+  // "IT",
+  // "JA",
   // "RU",
-  "KO",
+  // "KO",
   // "ZHS", // Chinese is not provided by mtga anymore
 ];
 

@@ -1,28 +1,17 @@
-import { APPDATA, OUTPUT, VERSION } from "./metadata-constants";
 import path from "path";
 import fs from "fs";
 
-const databaseVersion = VERSION;
+import { APPDATA, OUTPUT, VERSION } from "./metadata-constants";
 
-const latestJson = path.join(APPDATA, "latest.json");
+// Write the version pointer the client reads. Served from GitHub Releases now
+// (…/releases/latest/download/latest.json), so it must be a plain, self-
+// contained JSON in the shape the app expects: { latest, updated }.
 const latestJsonOutput = path.join(APPDATA, OUTPUT, "latest.json");
 
-fs.readFile(latestJson, "utf8", function (err, data) {
-  if (err) {
-    return console.log(err);
-  }
-  const json = JSON.parse(data);
-  json.version = databaseVersion;
+const payload = {
+  latest: Number(VERSION),
+  updated: Date.now(),
+};
 
-  fs.writeFile(latestJsonOutput, JSON.stringify(json), "utf8", function (err) {
-    if (err) {
-      console.log(err);
-      process.exit();
-      return;
-    } else {
-      console.log("Updated latest.json");
-      process.exit();
-      return;
-    }
-  });
-});
+fs.writeFileSync(latestJsonOutput, JSON.stringify(payload), "utf8");
+console.log(`Wrote ${latestJsonOutput}:`, payload);
