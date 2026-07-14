@@ -99,6 +99,37 @@ function extractSqlite(data: string[]): Promise<string[]> {
   return new Promise((resolve, reject) => {
     const db = Database(cardsdbPath);
 
+    // TEMP diagnostics: the 2026 schema moved localization text out of the
+    // Localizations table (rows are now just { LocId }). Discover the real
+    // tables/columns so we can repoint the query.
+    try {
+      const tables = (
+        db
+          .prepare("SELECT name FROM sqlite_master WHERE type='table'")
+          .all() as any[]
+      ).map((t) => t.name);
+      console.log("DEBUG tables:", JSON.stringify(tables));
+      const locCols = (
+        db.prepare("PRAGMA table_info(Localizations)").all() as any[]
+      ).map((c) => c.name);
+      console.log("DEBUG Localizations cols:", JSON.stringify(locCols));
+      tables
+        .filter((n) => /loc/i.test(n))
+        .forEach((n) => {
+          try {
+            const sample = db.prepare(`SELECT * FROM "${n}" LIMIT 2`).all();
+            console.log(
+              `DEBUG sample ${n}:`,
+              JSON.stringify(sample).slice(0, 500)
+            );
+          } catch (e) {
+            /* ignore */
+          }
+        });
+    } catch (e) {
+      console.log("DEBUG schema error:", String(e));
+    }
+
     const locPromise = new Promise<boolean>((resolve) => {
       const data = db.prepare(`SELECT * FROM Localizations`).all();
       fs.writeFile(
