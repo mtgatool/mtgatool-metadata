@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/Manuel-777/MTG-Arena-Tool-Metadata#readme",
   "dependencies": {
-    "better-sqlite3": "^7.6.2",
+    "better-sqlite3": "^11.10.0",
     "gunzip-file": "^0.1.1",
     "https": "^1.0.0",
     "lodash": "^4.17.21",
@@ -47,7 +47,7 @@
     "xmlhttprequest-ts": "^1.0.1"
   },
   "devDependencies": {
-    "@types/better-sqlite3": "^7.6.2",
+    "@types/better-sqlite3": "^7.6.11",
     "@types/jest": "^29.2.0",
     "@types/lodash": "^4.14.186",
     "@types/request": "^2.48.8",
