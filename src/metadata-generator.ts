@@ -58,17 +58,6 @@ export function generateMetadata(
     let locRead = readExternalJson("loc.json");
     let enumsRead = readExternalJson("enums.json");
 
-    // TEMP diagnostics: the 2026 SQLite schema may have renamed columns, which
-    // would break the TitleId<->LocId localization join (all card names empty).
-    console.log(
-      "DEBUG loc[0]:",
-      JSON.stringify(Array.isArray(locRead) ? locRead[0] : locRead).slice(0, 500)
-    );
-    console.log(
-      "DEBUG cards[0]:",
-      JSON.stringify(Array.isArray(cards) ? cards[0] : cards).slice(0, 700)
-    );
-
     const setNames: Record<string, string> = {};
     Object.keys(SETS_DATA).forEach((k) => {
       const setObj = SETS_DATA[k];

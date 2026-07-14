@@ -99,42 +99,47 @@ function extractSqlite(data: string[]): Promise<string[]> {
   return new Promise((resolve, reject) => {
     const db = Database(cardsdbPath);
 
-    // TEMP diagnostics: the 2026 schema moved localization text out of the
-    // Localizations table (rows are now just { LocId }). Discover the real
-    // tables/columns so we can repoint the query.
-    try {
-      const tables = (
-        db
-          .prepare("SELECT name FROM sqlite_master WHERE type='table'")
-          .all() as any[]
-      ).map((t) => t.name);
-      console.log("DEBUG tables:", JSON.stringify(tables));
-      const locCols = (
-        db.prepare("PRAGMA table_info(Localizations)").all() as any[]
-      ).map((c) => c.name);
-      console.log("DEBUG Localizations cols:", JSON.stringify(locCols));
-      tables
-        .filter((n) => /loc/i.test(n))
-        .forEach((n) => {
-          try {
-            const sample = db.prepare(`SELECT * FROM "${n}" LIMIT 2`).all();
-            console.log(
-              `DEBUG sample ${n}:`,
-              JSON.stringify(sample).slice(0, 500)
-            );
-          } catch (e) {
-            /* ignore */
-          }
-        });
-    } catch (e) {
-      console.log("DEBUG schema error:", String(e));
-    }
-
     const locPromise = new Promise<boolean>((resolve) => {
-      const data = db.prepare(`SELECT * FROM Localizations`).all();
+      // 2026 schema change: localization text moved out of the flat
+      // `Localizations` table (now just { LocId }) into per-language tables
+      // `Localizations_<lang>` with { LocId, Formatted, Loc }, and there are
+      // multiple Formatted variants per LocId. Merge them back into the single
+      // row shape the generator expects:
+      //   [{ LocId, enUS, frFR, itIT, deDE, esES, jaJP, ptBR, koKR }]
+      // ORDER BY Formatted DESC so the lowest Formatted (plain text) is written
+      // last and wins, matching the old "prefer unformatted" behaviour.
+      const LANG_TABLES: Record<string, string> = {
+        enUS: "Localizations_enUS",
+        frFR: "Localizations_frFR",
+        itIT: "Localizations_itIT",
+        deDE: "Localizations_deDE",
+        esES: "Localizations_esES",
+        jaJP: "Localizations_jaJP",
+        ptBR: "Localizations_ptBR",
+        koKR: "Localizations_koKR",
+      };
+
+      const merged: Record<number, any> = {};
+      Object.keys(LANG_TABLES).forEach((field) => {
+        let rows: any[] = [];
+        try {
+          rows = db
+            .prepare(
+              `SELECT LocId, Formatted, Loc FROM "${LANG_TABLES[field]}" ORDER BY Formatted DESC`
+            )
+            .all() as any[];
+        } catch (e) {
+          console.log(`Localization table missing: ${LANG_TABLES[field]}`);
+        }
+        rows.forEach((r) => {
+          if (!merged[r.LocId]) merged[r.LocId] = { LocId: r.LocId };
+          merged[r.LocId][field] = r.Loc;
+        });
+      });
+
       fs.writeFile(
         path.join(APPDATA, EXTERNAL, "loc.json"),
-        JSON.stringify(data),
+        JSON.stringify(Object.values(merged)),
         () => resolve(true)
       );
     });
