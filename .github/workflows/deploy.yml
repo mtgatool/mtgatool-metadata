@@ -45,14 +45,16 @@ jobs:
       - name: Persist newly-cached set icons
         if: github.event_name == 'workflow_dispatch'
         run: |
-          if ! git diff --quiet -- set-icons.json; then
+          # Stage first: set-icons.json may be brand new (untracked), which a
+          # plain `git diff` does not report. --cached catches new + modified.
+          git add set-icons.json 2>/dev/null || true
+          if git diff --cached --quiet -- set-icons.json; then
+            echo "No new set icons to cache."
+          else
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add set-icons.json
             git commit -m "chore: cache set icons for new sets [skip ci]"
             git push origin "HEAD:${{ github.ref_name }}"
-          else
-            echo "No new set icons to cache."
           fi
 
       - name: Stage release assets (stable, unversioned names)
