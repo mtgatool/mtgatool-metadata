@@ -94,6 +94,15 @@ export default async function getSetIcons(): Promise<void> {
     }
   };
 
-  await Promise.all(setNames.map(processSet));
+  // Scryfall rate-limits (~10 req/s) and rejects bursts, so process sequentially
+  // with a small delay rather than firing ~360 requests at once (which returned
+  // 429/403 and left most sets without an icon).
+  // eslint-disable-next-line no-restricted-syntax
+  for (const setName of setNames) {
+    // eslint-disable-next-line no-await-in-loop
+    await processSet(setName);
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise((r) => setTimeout(r, 80));
+  }
   console.log(`Get set icons done (${ok} ok, ${skipped} skipped)`);
 }
