@@ -42,8 +42,13 @@ jobs:
       # When it resolves new sets it grows the cache; commit it back so future
       # builds reuse it and never re-ping Scryfall. Only meaningful on a branch
       # run (workflow_dispatch); tag pushes are detached and skip this.
+      # Best-effort: master requires PRs, so the built-in GITHUB_TOKEN usually
+      # can't push here. That's fine — the cache is seeded/refreshed by a
+      # maintainer commit (see scripts/seedSetIcons). This step only opportun-
+      # istically lands newly-fetched icons and must never fail the publish.
       - name: Persist newly-cached set icons
         if: github.event_name == 'workflow_dispatch'
+        continue-on-error: true
         run: |
           # Stage first: set-icons.json may be brand new (untracked), which a
           # plain `git diff` does not report. --cached catches new + modified.
@@ -54,7 +59,8 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git commit -m "chore: cache set icons for new sets [skip ci]"
-            git push origin "HEAD:${{ github.ref_name }}"
+            git push origin "HEAD:${{ github.ref_name }}" \
+              || echo "Could not push cache (branch protection?) — seed set-icons.json manually."
           fi
 
       - name: Stage release assets (stable, unversioned names)
