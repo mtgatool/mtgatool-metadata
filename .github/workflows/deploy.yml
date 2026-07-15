@@ -38,6 +38,23 @@ jobs:
           npm run start
           npm run dist
 
+      # getSetIcons only fetches icons for sets missing from set-icons.json.
+      # When it resolves new sets it grows the cache; commit it back so future
+      # builds reuse it and never re-ping Scryfall. Only meaningful on a branch
+      # run (workflow_dispatch); tag pushes are detached and skip this.
+      - name: Persist newly-cached set icons
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          if ! git diff --quiet -- set-icons.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add set-icons.json
+            git commit -m "chore: cache set icons for new sets [skip ci]"
+            git push origin "HEAD:${{ github.ref_name }}"
+          else
+            echo "No new set icons to cache."
+          fi
+
       - name: Stage release assets (stable, unversioned names)
         run: |
           mkdir -p release
