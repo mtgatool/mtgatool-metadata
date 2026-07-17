@@ -99,13 +99,20 @@ jobs:
           fi
           base="https://decenyvqkbvydrrolwpk.supabase.co/storage/v1/object/metadata"
           upload() { # <file> <object-name> <content-type>
-            curl -sS --fail -X POST "$base/$2" \
+            # Send the key as BOTH apikey and Authorization: the Storage API
+            # (Kong) expects `apikey`, and a secret key isn't a JWT, so passing
+            # it only as Bearer makes storage-api's JWT decode fail with 400.
+            code=$(curl -sS -o /tmp/sb_resp.txt -w "%{http_code}" -X POST "$base/$2" \
+              -H "apikey: $SUPABASE_SECRET_KEY" \
               -H "Authorization: Bearer $SUPABASE_SECRET_KEY" \
               -H "Content-Type: $3" \
-              -H "cache-control: max-age=300" \
               -H "x-upsert: true" \
-              --data-binary "@$1"
-            echo "  uploaded $2"
+              --data-binary "@$1")
+            echo "  $2 -> HTTP $code"
+            if [ "$code" -ge 300 ]; then
+              echo "    response: $(cat /tmp/sb_resp.txt)"
+              return 1
+            fi
           }
           upload release/latest.json latest.json application/json
           for f in release/*-database.json; do
