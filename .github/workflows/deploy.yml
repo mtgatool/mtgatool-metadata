@@ -82,3 +82,35 @@ jobs:
           name: Metadata v${{ steps.v.outputs.version }}
           files: release/*
           make_latest: true
+
+      # Mirror the same files into a public Supabase Storage bucket so the WEB
+      # app (app.mtgatool.com) can fetch them — GitHub release assets send no
+      # CORS headers, so browsers can't. The per-language DBs (~25MB) are
+      # uploaded GZIPPED (~6x smaller) to keep Storage egress down; the web
+      # client inflates them (see database-wrapper.ts). latest.json stays raw.
+      # No-op if the secret isn't configured, so it never blocks a release.
+      - name: Mirror metadata to Supabase Storage (gzipped)
+        env:
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          if [ -z "$SUPABASE_SECRET_KEY" ]; then
+            echo "SUPABASE_SECRET_KEY not set; skipping Supabase mirror."
+            exit 0
+          fi
+          base="https://decenyvqkbvydrrolwpk.supabase.co/storage/v1/object/metadata"
+          upload() { # <file> <object-name> <content-type>
+            curl -sS --fail -X POST "$base/$2" \
+              -H "Authorization: Bearer $SUPABASE_SECRET_KEY" \
+              -H "Content-Type: $3" \
+              -H "cache-control: max-age=300" \
+              -H "x-upsert: true" \
+              --data-binary "@$1"
+            echo "  uploaded $2"
+          }
+          upload release/latest.json latest.json application/json
+          for f in release/*-database.json; do
+            [ -e "$f" ] || continue
+            name=$(basename "$f")
+            gzip -kf "$f"                       # -> $f.gz (keeps original)
+            upload "$f.gz" "$name.gz" application/gzip
+          done
