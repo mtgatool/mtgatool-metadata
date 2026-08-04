@@ -808,9 +808,13 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 68116,
     release: "2018-07-13",
   },
+  // Scryfall splits this in two: "ana" is the 46-card play-experience set, while
+  // the cards Arena reports under ANA live in "oana" (Arena New Player
+  // Experience Cards). The numbering does not line up either way, hence the
+  // DIGITAL_SETS entry that makes the client resolve these by name.
   "Arena New Player Experience": {
     collation: false,
-    scryfall: "ana",
+    scryfall: "oana",
     code: "ANA",
     arenacode: "ANA",
     tile: 67106,
@@ -1551,6 +1555,14 @@ export const DIGITAL_SETS = [
   "Alchemy: Bloomburrow",
   "Alchemy: Duskmourn",
   "Shadows over Innistrad Remastered",
+  // Sets where Arena's collector numbers do not correspond to Scryfall's, so
+  // /cards/{set}/{number} resolves to the wrong card or 404s. Listing them here
+  // makes the client look the card up by name within the set instead, which
+  // resolves all three correctly (e.g. Ainok Bond-Kin is #3 in Arena and #36 on
+  // Scryfall; Gift Pack numbers are "GP1".."GP5", not integers).
+  "Jumpstart: Historic Horizons",
+  "M19 Gift Pack",
+  "Arena New Player Experience",
 ];
 
 export const COLORS = [
