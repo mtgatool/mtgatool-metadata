@@ -816,9 +816,13 @@ export const SETS_DATA: Record<string, CardSet> = {
     tile: 67106,
     release: "2018-07-14",
   },
+  // Scryfall calls this one "anb" (Arena Beginner Set, 120 cards), distinct from
+  // "ana" above (Arena New Player Experience, 46 cards). Arena's collector
+  // numbers line up with anb exactly — 1 Angel of Vitality, 114 Mountain — so
+  // pointing at ana 404'd every card in the set.
   "Arena New Player Experience 2020": {
     collation: false,
-    scryfall: "ana",
+    scryfall: "anb",
     code: "ANB",
     arenacode: "ANB",
     tile: 67106,
