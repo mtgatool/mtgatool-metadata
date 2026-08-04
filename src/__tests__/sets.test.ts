@@ -27,13 +27,14 @@ function getSets(): [string, number][] {
   const setCards: Record<string, number> = {};
   // get all sets in cards.json
   cards.value.forEach((card: Card) => {
-    const cardSet =
-      card.ExpansionCode === "Y22" ||
-      card.ExpansionCode === "Y23" ||
-      card.ExpansionCode === "Y24" ||
-      card.ExpansionCode === "Y25"
-        ? card.DigitalReleaseSet
-        : card.ExpansionCode;
+    // Alchemy cards report a bare rotation year ("Y22".."Y26") as their
+    // expansion; the set they actually belong to is the digital release
+    // ("Y26-ECL"). Matched by pattern rather than a list of years — the list
+    // stopped at Y25, so every Y26 card fell through as a bare "Y26" and the
+    // failure read as a missing set rather than a stale test.
+    const cardSet = /^Y\d{2}$/.test(card.ExpansionCode)
+      ? card.DigitalReleaseSet
+      : card.ExpansionCode;
     if (cardSet) {
       if (!setCards[cardSet]) setCards[cardSet] = 1;
       else setCards[cardSet] += 1;

@@ -19,6 +19,11 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "7ED": {
+    "scryfall": "7ed",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "8ED": {
     "scryfall": "8ed",
     "via": "collector",
@@ -114,6 +119,11 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "BOK": {
+    "scryfall": "bok",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "BRO": {
     "scryfall": "bro",
     "via": "collector",
@@ -174,6 +184,11 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "CMA": {
+    "scryfall": "cma",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "CMD": {
     "scryfall": "cmd",
     "via": "collector",
@@ -199,8 +214,28 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "DDD": {
+    "scryfall": "ddd",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "DDK": {
+    "scryfall": "ddk",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "DDL": {
+    "scryfall": "ddl",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "DDU": {
     "scryfall": "ddu",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "DFT": {
+    "scryfall": "dft",
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
@@ -219,8 +254,23 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "DMC": {
+    "scryfall": "dmc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "DMR": {
+    "scryfall": "dmr",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "DMU": {
     "scryfall": "dmu",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "DRC": {
+    "scryfall": "drc",
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
@@ -239,6 +289,16 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "ECC": {
+    "scryfall": "ecc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ECL": {
+    "scryfall": "ecl",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "ELD": {
     "scryfall": "eld",
     "via": "collector",
@@ -249,13 +309,63 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "EOC": {
+    "scryfall": "eoc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "EOE": {
+    "scryfall": "eoe",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "EOS": {
+    "scryfall": "eos",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "EVE": {
+    "scryfall": "eve",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "EXO": {
+    "scryfall": "exo",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "FCA": {
+    "scryfall": "fca",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "FDN": {
     "scryfall": "fdn",
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "FEM": {
+    "scryfall": "fem",
+    "via": "name",
+    "checkedAt": "2026-08-04"
+  },
+  "FIC": {
+    "scryfall": "fic",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "FIN": {
+    "scryfall": "fin",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "FRF": {
     "scryfall": "frf",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "FUT": {
+    "scryfall": "fut",
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
@@ -284,6 +394,11 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "ICE": {
+    "scryfall": "ice",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "IKO": {
     "scryfall": "iko",
     "via": "collector",
@@ -291,6 +406,11 @@
   },
   "IMA": {
     "scryfall": "ima",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "INR": {
+    "scryfall": "inr",
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
@@ -429,6 +549,11 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "MAR": {
+    "scryfall": "mar",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "MAT": {
     "scryfall": "mat",
     "via": "collector",
@@ -509,13 +634,33 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "MSC": {
+    "scryfall": "msc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MSH": {
+    "scryfall": "msh",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "MUL": {
     "scryfall": "mul",
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "NCC": {
+    "scryfall": "ncc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "NEC": {
     "scryfall": "nec",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "NEM": {
+    "scryfall": "nem",
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
@@ -536,6 +681,16 @@
   },
   "OGW": {
     "scryfall": "ogw",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "OMB": {
+    "scryfall": "omb",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ONC": {
+    "scryfall": "onc",
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
@@ -566,6 +721,11 @@
   },
   "OTP": {
     "scryfall": "otp",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "PIO": {
+    "scryfall": "pio",
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
@@ -614,6 +774,11 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "RVR": {
+    "scryfall": "rvr",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "SCG": {
     "scryfall": "scg",
     "via": "collector",
@@ -644,6 +809,16 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "SOA": {
+    "scryfall": "soa",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "SOC": {
+    "scryfall": "soc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "SOI": {
     "scryfall": "soi",
     "via": "collector",
@@ -659,8 +834,18 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "SOS": {
+    "scryfall": "sos",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "SPG": {
     "scryfall": "spg",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "SPM": {
+    "scryfall": "spm",
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
@@ -669,8 +854,23 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "STH": {
+    "scryfall": "sth",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "STX": {
     "scryfall": "stx",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "TDC": {
+    "scryfall": "tdc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "TDM": {
+    "scryfall": "tdm",
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
@@ -684,6 +884,31 @@
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
+  "TLA": {
+    "scryfall": "tla",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "TLE": {
+    "scryfall": "tle",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "TMC": {
+    "scryfall": "tmc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "TMP": {
+    "scryfall": "tmp",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "TMT": {
+    "scryfall": "tmt",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
   "TOR": {
     "scryfall": "tor",
     "via": "collector",
@@ -691,6 +916,16 @@
   },
   "TSP": {
     "scryfall": "tsp",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "UDS": {
+    "scryfall": "uds",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ULG": {
+    "scryfall": "ulg",
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
@@ -716,6 +951,11 @@
   },
   "UST": {
     "scryfall": "ust",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "VIS": {
+    "scryfall": "vis",
     "via": "collector",
     "checkedAt": "2026-08-04"
   },
