@@ -1,0 +1,56 @@
+name: "Audit Scryfall set mappings"
+
+# SETS_DATA maps each Arena set to a Scryfall set code, and that mapping is
+# where card art comes from. Getting it wrong is quiet: ANB pointed at "ana" for
+# years and only surfaced when someone noticed a deck tile with no art, and J21
+# was worse — it resolved every card to a confidently WRONG one, which nobody
+# reports as a bug.
+#
+# So this resolves a real card through each mapping and compares the name.
+# Checking that the set code merely exists would catch neither case; "ana" and
+# "j21" are perfectly valid sets that just hold different cards.
+#
+# Runs on PRs that touch the mapping, which is the moment the feedback is worth
+# having, and never gates the release workflow.
+on:
+  pull_request:
+    paths:
+      - "src/metadata-constants.ts"
+      - "src/auditSetMappings.ts"
+      - "set-mappings.json"
+  workflow_dispatch: {}
+
+jobs:
+  audit:
+    name: Resolve a card through every set mapping
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        run: npm install --legacy-peer-deps
+
+      - name: Build
+        run: npx tsc
+
+      # Card data comes from the last published metadata, mappings from this
+      # branch — so a mapping change is validated without regenerating from
+      # Arena's manifest. Only a regression exits non-zero: a set that resolved
+      # in the committed baseline and no longer does. Sets that have never had a
+      # Scryfall code are reported and ignored; the client resolves those by
+      # name by design.
+      - name: Audit
+        run: node dist/auditSetMappings.js
+
+      # Surfaces the refreshed baseline for a maintainer to commit. Not pushed
+      # from a PR run — that would need write access to a fork's branch.
+      - name: Show baseline diff
+        if: always()
+        run: git --no-pager diff -- set-mappings.json || true

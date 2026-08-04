@@ -1,0 +1,772 @@
+{
+  "10E": {
+    "scryfall": "10e",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "2X2": {
+    "scryfall": "2x2",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "2XM": {
+    "scryfall": "2xm",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "5DN": {
+    "scryfall": "5dn",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "8ED": {
+    "scryfall": "8ed",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "9ED": {
+    "scryfall": "9ed",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "A25": {
+    "scryfall": "a25",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ACR": {
+    "scryfall": "acr",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "AER": {
+    "scryfall": "aer",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "AFR": {
+    "scryfall": "afr",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "AKH": {
+    "scryfall": "akh",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "AKR": {
+    "scryfall": "akr",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ALA": {
+    "scryfall": "ala",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ANA": {
+    "scryfall": "oana",
+    "via": "name",
+    "checkedAt": "2026-08-04"
+  },
+  "ANB": {
+    "scryfall": "anb",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "APC": {
+    "scryfall": "apc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ARB": {
+    "scryfall": "arb",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "AVR": {
+    "scryfall": "avr",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "BFZ": {
+    "scryfall": "bfz",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "BIG": {
+    "scryfall": "big",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "BLB": {
+    "scryfall": "blb",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "BLC": {
+    "scryfall": "blc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "BNG": {
+    "scryfall": "bng",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "BRO": {
+    "scryfall": "bro",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "BRR": {
+    "scryfall": "brr",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "C13": {
+    "scryfall": "c13",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "C16": {
+    "scryfall": "c16",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "C18": {
+    "scryfall": "c18",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "C20": {
+    "scryfall": "c20",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "C21": {
+    "scryfall": "c21",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "CC2": {
+    "scryfall": "cc2",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "CHK": {
+    "scryfall": "chk",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "CLB": {
+    "scryfall": "clb",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "CLU": {
+    "scryfall": "clu",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "CM2": {
+    "scryfall": "cm2",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "CMD": {
+    "scryfall": "cmd",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "CMM": {
+    "scryfall": "cmm",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "CMR": {
+    "scryfall": "cmr",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "CONF": {
+    "scryfall": "con",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "CSP": {
+    "scryfall": "csp",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "DDU": {
+    "scryfall": "ddu",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "DGM": {
+    "scryfall": "dgm",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "DIS": {
+    "scryfall": "dis",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "DKA": {
+    "scryfall": "dka",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "DMU": {
+    "scryfall": "dmu",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "DSK": {
+    "scryfall": "dsk",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "DST": {
+    "scryfall": "dst",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "DTK": {
+    "scryfall": "dtk",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ELD": {
+    "scryfall": "eld",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "EMN": {
+    "scryfall": "emn",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "FDN": {
+    "scryfall": "fdn",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "FRF": {
+    "scryfall": "frf",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "G18": {
+    "scryfall": "g18",
+    "via": "name",
+    "checkedAt": "2026-08-04"
+  },
+  "GRN": {
+    "scryfall": "grn",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "GTC": {
+    "scryfall": "gtc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "HBG": {
+    "scryfall": "hbg",
+    "via": "name",
+    "checkedAt": "2026-08-04"
+  },
+  "HOU": {
+    "scryfall": "hou",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "IKO": {
+    "scryfall": "iko",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "IMA": {
+    "scryfall": "ima",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "INV": {
+    "scryfall": "inv",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ISD": {
+    "scryfall": "isd",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "J21": {
+    "scryfall": "j21",
+    "via": "name",
+    "checkedAt": "2026-08-04"
+  },
+  "J25": {
+    "scryfall": "j25",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "JMP": {
+    "scryfall": "jmp",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "JOU": {
+    "scryfall": "jou",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "JUD": {
+    "scryfall": "jud",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "KHM": {
+    "scryfall": "khm",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "KLD": {
+    "scryfall": "kld",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "KLR": {
+    "scryfall": "klr",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "KTK": {
+    "scryfall": "ktk",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "LCC": {
+    "scryfall": "lcc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "LCI": {
+    "scryfall": "lci",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "LGN": {
+    "scryfall": "lgn",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "LRW": {
+    "scryfall": "lrw",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "LTC": {
+    "scryfall": "ltc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "LTR": {
+    "scryfall": "ltr",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "M10": {
+    "scryfall": "m10",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "M11": {
+    "scryfall": "m11",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "M12": {
+    "scryfall": "m12",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "M13": {
+    "scryfall": "m13",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "M14": {
+    "scryfall": "m14",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "M15": {
+    "scryfall": "m15",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "M19": {
+    "scryfall": "m19",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "M20": {
+    "scryfall": "m20",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "M21": {
+    "scryfall": "m21",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "M3C": {
+    "scryfall": "m3c",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MAT": {
+    "scryfall": "mat",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MBS": {
+    "scryfall": "mbs",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ME2": {
+    "scryfall": "me2",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ME4": {
+    "scryfall": "me4",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MH1": {
+    "scryfall": "mh1",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MH2": {
+    "scryfall": "mh2",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MH3": {
+    "scryfall": "mh3",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MID": {
+    "scryfall": "mid",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MIR": {
+    "scryfall": "mir",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MKM": {
+    "scryfall": "mkm",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MMA": {
+    "scryfall": "mma",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MMQ": {
+    "scryfall": "mmq",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MOC": {
+    "scryfall": "moc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MOM": {
+    "scryfall": "mom",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MOR": {
+    "scryfall": "mor",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MRD": {
+    "scryfall": "mrd",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "MUL": {
+    "scryfall": "mul",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "NEC": {
+    "scryfall": "nec",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "NEO": {
+    "scryfall": "neo",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "NPH": {
+    "scryfall": "nph",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ODY": {
+    "scryfall": "ody",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "OGW": {
+    "scryfall": "ogw",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ONE": {
+    "scryfall": "one",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ONS": {
+    "scryfall": "ons",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ORI": {
+    "scryfall": "ori",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "OTC": {
+    "scryfall": "otc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "OTJ": {
+    "scryfall": "otj",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "OTP": {
+    "scryfall": "otp",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "PIP": {
+    "scryfall": "pip",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "PLC": {
+    "scryfall": "plc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "PLS": {
+    "scryfall": "pls",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "RAV": {
+    "scryfall": "rav",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "REX": {
+    "scryfall": "rex",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "RIX": {
+    "scryfall": "rix",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "RNA": {
+    "scryfall": "rna",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ROE": {
+    "scryfall": "roe",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "RTR": {
+    "scryfall": "rtr",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "SCG": {
+    "scryfall": "scg",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "SHM": {
+    "scryfall": "shm",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "SIR": {
+    "scryfall": "sir",
+    "via": "name",
+    "checkedAt": "2026-08-04"
+  },
+  "SIS": {
+    "scryfall": "sis",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "SLD": {
+    "scryfall": "sld",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "SNC": {
+    "scryfall": "snc",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "SOI": {
+    "scryfall": "soi",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "SOK": {
+    "scryfall": "sok",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "SOM": {
+    "scryfall": "som",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "SPG": {
+    "scryfall": "spg",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "STA": {
+    "scryfall": "sta",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "STX": {
+    "scryfall": "stx",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "THB": {
+    "scryfall": "thb",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "THS": {
+    "scryfall": "ths",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "TOR": {
+    "scryfall": "tor",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "TSP": {
+    "scryfall": "tsp",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "UMA": {
+    "scryfall": "uma",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "UND": {
+    "scryfall": "und",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "UNF": {
+    "scryfall": "unf",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "USG": {
+    "scryfall": "usg",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "UST": {
+    "scryfall": "ust",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "VMA": {
+    "scryfall": "vma",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "VOW": {
+    "scryfall": "vow",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "WAR": {
+    "scryfall": "war",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "WOE": {
+    "scryfall": "woe",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "WOT": {
+    "scryfall": "wot",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "WTH": {
+    "scryfall": "wth",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "WWK": {
+    "scryfall": "wwk",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "XLN": {
+    "scryfall": "xln",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ZEN": {
+    "scryfall": "zen",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  },
+  "ZNR": {
+    "scryfall": "znr",
+    "via": "collector",
+    "checkedAt": "2026-08-04"
+  }
+}
