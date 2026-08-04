@@ -33,6 +33,15 @@ jobs:
       - name: Install deps
         run: npm install --legacy-peer-deps
 
+      # sets.test.ts asserts every set code in Arena's card database has a
+      # SETS_DATA entry; cards.test.ts pins Arena's card schema. Both were wired
+      # only to main.yml, which became workflow_dispatch-only during the move to
+      # GitHub Releases, so nothing has run them since and 57 sets accumulated
+      # unnoticed. Runs before generation on purpose: publishing metadata that
+      # cannot name half its sets is worse than not publishing.
+      - name: Test
+        run: npm test
+
       - name: Generate metadata
         run: |
           npm run start
