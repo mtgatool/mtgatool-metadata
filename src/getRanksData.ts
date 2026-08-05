@@ -12,7 +12,10 @@ export default function getRanksData(): Promise<void[]> {
   });
 
   const redrawRankRequests = function (moveBack = true) {
-    if (process.env.GITHUB_ACTIONS) return;
+    // The cursor dance needs a real terminal. CI was already excluded, but any
+    // piped or redirected run (`npm start > build.log`) has no moveCursor at
+    // all, and generation died here before it ever reached the ranks.
+    if (process.env.GITHUB_ACTIONS || !process.stdout.isTTY) return;
     process.stdout.moveCursor(0, moveBack ? -rankRequests.length : 0);
     const str = `${rankRequests
       .map((r) => {

@@ -13,10 +13,13 @@ import {
   DIGITAL_SETS,
 } from "./metadata-constants";
 
+import { CardSet } from "mtgatool-shared";
+
 import { DbCardDataV2, RanksData } from "./types/metadata";
 import { Card, Ability } from "./types/jsons-data";
 
 import readExternalJson from "./readExternalJson";
+import computeSetCardData, { SetCardData } from "./setCardData";
 
 import parseStringArray from "./utils/parseStringArray";
 import parseStringRecord from "./utils/parseStringRecord";
@@ -296,6 +299,16 @@ export function generateMetadata(
         }
       });
 
+      // Resolve the per-set facts consumers would otherwise have to re-derive
+      // by walking all 26k cards on every use. See setCardData.ts for why both
+      // of these exist; the short version is that every consumer that tried to
+      // work them out at runtime got them wrong.
+      const setCardData = computeSetCardData(cardsFinal, SETS_DATA, setNames);
+      const setsOutput: Record<string, CardSet & SetCardData> = {};
+      Object.keys(SETS_DATA).forEach((name) => {
+        setsOutput[name] = { ...SETS_DATA[name], ...setCardData[name] };
+      });
+
       // Make the final JSON structure
       const date = new Date();
       const jsonOutput = {
@@ -304,7 +317,7 @@ export function generateMetadata(
         version: version,
         language: lang,
         updated: date.getTime(),
-        sets: SETS_DATA,
+        sets: setsOutput,
         setNames: setNames,
         digitalSets: DIGITAL_SETS,
         abilities: abilities,
