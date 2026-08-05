@@ -46,6 +46,29 @@ holding several copies at once and re-deriving format legality, craftability,
 booster membership, search keys and sort keys for every card on every
 collection mount. Those are all build-time facts.
 
+## Published assets
+
+Each release publishes both formats, per language, under stable unversioned
+names:
+
+```
+https://github.com/mtgatool/mtgatool-metadata/releases/latest/download/latest.json
+https://github.com/mtgatool/mtgatool-metadata/releases/latest/download/en-database.json
+https://github.com/mtgatool/mtgatool-metadata/releases/latest/download/en-database.sqlite
+```
+
+The JSON databases are the original published format and are not going
+anywhere — this data is used outside mtgatool-desktop and removing them would
+break anyone building on it. SQLite is additive.
+
+`latest.json` carries `formats: ["json", "sqlite"]`. The field is absent on
+every release made before SQLite existed, so a missing value means JSON only —
+which is what a client should check rather than probing for a 404.
+
+The same files are mirrored gzipped into a public Supabase Storage bucket,
+because GitHub release assets send no CORS headers and browsers therefore
+cannot fetch them directly.
+
 ## Building one without running the pipeline
 
 The full run downloads Arena's manifest and the Scryfall bulk data. To iterate
