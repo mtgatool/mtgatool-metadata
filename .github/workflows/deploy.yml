@@ -72,6 +72,12 @@ jobs:
               || echo "Could not push cache (branch protection?) — seed set-icons.json manually."
           fi
 
+      # Both formats ship. The JSON databases are the original published format
+      # and stay exactly as they are — this repo's output is used outside
+      # mtgatool-desktop, and dropping them would break anyone building on it.
+      # SQLite is additive: same data, plus the per-card facts consumers would
+      # otherwise re-derive, in a form that can be queried without holding the
+      # whole thing in memory.
       - name: Stage release assets (stable, unversioned names)
         run: |
           mkdir -p release
@@ -81,6 +87,12 @@ jobs:
             base=$(basename "$f")
             lang=$(echo "$base" | sed -E 's/^v[0-9]+-([a-z]+)-database\.json$/\1/')
             cp "$f" "release/${lang}-database.json"
+          done
+          for f in output/${{ steps.v.outputs.version }}/v${{ steps.v.outputs.version }}-*-database.sqlite; do
+            [ -e "$f" ] || continue
+            base=$(basename "$f")
+            lang=$(echo "$base" | sed -E 's/^v[0-9]+-([a-z]+)-database\.sqlite$/\1/')
+            cp "$f" "release/${lang}-database.sqlite"
           done
           ls -la release
 
@@ -124,7 +136,7 @@ jobs:
             fi
           }
           upload release/latest.json latest.json application/json
-          for f in release/*-database.json; do
+          for f in release/*-database.json release/*-database.sqlite; do
             [ -e "$f" ] || continue
             name=$(basename "$f")
             gzip -kf "$f"                       # -> $f.gz (keeps original)
