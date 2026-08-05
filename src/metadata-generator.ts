@@ -20,6 +20,7 @@ import { Card, Ability } from "./types/jsons-data";
 
 import readExternalJson from "./readExternalJson";
 import computeSetCardData, { SetCardData } from "./setCardData";
+import writeSqliteDatabase from "./sqlite/writeSqlite";
 
 import parseStringArray from "./utils/parseStringArray";
 import parseStringRecord from "./utils/parseStringRecord";
@@ -322,6 +323,39 @@ export function generateMetadata(
         digitalSets: DIGITAL_SETS,
         abilities: abilities,
       };
+
+      // Same payload as a SQLite database, with the per-card facts consumers
+      // would otherwise derive at runtime resolved into columns. Written
+      // alongside the JSON for now so nothing downstream has to change at
+      // once; set MTGATOOL_SKIP_SQLITE=1 to skip it during a JSON-only run.
+      if (!process.env.MTGATOOL_SKIP_SQLITE) {
+        const dbOut = path.join(
+          APPDATA,
+          OUTPUT,
+          version,
+          `v${version}-${lang.toLowerCase()}-database.sqlite`
+        );
+        const started = Date.now();
+        const stats = writeSqliteDatabase(
+          {
+            cards: cardsFinal,
+            sets: setsOutput,
+            setNames,
+            digitalSets: DIGITAL_SETS,
+            abilities,
+            version,
+            language: lang,
+            updated: date.getTime(),
+          },
+          dbOut
+        );
+        console.log(
+          `${dbOut} generated in ${((Date.now() - started) / 1000).toFixed(1)}s` +
+            ` — ${stats.cards} cards, ${stats.sets} sets, ${stats.formats} formats,` +
+            ` ${stats.legalPairs} legal pairs,` +
+            ` ${(stats.bytes / 1048576).toFixed(1)} MB`
+        );
+      }
 
       // Write to a file
       const str = JSON.stringify(jsonOutput);

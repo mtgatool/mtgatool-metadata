@@ -13,7 +13,8 @@
     "test": "tsc && node dist/setup.js && jest src/",
     "jest": "jest src/",
     "tsc": "tsc",
-    "dist": "tsc && node dist/dist.js"
+    "dist": "tsc && node dist/dist.js",
+    "sqlite": "tsc && node --max-old-space-size=12288 dist/sqlite/fromJson.js"
   },
   "repository": {
     "type": "git",
