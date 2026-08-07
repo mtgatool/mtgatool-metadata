@@ -18,6 +18,7 @@ import { CardSet } from "mtgatool-shared";
 import { DbCardDataV2, RanksData } from "./types/metadata";
 import { Card, Ability } from "./types/jsons-data";
 
+import applyBoosterCollations from "./getBoosterCollations";
 import readExternalJson from "./readExternalJson";
 import computeSetCardData, { SetCardData } from "./setCardData";
 import writeSqliteDatabase from "./sqlite/writeSqlite";
@@ -305,9 +306,12 @@ export function generateMetadata(
       // of these exist; the short version is that every consumer that tried to
       // work them out at runtime got them wrong.
       const setCardData = computeSetCardData(cardsFinal, SETS_DATA, setNames);
+      // Booster ids come from Arena's own asset data rather than the hand-kept
+      // list, which had not been updated in two years — see getBoosterCollations.
+      const setsWithBoosters = applyBoosterCollations(SETS_DATA);
       const setsOutput: Record<string, CardSet & SetCardData> = {};
-      Object.keys(SETS_DATA).forEach((name) => {
-        setsOutput[name] = { ...SETS_DATA[name], ...setCardData[name] };
+      Object.keys(setsWithBoosters).forEach((name) => {
+        setsOutput[name] = { ...setsWithBoosters[name], ...setCardData[name] };
       });
 
       // Make the final JSON structure
