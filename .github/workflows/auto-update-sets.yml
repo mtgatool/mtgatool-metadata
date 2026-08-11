@@ -1,10 +1,11 @@
 name: "Auto-update sets from Arena data"
 
-# The unattended release loop. Daily: diff Arena's card database against sets/,
-# and when Arena ships sets this repo doesn't know (every ~2 months), add them
-# (see src/updateSets.ts), test, bump the version, and push master plus a vN
-# tag — which triggers the "Publish metadata to GitHub Releases" workflow
-# exactly like a by-hand release.
+# The unattended release loop. Daily: adopt the newest client-uploaded
+# GetFormats snapshot (see src/updateFormats.ts), diff Arena's card database
+# against sets/, and when either leaves changes behind — new sets (every ~2
+# months) or a changed formats table (bans, rotations) — test, bump the
+# version, and push master plus a vN tag — which triggers the "Publish
+# metadata to GitHub Releases" workflow exactly like a by-hand release.
 #
 # Two failure stances, both fine at this cadence:
 # - updateSets exits non-zero (Scryfall doesn't know the set yet, or something
@@ -55,6 +56,12 @@ jobs:
           npx tsc
           node dist/setup.js
 
+      # Adopt the newest client-uploaded GetFormats snapshot first: it is the
+      # ground truth updateSets' mirror heuristic only approximates, and the
+      # mirror skips codes a snapshot already brought in.
+      - name: Sync formats.json from live snapshot
+        run: node dist/updateFormats.js
+
       - name: Discover new sets
         run: node dist/updateSets.js
 
@@ -84,7 +91,12 @@ jobs:
 
           added=$(git diff --name-only -- sets | sed -E 's|sets/(.*)\.json|\1|' | tr '[:lower:]' '[:upper:]' | paste -sd, -)
           git add sets formats.json
-          git commit -m "Add new Arena sets: ${added}"
+          if [ -n "$added" ]; then
+            git commit -m "Add new Arena sets: ${added}"
+          else
+            added="formats update"
+            git commit -m "Sync formats.json from a live client snapshot"
+          fi
 
           npm version major --no-git-tag-version
           major=$(node -p "require('./package.json').version.split('.')[0]")
