@@ -11,10 +11,13 @@ name: "Auto-update sets from Arena data"
 #   needs eyes): the run goes red, nothing is committed, tomorrow retries.
 # - Tests fail after an update: red run, nothing pushed, a maintainer looks.
 #
-# Pushes use the GH_TOKEN PAT, NOT the built-in GITHUB_TOKEN, for two reasons:
-# tag pushes made with GITHUB_TOKEN do not trigger other workflows (so the
-# publish would never run), and master's branch protection requires a bypass
-# the bot account has.
+# Pushes prefer the GH_TOKEN PAT and fall back to the built-in GITHUB_TOKEN.
+# The difference matters twice: tag pushes made with GITHUB_TOKEN do not
+# trigger other workflows (so on the fallback the publish is started by an
+# explicit workflow_dispatch instead, which GITHUB_TOKEN IS allowed to
+# trigger), and master's branch-protection bypass belongs to accounts, so the
+# fallback only works if the ruleset lets the github-actions app push.
+# Keeping a live PAT in GH_TOKEN is the well-lit path.
 on:
   schedule:
     - cron: "0 12 * * *"
@@ -22,6 +25,7 @@ on:
 
 permissions:
   contents: write
+  actions: write # dispatch the publish workflow on the GITHUB_TOKEN fallback
 
 concurrency:
   group: auto-update-sets
@@ -36,7 +40,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GH_TOKEN || github.token }}
 
       - name: Use node
         uses: actions/setup-node@v4
@@ -90,4 +94,13 @@ jobs:
 
           git push origin HEAD:master
           git push origin "v${major}"
-          echo "Released v${major} (${added}) — publish workflow takes it from here."
+
+          # A tag pushed with the built-in token starts nothing; dispatch the
+          # publish ourselves in that case.
+          if [ -z "${{ secrets.GH_TOKEN }}" ]; then
+            gh workflow run deploy.yml --ref "v${major}"
+            echo "Dispatched the publish workflow for v${major} (GITHUB_TOKEN fallback)."
+          fi
+          echo "Released v${major} (${added})."
+        env:
+          GH_TOKEN: ${{ github.token }}
