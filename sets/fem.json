@@ -1,0 +1,11 @@
+{
+  "name": "Fallen Empires",
+  "scryfall": "fem",
+  "code": "FEM",
+  "arenacode": "FEM",
+  "tile": 67003,
+  "release": "1994-11-01",
+  "collation": -1,
+  "byName": true,
+  "svg": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MzkgMTAyNCI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTUyOC42NTUgNTQ5LjA4N2MwIDYzLjg3Mi0yNi41NjQgMTE1LjcxNC01OS4zMjIgMTE1LjcxNHMtNTkuMjM3LTUxLjg0Mi01OS4yMzctMTE1LjcxNGMwLTYzLjg1MiAyNi40NzktMTE1LjYxIDU5LjIzNy0xMTUuNjFzNTkuMzIyIDUxLjc1OCA1OS4zMjIgMTE1LjYxek0yMDUuMzU4IDc1Ni43MTJoNTI3Ljk1MUw2OTUuOTYgODg2LjczMUgyNDIuNzA3bC0zNy4zNDktMTMwLjAxOXptODUuOTktMzQ2LjkzM0wuNzg2IDMxNy43ODUgMTg3LjU3NyA3MTguMTJoNTYzLjUxMWwxODYuNzkxLTQwMC4zMzUtMjkwLjU2MiA5MS45OTQtMTc3LjkwMS0yNjMuOTc3LTE3OC4wNjggMjYzLjk3N3oiLz48L3N2Zz4="
+}

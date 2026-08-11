@@ -12,7 +12,7 @@
  * working tree — so a PR editing the mapping is validated without regenerating
  * from Arena's manifest.
  *
- * Results are cached in set-mappings.json (committed, like set-icons.json), so a
+ * Results are cached in set-mappings.json (committed, like the icons in sets/), so a
  * run that changes no mapping makes no requests. Only a REGRESSION fails the
  * build: a set that used to resolve and no longer does. Sets that have never had
  * a Scryfall code are reported and ignored — the client falls back to a by-name

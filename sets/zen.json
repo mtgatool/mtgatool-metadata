@@ -1,0 +1,10 @@
+{
+  "name": "Zendikar",
+  "scryfall": "zen",
+  "code": "ZEN",
+  "arenacode": "ZEN",
+  "tile": 64827,
+  "release": "2009-10-02",
+  "collation": -1,
+  "svg": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjUgMTAyNCI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTM1OC4zNDkgNTQ2LjE3OUwuMDU1IDM5My45MiAzNTguMzQ5IDg0LjgwMyA3MTYuNzQ2IDM5My45MiAzNTguMzQ5IDU0Ni4xNzl6bTAgODQuMzAxTC4wNTUgNDY4Ljg5NWwzNTguMjk0IDUxMi45NjggMzU4LjM5Ny01MTIuOTY4TDM1OC4zNDkgNjMwLjQ4eiIvPjwvc3ZnPg=="
+}

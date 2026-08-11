@@ -15,6 +15,7 @@ name: "Audit Scryfall set mappings"
 on:
   pull_request:
     paths:
+      - "sets/**"
       - "src/metadata-constants.ts"
       - "src/auditSetMappings.ts"
       - "set-mappings.json"
