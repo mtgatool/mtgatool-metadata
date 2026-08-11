@@ -48,6 +48,33 @@ describe("validateSnapshot", () => {
     const unnamed = { ...real, Formats: [...real.Formats, { name: "" }] };
     expect(validateSnapshot(unnamed)).toMatch(/no name/);
   });
+
+  it("rejects malformed format groups", () => {
+    const nullGroup = { ...real, FormatGroups: [...real.FormatGroups, null] };
+    expect(validateSnapshot(nullGroup)).toMatch(/group has no name/);
+
+    const numberName = {
+      ...real,
+      FormatGroups: [{ GroupName: 1, FormatNames: ["Standard"] }],
+    };
+    expect(validateSnapshot(numberName)).toMatch(/group has no name/);
+
+    const stringNames = {
+      ...real,
+      FormatGroups: [{ GroupName: "Constructed", FormatNames: "Standard" }],
+    };
+    expect(validateSnapshot(stringNames)).toMatch(
+      /Constructed.FormatNames is not a string array/
+    );
+
+    const mixedNames = {
+      ...real,
+      FormatGroups: [{ GroupName: "Constructed", FormatNames: ["ok", 5] }],
+    };
+    expect(validateSnapshot(mixedNames)).toMatch(
+      /Constructed.FormatNames is not a string array/
+    );
+  });
 });
 
 describe("contentHash", () => {

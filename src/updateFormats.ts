@@ -65,6 +65,17 @@ export function validateSnapshot(snapshot: unknown): string | null {
     return `only ${s.Formats.length} formats (a real table has 100+)`;
   }
   if (!Array.isArray(s.FormatGroups)) return "FormatGroups is not an array";
+  for (const g of s.FormatGroups) {
+    if (!g || typeof g.GroupName !== "string" || g.GroupName === "") {
+      return "a format group has no name";
+    }
+    if (
+      !Array.isArray(g.FormatNames) ||
+      g.FormatNames.some((n) => typeof n !== "string")
+    ) {
+      return `group ${g.GroupName}.FormatNames is not a string array`;
+    }
+  }
 
   const names = new Set<string>();
   for (const f of s.Formats) {
@@ -117,17 +128,31 @@ function deepEqual(a: unknown, b: unknown): boolean {
   return false;
 }
 
+// An unattended cron must never hang on a dead connection until the job
+// timeout. (AbortController + setTimeout rather than AbortSignal.timeout —
+// this project's TypeScript does not know the latter.)
+const FETCH_TIMEOUT_MS = 30_000;
+
 async function rest(pathAndQuery: string): Promise<unknown> {
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/${pathAndQuery}`, {
-    headers: {
-      apikey: SUPABASE_ANON_KEY,
-      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-    },
-  });
-  if (!res.ok) {
-    throw new Error(`${pathAndQuery.split("?")[0]} fetch failed: ${res.status}`);
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${pathAndQuery}`, {
+      headers: {
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      },
+      signal: controller.signal,
+    });
+    if (!res.ok) {
+      throw new Error(
+        `${pathAndQuery.split("?")[0]} fetch failed: ${res.status}`
+      );
+    }
+    return await res.json();
+  } finally {
+    clearTimeout(timer);
   }
-  return res.json();
 }
 
 /** sha256 of a snapshot exactly as the uploading client hashed it. */
@@ -138,11 +163,13 @@ export function contentHash(formats: unknown): string {
 }
 
 /**
- * The newest snapshot enough distinct accounts have attested to. One
- * attestation is one account's own copy of the content; a row only counts if
- * its content actually hashes to the claimed key, so neither a lone hostile
- * account (below quorum) nor one pre-claiming a hash with junk content (row
- * fails verification) can get a doctored table adopted.
+ * The newest snapshot enough distinct accounts have attested to — where an
+ * attestation only counts once its content is verified to hash to the claimed
+ * key. The view's `uploaders` is merely the shortlist filter; the quorum that
+ * matters is counted over hash-valid rows, one content fetch per attester
+ * (cheapest-first bounded scan: stop as soon as QUORUM verify). This is what
+ * makes junk attestations of a real hash pure waste — they can neither poison
+ * the content nor crowd valid rows out of a fixed fetch window.
  */
 async function fetchQuorumSnapshot(): Promise<{
   hash: string;
@@ -157,20 +184,38 @@ async function fetchQuorumSnapshot(): Promise<{
   const chosen = quorum[0];
   if (!chosen) return null;
 
-  const rows = (await rest(
-    `formats_snapshots?select=formats&hash=eq.${chosen.hash}` +
-      `&order=created_at.asc&limit=${QUORUM * 2}`
-  )) as { formats: unknown }[];
+  // Every attester of the chosen hash — identities only, no content yet.
+  const attesters = (await rest(
+    `formats_snapshots?select=uploaded_by&hash=eq.${chosen.hash}` +
+      `&order=created_at.asc`
+  )) as { uploaded_by: string }[];
 
-  const verified = rows.find((r) => contentHash(r.formats) === chosen.hash);
-  if (!verified) {
-    // Every attester's copy disagrees with the hash they attested — that is
-    // not a glitch, someone is gaming the table. Needs eyes.
+  let verifiedCount = 0;
+  let formats: unknown = null;
+  for (const { uploaded_by } of attesters) {
+    const rows = (await rest(
+      `formats_snapshots?select=formats&hash=eq.${chosen.hash}` +
+        `&uploaded_by=eq.${uploaded_by}&limit=1`
+    )) as { formats: unknown }[];
+    const content = rows[0]?.formats;
+    if (content !== undefined && contentHash(content) === chosen.hash) {
+      verifiedCount += 1;
+      if (formats === null) formats = content;
+      if (verifiedCount >= QUORUM) break;
+    }
+  }
+
+  if (verifiedCount < QUORUM) {
+    // Enough accounts claimed this hash to clear the view's filter, but
+    // fewer than QUORUM of them carry content that actually hashes to it —
+    // that is not a glitch, someone is gaming the table. Needs eyes.
     throw new Error(
-      `No attestation of ${chosen.hash} carries content matching the hash`
+      `Snapshot ${chosen.hash}: only ${verifiedCount} of ` +
+        `${attesters.length} attestations carry content matching the hash ` +
+        `(need ${QUORUM})`
     );
   }
-  return { ...chosen, formats: verified.formats };
+  return { ...chosen, formats };
 }
 
 async function main(): Promise<void> {
