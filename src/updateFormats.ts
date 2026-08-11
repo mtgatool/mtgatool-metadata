@@ -14,21 +14,32 @@
  * that reach Arena's card data before any client has uploaded a snapshot
  * containing them; its inserts skip codes the snapshot already brought in.
  *
- * Snapshots are uploaded by clients, so nothing is trusted blindly: a
- * snapshot must look like a real formats table (see validateSnapshot) or the
- * run fails loudly instead of committing it.
+ * Snapshots are uploaded by clients, so nothing is trusted blindly:
+ * - a snapshot is only adopted once QUORUM distinct accounts have attested
+ *   to its hash (each attestation carries that account's own copy of the
+ *   content, verified against the hash on the way in — see
+ *   fetchQuorumSnapshot for why that matters);
+ * - and it must look like a real formats table (see validateSnapshot) or the
+ *   run fails loudly instead of committing it.
  *
  * Exit codes mirror updateSets: 0 = synced or already current; 1 = the
- * newest snapshot is malformed and needs eyes.
+ * chosen snapshot is malformed or gamed and needs eyes.
  */
 import fs from "fs";
 import path from "path";
 import { execSync } from "child_process";
+import { createHash } from "crypto";
 
 // The same public project the desktop app talks to; the key is the anon
 // (publishable) key every shipped client carries.
 const SUPABASE_URL = "https://decenyvqkbvydrrolwpk.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_9CgHq0DZWlYYxjH7ZDLeOw_zk4EKYKu";
+
+// Distinct accounts that must have attested a snapshot before it is adopted.
+// A real formats change clears this within hours of Arena's rollout (every
+// active client sees the same table); an attacker has to fabricate this many
+// accounts.
+const QUORUM = 3;
 
 const FORMATS_PATH = path.resolve(process.cwd(), "formats.json");
 
@@ -106,42 +117,76 @@ function deepEqual(a: unknown, b: unknown): boolean {
   return false;
 }
 
-async function fetchLatestSnapshot(): Promise<{
-  hash: string;
-  formats: unknown;
-  created_at: string;
-} | null> {
-  const url =
-    `${SUPABASE_URL}/rest/v1/formats_snapshots` +
-    `?select=hash,formats,created_at&order=created_at.desc&limit=1`;
-  const res = await fetch(url, {
+async function rest(pathAndQuery: string): Promise<unknown> {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/${pathAndQuery}`, {
     headers: {
       apikey: SUPABASE_ANON_KEY,
       Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
     },
   });
   if (!res.ok) {
-    throw new Error(`formats_snapshots fetch failed: ${res.status}`);
+    throw new Error(`${pathAndQuery.split("?")[0]} fetch failed: ${res.status}`);
   }
-  const rows = (await res.json()) as {
-    hash: string;
-    formats: unknown;
-    created_at: string;
-  }[];
-  return rows[0] ?? null;
+  return res.json();
+}
+
+/** sha256 of a snapshot exactly as the uploading client hashed it. */
+export function contentHash(formats: unknown): string {
+  return createHash("sha256")
+    .update(JSON.stringify(formats))
+    .digest("hex");
+}
+
+/**
+ * The newest snapshot enough distinct accounts have attested to. One
+ * attestation is one account's own copy of the content; a row only counts if
+ * its content actually hashes to the claimed key, so neither a lone hostile
+ * account (below quorum) nor one pre-claiming a hash with junk content (row
+ * fails verification) can get a doctored table adopted.
+ */
+async function fetchQuorumSnapshot(): Promise<{
+  hash: string;
+  formats: unknown;
+  uploaders: number;
+  first_seen: string;
+} | null> {
+  const quorum = (await rest(
+    `formats_snapshot_quorum?select=hash,uploaders,first_seen` +
+      `&uploaders=gte.${QUORUM}&order=first_seen.desc&limit=1`
+  )) as { hash: string; uploaders: number; first_seen: string }[];
+  const chosen = quorum[0];
+  if (!chosen) return null;
+
+  const rows = (await rest(
+    `formats_snapshots?select=formats&hash=eq.${chosen.hash}` +
+      `&order=created_at.asc&limit=${QUORUM * 2}`
+  )) as { formats: unknown }[];
+
+  const verified = rows.find((r) => contentHash(r.formats) === chosen.hash);
+  if (!verified) {
+    // Every attester's copy disagrees with the hash they attested — that is
+    // not a glitch, someone is gaming the table. Needs eyes.
+    throw new Error(
+      `No attestation of ${chosen.hash} carries content matching the hash`
+    );
+  }
+  return { ...chosen, formats: verified.formats };
 }
 
 async function main(): Promise<void> {
-  const row = await fetchLatestSnapshot();
+  const row = await fetchQuorumSnapshot();
   if (!row) {
-    console.log("No live formats snapshot uploaded yet; nothing to sync.");
+    console.log(
+      `No snapshot with ${QUORUM}+ attesting accounts yet; nothing to sync.`
+    );
     return;
   }
 
   const problem = validateSnapshot(row.formats);
   if (problem) {
     console.error(
-      `Newest snapshot ${row.hash} (${row.created_at}) looks wrong: ${problem}`
+      `Snapshot ${row.hash} (${row.uploaders} uploaders, first seen ` +
+        `${row.first_seen}) looks wrong: ${problem}`
     );
     process.exit(1);
   }
@@ -150,7 +195,7 @@ async function main(): Promise<void> {
   if (deepEqual(current, row.formats)) {
     console.log(
       `formats.json already matches snapshot ${row.hash.slice(0, 12)} ` +
-        `(${row.created_at}).`
+        `(${row.uploaders} uploaders).`
     );
     return;
   }
@@ -162,7 +207,7 @@ async function main(): Promise<void> {
   execSync("npx prettier --write formats.json", { stdio: "inherit" });
   console.log(
     `formats.json synced from snapshot ${row.hash.slice(0, 12)} ` +
-      `(${row.created_at}).`
+      `(${row.uploaders} uploaders, first seen ${row.first_seen}).`
   );
 }
 

@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import { validateSnapshot } from "./updateFormats";
+import { contentHash, validateSnapshot } from "./updateFormats";
 
 // The repo's own formats.json is, by definition, a valid snapshot.
 const real = JSON.parse(
@@ -47,5 +47,26 @@ describe("validateSnapshot", () => {
   it("rejects unnamed formats", () => {
     const unnamed = { ...real, Formats: [...real.Formats, { name: "" }] };
     expect(validateSnapshot(unnamed)).toMatch(/no name/);
+  });
+});
+
+describe("contentHash", () => {
+  // The uploading client hashes JSON.stringify(snapshot); the table stores
+  // the content in a `json` column (text-preserving, unlike jsonb), so a
+  // parse/stringify round trip — which is what PostgREST hands us — must
+  // reproduce the same hash.
+  it("survives a JSON text round trip", () => {
+    const snapshot = {
+      Formats: [{ name: "A", individualCardQuotas: { "99": { max: 1 } } }],
+      FormatGroups: [],
+    };
+    const roundTripped = JSON.parse(JSON.stringify(snapshot));
+    expect(contentHash(roundTripped)).toBe(contentHash(snapshot));
+  });
+
+  it("changes when the content changes", () => {
+    const a = { Formats: [{ name: "A" }], FormatGroups: [] };
+    const b = { Formats: [{ name: "B" }], FormatGroups: [] };
+    expect(contentHash(a)).not.toBe(contentHash(b));
   });
 });
