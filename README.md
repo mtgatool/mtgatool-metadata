@@ -11,6 +11,18 @@ Magic Cards database is downloaded from [Scryfall.com](http://scryfall.com), the
 
 Designed to run automatically and upload for MTG Arena Tool, but anyone is free to try it and contribute!
 
+# Automated releases
+
+New Arena sets release themselves. A daily workflow
+(`auto-update-sets.yml`) diffs Arena's card database against the per-set
+files in [`sets/`](sets/README.md); when Arena ships something new it
+resolves the set through Scryfall (name, code, release date, icon),
+mirrors it into `formats.json` after the newest set of its kind, runs the
+tests, bumps the version and pushes a `vN` tag — which triggers the
+publish workflow like any by-hand release. A red run means either
+Scryfall doesn't know the set yet (tomorrow's run retries) or something
+genuinely needs eyes; nothing is committed on failure.
+
 # API
 
 Main Endpoint:

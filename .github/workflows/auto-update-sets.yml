@@ -1,0 +1,93 @@
+name: "Auto-update sets from Arena data"
+
+# The unattended release loop. Daily: diff Arena's card database against sets/,
+# and when Arena ships sets this repo doesn't know (every ~2 months), add them
+# (see src/updateSets.ts), test, bump the version, and push master plus a vN
+# tag — which triggers the "Publish metadata to GitHub Releases" workflow
+# exactly like a by-hand release.
+#
+# Two failure stances, both fine at this cadence:
+# - updateSets exits non-zero (Scryfall doesn't know the set yet, or something
+#   needs eyes): the run goes red, nothing is committed, tomorrow retries.
+# - Tests fail after an update: red run, nothing pushed, a maintainer looks.
+#
+# Pushes use the GH_TOKEN PAT, NOT the built-in GITHUB_TOKEN, for two reasons:
+# tag pushes made with GITHUB_TOKEN do not trigger other workflows (so the
+# publish would never run), and master's branch protection requires a bypass
+# the bot account has.
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: auto-update-sets
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Discover and release new sets
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Use node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        run: npm install --legacy-peer-deps
+
+      - name: Download Arena data
+        run: |
+          npx tsc
+          node dist/setup.js
+
+      - name: Discover new sets
+        run: node dist/updateSets.js
+
+      - name: Detect changes
+        id: changes
+        run: |
+          if git diff --quiet -- sets formats.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Up to date; nothing to release."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git --no-pager diff --stat -- sets formats.json
+          fi
+
+      # setup.js already downloaded Arena data, so run jest directly instead
+      # of `npm test` (which would download it again). sets.test is the gate
+      # that matters here: every Arena set code must now resolve to a set.
+      - name: Test
+        if: steps.changes.outputs.changed == 'true'
+        run: npx jest src/
+
+      - name: Commit, bump version and tag
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "mtgatool-bot"
+          git config user.email "mtgatool@gmail.com"
+
+          added=$(git diff --name-only -- sets | sed -E 's|sets/(.*)\.json|\1|' | tr '[:lower:]' '[:upper:]' | paste -sd, -)
+          git add sets formats.json
+          git commit -m "Add new Arena sets: ${added}"
+
+          npm version major --no-git-tag-version
+          major=$(node -p "require('./package.json').version.split('.')[0]")
+          git add package.json package-lock.json
+          git commit -m "Bump version to ${major}.0.0"
+          git tag "v${major}"
+
+          git push origin HEAD:master
+          git push origin "v${major}"
+          echo "Released v${major} (${added}) — publish workflow takes it from here."
