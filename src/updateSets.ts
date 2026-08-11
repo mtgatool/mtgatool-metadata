@@ -9,8 +9,12 @@
  * behind and exits 0.
  *
  * formats.json is a snapshot of Arena's GetFormats response, which is not in
- * any downloadable asset — so new sets are slotted in by MIRRORING the last
- * set of the same kind, the same way it was done by hand:
+ * any downloadable asset. Live client uploads are the primary way it stays
+ * current (src/updateFormats.ts runs first and adopts the newest snapshot);
+ * the mirroring below is the fallback for a set that reaches Arena's card
+ * data before any client has uploaded a snapshot containing it. New sets are
+ * slotted in by MIRRORING the last set of the same kind, the same way it was
+ * done by hand:
  *
  * - a main set (Scryfall set_type expansion/core) goes wherever the newest
  *   Standard-legal set appears: Standard and its variants plus the eternal
