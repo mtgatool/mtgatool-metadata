@@ -20,7 +20,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "WOE",
@@ -40,7 +41,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [437805],
       "suspendedTitleIds": [],
@@ -121,7 +123,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -147,7 +150,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [926968, 812770, 1104468],
       "suspendedTitleIds": [],
@@ -191,7 +195,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -217,7 +222,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -487,8 +493,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -691,8 +699,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         487194, 351741, 413858, 24405, 21415, 12194, 427904, 352244, 279773,
@@ -797,7 +807,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "WOE",
@@ -817,7 +828,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [5159],
       "suspendedTitleIds": [],
@@ -866,7 +878,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -892,7 +905,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [701908, 683716, 3142],
       "suspendedTitleIds": [],
@@ -1149,8 +1163,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -1353,8 +1369,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         543133, 351741, 436934, 703039, 24405, 21415, 413629, 12194, 760671,
@@ -1409,7 +1427,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -1435,7 +1454,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [436934, 437805],
       "suspendedTitleIds": [],
@@ -1749,8 +1769,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -1953,8 +1975,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -2210,8 +2234,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -2414,8 +2440,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -2672,8 +2700,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -2876,8 +2906,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -3139,8 +3171,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -3343,8 +3377,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -3607,8 +3643,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -3811,8 +3849,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -4069,8 +4109,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -4273,8 +4315,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -4483,7 +4527,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "AER",
@@ -4559,7 +4604,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [
         737878, 38310, 41764, 25409, 488847, 352244, 24807, 737615, 811447,
@@ -4968,7 +5014,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -4994,7 +5041,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [336370, 1679],
       "suspendedTitleIds": [],
@@ -5250,8 +5298,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -5454,8 +5504,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         759708, 12194, 352244, 604511, 24870, 414260, 760628, 4051, 703919,
@@ -5518,7 +5570,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -5544,7 +5597,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [488856, 437805, 437834],
       "suspendedTitleIds": [],
@@ -5802,8 +5856,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -6006,8 +6062,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         759703, 33786, 38310, 429, 25409, 10522, 813286, 21415, 24267, 11851,
@@ -6685,8 +6743,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -6889,8 +6949,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -7148,8 +7210,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -7352,8 +7416,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         487194, 351741, 10522, 413858, 21415, 760, 4023, 12194, 352244, 279773,
@@ -7614,8 +7680,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -7818,8 +7886,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 33786, 24405, 21415, 24267, 437983, 437985, 12194, 760671,
@@ -8091,8 +8161,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -8295,8 +8367,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         759703, 930959, 428590, 414260, 530564, 487169, 701496, 759741, 430530,
@@ -8562,8 +8636,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -8766,8 +8842,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         759703, 760608, 930959, 428590, 414260, 530564, 487169, 701496, 759741,
@@ -9033,8 +9111,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -9237,8 +9317,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 24405, 21415, 12194, 427904, 352244, 76334, 428590, 8628, 24870,
@@ -9503,8 +9585,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -9707,8 +9791,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 24405, 21415, 12194, 427904, 352244, 76334, 428590, 8628, 24870,
@@ -9982,8 +10068,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -10186,8 +10274,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 24405, 21415, 12194, 427904, 352244, 76334, 428590, 8628, 24870,
@@ -10461,8 +10551,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -10665,8 +10757,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 24405, 21415, 12194, 760671, 427904, 352244, 76334, 428590,
@@ -10936,8 +11030,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -11140,8 +11236,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 24405, 21415, 12194, 760671, 427904, 352244, 76334, 428590,
@@ -11412,8 +11510,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -11616,8 +11716,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 24405, 21415, 12194, 760671, 427904, 352244, 76334, 428590,
@@ -11890,8 +11992,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -12094,8 +12198,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 24405, 21415, 12194, 760671, 427904, 352244, 76334, 428590,
@@ -12368,8 +12474,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -12572,8 +12680,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 24405, 21415, 12194, 760671, 427904, 352244, 76334, 428590,
@@ -12845,8 +12955,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -13049,8 +13161,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 24405, 21415, 12194, 760671, 427904, 352244, 76334, 428590,
@@ -13321,8 +13435,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -13525,8 +13641,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 24405, 21415, 12194, 760671, 427904, 352244, 76334, 428590,
@@ -13804,8 +13922,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -14008,8 +14128,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 24405, 21415, 12194, 760671, 427904, 352244, 76334, 428590,
@@ -14280,8 +14402,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -14484,8 +14608,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 24405, 21415, 12194, 760671, 427904, 352244, 76334, 38739,
@@ -14763,8 +14889,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -14967,8 +15095,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 33786, 24405, 21415, 24267, 12194, 760671, 427904, 352244,
@@ -15250,8 +15380,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -15454,8 +15586,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 33786, 24405, 21415, 24267, 12194, 760671, 427904, 352244,
@@ -15738,8 +15872,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -15942,8 +16078,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         930959, 759703, 428590, 414260, 530564, 487169, 701496, 430530
@@ -16208,8 +16346,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -16412,8 +16552,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 33786, 24405, 21415, 24267, 437983, 437985, 12194, 760671,
@@ -16727,8 +16869,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -16931,8 +17075,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 33786, 24405, 21415, 24267, 12194, 760671, 427904, 352244,
@@ -17204,8 +17350,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -17408,8 +17556,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         930959, 759703, 428590, 414260, 530564, 487169, 701496, 430530
@@ -17684,8 +17834,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -17888,8 +18040,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         930959, 759703, 428590, 414260, 530564, 487169, 701496, 793376, 759741,
@@ -18155,8 +18309,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -18359,8 +18515,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 33786, 24405, 21415, 24267, 437983, 437985, 12194, 760671,
@@ -18634,8 +18792,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -18838,8 +18998,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 33786, 24405, 21415, 24267, 437983, 437985, 12194, 760671,
@@ -19151,8 +19313,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -19355,8 +19519,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         543133, 351741, 436934, 38310, 756034, 429, 25409, 703039, 10522, 21415,
@@ -19622,8 +19788,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -19826,8 +19994,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [21415, 12194, 477509],
       "suspendedTitleIds": [],
@@ -20083,8 +20253,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -20287,8 +20459,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [279584, 760553, 32535, 23339, 32333, 760655, 760279],
       "suspendedTitleIds": [],
@@ -20545,8 +20719,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -20749,8 +20925,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 429999, 272772, 10522, 413858, 21415, 47395, 760, 4023, 12194,
@@ -21013,8 +21191,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -21217,8 +21397,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 413974, 413710, 413986, 47395, 433909, 181639, 229682, 413992,
@@ -21480,8 +21662,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -21684,8 +21868,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         173532, 351741, 413974, 413710, 413986, 47395, 433909, 181639, 414227,
@@ -21949,8 +22135,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -22153,8 +22341,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 10522, 21415, 760, 4023, 12194, 352244, 1251, 428590, 6167,
@@ -22416,8 +22606,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -22620,8 +22812,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         21415, 760, 4023, 12194, 1251, 24870, 1679, 414260, 2904
@@ -22881,8 +23075,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -23085,8 +23281,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -23131,7 +23329,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -23157,7 +23356,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -23879,7 +24079,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -23905,7 +24106,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [181902, 173836, 1094, 229715, 173615],
       "suspendedTitleIds": [],
@@ -23948,7 +24150,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -23974,7 +24177,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -24230,8 +24434,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -24434,8 +24640,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 38310, 429, 25409, 10522, 21415, 24267, 11851, 760, 4023, 12194,
@@ -24703,8 +24911,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -24907,8 +25117,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 429, 10522, 21415, 4023, 12194, 352244, 7042, 20966, 6167,
@@ -25217,8 +25429,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -25421,8 +25635,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 21415, 760, 4023, 12194, 352244, 414011, 1251, 24870, 1679,
@@ -25702,8 +25918,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -25906,8 +26124,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [1679],
       "suspendedTitleIds": [],
@@ -26055,7 +26275,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -26081,7 +26302,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -26120,7 +26342,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "WOE",
@@ -26140,7 +26363,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [
         737019, 926968, 811447, 731463, 812770, 731627, 748502, 812819, 756291,
@@ -26180,7 +26404,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "WOE",
@@ -26200,7 +26425,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [
         737019, 926968, 811447, 731463, 812770, 731627, 748502, 812819, 756291,
@@ -26235,7 +26461,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "BLB",
@@ -26250,7 +26477,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -26287,7 +26515,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "WOE",
@@ -26307,7 +26536,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -26345,7 +26575,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "WOE",
@@ -26365,7 +26596,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [19088, 756077, 812770, 701908, 683716, 3142],
       "suspendedTitleIds": [],
@@ -26402,7 +26634,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "WOE",
@@ -26422,7 +26655,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [352244, 336370, 414260, 414166, 352113],
       "suspendedTitleIds": [],
@@ -26459,7 +26693,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "WOE",
@@ -26479,7 +26714,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [
         352252, 351660, 420337, 420492, 420351, 351930, 351934, 336561, 352296,
@@ -26522,7 +26758,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "WOE",
@@ -26542,7 +26779,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [823196, 748903],
       "suspendedTitleIds": [],
@@ -26579,7 +26817,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "WOE",
@@ -26599,7 +26838,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [
         351741, 420056, 352244, 336177, 414577, 280078, 336824, 414260, 414166,
@@ -26883,7 +27123,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -26909,7 +27150,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -26952,7 +27194,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -26978,7 +27221,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -27248,8 +27492,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -27452,7 +27698,9 @@
         "SPM",
         "MAR",
         "MSH",
-        "MSC"
+        "HOB",
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -28361,7 +28609,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "WOE",
@@ -28381,7 +28630,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [
         737019, 926968, 811447, 731463, 731627, 748502, 812819, 756291, 731808,
@@ -28427,7 +28677,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -28453,7 +28704,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [926968, 812770, 1104468],
       "suspendedTitleIds": [926968, 812770, 1104468],
@@ -28544,7 +28796,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "AER",
@@ -28620,7 +28873,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [
         737878, 38310, 41764, 25409, 488847, 352244, 24807, 737615, 811447,
@@ -29104,8 +29358,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -29308,8 +29564,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         759703, 33786, 38310, 429, 25409, 10522, 813286, 21415, 24267, 11851,
@@ -29363,7 +29621,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "WOE",
@@ -29383,7 +29642,8 @@
         "TMT",
         "SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [
         737019, 926968, 811447, 731463, 731627, 748502, 812819, 756291, 731808,
@@ -29636,8 +29896,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -29840,7 +30102,9 @@
         "SPM",
         "MAR",
         "MSH",
-        "MSC"
+        "HOB",
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [],
       "suspendedTitleIds": [],
@@ -30542,8 +30806,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "filterSets": [
         "2XM",
@@ -30746,8 +31012,10 @@
         "SPM",
         "MAR",
         "MSH",
+        "HOB",
         "MAR-MSH",
-        "MSC"
+        "MSC",
+        "HOC"
       ],
       "bannedTitleIds": [
         351741, 10522, 21415, 760, 4023, 12194, 352244, 507, 336177, 414577,
@@ -30796,7 +31064,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -30822,7 +31091,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [478018, 477471, 437805, 437834],
       "suspendedTitleIds": [],
@@ -30866,7 +31136,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "filterSets": [
         "ANB",
@@ -30892,7 +31163,8 @@
         "SOS",
         "Y26_SOS",
         "SPM",
-        "MSH"
+        "MSH",
+        "HOB"
       ],
       "bannedTitleIds": [498276, 437011, 437805, 545895, 437834],
       "suspendedTitleIds": [],

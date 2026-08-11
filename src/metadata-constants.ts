@@ -1534,6 +1534,22 @@ export const SETS_DATA: Record<string, CardSet> = {
   // against the booster inventory in collectionStats and would light up booster
   // math for sets we cannot actually count. Names, Scryfall codes and release
   // dates come from Scryfall; getSetIcons refreshes release at build time.
+  "The Hobbit": {
+    collation: -1,
+    scryfall: "hob",
+    code: "HOB",
+    arenacode: "HOB",
+    tile: 67003,
+    release: "2026-08-14",
+  },
+  "The Hobbit Eternal": {
+    collation: -1,
+    scryfall: "hoc",
+    code: "HOC",
+    arenacode: "HOC",
+    tile: 67003,
+    release: "2026-08-14",
+  },
   "Marvel Super Heroes Commander": {
     collation: -1,
     scryfall: "msc",
