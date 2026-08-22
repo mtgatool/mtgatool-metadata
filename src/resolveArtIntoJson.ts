@@ -88,7 +88,12 @@ async function main(): Promise<void> {
   metadata.artSets = resolved.artSets;
 
   const outPath = outputArg ? path.resolve(outputArg) : inputPath;
-  fs.writeFileSync(outPath, JSON.stringify(metadata));
+  // With no output argument outPath IS inputPath, and writeFileSync truncates
+  // before it writes — a failure mid-serialize would destroy the source
+  // database. Write beside it and rename, as download() does in scryfallBulk.
+  const tmpPath = `${outPath}.part`;
+  fs.writeFileSync(tmpPath, JSON.stringify(metadata));
+  fs.renameSync(tmpPath, outPath);
 
   const placed =
     st.exact +

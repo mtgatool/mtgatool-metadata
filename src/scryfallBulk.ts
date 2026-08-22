@@ -11,6 +11,16 @@ import { BulkDataResponse } from "./types/metadata";
 const BULK_TYPE = "default_cards";
 const BULK_FILE = "scryfall-default-cards.jsonl.gz";
 
+/**
+ * Socket-idle deadlines. `https.get` has none of its own, so a connection that
+ * is accepted and then goes quiet never settles its promise: the build hangs
+ * forever and the stale-cache/null fallbacks below never get their chance.
+ * These are idle timeouts, not absolute ones — a 77MB download that is slow but
+ * still arriving must not be killed for taking its time.
+ */
+const JSON_IDLE_MS = 30000;
+const DOWNLOAD_IDLE_MS = 60000;
+
 /** Scryfall rejects (403) requests without a descriptive User-Agent. */
 const HEADERS = {
   "User-Agent": "mtgatool-metadata/1.0 (https://mtgatool.com)",
@@ -58,9 +68,11 @@ export interface ScryfallBulk {
 
 function getJson<T>(url: string): Promise<T> {
   return new Promise((resolve, reject) => {
-    https
+    const request = https
       .get(url, { headers: HEADERS }, (res) => {
         if (res.statusCode && res.statusCode >= 400) {
+          // Drain the body we are not going to read, so the socket is freed.
+          res.resume();
           reject(new Error(`${url} responded ${res.statusCode}`));
           return;
         }
@@ -78,6 +90,11 @@ function getJson<T>(url: string): Promise<T> {
         });
       })
       .on("error", reject);
+    // setTimeout only notifies; it does not abort. destroy() is what turns the
+    // stall into an error the caller can fall back from.
+    request.setTimeout(JSON_IDLE_MS, () => {
+      request.destroy(new Error(`${url} timed out after ${JSON_IDLE_MS}ms`));
+    });
   });
 }
 
@@ -88,7 +105,7 @@ function download(url: string, dest: string): Promise<void> {
         reject(new Error("too many redirects"));
         return;
       }
-      https
+      const request = https
         .get(target, { headers: HEADERS }, (res) => {
           // data.scryfall.io hands out redirects to its CDN.
           if (
@@ -102,6 +119,7 @@ function download(url: string, dest: string): Promise<void> {
             return;
           }
           if (res.statusCode !== 200) {
+            res.resume();
             reject(new Error(`${target} responded ${res.statusCode}`));
             return;
           }
@@ -116,9 +134,17 @@ function download(url: string, dest: string): Promise<void> {
               resolve();
             });
           });
-          stream.on("error", reject);
+          stream.on("error", (err) => {
+            // Take the half-written .part with us; nothing else cleans it up.
+            fs.unlink(tmp, () => reject(err));
+          });
         })
         .on("error", reject);
+      request.setTimeout(DOWNLOAD_IDLE_MS, () => {
+        request.destroy(
+          new Error(`${target} timed out after ${DOWNLOAD_IDLE_MS}ms`)
+        );
+      });
     };
     req(url, 0);
   });
@@ -137,7 +163,10 @@ export default async function downloadScryfallBulk(
   maxAgeHours = 20
 ): Promise<string | null> {
   const dir = path.join(APPDATA, EXTERNAL);
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir);
+  // recursive: creates APPDATA too, and is a no-op when the directory exists.
+  // This sits outside the try below, so an ENOENT here would escape the
+  // null-return contract the docstring promises.
+  fs.mkdirSync(dir, { recursive: true });
   const dest = path.join(dir, BULK_FILE);
 
   if (fs.existsSync(dest)) {
