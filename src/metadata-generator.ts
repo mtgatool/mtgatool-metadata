@@ -20,7 +20,9 @@ import { Card, Ability } from "./types/jsons-data";
 
 import applyBoosterCollations from "./getBoosterCollations";
 import readExternalJson from "./readExternalJson";
-import computeSetCardData, { SetCardData } from "./setCardData";
+import resolveCardArt, { ArtCardInput, CardArt } from "./resolveCardArt";
+import { ScryfallBulk } from "./scryfallBulk";
+import computeSetCardData, { SetCardData, resolveSetName } from "./setCardData";
 import writeSqliteDatabase from "./sqlite/writeSqlite";
 
 import parseStringArray from "./utils/parseStringArray";
@@ -53,7 +55,8 @@ cmcs["20"] = 20;
 export function generateMetadata(
   ranksData: RanksData,
   version: string,
-  languages: SCRYFALL_LANGS[]
+  languages: SCRYFALL_LANGS[],
+  scryfallBulk: ScryfallBulk | null
 ): Promise<void> {
   return new Promise((resolve) => {
     console.log("Reading JSON files..");
@@ -150,6 +153,49 @@ export function generateMetadata(
       enums[e.Type][e.Value] = getText(e.LocId, "EN");
     });
     enumsRead = null;
+
+    // Where every card's art comes from on Scryfall, resolved once against the
+    // bulk snapshot. This is deliberately outside the per-language loop: the
+    // bulk data is English, so a localized Name matches nothing in it, and the
+    // answer is the same picture whatever language the text is in.
+    //
+    // A build with no bulk data emits no Art at all, and the client falls back
+    // to deriving image URLs the way it always has. See scryfallBulk.ts.
+    let artByGrpId: Record<number, CardArt> = {};
+    let artSets: Record<string, string> = {};
+    if (scryfallBulk) {
+      const artInputs: ArtCardInput[] = [];
+      cards.forEach((card: Card) => {
+        if (card.ExpansionCode == "ArenaSUP") return;
+        artInputs.push({
+          GrpId: card.GrpId,
+          Name: getText(card.TitleId || -1, "EN"),
+          Set: card.ExpansionCode || "",
+          DigitalSet: card.DigitalReleaseSet || "",
+          CollectorNumber: card.CollectorNumber,
+          ArtistCredit: card.ArtistCredit,
+          IsToken: !!card.IsToken,
+        });
+      });
+
+      const toScryfall = (code: string): string | null => {
+        const name = resolveSetName(code, setNames);
+        const set = name ? SETS_DATA[name] : undefined;
+        return set && set.scryfall ? set.scryfall.toLowerCase() : null;
+      };
+
+      const resolved = resolveCardArt(artInputs, toScryfall, scryfallBulk);
+      artByGrpId = resolved.art;
+      artSets = resolved.artSets;
+      const st = resolved.stats;
+      console.log(
+        `Card art resolved: ${st.exact} exact, ${st.byArenaId} by arena_id,` +
+          ` ${st.corrected} corrected,` +
+          ` ${st.substituteByArtist} substituted by artist,` +
+          ` ${st.substituteAny} substituted by name only,` +
+          ` ${st.unresolved} not on Scryfall.`
+      );
+    }
 
     let finalized = 0;
     languages.forEach((lang) => {
@@ -256,6 +302,9 @@ export function generateMetadata(
           Reprints: [],
         };
 
+        const art = artByGrpId[card.GrpId];
+        if (art) cardObj.Art = art;
+
         const setCode = SETS_DATA[cardObj.Set]
           ? SETS_DATA[cardObj.Set].code
           : "";
@@ -291,7 +340,12 @@ export function generateMetadata(
       });
       Object.keys(cardsFinal).forEach((key) => {
         const card: DbCardDataV2 | undefined = cardsFinal[parseInt(key)];
-        if (card && card.Name && !card.IsToken && !card.Supertypes.includes("Basic")) {
+        if (
+          card &&
+          card.Name &&
+          !card.IsToken &&
+          !card.Supertypes.includes("Basic")
+        ) {
           const arr = (grpIdsByName[card.Name] || []).filter(
             (g) => g !== card.GrpId
           );
@@ -326,6 +380,10 @@ export function generateMetadata(
         setNames: setNames,
         digitalSets: DIGITAL_SETS,
         abilities: abilities,
+        // Display names for the Scryfall sets substitute art was taken from.
+        // Only substitutes need one, and only to name the set in the client's
+        // tooltip; Arena's own sets are already in `sets`.
+        artSets: artSets,
       };
 
       // Same payload as a SQLite database, with the per-card facts consumers
@@ -347,6 +405,7 @@ export function generateMetadata(
             setNames,
             digitalSets: DIGITAL_SETS,
             abilities,
+            artSets,
             version,
             language: lang,
             updated: date.getTime(),
@@ -354,7 +413,9 @@ export function generateMetadata(
           dbOut
         );
         console.log(
-          `${dbOut} generated in ${((Date.now() - started) / 1000).toFixed(1)}s` +
+          `${dbOut} generated in ${((Date.now() - started) / 1000).toFixed(
+            1
+          )}s` +
             ` — ${stats.cards} cards, ${stats.sets} sets, ${stats.formats} formats,` +
             ` ${stats.legalPairs} legal pairs,` +
             ` ${(stats.bytes / 1048576).toFixed(1)} MB`

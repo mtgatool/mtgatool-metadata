@@ -301,6 +301,7 @@ const NON_LISTED_FACES = [
   9, // modal back
   11, // specialize back
   15, // room
+  17, // omen
 ];
 
 export function isListable(card: DbCardDataV2): boolean {

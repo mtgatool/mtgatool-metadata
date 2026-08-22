@@ -14,7 +14,8 @@
     "jest": "jest src/",
     "tsc": "tsc",
     "dist": "tsc && node dist/dist.js",
-    "sqlite": "tsc && node --max-old-space-size=12288 dist/sqlite/fromJson.js"
+    "sqlite": "tsc && node --max-old-space-size=12288 dist/sqlite/fromJson.js",
+    "art": "tsc && node --max-old-space-size=12288 dist/resolveArtIntoJson.js"
   },
   "repository": {
     "type": "git",

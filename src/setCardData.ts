@@ -46,6 +46,7 @@ const NON_LISTED_FACES = [
   9, // modal back
   11, // specialize back
   15, // room
+  17, // omen
 ];
 
 /** The set code a card is distributed under, which is not always its origin. */

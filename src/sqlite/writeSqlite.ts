@@ -21,6 +21,8 @@ export interface SqliteInput {
   setNames: Record<string, string>;
   digitalSets: string[];
   abilities: Record<number, string>;
+  /** Scryfall set code -> display name, for substitute art. */
+  artSets?: Record<string, string>;
   version: string;
   language: string;
   updated: number;
@@ -103,6 +105,7 @@ export default function writeSqliteDatabase(
        ability_to_conjurations, additional_frame_details, rank_data,
        full_name, full_type, artist, cid, color_bits, color_sort, rarity_val,
        rank_sort, listable, craftable, booster,
+       art_set, art_cn, art_substitute,
        legal_0, legal_1, legal_2, legal_3, legal_4, legal_5
      ) VALUES (
        @grpid, @titleid, @name, @alt_name, @flavor_text, @artist_credit,
@@ -115,8 +118,8 @@ export default function writeSqliteDatabase(
        @linked_face_grpids, @ability_to_token, @ability_to_conjurations,
        @additional_frame_details, @rank_data, @full_name, @full_type, @artist,
        @cid, @color_bits, @color_sort, @rarity_val, @rank_sort, @listable,
-       @craftable, @booster, @legal_0, @legal_1, @legal_2, @legal_3, @legal_4,
-       @legal_5
+       @craftable, @booster, @art_set, @art_cn, @art_substitute, @legal_0,
+       @legal_1, @legal_2, @legal_3, @legal_4, @legal_5
      )`
   );
   const insCardAlias = db.prepare(
@@ -127,6 +130,9 @@ export default function writeSqliteDatabase(
   );
   const insAbility = db.prepare(
     `INSERT OR REPLACE INTO abilities (id, text) VALUES (?, ?)`
+  );
+  const insArtSet = db.prepare(
+    `INSERT OR REPLACE INTO art_sets (code, name) VALUES (?, ?)`
   );
 
   const insFormat = db.prepare(
@@ -283,6 +289,11 @@ export default function writeSqliteDatabase(
       stats.abilities += 1;
     });
 
+    const artSets = input.artSets || {};
+    Object.keys(artSets).forEach((code) => {
+      insArtSet.run(code, artSets[code]);
+    });
+
     Object.keys(input.cards).forEach((key) => {
       const card = input.cards[parseInt(key, 10)];
       if (!card) return;
@@ -362,6 +373,9 @@ export default function writeSqliteDatabase(
         listable: bool(derived.listable),
         craftable: bool(derived.craftable),
         booster: bool(derived.booster),
+        art_set: card.Art ? card.Art.s : null,
+        art_cn: card.Art ? card.Art.n : null,
+        art_substitute: bool(card.Art && card.Art.sub),
         legal_0: legal[0],
         legal_1: legal[1],
         legal_2: legal[2],
