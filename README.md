@@ -147,3 +147,56 @@ You can find me at any of the following media:
 [Twitter](https://twitter.com/MEtchegaray7)  
 [Discord](https://discord.gg/K9bPkJy)  
 [mtgatool@gmail.com](mailto:mtgatool@gmail.com)  
+
+# Card art
+
+Every card carries `Art` — the Scryfall `(set, collector number)` its image
+should be fetched from — resolved at build time against Scryfall's
+`default_cards` bulk snapshot.
+
+This exists because Arena's own `(Set, CollectorNumber)` is not a usable address
+into Scryfall, in two ways:
+
+- **Nothing is there.** Arena's digital sets reprint paper cards the matching
+  Scryfall set does not contain. Black Dragon is `Y23-DMU #28` in Arena and is
+  simply not in `ydmu`, so the URL 404s and the card renders blank. ~1300 rows.
+- **A different card is there.** Arena numbers basic lands and
+  planeswalker-deck cards on its own scheme, so `ktk/252` is an Island to Arena
+  and a Plains to Scryfall. A client deriving the URL shows a perfectly valid
+  image of the wrong card, and nothing looks broken. ~500 rows.
+
+`resolveCardArt.ts` re-derives the address cheapest fact first: Arena's own
+address, then Scryfall's `arena_id`, then the same card in the same set by
+artist, then the same card anywhere by artist. Both fact steps are checked
+against the card's **name and artist** before they are believed — a set holds
+four different Islands, so the name alone does not identify a printing.
+
+Only the last step is a substitute: the right card, from a printing Arena does
+not ship. Those carry `sub: 1`, and the sets they were borrowed from are named
+in the top-level `artSets` map, so a client can disclose it rather than pass the
+art off as the real thing. In SQLite this is `cards.art_set`, `cards.art_cn`,
+`cards.art_substitute` and the `art_sets` table.
+
+`Art` is **absent** when Scryfall has no printing of the card at all (~180 rows,
+mostly Arena's new-player-experience exclusives), and on every database built
+before this existed — so a consumer must keep its own fallback rather than treat
+absence as an error.
+
+Nothing here is hand-maintained. Every build re-resolves against that day's
+snapshot, so a set Scryfall indexes later stops being a substitute on its own,
+without anyone editing a list. A build that cannot reach Scryfall emits no `Art`
+at all and still ships; `MTGATOOL_SKIP_ART=1` skips the step deliberately.
+
+## Testing art without running the pipeline
+
+The full run downloads Arena's manifest long before it reaches art. To iterate
+on resolution alone, add `Art` to an existing metadata JSON:
+
+```bash
+npm run art -- ../mtgatool-desktop/src/assets/resources/database.json out.json
+npm run sqlite -- out.json ../mtgatool-desktop/src/assets/resources/en-database.sqlite
+```
+
+mtgatool-desktop prefers a local database over the published one, so the second
+command is enough to see the result in the app. Copy it to that repo's
+`public/` as well for the browser build.

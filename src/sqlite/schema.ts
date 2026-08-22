@@ -116,6 +116,16 @@ CREATE TABLE cards (
   craftable                INTEGER NOT NULL DEFAULT 0,
   booster                  INTEGER NOT NULL DEFAULT 0,
 
+  -- Where this card's art comes from on Scryfall; see resolveCardArt.ts.
+  -- NULL when Scryfall has no printing of the card at all, which is also what
+  -- a database built before art resolution existed looks like — so a consumer
+  -- must keep its own fallback rather than treat NULL as an error.
+  -- art_substitute marks art borrowed from a printing Arena does not ship,
+  -- which the client discloses rather than passing off as the real thing.
+  art_set                  TEXT,
+  art_cn                   TEXT,
+  art_substitute           INTEGER NOT NULL DEFAULT 0,
+
   -- Format legality as a bitmask, 30 bits per word (see LEGAL_WORDS). Each
   -- format owns one bit; formats.word / formats.mask say which.
   --
@@ -144,6 +154,13 @@ CREATE TABLE card_reprints (
   grpid         INTEGER NOT NULL REFERENCES cards(grpid),
   reprint_grpid INTEGER NOT NULL,
   PRIMARY KEY (grpid, reprint_grpid)
+) WITHOUT ROWID;
+
+-- Display names for the Scryfall sets substitute art was taken from. Only the
+-- sets actually borrowed from are here; Arena's own sets live in the sets table.
+CREATE TABLE art_sets (
+  code TEXT PRIMARY KEY,
+  name TEXT NOT NULL
 ) WITHOUT ROWID;
 
 CREATE TABLE abilities (

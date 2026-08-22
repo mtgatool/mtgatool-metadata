@@ -50,6 +50,7 @@ function main(): void {
       setNames: metadata.setNames,
       digitalSets: metadata.digitalSets || [],
       abilities: metadata.abilities || {},
+      artSets: metadata.artSets || {},
       version: String(metadata.version),
       language: metadata.language || "EN",
       updated: metadata.updated || Date.now(),

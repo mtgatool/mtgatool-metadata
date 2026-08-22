@@ -1,4 +1,6 @@
 import { Rarity } from "mtgatool-shared";
+
+import { CardArt } from "../resolveCardArt";
 import {
   RATINGS_MTGCSR,
   RATINGS_LOLA,
@@ -87,4 +89,13 @@ export interface DbCardDataV2 {
   AdditionalFrameDetails: string[];
   RankData: RankData;
   Reprints: number[];
+  /**
+   * Where this card's art comes from on Scryfall, resolved at build time.
+   *
+   * Absent when Scryfall has no printing of the card, and on every database
+   * built before art resolution existed — consumers must keep a fallback.
+   * See resolveCardArt.ts for why deriving this from Set + CollectorNumber
+   * does not work.
+   */
+  Art?: CardArt;
 }
