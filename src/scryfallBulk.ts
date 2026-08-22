@@ -100,9 +100,33 @@ function getJson<T>(url: string): Promise<T> {
 
 function download(url: string, dest: string): Promise<void> {
   return new Promise((resolve, reject) => {
+    // Write to a temp name and rename, so an interrupted run can never leave a
+    // truncated file that the next one happily reads as cached.
+    const tmp = `${dest}.part`;
+    let stream: fs.WriteStream | undefined;
+    let settled = false;
+
+    // One cleanup path for every failure. pipe() does not forward the
+    // response's errors to the write stream, so destroying the request — which
+    // is exactly what the idle timeout does — would otherwise reject with the
+    // stream still open and the partial file still on disk.
+    const fail = (err: Error): void => {
+      if (settled) return;
+      settled = true;
+      const drop = (): void => {
+        fs.unlink(tmp, () => reject(err));
+      };
+      if (stream && !stream.destroyed) {
+        stream.once("close", drop);
+        stream.destroy();
+        return;
+      }
+      drop();
+    };
+
     const req = (target: string, hops: number): void => {
       if (hops > 5) {
-        reject(new Error("too many redirects"));
+        fail(new Error("too many redirects"));
         return;
       }
       const request = https
@@ -120,26 +144,30 @@ function download(url: string, dest: string): Promise<void> {
           }
           if (res.statusCode !== 200) {
             res.resume();
-            reject(new Error(`${target} responded ${res.statusCode}`));
+            fail(new Error(`${target} responded ${res.statusCode}`));
             return;
           }
-          // Write to a temp name and rename, so an interrupted run can never
-          // leave a truncated file that the next one happily reads as cached.
-          const tmp = `${dest}.part`;
-          const stream = fs.createWriteStream(tmp);
-          res.pipe(stream);
-          stream.on("finish", () => {
-            stream.close(() => {
-              fs.renameSync(tmp, dest);
+          const out = fs.createWriteStream(tmp);
+          stream = out;
+          res.pipe(out);
+          // An aborted response reaches us here, not on the write stream.
+          res.on("error", fail);
+          out.on("finish", () => {
+            out.close(() => {
+              if (settled) return;
+              try {
+                fs.renameSync(tmp, dest);
+              } catch (e) {
+                fail(e as Error);
+                return;
+              }
+              settled = true;
               resolve();
             });
           });
-          stream.on("error", (err) => {
-            // Take the half-written .part with us; nothing else cleans it up.
-            fs.unlink(tmp, () => reject(err));
-          });
+          out.on("error", fail);
         })
-        .on("error", reject);
+        .on("error", fail);
       request.setTimeout(DOWNLOAD_IDLE_MS, () => {
         request.destroy(
           new Error(`${target} timed out after ${DOWNLOAD_IDLE_MS}ms`)
