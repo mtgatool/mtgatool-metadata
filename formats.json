@@ -514,6 +514,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -725,6 +727,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -1191,6 +1195,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -1402,6 +1408,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -1804,6 +1812,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -2015,6 +2025,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [],
@@ -2276,6 +2288,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -2487,6 +2501,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [],
@@ -2749,6 +2765,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -2960,6 +2978,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [],
@@ -3227,6 +3247,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -3438,6 +3460,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [],
@@ -3706,6 +3730,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -3917,6 +3943,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [],
@@ -4179,6 +4207,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -4390,6 +4420,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [],
@@ -5413,6 +5445,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -5624,6 +5658,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -5978,6 +6014,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -6189,6 +6227,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -6872,6 +6912,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -7083,6 +7125,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [],
@@ -7346,6 +7390,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -7557,6 +7603,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -7823,6 +7871,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -8034,6 +8084,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -8311,6 +8363,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -8522,6 +8576,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -8793,6 +8849,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -9004,6 +9062,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -9275,6 +9335,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -9486,6 +9548,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -9756,6 +9820,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -9967,6 +10033,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -10246,6 +10314,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -10457,6 +10527,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -10736,6 +10808,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -10947,6 +11021,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -11222,6 +11298,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -11433,6 +11511,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -11709,6 +11789,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -11920,6 +12002,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -12198,6 +12282,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -12409,6 +12495,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -12687,6 +12775,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -12898,6 +12988,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -13175,6 +13267,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -13386,6 +13480,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -13662,6 +13758,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -13873,6 +13971,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -14156,6 +14256,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -14367,6 +14469,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -14643,6 +14747,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -14854,6 +14960,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -15137,6 +15245,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -15348,6 +15458,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -15635,6 +15747,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -15846,6 +15960,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -16134,6 +16250,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -16345,6 +16463,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -16615,6 +16735,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -16826,6 +16948,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -17145,6 +17269,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -17356,6 +17482,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -17633,6 +17761,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -17844,6 +17974,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -18124,6 +18256,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -18335,6 +18469,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -18606,6 +18742,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -18817,6 +18955,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -19096,6 +19236,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -19307,6 +19449,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -19624,6 +19768,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -19835,6 +19981,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -20123,6 +20271,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -20334,6 +20484,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -20605,6 +20757,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -20816,6 +20970,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [21415, 12194, 477509],
@@ -21077,6 +21233,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -21288,6 +21446,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [279584, 760553, 32535, 23339, 32333, 760655, 760279],
@@ -21550,6 +21710,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -21761,6 +21923,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -22029,6 +22193,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -22240,6 +22406,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -22507,6 +22675,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -22718,6 +22888,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -22987,6 +23159,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -23198,6 +23372,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -23465,6 +23641,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -23676,6 +23854,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -23941,6 +24121,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -24152,6 +24334,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [],
@@ -25307,6 +25491,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -25518,6 +25704,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -25791,6 +25979,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -26002,6 +26192,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -26316,6 +26508,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -26527,6 +26721,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -26812,6 +27008,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -27023,6 +27221,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [1679],
@@ -28391,6 +28591,8 @@
         "HOB",
         "LTC",
         "HOC",
+        "WOC",
+        "CN2",
         "BRAWL-LTC"
       ],
       "filterSets": [
@@ -28597,6 +28799,8 @@
         "MSC",
         "HOB",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [],
@@ -30258,6 +30462,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -30469,6 +30675,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
@@ -30803,6 +31011,8 @@
         "HOB",
         "LTC",
         "HOC",
+        "WOC",
+        "CN2",
         "BRAWL-LTC"
       ],
       "filterSets": [
@@ -31009,6 +31219,8 @@
         "MSC",
         "HOB",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [],
@@ -31716,6 +31928,8 @@
         "HOB",
         "HOC-SCENE",
         "HOC",
+        "WOC",
+        "CN2",
         "HOC-ARTIST",
         "LTC",
         "BRAWL-LTC"
@@ -31927,6 +32141,8 @@
         "HOC-SCENE",
         "HOC-ARTIST",
         "HOC",
+        "WOC",
+        "CN2",
         "LTC"
       ],
       "bannedTitleIds": [
