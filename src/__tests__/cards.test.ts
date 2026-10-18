@@ -30,8 +30,8 @@ describe("Check cards data", () => {
     expect(teferi.IsPrimaryCard).toBe(1);
     expect(teferi.IsDigitalOnly).toBe(0);
     expect(teferi.IsRebalanced).toBe(0);
-    expect(teferi.RebalancedCardGrpId).toBe(81199);
-    expect(teferi.DefunctRebalancedCardGrpId).toBe(0);
+    expect(teferi.RebalancedCardGrpId).toBe(0);
+    expect(teferi.DefunctRebalancedCardGrpId).toBe(81199);
     expect(teferi.AlternateDeckLimit).toBe(0);
     expect(teferi.CollectorNumber).toBe("221");
     expect(teferi.CollectorMax).toBe("264");
